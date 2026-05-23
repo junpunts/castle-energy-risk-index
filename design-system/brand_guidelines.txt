@@ -1,0 +1,158 @@
+Brand
+Guidelines
+Created by 	skarlo
+Castle turns business exposure into
+tradeable protection, helping enterprises
+protect against risks traditional markets
+leave uncovered
+Version 1.0 • April 2026
+
+-- 1 of 6 --
+
+Typography
+Hedvig Letters Serif Regular
+Used for headings.
+Has a spacing of -0.01 em or -1%
+Geist Regular
+Used for the subtexts.
+Has a spacing of -0.01 em or -1%.
+Geist Mono Semi Bold
+Used for tags, buttons and form fields.
+Has a spacing of -0.02 em or -2%.
+Averia Serif Libre Light
+Used for the logo only.
+Has a spacing of -0.06 em or -6%.
+Version 1.0 	• 	April 2026
+
+-- 2 of 6 --
+
+Logo
+Primary Logo
+The horizontal logo lockup is the most common way
+the Castle logo is displayed.
+
+The icon may be used independently for square or
+compact formats, while the wordmark alone can
+appear in contexts where the logo has already been
+introduced.
+Example:
+Text size = 200PX;
+Space = 50px
+Width = 200px
+Height = [text size]
+Space = 15% of [text size]
+Text = -6% spacing
+Version 1.0 	• 	April 2026
+
+-- 3 of 6 --
+
+Colours
+Colours usage
+The palette is built around a neutral
+foundation — near-black for primary text,
+light greys for backgrounds — with a set of
+deep, earthy accent colours used sparingly
+to add character without overwhelming.
+
+Accent colours should appear in roughly
+20% of any composition, and work best in
+dithered imagery, gradient dots, and
+selective UI highlights. Avoid using more
+than two accent colours in a single context.
+
+The accent family carries the primary brand
+personality. Never use them as large
+background fills — they're meant to
+punctuate, not dominate.
+Primary text color
+#171717
+Background color
+#E5E5E5
+Accent color
+#246075
+Background color
+#F5F5F5
+Accent color
+#00544F
+Secondary text color
+#525252
+Primary text color
+#FFFFFF
+Accent color
+#395938
+Secondary text color
+#737373
+Accent color
+#3A5C9A
+Accent color
+#002E2C
+Version 1.0 	• 	April 2026
+
+-- 4 of 6 --
+
+Imagery
+Imagery usage
+All imagery is generated in Midjourney and
+composited or animated in Unicorn Studio
+before use on site or in social content.
+
+Images draw from two visual registers:
+painterly illustration and hyperrealistic
+photography. Both are valid as they will be
+edited.
+
+Across both styles, keep the following
+consistent: medieval and chess themes
+(knights, castles, strategy), earthy and muted
+tones with occasional green, natural light
+sources (candles, sunlight through forest),
+and a sense of scale and gravitas. Avoid
+anything cartoonish, overly colourful, or
+modern in setting.
+
+Unicorn studio
+
+All final images should have a dithering
+effect applied before use. The following
+effects are applied:  
+Dither
+
+Type: Blue Noise
+
+Threshold: 0
+
+Mix: 96
+
+Glyph DIther
+
+Preset: Waffle
+
+Characters: #castle+=-;:,.
+
+Scale: 96
+
+Gamma: 56
+
+Phase: 0
+
+Mix: 100
+
+Color mode: Texture
+
+Background: On
+
+Duotone - use accent colors
+Version 1.0 	• 	April 2026
+
+-- 5 of 6 --
+
+This brand guideline deck has been created
+exclusively for the use of Castle by Skarlo.
+skarlo
+luca@skarlo.co
+skarlo.co
+London // Copenhagen
+Version 1.0 	• 	April 2026
+
+-- 6 of 6 --
+

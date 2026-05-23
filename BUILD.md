@@ -1,10 +1,10 @@
 # Castle Energy Risk Index — Prototype Plan
 
-> **Execution mode**: a Castle **cloud session** will pick this up and build the entire prototype end-to-end. No local prep work happens first — this plan file IS the complete brief. The cloud session is responsible for everything: scaffolding the directory, copying / staging design system assets, writing the Python data layer, building the static HTML pages, and verifying the result.
+> **Execution mode**: a Castle **cloud session** will pick this up and build the entire prototype end-to-end. This file IS the complete brief. The cloud session is responsible for scaffolding the data and public directories, writing the Python data layer, building the static HTML pages, and verifying the result.
 >
-> **What the cloud session has access to**: the working directory `/Users/arjunpandey/castle/castle-energy-risk-index/` (currently empty), and — if the cloud filesystem mirrors local — read access to `/Users/arjunpandey/.claude/skills/castle-design/` and `/Users/arjunpandey/castle/castle-tariff-tracker-stepbystep.md`. **Step 0 below tells the session how to handle either case.**
+> **What's already in the repo**: `BUILD.md` (this file), `README.md`, `.gitignore`, and the full `design-system/` bundle (Castle's design tokens, brand guidelines, logos, UI kits — read-only reference). Git is already initialized on `main`. The cloud session does NOT need filesystem access outside the repo for design assets.
 >
-> **What the cloud session needs from the operator**: `ANTHROPIC_API_KEY`, `CONGRESS_GOV_API_KEY` (free signup at api.data.gov), optional `KALSHI_API_KEY_ID` / `KALSHI_PRIVATE_KEY_PATH`. The session should write a `.env.example` documenting these and refuse to run `refresh.py` without them set.
+> **What the cloud session needs from the operator**: `ANTHROPIC_API_KEY`, `CONGRESS_GOV_API_KEY` (free signup at api.data.gov), optional `KALSHI_API_KEY_ID` / `KALSHI_PRIVATE_KEY_PATH`. These are injected as env vars by the desktop app's remote-environment config — do not paste them in chat. The session should write a `.env.example` documenting them and refuse to run `refresh.py` without them set.
 
 ## Context
 
@@ -198,28 +198,31 @@ The cloud session does everything end-to-end. It should work in roughly this ord
 
 ### Step 0 — Bootstrap and asset staging
 
-1. **Check filesystem access.** Test whether `/Users/arjunpandey/.claude/skills/castle-design/` is readable. If not, stop and report: *"Design system source not accessible. The operator must either grant filesystem access to `~/.claude/skills/castle-design/` or bundle its contents into the project."* Do not proceed — design fidelity is the point of this prototype.
+**Already done in the repo before kickoff** (do NOT redo these — just verify they exist):
+- `README.md` and `.gitignore` at the repo root
+- `BUILD.md` (this file)
+- `design-system/` — full bundle of the Castle design system: `colors_and_type.css`, `brand_guidelines.txt`, `SKILL.md`, `README.md`, `assets/` (logo SVGs + dithered PNGs), `fonts/`, `preview/`, `ui_kits/{web,dashboard}/`. Treat as read-only reference.
+- Git is already initialized on `main` with one commit. Just `git add` + `git commit` as you go.
 
-2. **Stage design assets** from `/Users/arjunpandey/.claude/skills/castle-design/` into the project:
+**What the session still needs to do:**
 
-   | Source | Destination |
+1. **Stage runtime copies** from `design-system/` into `public/` so the static site can fetch them at runtime:
+
+   | Source (in repo) | Destination (in repo) |
    |---|---|
-   | `colors_and_type.css` | `public/assets/css/colors_and_type.css` |
-   | `brand_guidelines.txt` | `design-system/brand_guidelines.txt` |
-   | `SKILL.md` | `design-system/SKILL.md` |
-   | `README.md` | `design-system/README.md` |
-   | `assets/castle-logo-black.svg` | `public/assets/svg/castle-logo-black.svg` |
-   | `assets/castle-logo-white.svg` | `public/assets/svg/castle-logo-white.svg` |
-   | `assets/knights.svg` *(if present)* | `public/assets/svg/knights.svg` |
-   | `ui_kits/dashboard/` *(entire directory)* | `design-system/ui_kits/dashboard/` |
+   | `design-system/colors_and_type.css` | `public/assets/css/colors_and_type.css` |
+   | `design-system/assets/castle-logo-black.svg` | `public/assets/svg/castle-logo-black.svg` |
+   | `design-system/assets/castle-logo-white.svg` | `public/assets/svg/castle-logo-white.svg` |
+   | `design-system/assets/knights.svg` *(if present)* | `public/assets/svg/knights.svg` |
+   | `design-system/assets/castle-asset-*.png` *(only if a page actually uses one)* | `public/assets/img/...` |
 
-   The `design-system/` directory inside the project is read-only reference material the session consults while building. The actual frontend lives in `public/`.
+   `colors_and_type.css` and the logo SVGs are required. The dithered PNGs are available if a page needs hero imagery; v1 doesn't have to use them.
 
-3. **Read reference patterns (optional).** If `/Users/arjunpandey/castle/castle-tariff-tracker-stepbystep.md` is readable, scan it once for the Federal Register client pattern, Kalshi client pattern, Pydantic model conventions, cache TTL strategy, and exponential-backoff retry recipe. Don't block on it — these can be derived from scratch if unavailable.
+2. **Read reference patterns (optional).** If `/Users/arjunpandey/castle/castle-tariff-tracker-stepbystep.md` is readable, scan it once for the Federal Register client pattern, Kalshi client pattern, Pydantic model conventions, cache TTL strategy, and exponential-backoff retry recipe. Don't block on it — these can be derived from scratch if unavailable.
 
-4. **Scaffold the project tree** per the "Directory layout" section above. Create empty placeholder files for everything that will be filled in later (HTML pages, Python modules, etc.). Add `.gitkeep` files for empty directories.
+3. **Scaffold the project tree** per the "Directory layout" section above (everything under `data/` and `public/`, since `design-system/` already exists). Create empty placeholder files for everything that will be filled in later (HTML pages, Python modules, etc.). Add `.gitkeep` files for empty directories.
 
-5. **Write `.env.example`** at the project root:
+4. **Write `.env.example`** at the project root:
    ```
    # Required
    ANTHROPIC_API_KEY=sk-ant-xxx               # Claude — for project→exposure mapping
@@ -229,11 +232,11 @@ The cloud session does everything end-to-end. It should work in roughly this ord
    KALSHI_PRIVATE_KEY_PATH=
    # No key needed for Federal Register
    ```
-   Add a project-root `.gitignore` covering `.env`, `data/castle_eri/cache/`, `__pycache__/`, `.venv/`, `node_modules/`, `.DS_Store`.
+   The repo-root `.gitignore` is already set up (covers `.env`, caches, etc.).
 
-6. **Write `data/castle_eri/projects.py`** containing all 5 projects as Pydantic literals — populated from the table in "The 5 seed projects" section above. Each project specifies: `id`, `name`, `technology`, `capacity_mw`, `location`, `cod_quarter`, `capex_usd`, `equity_irr_target`, `key_suppliers` (list of `(name, country, component_type)`), `offtake_status`, `policy_dependencies` (specific bill numbers, rule citations, HTS codes drawn from the table), `narrative` (2–3 sentence project description), and `keyword_seeds` (8–12 search terms the Claude mapper expands into Congress.gov / Federal Register / Kalshi queries). The session writes these as concrete Python data — do not invent additional projects.
+5. **Write `data/castle_eri/projects.py`** containing all 5 projects as Pydantic literals — populated from the table in "The 5 seed projects" section above. Each project specifies: `id`, `name`, `technology`, `capacity_mw`, `location`, `cod_quarter`, `capex_usd`, `equity_irr_target`, `key_suppliers` (list of `(name, country, component_type)`), `offtake_status`, `policy_dependencies` (specific bill numbers, rule citations, HTS codes drawn from the table), `narrative` (2–3 sentence project description), and `keyword_seeds` (8–12 search terms the Claude mapper expands into Congress.gov / Federal Register / Kalshi queries). The session writes these as concrete Python data — do not invent additional projects.
 
-7. **Initialize git** and make an initial commit (`Initial scaffold + design assets`) so progress can be tracked against a baseline.
+6. **Commit progress** as you finish each step.
 
 ### Step 1 — Python data layer
 

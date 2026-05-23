@@ -1,0 +1,27 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Contract card</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body{margin:0;background:var(--bg-card);padding:22px 24px;font-family:var(--font-body);color:var(--fg);display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{border:1px solid var(--border);padding:16px 18px;background:#fff;display:flex;flex-direction:column;gap:10px}
+.top{display:flex;align-items:center;gap:8px}
+.cat{font-family:var(--font-mono);font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--fg-3);flex:1}
+.prob{font-family:var(--font-mono);font-size:14px;font-weight:700;color:#171717;font-variant-numeric:tabular-nums}
+.title{font-family:var(--font-body);font-size:14px;font-weight:600;line-height:1.35;color:#171717}
+.desc{font-family:var(--font-body);font-size:12px;line-height:1.45;color:var(--fg-2)}
+.meta{display:flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:10px;color:var(--fg-3);letter-spacing:0.04em}
+.meta .v{color:#246075}
+</style></head><body>
+<div class="card">
+  <div class="top"><span class="cat">TARIFFS · POLYMARKET</span><span class="prob">64%</span></div>
+  <div class="title">Will the US impose new tariffs on Chinese EVs before Q3?</div>
+  <div class="desc">Market resolves YES if the USTR announces a Section 301 action raising EV tariffs above current levels.</div>
+  <div class="meta"><span>$2.4M VOL</span><span>·</span><span class="v">RESOLVES JUL 2026</span></div>
+</div>
+<div class="card">
+  <div class="top"><span class="cat">FED POLICY · KALSHI</span><span class="prob">31%</span></div>
+  <div class="title">Fed cuts rates at June FOMC meeting</div>
+  <div class="desc">Resolves YES if the target range is lowered at the conclusion of the June meeting.</div>
+  <div class="meta"><span>$890K VOL</span><span>·</span><span class="v">RESOLVES JUN 18</span></div>
+</div>
+</body></html>

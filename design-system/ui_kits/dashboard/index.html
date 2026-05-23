@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Castle Dashboard — Marketplace</title>
+<link rel="stylesheet" href="../../colors_and_type.css">
+<link rel="stylesheet" href="kit.css">
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="app"></div>
+
+<script type="text/babel" src="MarketplaceNavbar.jsx"></script>
+<script type="text/babel" src="NewsTicker.jsx"></script>
+<script type="text/babel" src="SituationNav.jsx"></script>
+<script type="text/babel" src="ContractCard.jsx"></script>
+<script type="text/babel" src="SituationHero.jsx"></script>
+<script type="text/babel" src="EventDetailModal.jsx"></script>
+<script type="text/babel" src="Footer.jsx"></script>
+
+<script type="text/babel" data-presets="react">
+const { useState, useMemo } = React;
+
+const TICKER = [
+  { headline: "US-China tariff negotiations stall as deadline approaches", source: "Reuters" },
+  { headline: "Fed signals potential rate pause amid inflation concerns", source: "Bloomberg" },
+  { headline: "EU AI Act enforcement timeline moves forward", source: "FT" },
+  { headline: "Supply chain disruptions from Red Sea tensions persist", source: "WSJ" },
+  { headline: "Canada retaliatory tariffs take effect on US imports", source: "Globe and Mail" },
+  { headline: "OPEC+ production cuts extended through Q3 2026", source: "Reuters" },
+  { headline: "Congress advances bipartisan semiconductor subsidy bill", source: "Politico" },
+  { headline: "ECB holds rates steady amid mixed eurozone data", source: "Bloomberg" },
+];
+
+const SITUATIONS = [
+  { id: "tariffs",  label: "US–China Tariffs",   description: "Trade-policy exposure across US 301 actions, China countermeasures, and supply routing.", severity: "critical", contractCount: 34 },
+  { id: "fed",      label: "Fed Rate Decisions", description: "FOMC meeting outcomes, dot-plot shifts, and forward guidance.", severity: "high",     contractCount: 21 },
+  { id: "energy",   label: "Energy Shocks",      description: "OPEC+ production, Russian oil exports, Red Sea shipping, and nat-gas volatility.", severity: "medium", contractCount: 17 },
+  { id: "ai",       label: "AI Regulation",      description: "EU AI Act timelines, US federal action, and state-level compliance deadlines.", severity: "high",     contractCount: 12 },
+  { id: "climate",  label: "Climate Policy",     description: "IRA revisions, carbon-border adjustments, and net-zero milestones.", severity: "low",      contractCount: 9  },
+  { id: "elections",label: "Global Elections",   description: "UK, India, Germany elections with trade and defense policy implications.", severity: "medium", contractCount: 14 },
+];
+
+const EVENTS = [
+  { id: "t1", eventTitle: "EV tariff escalation", title: "Will the US raise Section 301 tariffs on Chinese EVs above 100% before Q3?", probability: 0.64, volume: 2_400_000, expiryDate: "Jul 2026", platform: "polymarket", siblingCount: 3 },
+  { id: "t2", eventTitle: "Semiconductor export controls", title: "New US export controls on advanced chips to China announced this quarter", probability: 0.78, volume: 1_150_000, expiryDate: "Jun 2026", platform: "polymarket", siblingCount: 1 },
+  { id: "f1", eventTitle: "FOMC June meeting", title: "Fed cuts rates at the June FOMC meeting", probability: 0.31, volume: 890_000, expiryDate: "Jun 18", platform: "kalshi", siblingCount: 4 },
+  { id: "a1", eventTitle: "EU AI Act enforcement", title: "EU AI Act general-purpose model rules enforced before August 2026", probability: 0.88, volume: 420_000, expiryDate: "Aug 2026", platform: "polymarket", siblingCount: 2 },
+  { id: "e1", eventTitle: "OPEC+ production", title: "OPEC+ extends production cuts through Q3 2026", probability: 0.54, volume: 680_000, expiryDate: "Jul 2026", platform: "kalshi", siblingCount: 1 },
+  { id: "t3", eventTitle: "Steel & aluminum tariffs", title: "Canada retaliatory tariffs on US aluminum remain in effect at year-end", probability: 0.41, volume: 310_000, expiryDate: "Dec 2026", platform: "polymarket", siblingCount: 2 },
+  { id: "el1", eventTitle: "UK general election", title: "Labour wins majority in next UK general election", probability: 0.72, volume: 1_800_000, expiryDate: "May 2026", platform: "polymarket", siblingCount: 3 },
+  { id: "c1", eventTitle: "Carbon border tax", title: "EU CBAM expanded to include chemicals sector before 2027", probability: 0.26, volume: 140_000, expiryDate: "Dec 2026", platform: "kalshi", siblingCount: 1 },
+  { id: "a2", eventTitle: "US AI executive order", title: "Federal AI safety reporting requirements finalized this year", probability: 0.37, volume: 220_000, expiryDate: "Dec 2026", platform: "polymarket", siblingCount: 2 },
+  { id: "t4", eventTitle: "China rare earth controls", title: "China announces new rare-earth export restrictions before Q3", probability: 0.58, volume: 430_000, expiryDate: "Sep 2026", platform: "polymarket", siblingCount: 1 },
+  { id: "f2", eventTitle: "ECB rate path", title: "ECB holds rates steady through H2 2026", probability: 0.45, volume: 380_000, expiryDate: "Dec 2026", platform: "kalshi", siblingCount: 2 },
+  { id: "e2", eventTitle: "Red Sea shipping", title: "Red Sea container shipping volumes recover above 80% of 2023 baseline", probability: 0.22, volume: 95_000, expiryDate: "Sep 2026", platform: "synthetic", siblingCount: 1 },
+];
+
+// Featured events for situation hero strip
+const FEATURED = EVENTS.slice(0, 5).map(e => ({
+  id: e.id, platform: e.platform,
+  topMarket: { title: e.title, probability: e.probability, volume: e.volume },
+}));
+const TOP_EVENT = { id: "t1", platform: "polymarket", topMarket: { title: "Will the US raise Section 301 tariffs on Chinese EVs above 100% before Q3?", probability: 0.64, volume: 2_400_000 } };
+
+function App() {
+  const [active, setActive] = useState("featured");
+  const [query, setQuery] = useState("");
+  const [watch, setWatch] = useState(new Set(["t1"]));
+  const [open, setOpen] = useState(null);
+
+  const filtered = useMemo(() => {
+    if (!query) return EVENTS;
+    const q = query.toLowerCase();
+    return EVENTS.filter(e => e.title.toLowerCase().includes(q) || e.eventTitle.toLowerCase().includes(q));
+  }, [query]);
+
+  const activeSit = SITUATIONS.find(s => s.id === active);
+
+  return (
+    <div className="mkp-page">
+      <MarketplaceNavbar onLogin={()=>{}} onSignup={()=>{}} />
+      <NewsTicker items={TICKER} />
+
+      <section className="mkp-section">
+        <div className="mkp-hero-row">
+          <div>
+            <h1 className="mkp-h1">Castle's risk marketplace</h1>
+            <p className="mkp-lead">Browse, track, and hedge against prediction market events that move your business.</p>
+          </div>
+          <button className="mkp-cta">
+            Discover your company's risk
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+
+        <div className="mkp-search">
+          <svg className="mkp-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16" y2="16"/></svg>
+          <input type="text" placeholder="Search all contracts…" value={query} onChange={(e)=>setQuery(e.target.value)} />
+        </div>
+
+        <SituationNav situations={SITUATIONS} active={active} onSelect={setActive} />
+      </section>
+
+      <section className="mkp-section narrow">
+        {!query && (
+          <SituationHero
+            label={activeSit ? activeSit.label : "Featured"}
+            description={activeSit ? activeSit.description : "Top events across all risk situations."}
+            topEvent={activeSit ? TOP_EVENT : null}
+            featuredEvents={FEATURED}
+          />
+        )}
+
+        <div className="mkp-section-head">
+          <h2 className="mkp-section-title">{activeSit ? activeSit.label : "Trending Markets"}</h2>
+          <a className="mkp-section-link" href="#">Sign up to track
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <div className="contract-grid">
+          {filtered.map((m) => (
+            <ContractCard
+              key={m.id}
+              market={m}
+              onClick={() => setOpen(m)}
+              watchlisted={watch.has(m.id)}
+              onToggleWatch={() => {
+                const s = new Set(watch);
+                s.has(m.id) ? s.delete(m.id) : s.add(m.id);
+                setWatch(s);
+              }}
+            />
+          ))}
+        </div>
+      </section>
+
+      <section className="mkp-cta-section">
+        <div className="mkp-cta-inner">
+          <h2 className="mkp-cta-title">Ready to hedge your company's risk?</h2>
+          <p className="mkp-cta-lead">Create an account to build a personalized risk portfolio, track contracts, and monitor the events that matter to your business.</p>
+          <div className="mkp-cta-row">
+            <button className="btn-primary">Get Started</button>
+            <button className="btn-secondary">Learn More</button>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+
+      {open && <EventDetailModal market={open} onClose={() => setOpen(null)} />}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("app")).render(<App />);
+</script>
+</body>
+</html>

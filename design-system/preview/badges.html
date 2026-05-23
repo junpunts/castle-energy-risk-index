@@ -1,0 +1,19 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Badges</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body{margin:0;background:var(--bg-card);padding:22px 24px;font-family:var(--font-body);color:var(--fg)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.row+.row{margin-top:14px}
+.badge{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;padding:4px 8px;border-radius:0;border:1px solid transparent}
+.b-accent{color:#246075;background:rgba(36,96,117,0.12);border-color:rgba(36,96,117,0.25)}
+.b-neg{color:#991B1B;background:rgba(153,27,27,0.08);border-color:rgba(153,27,27,0.2)}
+.b-out{color:#525252;border:1px solid rgba(24,24,24,0.15);background:transparent}
+.b-solid{color:#F5F5F0;background:#171717}
+.live::before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor;animation:p 2s infinite}
+@keyframes p{0%,100%{opacity:1}50%{opacity:.3}}
+.lead{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fg-3);margin-bottom:10px}
+</style></head><body>
+<div class="lead">Badges &amp; tags</div>
+<div class="row"><span class="badge b-accent live">LIVE</span><span class="badge b-neg">CRITICAL</span><span class="badge b-out">REGULATORY</span><span class="badge b-solid">NEW</span><span class="badge b-accent">POLYMARKET</span><span class="badge b-out">KALSHI</span></div>
+</body></html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Radii & borders</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body{margin:0;background:var(--bg-card);padding:22px 24px;font-family:var(--font-body);color:var(--fg)}
+.row{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.box{aspect-ratio:1.6;border:1px solid var(--border);background:#F5F5F5;display:flex;align-items:flex-end;padding:10px;font-family:var(--font-mono);font-size:10px;letter-spacing:0.06em;color:var(--fg-2)}
+.r0{border-radius:0}.r1{border-radius:2px}.r2{border-radius:4px}.r3{border-radius:6px}.rf{border-radius:9999px;aspect-ratio:1}
+.lead{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fg-3);margin-bottom:12px}
+</style></head><body>
+<div class="lead">Radii · Castle is square by default (0) — small rounding only for overlays</div>
+<div class="row">
+  <div class="box r0">0 · default</div>
+  <div class="box r1">2 · fig only</div>
+  <div class="box r2">4 · overlays</div>
+  <div class="box r3">6 · dropdowns</div>
+  <div class="box rf">∞ · pills</div>
+</div>
+</body></html>

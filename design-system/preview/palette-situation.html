@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Palette — Situation Room</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body{margin:0;background:#080A0F;color:#C8CCD8;font-family:var(--font-body);padding:20px}
+.lead{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:#8890A8;margin-bottom:14px}
+.row{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.sw{display:flex;flex-direction:column;gap:6px}
+.sw .chip{aspect-ratio:1;width:100%;border:1px solid #1C2030}
+.sw .name{font-family:var(--font-mono);font-size:10px;letter-spacing:0.04em;text-transform:uppercase;color:#C8CCD8}
+.sw .hex{font-family:var(--font-mono);font-size:10px;color:#8890A8;font-variant-numeric:tabular-nums}
+</style></head><body>
+<div class="lead">Situation Room — dark terminal theme (scoped to <code>.situation-root</code>)</div>
+<div class="row">
+  <div class="sw"><div class="chip" style="background:#080A0F"></div><span class="name">BG</span><span class="hex">#080A0F</span></div>
+  <div class="sw"><div class="chip" style="background:#0D0F16"></div><span class="name">Surface</span><span class="hex">#0D0F16</span></div>
+  <div class="sw"><div class="chip" style="background:#11141D"></div><span class="name">Surface 2</span><span class="hex">#11141D</span></div>
+  <div class="sw"><div class="chip" style="background:#1C2030"></div><span class="name">Border</span><span class="hex">#1C2030</span></div>
+  <div class="sw"><div class="chip" style="background:#C8CCD8"></div><span class="name">Text</span><span class="hex">#C8CCD8</span></div>
+  <div class="sw"><div class="chip" style="background:#3AB8C0"></div><span class="name">Accent</span><span class="hex">#3AB8C0</span></div>
+  <div class="sw"><div class="chip" style="background:#C74545"></div><span class="name">Negative</span><span class="hex">#C74545</span></div>
+</div>
+</body></html>

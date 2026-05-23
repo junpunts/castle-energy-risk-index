@@ -1,0 +1,27 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>News ticker</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body{margin:0;background:#080A0F;padding:0;font-family:var(--font-body);color:#C8CCD8}
+.bar{display:flex;align-items:center;height:44px;background:#0D0F16;border:1px solid #1C2030;border-left:none;border-right:none;overflow:hidden}
+.lbl{font-family:var(--font-mono);font-size:10px;font-weight:700;letter-spacing:0.15em;color:#3AB8C0;padding:0 18px;border-right:1px solid #1C2030;white-space:nowrap}
+.track{flex:1;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 40px,#000 calc(100% - 40px),transparent)}
+.row{display:flex;gap:0;animation:t 60s linear infinite;white-space:nowrap;width:max-content}
+.item{padding:0 22px;font-size:12px}
+.item::after{content:"·";margin-left:22px;color:#4A5070}
+.prob{font-family:var(--font-mono);font-weight:700;color:#3AB8C0}
+@keyframes t{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+</style></head><body>
+<div class="bar">
+  <div class="lbl">LIVE INTEL</div>
+  <div class="track"><div class="row">
+    <span class="item">US-China tariff negotiations stall as deadline approaches <span class="prob">72%</span></span>
+    <span class="item">Fed signals potential rate pause amid inflation concerns <span class="prob">31%</span></span>
+    <span class="item">EU AI Act enforcement timeline moves forward <span class="prob">88%</span></span>
+    <span class="item">Supply-chain disruptions from Red Sea tensions persist <span class="prob">64%</span></span>
+    <span class="item">OPEC+ production cuts extended through Q3 2026 <span class="prob">54%</span></span>
+    <span class="item">US-China tariff negotiations stall as deadline approaches <span class="prob">72%</span></span>
+    <span class="item">Fed signals potential rate pause amid inflation concerns <span class="prob">31%</span></span>
+  </div></div>
+</div>
+</body></html>

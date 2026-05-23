@@ -1,0 +1,22 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Motion</title>
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body{margin:0;background:var(--bg-card);padding:22px 24px;font-family:var(--font-mono);color:var(--fg);font-size:12px}
+.lead{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--fg-3);margin-bottom:12px}
+table{border-collapse:collapse;width:100%}
+td{padding:6px 8px;border-bottom:1px solid var(--border);font-size:11px;letter-spacing:0.02em}
+.name{color:var(--fg)}
+.spec{color:var(--fg-2)}
+.code{color:#246075}
+</style></head><body>
+<div class="lead">Motion · restrained · fades only</div>
+<table>
+  <tr><td class="name">Page load</td><td class="spec">1.5s ease-out</td><td class="code">fade + y:40→0</td></tr>
+  <tr><td class="name">Dashboard reveal</td><td class="spec">0.15s ease-out</td><td class="code">fade-in</td></tr>
+  <tr><td class="name">Hover opacity</td><td class="spec">0.2s linear</td><td class="code">opacity: 1 → 0.8</td></tr>
+  <tr><td class="name">Shimmer loader</td><td class="spec">2s linear ∞</td><td class="code">bg position −200% → 200%</td></tr>
+  <tr><td class="name">Live pulse</td><td class="spec">2s ∞</td><td class="code">opacity 1 ↔ 0.3</td></tr>
+  <tr><td class="name">Ticker</td><td class="spec">480s linear ∞</td><td class="code">translateX −50%</td></tr>
+</table>
+</body></html>
