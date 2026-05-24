@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>02 · Terminal — Castle Energy Risk</title>
+<link rel="stylesheet" href="../assets/css/colors_and_type.css">
+<style>
+  :root { --hair: 1px solid rgba(24,24,24,0.14); --hair2: 1px solid rgba(24,24,24,0.22); }
+  html, body { margin: 0; background: var(--castle-paper); color: var(--fg); font-family: var(--font-body); font-size: 13px; line-height: 1.5; }
+  body { font-feature-settings: 'tnum' 1, 'kern' 1; }
+  a { color: inherit; text-decoration: none; }
+
+  .top { display: grid; grid-template-columns: auto 1fr auto;
+         align-items: center; gap: 24px;
+         padding: 10px 24px; background: var(--fg); color: var(--castle-bone);
+         font-family: var(--font-mono); font-size: 10px;
+         letter-spacing: 0.25em; text-transform: uppercase; }
+  .top a { color: rgba(245,245,240,0.7); }
+  .top a:hover { color: var(--castle-bone); }
+  .top .clock { text-align: right; }
+  .top .clock strong { color: var(--castle-bone); font-weight: 700; }
+
+  /* ─── Ticker strip ───────────────────────────────────── */
+  .ticker { background: var(--bg-card); border-bottom: var(--hair2);
+            display: flex; gap: 32px; padding: 8px 24px;
+            font-family: var(--font-mono); font-size: 11px;
+            letter-spacing: -0.01em; overflow-x: auto;
+            font-variant-numeric: tabular-nums; }
+  .ticker .item { display: inline-flex; gap: 8px; white-space: nowrap; }
+  .ticker .item .l { color: var(--fg-3); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
+  .ticker .item .v { color: var(--fg); font-weight: 700; }
+  .ticker .item .d { color: var(--accent-teal); font-weight: 700; }
+  .ticker .item .d.neg { color: #8B2A1C; }
+
+  /* ─── Three-zone grid ───────────────────────────────── */
+  .grid { display: grid; grid-template-columns: 280px 1fr 320px; min-height: calc(100vh - 86px); }
+  .col { border-right: var(--hair); }
+  .col:last-child { border-right: none; }
+  .col header {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+    padding: 12px 16px; border-bottom: var(--hair2); background: var(--bg-card);
+    display: flex; justify-content: space-between;
+  }
+  .col header .meta { color: var(--fg); font-weight: 700; }
+
+  /* ─── Left rail: pinned scores ──────────────────────── */
+  .left .row {
+    display: grid; grid-template-columns: 1fr auto;
+    gap: 12px; padding: 14px 16px;
+    border-bottom: var(--hair); cursor: pointer;
+    transition: background .12s;
+  }
+  .left .row:hover { background: var(--surface-overlay); }
+  .left .row .name { font-family: var(--font-body); font-size: 13px;
+                     color: var(--fg); line-height: 1.25; }
+  .left .row .tech { font-family: var(--font-mono); font-size: 9px;
+                     letter-spacing: 0.25em; text-transform: uppercase;
+                     color: var(--fg-3); margin-top: 4px; }
+  .left .row .score {
+    font-family: var(--font-mono); font-size: 22px; font-weight: 700;
+    line-height: 1; color: var(--fg); font-variant-numeric: tabular-nums;
+    align-self: center; letter-spacing: -0.02em;
+  }
+  .left .row .bar { display: flex; height: 4px; grid-column: 1 / -1; margin-top: 8px; }
+  .left .row .bar i { display: block; height: 100%; }
+
+  /* ─── Main column ───────────────────────────────────── */
+  .main { padding: 0; }
+  .main .top-pane { padding: 24px 24px 0; }
+  .pretitle { font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+              letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+              display: flex; gap: 16px; align-items: baseline; margin-bottom: 12px; }
+  .pretitle .badge { background: var(--fg); color: var(--castle-bone);
+                     padding: 3px 8px; font-weight: 700; letter-spacing: 0.25em; }
+  .main h1 { font-family: var(--font-display); font-weight: 400;
+             font-size: clamp(28px, 2.7vw, 36px); line-height: 1.12;
+             letter-spacing: -0.01em; margin: 0 0 16px; max-width: 760px; }
+  .main .thesis {
+    font-family: var(--font-body); font-size: 15px; line-height: 1.65;
+    color: var(--fg-2); max-width: 720px; margin: 0 0 24px;
+  }
+
+  .keyfacts {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    border-top: var(--hair); border-bottom: var(--hair);
+    background: var(--bg-card);
+  }
+  .keyfacts > div { padding: 14px 16px; border-right: var(--hair); }
+  .keyfacts > div:last-child { border-right: none; }
+  .keyfacts .l { font-family: var(--font-mono); font-size: 9px;
+                 letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3); }
+  .keyfacts .v { font-family: var(--font-mono); font-size: 22px; font-weight: 700;
+                 line-height: 1; margin-top: 6px; color: var(--fg);
+                 font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+  .keyfacts .d { font-family: var(--font-body); font-size: 11px; color: var(--fg-3);
+                 margin-top: 6px; line-height: 1.4; }
+
+  .pane-title { font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+                letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+                padding: 20px 24px 8px; display: flex; justify-content: space-between;
+                border-bottom: var(--hair); }
+  .pane-title .right { color: var(--fg); font-weight: 700; }
+
+  /* Calendar */
+  .calendar { padding: 0; }
+  .calendar .row {
+    display: grid; grid-template-columns: 64px 90px 1fr 220px;
+    gap: 16px; padding: 12px 24px;
+    border-bottom: var(--hair); align-items: start;
+    font-family: var(--font-mono); font-size: 12px;
+  }
+  .calendar .row:hover { background: var(--surface-overlay); }
+  .calendar .day {
+    font-family: var(--font-display); font-size: 24px; font-weight: 400;
+    letter-spacing: -0.02em; line-height: 1; color: var(--fg);
+    font-variant-numeric: tabular-nums;
+  }
+  .calendar .day small { display: block; font-family: var(--font-mono);
+                         font-size: 9px; letter-spacing: 0.25em;
+                         text-transform: uppercase; color: var(--fg-3);
+                         margin-top: 4px; font-weight: 600; }
+  .calendar .delta { font-family: var(--font-mono); font-size: 10px;
+                     letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3); padding-top: 4px; }
+  .calendar .delta strong { color: var(--fg); font-size: 14px; display: block; font-weight: 700; }
+  .calendar .label { font-family: var(--font-body); font-size: 13px; line-height: 1.45; color: var(--fg); padding-top: 2px; }
+  .calendar .label small { display: block; font-size: 11px; color: var(--fg-3); margin-top: 4px; font-family: var(--font-body); letter-spacing: 0; }
+  .calendar .tag { font-family: var(--font-mono); font-size: 9px;
+                   letter-spacing: 0.25em; text-transform: uppercase;
+                   border: 1px solid var(--border); padding: 3px 7px;
+                   color: var(--fg-2); display: inline-block; margin-top: 2px;
+                   font-weight: 600; }
+  .calendar .chips { display: flex; gap: 4px; flex-wrap: wrap; padding-top: 2px; }
+  .calendar .chips span { font-family: var(--font-mono); font-size: 9px;
+                          letter-spacing: 0.2em; text-transform: uppercase;
+                          color: var(--fg-3); border: 1px solid var(--border);
+                          padding: 3px 6px; font-weight: 600; }
+
+  /* ─── Right rail: top movers ────────────────────────── */
+  .right .row {
+    padding: 14px 16px; border-bottom: var(--hair);
+    cursor: default;
+  }
+  .right .row .head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 6px;
+  }
+  .right .row .cat {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase;
+  }
+  .right .row .cat.is-policy { color: #246075; }
+  .right .row .cat.is-trade { color: #00544F; }
+  .right .row .cat.is-geopolitical { color: #395938; }
+  .right .row .cat.is-macro { color: #3A5C9A; }
+  .right .row .attn {
+    font-family: var(--font-mono); font-size: 18px; font-weight: 700;
+    letter-spacing: -0.02em; color: var(--fg); font-variant-numeric: tabular-nums;
+  }
+  .right .row .name {
+    font-family: var(--font-body); font-size: 13px; line-height: 1.35;
+    color: var(--fg); margin-bottom: 6px;
+  }
+  .right .row .stats {
+    display: flex; justify-content: space-between;
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3);
+    font-variant-numeric: tabular-nums;
+  }
+  .right .row .stats strong { color: var(--fg); font-weight: 700; }
+  .right .row .lk { font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+                    letter-spacing: 0.25em; text-transform: uppercase;
+                    padding: 2px 6px; border: 1px solid var(--border); }
+  .right .row .lk.is-low { color: #395938; border-color: #395938; }
+  .right .row .lk.is-medium { color: #3A5C9A; border-color: #3A5C9A; }
+  .right .row .lk.is-high { color: var(--castle-bone); background: #8B2A1C; border-color: #8B2A1C; }
+
+  @media (max-width: 1100px) {
+    .grid { grid-template-columns: 1fr; }
+    .col { border-right: none; border-bottom: var(--hair2); }
+  }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <span><a href="index.html">◀ Concepts</a> · <a href="../index.html">Live</a></span>
+  <span style="text-align:center">Castle · Energy Risk Terminal · v0.2</span>
+  <span class="clock"><strong id="clock"></strong></span>
+</div>
+
+<div class="ticker" id="ticker"></div>
+
+<div class="grid">
+  <!-- LEFT: pinned scores -->
+  <aside class="col left">
+    <header><span>Portfolio · pinned</span><span class="meta" id="left-meta"></span></header>
+    <div id="left-rows"></div>
+  </aside>
+
+  <!-- MAIN -->
+  <section class="col main">
+    <div class="top-pane">
+      <div class="pretitle">
+        <span class="badge">Brief</span>
+        <span id="pretitle-week"></span>
+        <span style="margin-left:auto;color:var(--fg)">Composite <strong id="pretitle-score" style="font-family:var(--font-mono);font-weight:700;letter-spacing:-0.02em"></strong></span>
+      </div>
+      <h1 id="headline"></h1>
+      <p class="thesis" id="thesis"></p>
+    </div>
+    <div class="keyfacts" id="keyfacts"></div>
+
+    <div class="pane-title"><span>Catalyst calendar</span><span class="right" id="cal-count"></span></div>
+    <div class="calendar" id="calendar"></div>
+  </section>
+
+  <!-- RIGHT: top movers -->
+  <aside class="col right">
+    <header><span>Top movers · attention × EL</span><span class="meta">15</span></header>
+    <div id="right-rows"></div>
+  </aside>
+</div>
+
+<script type="module">
+import { loadBundle, escape, fmtUsd, fmtPct, MONTH, CAT_COLOR, CAT_LABEL, rankedFactors } from './_shared.js';
+const { bundle, projects } = await loadBundle();
+
+// Clock
+function tick() {
+  const d = new Date();
+  document.getElementById('clock').textContent =
+    `${d.toLocaleDateString('en-US', { month:'short', day:'2-digit', year:'numeric' }).toUpperCase()} · ${d.toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit', hour12:false })} UTC`;
+}
+tick(); setInterval(tick, 30000);
+
+// Portfolio totals
+const totalCapex = projects.reduce((s, p) => s + p.capex_usd, 0);
+const composite = Math.round(projects.reduce((s, p) => s + bundle.scores.find(x => x.project_id === p.id).composite * p.capex_usd, 0) / totalCapex);
+const totalEL = bundle.factors.reduce((s, f) => s + f.dollar_impact_usd * f.probability, 0);
+const last2 = bundle.factors.reduce((s, f) => s + (f.attention_weekly || []).slice(-2).reduce((a,b)=>a+b,0), 0);
+const prev2 = bundle.factors.reduce((s, f) => s + (f.attention_weekly || []).slice(-4,-2).reduce((a,b)=>a+b,0), 0);
+const wow = prev2 ? Math.round((last2 - prev2) / prev2 * 100) : 0;
+const highCount = bundle.factors.filter(f => f.likelihood_bucket === 'high').length;
+
+// Ticker
+document.getElementById('ticker').innerHTML = `
+  <span class="item"><span class="l">Composite</span><span class="v">${composite}</span><span class="d">${wow >= 0 ? '+' : ''}${wow}%</span></span>
+  <span class="item"><span class="l">Capex tracked</span><span class="v">${fmtUsd(totalCapex)}</span></span>
+  <span class="item"><span class="l">Expected loss</span><span class="v">${fmtUsd(totalEL)}</span></span>
+  <span class="item"><span class="l">Risks · high</span><span class="v">${highCount} / ${bundle.factors.length}</span></span>
+  <span class="item"><span class="l">Catalysts &lt; 60d</span><span class="v">${(bundle.catalysts||[]).filter(c=>c.day_offset<=60).length}</span></span>
+  <span class="item"><span class="l">Hedges mapped</span><span class="v">${new Set(bundle.hedges.map(h=>h.market_id)).size}</span></span>
+  <span class="item"><span class="l">Notional</span><span class="v">${fmtUsd(bundle.hedges.reduce((s,h)=>s+h.notional_usd,0))}</span></span>
+`;
+
+// Pretitle
+document.getElementById('pretitle-week').textContent = bundle.observation.week_label;
+document.getElementById('pretitle-score').textContent = composite;
+document.getElementById('headline').textContent = bundle.observation.headline;
+document.getElementById('thesis').textContent = bundle.observation.thesis;
+
+// Key facts
+document.getElementById('keyfacts').innerHTML = `
+  <div><div class="l">Tracked capex</div><div class="v">${fmtUsd(totalCapex)}</div><div class="d">across ${projects.length} projects</div></div>
+  <div><div class="l">Expected loss</div><div class="v">${fmtUsd(totalEL)}</div><div class="d">capex × probability sum</div></div>
+  <div><div class="l">Attention WoW</div><div class="v" style="color:${wow>=0?'var(--accent-teal-deep)':'#8B2A1C'}">${wow>=0?'+':''}${wow}%</div><div class="d">last 2 vs prior 2 weeks</div></div>
+  <div><div class="l">High-likelihood</div><div class="v">${highCount}</div><div class="d">of ${bundle.factors.length} tracked risks</div></div>
+`;
+
+// Left rail
+document.getElementById('left-meta').textContent = `${projects.length} pinned`;
+const sortedProjs = projects.slice().sort((a,b) => bundle.scores.find(s=>s.project_id===b.id).composite - bundle.scores.find(s=>s.project_id===a.id).composite);
+document.getElementById('left-rows').innerHTML = sortedProjs.map(p => {
+  const sc = bundle.scores.find(s => s.project_id === p.id);
+  const total = sc.sub_scores.reduce((a, s) => a + s.contribution, 0);
+  const bar = sc.sub_scores.map(s => `<i style="background:${CAT_COLOR[s.category]};width:${(s.contribution/total*100).toFixed(1)}%"></i>`).join('');
+  return `<a class="row" href="../project.html?id=${encodeURIComponent(p.id)}" style="color:inherit;text-decoration:none">
+    <div>
+      <div class="name">${escape(p.name)}</div>
+      <div class="tech">${escape(p.technology)} · ${escape(p.capacity_label)}</div>
+    </div>
+    <div class="score">${sc.composite}</div>
+    <div class="bar">${bar}</div>
+  </a>`;
+}).join('');
+
+// Calendar
+const cals = bundle.catalysts || [];
+document.getElementById('cal-count').textContent = `${cals.length} entries`;
+const projectMap = new Map(projects.map(p => [p.id, p]));
+document.getElementById('calendar').innerHTML = cals.map(c => {
+  const dt = new Date(c.date + (c.date.length === 10 ? 'T12:00:00Z' : ''));
+  const tag = c.kind === 'market' ? 'Kalshi' : c.kind === 'rule' ? 'Rule' : 'Deadline';
+  const chips = (c.affected_project_ids||[]).slice(0,3).map(id => {
+    const p = projectMap.get(id); return p ? `<span>${escape(p.name.split(' ')[0])}</span>` : '';
+  }).join('');
+  return `<a class="row" href="${escape(c.url||'#')}" ${c.url?'target="_blank"':''} style="color:inherit;text-decoration:none">
+    <div class="day">${dt.getUTCDate()}<small>${MONTH[dt.getUTCMonth()]} ${dt.getUTCFullYear()}</small></div>
+    <div class="delta"><strong>+${c.day_offset}d</strong>${c.day_offset<7?'this week':c.day_offset<60?`${Math.round(c.day_offset/7)}w out`:`${Math.round(c.day_offset/30)}mo out`}</div>
+    <div class="label">${escape(c.label)}<small>${escape(c.detail || '')}</small></div>
+    <div>
+      <div class="tag">${tag}</div>
+      <div class="chips">${chips}</div>
+    </div>
+  </a>`;
+}).join('');
+
+// Right rail — top movers
+const ranked = rankedFactors(bundle, 15);
+document.getElementById('right-rows').innerHTML = ranked.map(f => `
+  <div class="row">
+    <div class="head">
+      <span class="cat is-${f.category}">${CAT_LABEL[f.category]}</span>
+      <span class="attn">${f.attention_score}</span>
+    </div>
+    <div class="name">${escape(f.title)}</div>
+    <div class="stats">
+      <span>EL <strong>${fmtUsd(f.dollar_impact_usd * f.probability)}</strong></span>
+      <span class="lk is-${f.likelihood_bucket}">${f.likelihood_bucket}</span>
+    </div>
+  </div>
+`).join('');
+</script>
+</body>
+</html>

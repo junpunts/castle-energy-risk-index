@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>04 · Report — Castle Energy Risk</title>
+<link rel="stylesheet" href="../assets/css/colors_and_type.css">
+<style>
+  :root { --hair: 1px solid rgba(24,24,24,0.18); --rule: 1px solid var(--fg); }
+  html, body { margin: 0; background: var(--castle-paper); color: var(--fg);
+               font-family: var(--font-body); font-size: 14px; line-height: 1.55; }
+  a { color: inherit; text-decoration: none; }
+
+  .top { display: flex; justify-content: space-between; align-items: center;
+         padding: 12px 32px; background: var(--castle-bone);
+         font-family: var(--font-mono); font-size: 10px;
+         letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+         border-bottom: var(--hair); }
+  .top a:hover { color: var(--fg); }
+
+  /* Outer document — feels like a printed page */
+  .doc {
+    max-width: 1024px; margin: 24px auto;
+    background: var(--castle-bone);
+    border: var(--hair);
+    padding: 0;
+  }
+
+  /* Running header */
+  .running {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    padding: 16px 48px; border-bottom: var(--rule);
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .running .l { text-align: left; }
+  .running .c { text-align: center; }
+  .running .r { text-align: right; }
+  .running strong { color: var(--fg); font-weight: 700; }
+
+  /* Title block */
+  .title-block { padding: 56px 64px 48px; border-bottom: var(--hair); text-align: left; }
+  .title-block .doctype {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.4em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .title-block h1 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(36px, 4.6vw, 56px); line-height: 1.0;
+    letter-spacing: -0.02em; margin: 16px 0 24px; max-width: 760px;
+  }
+  .title-block .stamp {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    border-top: var(--hair); padding-top: 16px;
+  }
+  .title-block .stamp > div { padding-right: 16px; }
+  .title-block .stamp .l { font-family: var(--font-mono); font-size: 10px;
+                           font-weight: 600; letter-spacing: 0.3em;
+                           text-transform: uppercase; color: var(--fg-3); }
+  .title-block .stamp .v { font-family: var(--font-display); font-size: 22px;
+                           font-weight: 400; letter-spacing: -0.01em;
+                           margin-top: 6px; font-variant-numeric: tabular-nums; }
+
+  /* Table of contents */
+  .toc { padding: 32px 64px; border-bottom: var(--hair); }
+  .toc-head {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.4em; text-transform: uppercase; color: var(--fg-3);
+    margin-bottom: 16px;
+  }
+  .toc-row {
+    display: grid; grid-template-columns: 60px 1fr auto;
+    gap: 24px; padding: 10px 0; border-bottom: var(--hair);
+    align-items: baseline;
+  }
+  .toc-row:last-child { border-bottom: none; }
+  .toc-row .n { font-family: var(--font-mono); font-size: 11px;
+                font-weight: 700; letter-spacing: 0.25em;
+                color: var(--fg); }
+  .toc-row .t { font-family: var(--font-display); font-size: 17px;
+                letter-spacing: -0.01em; font-weight: 400; }
+  .toc-row .p { font-family: var(--font-mono); font-size: 11px;
+                color: var(--fg-3); font-variant-numeric: tabular-nums; }
+
+  /* Sections */
+  section.body { padding: 48px 64px; border-bottom: var(--hair); }
+  section.body:last-of-type { border-bottom: none; }
+  .sec-head {
+    display: grid; grid-template-columns: 60px 1fr;
+    gap: 24px; align-items: baseline;
+    border-bottom: 2px solid var(--fg); padding-bottom: 8px; margin-bottom: 24px;
+  }
+  .sec-head .n {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.3em; color: var(--fg);
+  }
+  .sec-head h2 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: 28px; line-height: 1.1; letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .sec-head .meta {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+    margin-top: 4px;
+  }
+
+  /* §I — thesis */
+  .thesis-block { display: grid; grid-template-columns: 60px 1fr; gap: 24px; }
+  .thesis-block .marker {
+    font-family: var(--font-display); font-size: 60px; line-height: 0.85;
+    color: var(--fg-3); letter-spacing: -0.03em;
+  }
+  .thesis-block p {
+    font-family: var(--font-display); font-size: 22px; line-height: 1.45;
+    letter-spacing: -0.01em; color: var(--fg); margin: 0;
+  }
+  .thesis-headline {
+    margin-top: 24px; margin-left: 84px;
+    font-family: var(--font-body); font-size: 15px; line-height: 1.7;
+    color: var(--fg-2); max-width: 760px;
+  }
+
+  /* §II — calendar table */
+  .cal-table { display: grid; grid-template-columns: 60px 90px 110px 1fr 180px;
+               gap: 0; border-top: 1px solid var(--fg);
+               border-bottom: 1px solid var(--fg); }
+  .cal-table .h, .cal-table .c {
+    padding: 12px 12px; border-right: var(--hair);
+    border-bottom: var(--hair);
+  }
+  .cal-table .h:last-child, .cal-table .c:last-child { border-right: none; }
+  .cal-table .h {
+    font-family: var(--font-mono); font-size: 10px;
+    font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--fg-3); background: var(--castle-mist);
+  }
+  .cal-table .c {
+    font-family: var(--font-body); font-size: 13px; line-height: 1.45;
+    background: var(--castle-bone);
+  }
+  .cal-table .c.n { font-family: var(--font-mono); font-weight: 700;
+                    font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+  .cal-table .c.d { font-family: var(--font-mono); font-variant-numeric: tabular-nums;
+                    letter-spacing: -0.01em; color: var(--fg-2); }
+  .cal-table .c .kind {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    padding: 3px 7px; border: 1px solid var(--border); color: var(--fg-2);
+  }
+  .cal-table .c .label { color: var(--fg); line-height: 1.4; }
+  .cal-table .c .detail { font-size: 11px; color: var(--fg-3); margin-top: 4px; line-height: 1.4; }
+  .cal-table .c .chips { display: flex; gap: 4px; flex-wrap: wrap; }
+  .cal-table .c .chips span {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    border: 1px solid var(--border); padding: 3px 6px; color: var(--fg-3);
+  }
+
+  /* §III — composite table */
+  .composite-table { width: 100%; border-collapse: collapse;
+                     font-variant-numeric: tabular-nums; }
+  .composite-table th {
+    text-align: left; font-family: var(--font-mono);
+    font-size: 10px; font-weight: 600; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--fg-3);
+    padding: 10px 12px; border-bottom: 1px solid var(--fg);
+  }
+  .composite-table th:nth-child(n+3) { text-align: right; }
+  .composite-table td {
+    padding: 14px 12px; border-bottom: var(--hair);
+    vertical-align: middle;
+  }
+  .composite-table td:nth-child(n+3) { text-align: right;
+                                        font-family: var(--font-mono); }
+  .composite-table .pname { font-family: var(--font-display); font-size: 17px;
+                            letter-spacing: -0.01em; color: var(--fg); }
+  .composite-table .pmeta { font-size: 11px; color: var(--fg-3);
+                            font-family: var(--font-body); margin-top: 2px;
+                            letter-spacing: 0; }
+  .composite-table .composite {
+    font-family: var(--font-display); font-size: 28px; line-height: 1;
+    letter-spacing: -0.02em; font-weight: 400;
+  }
+  .composite-table .bar { display: flex; height: 6px; border: var(--hair);
+                          width: 180px; margin-left: auto; }
+  .composite-table .bar i { display: block; height: 100%; }
+
+  /* §IV — top exposures list */
+  .exp-list { }
+  .exp-row {
+    display: grid; grid-template-columns: 32px 1fr 110px 90px 90px;
+    gap: 24px; padding: 14px 0; border-bottom: var(--hair); align-items: baseline;
+  }
+  .exp-row:first-child { border-top: 1px solid var(--fg); padding-top: 16px; }
+  .exp-row .n { font-family: var(--font-mono); font-size: 11px;
+                font-weight: 700; letter-spacing: 0.2em; color: var(--fg-3); }
+  .exp-row .t {
+    font-family: var(--font-display); font-size: 17px; letter-spacing: -0.01em; color: var(--fg);
+  }
+  .exp-row .cit { font-family: var(--font-mono); font-size: 10px;
+                  letter-spacing: -0.01em; color: var(--fg-3); margin-top: 4px; }
+  .exp-row .lk {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    border: 1px solid var(--border); padding: 4px 8px; align-self: center;
+    color: var(--fg-2); text-align: center;
+  }
+  .exp-row .lk.is-low { color: #395938; border-color: #395938; }
+  .exp-row .lk.is-medium { color: #3A5C9A; border-color: #3A5C9A; }
+  .exp-row .lk.is-high { background: #8B2A1C; color: var(--castle-bone); border-color: #8B2A1C; }
+  .exp-row .num { font-family: var(--font-mono); font-variant-numeric: tabular-nums;
+                  font-weight: 700; font-size: 14px; text-align: right;
+                  letter-spacing: -0.01em; }
+
+  /* Footer / disclaimer */
+  .footer {
+    padding: 32px 64px; border-top: 2px solid var(--fg);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .footer .disclaimer { font-size: 9px; line-height: 1.6; letter-spacing: 0.15em;
+                        color: var(--fg-3); text-transform: none; }
+
+  @media (max-width: 768px) {
+    .doc { margin: 0; border: none; }
+    .title-block, .toc, section.body, .footer { padding-left: 24px; padding-right: 24px; }
+    .title-block .stamp { grid-template-columns: 1fr 1fr; gap: 16px; }
+    .cal-table { grid-template-columns: 50px 1fr; }
+    .cal-table .h:nth-child(n+3), .cal-table .c:nth-child(n+3) { grid-column: 2; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <a href="index.html">← All concepts</a>
+  <span>04 · Report</span>
+  <a href="../index.html">Live brief →</a>
+</div>
+
+<article class="doc">
+  <header class="running">
+    <span class="l">Castle Technologies</span>
+    <span class="c"><strong>Energy Risk · Weekly Observations</strong></span>
+    <span class="r" id="hdr-issue">Vol. I · No. XLI</span>
+  </header>
+
+  <div class="title-block">
+    <div class="doctype">Castle Brief · for renewables principals</div>
+    <h1 id="title-h1"></h1>
+    <div class="stamp">
+      <div><div class="l">Date issued</div><div class="v" id="stamp-date"></div></div>
+      <div><div class="l">Composite read</div><div class="v" id="stamp-score"></div></div>
+      <div><div class="l">Capex tracked</div><div class="v" id="stamp-capex"></div></div>
+      <div><div class="l">Risks tracked</div><div class="v" id="stamp-risks"></div></div>
+    </div>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-head">Contents</div>
+    <div class="toc-row"><span class="n">§ I</span><span class="t">Thesis</span><span class="p">p. 1</span></div>
+    <div class="toc-row"><span class="n">§ II</span><span class="t">Catalyst calendar</span><span class="p">p. 1</span></div>
+    <div class="toc-row"><span class="n">§ III</span><span class="t">Portfolio composite</span><span class="p">p. 2</span></div>
+    <div class="toc-row"><span class="n">§ IV</span><span class="t">Top exposures</span><span class="p">p. 2</span></div>
+    <div class="toc-row"><span class="n">§ V</span><span class="t">Methodology &amp; disclaimer</span><span class="p">p. 3</span></div>
+  </nav>
+
+  <section class="body">
+    <div class="sec-head"><span class="n">§ I</span><div><h2>Thesis</h2><div class="meta">Week's view · Castle Investment Research</div></div></div>
+    <div class="thesis-block">
+      <div class="marker">¶</div>
+      <p id="thesis"></p>
+    </div>
+    <div class="thesis-headline" id="thesis-headline"></div>
+  </section>
+
+  <section class="body">
+    <div class="sec-head"><span class="n">§ II</span><div><h2>Catalyst calendar</h2><div class="meta" id="cal-meta"></div></div></div>
+    <div class="cal-table" id="cal-table">
+      <div class="h">Date</div>
+      <div class="h">In</div>
+      <div class="h">Kind</div>
+      <div class="h">Event</div>
+      <div class="h">Affected</div>
+    </div>
+  </section>
+
+  <section class="body">
+    <div class="sec-head"><span class="n">§ III</span><div><h2>Portfolio composite</h2><div class="meta">Weighted 35 / 25 / 25 / 15</div></div></div>
+    <table class="composite-table" id="comp-table">
+      <thead><tr>
+        <th>Project</th><th></th><th>Capex</th><th>Decomposition</th><th>Composite</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section class="body">
+    <div class="sec-head"><span class="n">§ IV</span><div><h2>Top exposures</h2><div class="meta">Ranked by attention × expected loss</div></div></div>
+    <div class="exp-list" id="exp-list"></div>
+  </section>
+
+  <footer class="footer">
+    <div>
+      <div>Castle Technologies</div>
+      <div style="margin-top:4px">Energy Risk Observations</div>
+    </div>
+    <div class="disclaimer">
+      For informational purposes only. Not investment advice. Risk estimates derive from a combination of seeded project data, Claude-generated exposure mapping, and live data pulls from Congress.gov, the Federal Register, and Kalshi public read endpoints. See § V for full methodology.
+    </div>
+  </footer>
+</article>
+
+<script type="module">
+import { loadBundle, escape, fmtUsd, fmtPct, MONTH, MONTH_LONG, CAT_COLOR, CAT_LABEL, rankedFactors } from './_shared.js';
+const { bundle, projects } = await loadBundle();
+
+const totalCapex = projects.reduce((s, p) => s + p.capex_usd, 0);
+const composite = Math.round(projects.reduce((s, p) => s + bundle.scores.find(x => x.project_id === p.id).composite * p.capex_usd, 0) / totalCapex);
+
+document.getElementById('title-h1').textContent = bundle.observation.headline;
+document.getElementById('stamp-date').textContent = bundle.observation.week_label.replace('Week of ', '');
+document.getElementById('stamp-score').textContent = composite + '/100';
+document.getElementById('stamp-capex').textContent = fmtUsd(totalCapex);
+document.getElementById('stamp-risks').textContent = bundle.factors.length;
+
+document.getElementById('thesis').textContent = bundle.observation.thesis;
+document.getElementById('thesis-headline').textContent = `Top tracked exposure this week: ${rankedFactors(bundle, 1)[0]?.title || ''}.`;
+
+// Calendar table
+const cals = bundle.catalysts || [];
+document.getElementById('cal-meta').textContent = `${cals.length} entries · live from Federal Register + Kalshi`;
+const projectMap = new Map(projects.map(p => [p.id, p]));
+const calTbl = document.getElementById('cal-table');
+cals.forEach(c => {
+  const dt = new Date(c.date + (c.date.length === 10 ? 'T12:00:00Z' : ''));
+  const kind = c.kind === 'market' ? 'Kalshi resolution' : c.kind === 'rule' ? 'Rule effective' : 'Comments close';
+  const chips = (c.affected_project_ids||[]).map(id => {
+    const p = projectMap.get(id); return p ? `<span>${escape(p.name.split(' ')[0])}</span>` : '';
+  }).join('');
+  calTbl.insertAdjacentHTML('beforeend', `
+    <div class="c n">${dt.getUTCDate()} ${MONTH[dt.getUTCMonth()]} '${String(dt.getUTCFullYear()).slice(2)}</div>
+    <div class="c d">+${c.day_offset}d</div>
+    <div class="c"><span class="kind">${kind}</span></div>
+    <div class="c"><div class="label">${escape(c.label)}</div>${c.detail ? `<div class="detail">${escape(c.detail)}</div>` : ''}</div>
+    <div class="c"><div class="chips">${chips}</div></div>
+  `);
+});
+
+// Composite table
+const tbody = document.querySelector('#comp-table tbody');
+const sortedProjs = projects.slice().sort((a,b) => bundle.scores.find(s=>s.project_id===b.id).composite - bundle.scores.find(s=>s.project_id===a.id).composite);
+tbody.innerHTML = sortedProjs.map(p => {
+  const sc = bundle.scores.find(s => s.project_id === p.id);
+  const total = sc.sub_scores.reduce((a, s) => a + s.contribution, 0);
+  const bar = sc.sub_scores.map(s => `<i style="background:${CAT_COLOR[s.category]};width:${(s.contribution/total*100).toFixed(1)}%"></i>`).join('');
+  return `<tr>
+    <td><div class="pname">${escape(p.name)}</div><div class="pmeta">${escape(p.technology)}</div></td>
+    <td><div class="pmeta">${escape(p.location)} · ${escape(p.capacity_label)}</div></td>
+    <td>${fmtUsd(p.capex_usd)}</td>
+    <td><div class="bar">${bar}</div></td>
+    <td><span class="composite">${sc.composite}</span></td>
+  </tr>`;
+}).join('');
+
+// Top exposures
+const ranked = rankedFactors(bundle, 10);
+document.getElementById('exp-list').innerHTML = ranked.map((f, i) => {
+  const p = projectMap.get(f.project_id);
+  return `<div class="exp-row">
+    <span class="n">${String(i + 1).padStart(2, '0')}</span>
+    <div>
+      <div class="t">${escape(f.title)}</div>
+      <div class="cit">${escape(p?.name || '')} · ${escape(f.citation)}</div>
+    </div>
+    <span class="lk is-${f.likelihood_bucket}">${f.likelihood_bucket}</span>
+    <span class="num">${f.attention_score}</span>
+    <span class="num">${fmtUsd(f.dollar_impact_usd * f.probability)}</span>
+  </div>`;
+}).join('');
+</script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>01 · Broadsheet — Castle Energy Risk</title>
+<link rel="stylesheet" href="../assets/css/colors_and_type.css">
+<style>
+  :root { --rule: 1px solid var(--fg); --hair: 1px solid rgba(24,24,24,0.18); }
+  html, body { margin: 0; background: var(--castle-bone); color: var(--fg); font-family: var(--font-body); }
+  body { font-feature-settings: 'liga' 1, 'kern' 1; }
+  a { color: inherit; text-decoration: none; }
+
+  .top { display: flex; justify-content: space-between; align-items: center;
+         padding: 14px 48px; font-family: var(--font-mono); font-size: 10px;
+         letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+         border-bottom: var(--hair); }
+  .top a:hover { color: var(--fg); }
+
+  .page { max-width: 1280px; margin: 0 auto; padding: 48px 48px 96px; }
+
+  /* ─── MASTHEAD ───────────────────────────────────────── */
+  .masthead { text-align: center; border-bottom: var(--rule); padding-bottom: 24px; }
+  .masthead .crest { font-family: var(--font-display); font-size: 12px;
+                     letter-spacing: 0.5em; text-transform: uppercase; color: var(--fg-3); }
+  .masthead h1 { font-family: var(--font-display); font-weight: 400;
+                 font-size: clamp(72px, 11vw, 144px); line-height: 0.92;
+                 letter-spacing: -0.02em; margin: 6px 0; }
+  .masthead h1 em { font-style: italic; }
+  .masthead .deck { font-family: var(--font-display); font-style: italic;
+                    font-size: clamp(15px, 1.6vw, 19px); line-height: 1.4;
+                    color: var(--fg-2); max-width: 720px; margin: 14px auto 0; }
+  .masthead .meta { font-family: var(--font-mono); font-size: 10px;
+                    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+                    margin-top: 22px; display: flex; justify-content: center; gap: 32px; }
+  .masthead .meta strong { color: var(--fg); font-weight: 700; }
+
+  /* ─── BYLINE STRIP ───────────────────────────────────── */
+  .byline { display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 0; border-bottom: var(--hair);
+            font-family: var(--font-mono); font-size: 10px;
+            letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3); }
+  .byline .composite { color: var(--fg); font-size: 12px; }
+  .byline .composite strong { font-family: var(--font-display); font-size: 22px;
+                              letter-spacing: -0.01em; color: var(--fg);
+                              margin-left: 8px; font-variant-numeric: tabular-nums; }
+
+  /* ─── THREE-COLUMN BODY ──────────────────────────────── */
+  .body3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;
+           padding: 36px 0; border-bottom: var(--rule); }
+  .body3 .col { border-right: var(--hair); padding-right: 32px; }
+  .body3 .col:last-child { border-right: none; padding-right: 0; }
+  .body3 h2 { font-family: var(--font-mono); font-size: 10px;
+              font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;
+              color: var(--fg-3); margin: 0 0 14px; padding-bottom: 8px;
+              border-bottom: var(--hair); }
+  .body3 p { font-size: 14.5px; line-height: 1.7; color: var(--fg); margin: 0 0 14px;
+             font-family: var(--font-body); }
+  .body3 .thesis p::first-letter {
+    font-family: var(--font-display); font-size: 64px;
+    float: left; line-height: 0.92; padding: 4px 10px 0 0; color: var(--fg);
+    font-style: normal;
+  }
+  .body3 .thesis p:first-of-type { padding-top: 2px; }
+
+  .ast { text-align: center; font-family: var(--font-display); font-size: 18px;
+         color: var(--fg-3); padding: 16px 0 4px; letter-spacing: 1em; }
+
+  /* ─── DIARY (catalyst entries) ───────────────────────── */
+  .diary article { padding: 12px 0; border-bottom: var(--hair); }
+  .diary article:last-child { border-bottom: none; }
+  .diary .when { font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+                 letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+                 display: flex; justify-content: space-between; margin-bottom: 4px; }
+  .diary .when .day { color: var(--fg); font-family: var(--font-display);
+                      font-size: 18px; letter-spacing: -0.01em; font-weight: 400;
+                      font-variant-numeric: tabular-nums; }
+  .diary .label { font-size: 14px; line-height: 1.45; color: var(--fg); margin: 4px 0 4px; }
+  .diary .detail { font-size: 11px; color: var(--fg-3); line-height: 1.45; }
+
+  /* ─── MARKET TABLE (composite by project, columnar) ──── */
+  .market { padding: 32px 0; }
+  .market table { width: 100%; border-collapse: collapse; font-family: var(--font-mono);
+                  font-size: 13px; }
+  .market th { text-align: left; font-size: 10px; letter-spacing: 0.25em;
+               text-transform: uppercase; color: var(--fg-3); font-weight: 600;
+               padding: 10px 12px; border-bottom: var(--rule); }
+  .market th:last-child { text-align: right; }
+  .market td { padding: 14px 12px; border-bottom: var(--hair); font-variant-numeric: tabular-nums; }
+  .market td:last-child { text-align: right; }
+  .market td .pname { font-family: var(--font-display); font-size: 17px;
+                      letter-spacing: -0.01em; font-weight: 400; color: var(--fg);
+                      display: block; line-height: 1.2; margin-bottom: 2px; }
+  .market td .pmeta { font-family: var(--font-body); font-size: 12px; color: var(--fg-3);
+                      font-variant-numeric: normal; letter-spacing: 0; }
+  .market td .composite { font-family: var(--font-display); font-size: 36px;
+                          letter-spacing: -0.02em; font-weight: 400; }
+  .market td .bar { display: flex; height: 8px; border: var(--hair);
+                    width: 160px; margin-left: auto; }
+  .market td .bar i { display: block; height: 100%; }
+
+  /* ─── FOOTER ─────────────────────────────────────────── */
+  .colophon { padding: 32px 0 0; display: flex; justify-content: space-between;
+              align-items: baseline; border-top: var(--hair); margin-top: 32px;
+              font-family: var(--font-mono); font-size: 10px;
+              letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3); }
+
+  @media (max-width: 900px) {
+    .body3 { grid-template-columns: 1fr; }
+    .body3 .col { border-right: none; border-bottom: var(--hair); padding: 0 0 24px; }
+  }
+</style>
+</head>
+<body class="is-loading">
+
+<div class="top">
+  <a href="index.html">← All concepts</a>
+  <span>01 · Broadsheet</span>
+  <a href="../index.html">Live brief →</a>
+</div>
+
+<div class="page">
+  <header class="masthead">
+    <div class="crest">Castle · Energy · Risk · Observations</div>
+    <h1><em>The Castle Observer</em></h1>
+    <div class="deck" id="deck"></div>
+    <div class="meta" id="meta"></div>
+  </header>
+
+  <div class="byline">
+    <span id="byline-date"></span>
+    <span class="composite">Composite read <strong id="byline-score"></strong> <span style="color:var(--fg-3);font-size:11px;letter-spacing:0.3em">· capex weighted</span></span>
+  </div>
+
+  <section class="body3">
+    <div class="col thesis">
+      <h2>Editor's Thesis</h2>
+      <p id="thesis"></p>
+    </div>
+    <div class="col diary">
+      <h2>Calendar · Near</h2>
+      <div id="cal-near"></div>
+    </div>
+    <div class="col diary">
+      <h2>Calendar · Beyond</h2>
+      <div id="cal-far"></div>
+    </div>
+  </section>
+
+  <div class="ast">⁂</div>
+
+  <section class="market">
+    <h2 style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--fg-3);margin:0 0 12px">Portfolio · Composite Scores</h2>
+    <table id="market-table">
+      <thead><tr>
+        <th>Project</th>
+        <th>Tech · Location</th>
+        <th>Capex</th>
+        <th>Decomposition</th>
+        <th>Composite</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <div class="colophon">
+    <span>Castle Technologies · Set in Hedvig Letters Serif, Geist, and Geist Mono</span>
+    <span>For informational purposes only</span>
+  </div>
+</div>
+
+<script type="module">
+import { loadBundle, escape, fmtUsd, MONTH, CAT_COLOR } from './_shared.js';
+const { bundle, projects } = await loadBundle();
+const composite = Math.round(projects.reduce((s, p) => s + bundle.scores.find(x => x.project_id === p.id).composite * p.capex_usd, 0) / projects.reduce((s, p) => s + p.capex_usd, 0));
+
+document.getElementById('deck').textContent = bundle.observation.headline.replace(/\.$/, '') + '.';
+document.getElementById('meta').innerHTML = `
+  <span>${escape(bundle.observation.week_label)}</span>
+  <span>Vol. <strong>I</strong> · No. <strong>XLI</strong></span>
+  <span><strong>${projects.length}</strong> projects · <strong>${fmtUsd(projects.reduce((s,p)=>s+p.capex_usd,0))}</strong></span>
+`;
+document.getElementById('byline-date').textContent = bundle.observation.week_label;
+document.getElementById('byline-score').textContent = composite + '/100';
+document.getElementById('thesis').textContent = bundle.observation.thesis;
+
+// Calendar — split into near (≤60d) and beyond
+const cals = bundle.catalysts || [];
+const near = cals.filter(c => c.day_offset <= 60);
+const far  = cals.filter(c => c.day_offset > 60);
+function renderDiary(items) {
+  if (!items.length) return '<p style="font-size:13px;color:var(--fg-3);font-style:italic">No entries for this window.</p>';
+  return items.map(c => {
+    const dt = new Date(c.date + (c.date.length === 10 ? 'T12:00:00Z' : ''));
+    const kind = c.kind === 'market' ? 'Market resolves' : c.kind === 'rule' ? 'Rule effective' : 'Comments close';
+    return `<article>
+      <div class="when"><span>${kind}</span><span class="day">${dt.getUTCDate()} ${MONTH[dt.getUTCMonth()]}</span></div>
+      <p class="label">${escape(c.label)}</p>
+      ${c.detail ? `<div class="detail">${escape(c.detail)}</div>` : ''}
+    </article>`;
+  }).join('');
+}
+document.getElementById('cal-near').innerHTML = renderDiary(near);
+document.getElementById('cal-far').innerHTML = renderDiary(far);
+
+// Market table
+const tbody = document.querySelector('#market-table tbody');
+const ranked = projects.slice().sort((a, b) =>
+  bundle.scores.find(s => s.project_id === b.id).composite -
+  bundle.scores.find(s => s.project_id === a.id).composite
+);
+tbody.innerHTML = ranked.map(p => {
+  const sc = bundle.scores.find(s => s.project_id === p.id);
+  const total = sc.sub_scores.reduce((a, s) => a + s.contribution, 0);
+  const bar = sc.sub_scores.map(s => `<i style="background:${CAT_COLOR[s.category]};width:${(s.contribution / total * 100).toFixed(1)}%"></i>`).join('');
+  return `<tr>
+    <td><span class="pname">${escape(p.name)}</span></td>
+    <td><span class="pmeta">${escape(p.technology)} · ${escape(p.location)}</span></td>
+    <td>${fmtUsd(p.capex_usd)}</td>
+    <td><div class="bar">${bar}</div></td>
+    <td><span class="composite">${sc.composite}</span></td>
+  </tr>`;
+}).join('');
+</script>
+</body>
+</html>

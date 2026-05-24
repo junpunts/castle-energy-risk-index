@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>05 · Almanac — Castle Energy Risk</title>
+<link rel="stylesheet" href="../assets/css/colors_and_type.css">
+<style>
+  :root {
+    --hair: 1px solid rgba(24,24,24,0.18);
+    --rule: 1px solid var(--fg);
+  }
+  html, body {
+    margin: 0; background: var(--castle-bone); color: var(--fg);
+    font-family: var(--font-body); font-size: 15px; line-height: 1.7;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  .top { display: flex; justify-content: space-between; align-items: center;
+         padding: 14px 32px; font-family: var(--font-mono); font-size: 10px;
+         letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+         border-bottom: var(--hair); }
+  .top a:hover { color: var(--fg); }
+
+  main {
+    max-width: 720px; margin: 0 auto; padding: 96px 32px 120px;
+  }
+
+  /* ─── DATE TITLE ────────────────────────────────────── */
+  .date-block { text-align: center; padding-bottom: 80px;
+                border-bottom: var(--rule); margin-bottom: 80px; }
+  .date-block .weekday {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.5em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .date-block .day {
+    font-family: var(--font-display); font-size: clamp(140px, 22vw, 240px);
+    line-height: 0.85; letter-spacing: -0.05em; font-weight: 400;
+    color: var(--fg); margin: 18px 0 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .date-block .month-year {
+    font-family: var(--font-display); font-style: italic;
+    font-size: clamp(22px, 2.8vw, 30px); line-height: 1;
+    letter-spacing: -0.01em; color: var(--fg-2);
+  }
+  .date-block .roman {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.4em; text-transform: uppercase; color: var(--fg-3);
+    margin-top: 18px;
+  }
+
+  /* ─── HEADLINE ─────────────────────────────────────── */
+  .headline-row {
+    text-align: center; margin-bottom: 48px;
+  }
+  .headline-row .ornament {
+    font-family: var(--font-display); font-size: 16px;
+    letter-spacing: 1em; color: var(--fg-3); margin-bottom: 28px;
+  }
+  .headline-row h1 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(28px, 3.4vw, 40px); line-height: 1.2;
+    letter-spacing: -0.01em; margin: 0 0 32px;
+    text-wrap: balance;
+  }
+
+  /* ─── THESIS ────────────────────────────────────────── */
+  .thesis {
+    font-family: var(--font-display); font-style: italic;
+    font-size: 19px; line-height: 1.55; color: var(--fg);
+    letter-spacing: -0.005em;
+    text-align: justify; hyphens: auto;
+    margin-bottom: 80px;
+    text-indent: 2em;
+  }
+
+  /* ─── ALMANAC ENTRIES ─────────────────────────────── */
+  .almanac-head {
+    text-align: center; margin: 64px 0 32px;
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.5em; text-transform: uppercase; color: var(--fg-3);
+    padding-bottom: 16px; border-bottom: var(--hair);
+  }
+  .almanac-head .ornament { display: block; font-family: var(--font-display);
+                            font-size: 18px; letter-spacing: 0.7em;
+                            margin-bottom: 12px; color: var(--fg-3); }
+  .entry {
+    display: grid; grid-template-columns: 80px 1fr;
+    gap: 24px; padding: 18px 0; border-bottom: var(--hair);
+    align-items: baseline;
+  }
+  .entry .when {
+    font-family: var(--font-display); font-size: 24px;
+    letter-spacing: -0.02em; font-weight: 400; line-height: 1;
+    color: var(--fg); font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+  .entry .when small {
+    display: block; font-family: var(--font-mono); font-size: 9px;
+    font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--fg-3); margin-top: 6px;
+  }
+  .entry .body {
+    font-size: 14.5px; line-height: 1.55; color: var(--fg);
+  }
+  .entry .kind {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+    margin-bottom: 4px;
+  }
+  .entry .label { color: var(--fg); }
+  .entry .detail {
+    font-family: var(--font-display); font-style: italic;
+    font-size: 13px; color: var(--fg-3); margin-top: 6px; line-height: 1.5;
+  }
+
+  /* ─── COMPOSITE — small bar list ───────────────────── */
+  .composite-head { text-align: center; margin: 96px 0 32px;
+                    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+                    letter-spacing: 0.5em; text-transform: uppercase; color: var(--fg-3);
+                    padding-bottom: 16px; border-bottom: var(--hair); }
+  .composite-head .ornament { display: block; font-family: var(--font-display);
+                              font-size: 18px; letter-spacing: 0.7em;
+                              margin-bottom: 12px; color: var(--fg-3); }
+  .comp-row {
+    display: grid; grid-template-columns: 1fr 200px 60px;
+    gap: 16px; padding: 14px 0; border-bottom: var(--hair);
+    align-items: center;
+  }
+  .comp-row .name {
+    font-family: var(--font-display); font-size: 17px;
+    letter-spacing: -0.01em; line-height: 1.25; color: var(--fg);
+  }
+  .comp-row .meta {
+    font-family: var(--font-mono); font-size: 9px;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--fg-3); display: block; margin-top: 2px;
+  }
+  .comp-row .bar { display: flex; height: 8px; border: var(--hair);
+                   border-radius: 0; }
+  .comp-row .bar i { display: block; height: 100%; }
+  .comp-row .score {
+    font-family: var(--font-display); font-size: 28px; font-weight: 400;
+    letter-spacing: -0.02em; line-height: 1; text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ─── COLOPHON ──────────────────────────────────────── */
+  .colophon {
+    margin-top: 96px; padding-top: 32px; border-top: var(--rule);
+    text-align: center;
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.4em; text-transform: uppercase; color: var(--fg-3);
+    line-height: 2.4;
+  }
+  .colophon em { font-family: var(--font-display); font-style: italic;
+                 color: var(--fg-2); text-transform: none; letter-spacing: -0.01em;
+                 font-size: 14px; }
+
+  @media (max-width: 600px) {
+    main { padding: 56px 24px 80px; }
+    .date-block .day { font-size: 120px; }
+    .entry { grid-template-columns: 64px 1fr; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <a href="index.html">← All concepts</a>
+  <span>05 · Almanac</span>
+  <a href="../index.html">Live brief →</a>
+</div>
+
+<main>
+  <header class="date-block">
+    <div class="weekday" id="weekday"></div>
+    <div class="day" id="day"></div>
+    <div class="month-year" id="month-year"></div>
+    <div class="roman" id="roman"></div>
+  </header>
+
+  <div class="headline-row">
+    <div class="ornament">⁂</div>
+    <h1 id="headline"></h1>
+    <div class="ornament">·  ·  ·</div>
+  </div>
+
+  <p class="thesis" id="thesis"></p>
+
+  <div class="almanac-head">
+    <span class="ornament">❡</span>
+    The week ahead · in due course
+  </div>
+  <div id="entries"></div>
+
+  <div class="composite-head">
+    <span class="ornament">❡</span>
+    The portfolio · this morning
+  </div>
+  <div id="composite"></div>
+
+  <div class="colophon">
+    Castle Technologies <em>·</em> Energy Risk Observations<br>
+    <span id="colo-issue"></span>
+  </div>
+</main>
+
+<script type="module">
+import { loadBundle, escape, fmtUsd, MONTH_LONG, ROMAN, CAT_COLOR } from './_shared.js';
+const { bundle, projects } = await loadBundle();
+
+const now = new Date();
+const weekdays = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+function toRomanNumber(n) {
+  const map = [['M',1000],['CM',900],['D',500],['CD',400],['C',100],['XC',90],['L',50],['XL',40],['X',10],['IX',9],['V',5],['IV',4],['I',1]];
+  let s = ''; for (const [r, v] of map) while (n >= v) { s += r; n -= v; }
+  return s;
+}
+
+document.getElementById('weekday').textContent = weekdays[now.getDay()];
+document.getElementById('day').textContent = now.getDate();
+document.getElementById('month-year').textContent = `${MONTH_LONG[now.getMonth()]} · ${toRomanNumber(now.getFullYear())}`;
+document.getElementById('roman').textContent = `Week ${ROMAN[Math.floor(now.getDate() / 7)] || ''} of ${MONTH_LONG[now.getMonth()]}`;
+
+document.getElementById('headline').textContent = bundle.observation.headline;
+document.getElementById('thesis').textContent = bundle.observation.thesis;
+
+const cals = bundle.catalysts || [];
+const projectMap = new Map(projects.map(p => [p.id, p]));
+document.getElementById('entries').innerHTML = cals.map(c => {
+  const dt = new Date(c.date + (c.date.length === 10 ? 'T12:00:00Z' : ''));
+  const ymd = `${dt.getUTCDate()} ${MONTH_LONG[dt.getUTCMonth()].slice(0,3)}`;
+  const kind = c.kind === 'market' ? 'In the markets' : c.kind === 'rule' ? 'In rule' : 'In comment';
+  const when = c.day_offset === 0 ? 'today'
+    : c.day_offset === 1 ? 'tomorrow'
+    : c.day_offset < 7 ? `in ${c.day_offset} days`
+    : c.day_offset < 60 ? `in ${Math.round(c.day_offset/7)} weeks`
+    : `in ${Math.round(c.day_offset/30)} months`;
+  return `<a class="entry" href="${escape(c.url || '#')}" ${c.url ? 'target="_blank"' : ''}>
+    <div class="when">${ymd}<small>${when}</small></div>
+    <div class="body">
+      <div class="kind">${kind}</div>
+      <div class="label">${escape(c.label)}</div>
+      ${c.detail ? `<div class="detail">${escape(c.detail)}</div>` : ''}
+    </div>
+  </a>`;
+}).join('');
+
+const sortedProjs = projects.slice().sort((a,b) => bundle.scores.find(s=>s.project_id===b.id).composite - bundle.scores.find(s=>s.project_id===a.id).composite);
+document.getElementById('composite').innerHTML = sortedProjs.map(p => {
+  const sc = bundle.scores.find(s => s.project_id === p.id);
+  const total = sc.sub_scores.reduce((a, s) => a + s.contribution, 0);
+  const bar = sc.sub_scores.map(s => `<i style="background:${CAT_COLOR[s.category]};width:${(s.contribution/total*100).toFixed(1)}%"></i>`).join('');
+  return `<a class="comp-row" href="../project.html?id=${encodeURIComponent(p.id)}">
+    <div>
+      <div class="name">${escape(p.name)}</div>
+      <span class="meta">${escape(p.technology)} · ${escape(p.capacity_label)}</span>
+    </div>
+    <div class="bar">${bar}</div>
+    <div class="score">${sc.composite}</div>
+  </a>`;
+}).join('');
+
+document.getElementById('colo-issue').textContent = `${bundle.observation.week_label} · No. ${toRomanNumber(41)}`;
+</script>
+</body>
+</html>

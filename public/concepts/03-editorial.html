@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>03 · Editorial — Castle Energy Risk</title>
+<link rel="stylesheet" href="../assets/css/colors_and_type.css">
+<style>
+  :root { --hair: 1px solid rgba(24,24,24,0.14); }
+  html, body { margin: 0; background: var(--castle-bone); color: var(--fg); font-family: var(--font-body); }
+  a { color: inherit; text-decoration: none; }
+
+  .top { display: flex; justify-content: space-between; align-items: center;
+         padding: 14px 48px; font-family: var(--font-mono); font-size: 10px;
+         letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+         border-bottom: var(--hair); background: var(--castle-bone); }
+  .top a:hover { color: var(--fg); }
+
+  /* ─── HERO ────────────────────────────────────────── */
+  .hero { position: relative; height: 78vh; min-height: 580px; background: var(--castle-ink); overflow: hidden; }
+  .hero img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; opacity: 0.62; mix-blend-mode: luminosity;
+  }
+  .hero::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(8,10,15,0.35) 0%, rgba(8,10,15,0.15) 40%, rgba(8,10,15,0.85) 100%);
+  }
+  .hero-content {
+    position: absolute; inset: 0; z-index: 2;
+    display: grid; grid-template-rows: auto 1fr auto;
+    padding: 48px 64px; color: var(--castle-bone);
+  }
+  .hero-crest {
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.4em; text-transform: uppercase;
+    color: rgba(245,245,240,0.7);
+  }
+  .hero-crest .brand { color: var(--castle-bone); font-weight: 700; }
+  .hero-title {
+    align-self: end; max-width: 1100px;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.4em; text-transform: uppercase;
+    color: rgba(245,245,240,0.7); margin-bottom: 24px;
+  }
+  .hero-h1 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(40px, 6.4vw, 88px); line-height: 1.0;
+    letter-spacing: -0.02em; margin: 0; color: var(--castle-bone);
+    text-wrap: balance;
+  }
+  .hero-h1 em { font-style: italic; color: rgba(245,245,240,0.85); }
+  .hero-bottom {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    border-top: 1px solid rgba(245,245,240,0.2); padding-top: 20px;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(245,245,240,0.7);
+  }
+  .hero-bottom .composite { color: var(--castle-bone); }
+  .hero-bottom .composite strong {
+    font-family: var(--font-display); font-size: 36px; font-weight: 400;
+    letter-spacing: -0.02em; color: var(--castle-bone); margin-left: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ─── ARTICLE BODY ──────────────────────────────────── */
+  .article { max-width: 1200px; margin: 0 auto; padding: 80px 48px 0; }
+  .lede-grid {
+    display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px;
+    padding-bottom: 80px; border-bottom: var(--hair);
+  }
+  .lede-meta {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .lede-meta div { padding: 12px 0; border-bottom: var(--hair); }
+  .lede-meta div:first-child { padding-top: 0; }
+  .lede-meta .val { color: var(--fg); font-family: var(--font-display);
+                    font-size: 22px; font-weight: 400; letter-spacing: -0.01em;
+                    text-transform: none; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .lede-thesis {
+    font-family: var(--font-display); font-size: 24px; line-height: 1.45;
+    letter-spacing: -0.01em; color: var(--fg);
+  }
+  .lede-thesis::first-letter {
+    font-size: 88px; float: left; line-height: 0.85;
+    padding: 8px 12px 0 0; color: var(--fg);
+  }
+
+  /* ─── PULL QUOTE ────────────────────────────────────── */
+  .pullquote {
+    padding: 80px 0; text-align: center; border-bottom: var(--hair);
+  }
+  .pullquote q {
+    font-family: var(--font-display); font-size: clamp(28px, 3.6vw, 42px);
+    line-height: 1.2; letter-spacing: -0.01em; font-style: italic;
+    quotes: none; display: block; max-width: 900px; margin: 0 auto 16px;
+    color: var(--fg);
+  }
+  .pullquote q::before { content: "“"; color: var(--accent-teal); }
+  .pullquote q::after  { content: "”"; color: var(--accent-teal); }
+  .pullquote .source {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.4em; text-transform: uppercase; color: var(--fg-3);
+  }
+
+  /* ─── CATALYSTS — horizontal scroll strip ────────────── */
+  .cal-section { padding: 80px 0; border-bottom: var(--hair); }
+  .section-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 32px; padding-bottom: 12px; border-bottom: var(--hair);
+  }
+  .section-head h2 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: 28px; line-height: 1; letter-spacing: -0.01em; margin: 0;
+  }
+  .section-head .meta {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+  }
+
+  .cal-strip {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 280px;
+    gap: 0; overflow-x: auto; overflow-y: hidden;
+    border-top: var(--hair); border-bottom: var(--hair);
+    margin: 0 -48px; padding: 0 48px;
+  }
+  .cal-card {
+    padding: 28px 24px; border-right: var(--hair);
+    background: var(--bg-card); display: flex; flex-direction: column;
+    min-height: 260px;
+  }
+  .cal-card:hover { background: var(--castle-paper); }
+  .cal-card .day {
+    font-family: var(--font-display); font-size: 72px; font-weight: 400;
+    line-height: 0.92; letter-spacing: -0.03em; color: var(--fg);
+    font-variant-numeric: tabular-nums;
+  }
+  .cal-card .ym {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--fg-3); margin-top: 4px;
+  }
+  .cal-card .delta {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent-teal);
+    margin: 16px 0 0; padding: 6px 10px; border: 1px solid var(--accent-teal);
+    display: inline-block; align-self: flex-start;
+  }
+  .cal-card .kind {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--fg-3); margin-top: 14px;
+  }
+  .cal-card .label {
+    font-family: var(--font-body); font-size: 14px; line-height: 1.4;
+    color: var(--fg); margin: 6px 0 0;
+  }
+  .cal-card .detail {
+    margin-top: auto; padding-top: 12px; border-top: var(--hair);
+    font-size: 11px; line-height: 1.4; color: var(--fg-3);
+  }
+
+  /* ─── PROJECTS — paired cover-style ─────────────────── */
+  .projects { padding: 80px 0; }
+  .project-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+    background: rgba(24,24,24,0.14);
+    border: var(--hair);
+  }
+  .project-card {
+    background: var(--castle-bone); padding: 32px;
+    display: grid; grid-template-columns: 1fr auto; gap: 24px;
+    align-items: start; min-height: 200px;
+  }
+  .project-card .pc-eyebrow {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+    margin-bottom: 12px;
+  }
+  .project-card .pc-name {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: 28px; line-height: 1.05; letter-spacing: -0.01em;
+    margin: 0 0 12px; color: var(--fg);
+  }
+  .project-card .pc-meta { font-size: 13px; color: var(--fg-3); line-height: 1.5; }
+  .project-card .pc-bar { display: flex; height: 4px; margin-top: 16px; }
+  .project-card .pc-bar i { display: block; height: 100%; }
+  .project-card .pc-score {
+    font-family: var(--font-display); font-size: 72px; line-height: 1;
+    letter-spacing: -0.03em; color: var(--fg); font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+
+  /* footer */
+  .colophon {
+    padding: 60px 48px 80px; max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: baseline;
+    border-top: 1px solid var(--fg);
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+  }
+
+  @media (max-width: 900px) {
+    .lede-grid { grid-template-columns: 1fr; gap: 32px; }
+    .project-grid { grid-template-columns: 1fr; }
+    .hero { height: 56vh; padding-inline: 0; }
+    .hero-content { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <a href="index.html">← All concepts</a>
+  <span>03 · Editorial</span>
+  <a href="../index.html">Live brief →</a>
+</div>
+
+<section class="hero">
+  <img src="../assets/img/hero-1.png" alt="">
+  <div class="hero-content">
+    <div class="hero-crest">
+      <span class="brand">Castle Quarterly</span>
+      <span id="hero-issue">Issue · No. XLI</span>
+    </div>
+    <div class="hero-title">
+      <div class="hero-eyebrow">Energy Risk Observations · <span id="hero-week"></span></div>
+      <h1 class="hero-h1" id="hero-headline"></h1>
+    </div>
+    <div class="hero-bottom">
+      <span><span id="hero-projects-count"></span> projects · <span id="hero-capex"></span> capex tracked</span>
+      <span class="composite">Composite read <strong id="hero-composite"></strong></span>
+    </div>
+  </div>
+</section>
+
+<div class="article">
+  <div class="lede-grid">
+    <aside class="lede-meta">
+      <div>Week<div class="val" id="meta-week"></div></div>
+      <div>High-likelihood risks<div class="val" id="meta-high"></div></div>
+      <div>Expected loss<div class="val" id="meta-el"></div></div>
+      <div>Catalysts &lt; 60 days<div class="val" id="meta-cal"></div></div>
+    </aside>
+    <p class="lede-thesis" id="thesis"></p>
+  </div>
+
+  <div class="pullquote">
+    <q id="pullquote"></q>
+    <div class="source">Castle Energy Risk · <span id="pull-source">Top tracked exposure</span></div>
+  </div>
+</div>
+
+<section class="cal-section">
+  <div class="article">
+    <div class="section-head">
+      <h2>The calendar.</h2>
+      <span class="meta">Live · Federal Register + Kalshi resolutions</span>
+    </div>
+  </div>
+  <div class="cal-strip" id="cal-strip"></div>
+</section>
+
+<div class="article">
+  <section class="projects">
+    <div class="section-head">
+      <h2>The portfolio.</h2>
+      <span class="meta">5 projects · ranked by composite</span>
+    </div>
+    <div class="project-grid" id="project-grid"></div>
+  </section>
+</div>
+
+<div class="colophon">
+  <span>Castle Technologies · For informational purposes only</span>
+  <span>Imagery · Midjourney via Unicorn Studio</span>
+</div>
+
+<script type="module">
+import { loadBundle, escape, fmtUsd, MONTH, MONTH_LONG, CAT_COLOR, rankedFactors } from './_shared.js';
+const { bundle, projects } = await loadBundle();
+
+const totalCapex = projects.reduce((s, p) => s + p.capex_usd, 0);
+const composite = Math.round(projects.reduce((s, p) => s + bundle.scores.find(x => x.project_id === p.id).composite * p.capex_usd, 0) / totalCapex);
+const totalEL = bundle.factors.reduce((s, f) => s + f.dollar_impact_usd * f.probability, 0);
+
+// Hero
+document.getElementById('hero-week').textContent = bundle.observation.week_label;
+document.getElementById('hero-headline').innerHTML =
+  bundle.observation.headline.replace(/(\$\d+M|\$\d+B|\d+%|EO \d+|§\d+\w?)/g, '<em>$1</em>');
+document.getElementById('hero-projects-count').textContent = projects.length;
+document.getElementById('hero-capex').textContent = fmtUsd(totalCapex);
+document.getElementById('hero-composite').textContent = composite;
+
+// Lede meta
+document.getElementById('meta-week').textContent = bundle.observation.week_label;
+document.getElementById('meta-high').textContent = `${bundle.factors.filter(f => f.likelihood_bucket==='high').length} of ${bundle.factors.length}`;
+document.getElementById('meta-el').textContent = fmtUsd(totalEL);
+document.getElementById('meta-cal').textContent = (bundle.catalysts || []).filter(c => c.day_offset <= 60).length;
+document.getElementById('thesis').textContent = bundle.observation.thesis;
+
+// Pull quote — use the top factor's our_view as the pulled quote
+const top = rankedFactors(bundle, 1)[0];
+if (top) {
+  document.getElementById('pullquote').textContent = top.our_view || top.description.split(/[.!?]/)[0] + '.';
+  document.getElementById('pull-source').textContent = top.title;
+}
+
+// Calendar strip
+const projectMap = new Map(projects.map(p => [p.id, p]));
+document.getElementById('cal-strip').innerHTML = (bundle.catalysts || []).map(c => {
+  const dt = new Date(c.date + (c.date.length === 10 ? 'T12:00:00Z' : ''));
+  const kind = c.kind === 'market' ? 'Kalshi resolution' : c.kind === 'rule' ? 'Rule takes effect' : 'Comment period';
+  return `<a class="cal-card" href="${escape(c.url || '#')}" ${c.url ? 'target="_blank"' : ''}>
+    <div class="day">${dt.getUTCDate()}</div>
+    <div class="ym">${MONTH[dt.getUTCMonth()]} · ${dt.getUTCFullYear()}</div>
+    <span class="delta">+${c.day_offset}d</span>
+    <div class="kind">${kind}</div>
+    <div class="label">${escape(c.label)}</div>
+    <div class="detail">${escape(c.detail || '—')}</div>
+  </a>`;
+}).join('');
+
+// Projects
+const sortedProjs = projects.slice().sort((a,b) => bundle.scores.find(s=>s.project_id===b.id).composite - bundle.scores.find(s=>s.project_id===a.id).composite);
+document.getElementById('project-grid').innerHTML = sortedProjs.map(p => {
+  const sc = bundle.scores.find(s => s.project_id === p.id);
+  const total = sc.sub_scores.reduce((a, s) => a + s.contribution, 0);
+  const bar = sc.sub_scores.map(s => `<i style="background:${CAT_COLOR[s.category]};width:${(s.contribution/total*100).toFixed(1)}%"></i>`).join('');
+  return `<a class="project-card" href="../project.html?id=${encodeURIComponent(p.id)}">
+    <div>
+      <div class="pc-eyebrow">${escape(p.technology)}</div>
+      <h3 class="pc-name">${escape(p.name)}</h3>
+      <div class="pc-meta">${escape(p.location)} · ${escape(p.capacity_label)} · COD ${escape(p.cod_quarter)} · ${fmtUsd(p.capex_usd)}</div>
+      <div class="pc-bar">${bar}</div>
+    </div>
+    <div class="pc-score">${sc.composite}</div>
+  </a>`;
+}).join('');
+</script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Concepts — Castle Energy Risk</title>
+<link rel="stylesheet" href="../assets/css/colors_and_type.css">
+<style>
+  body { background: var(--castle-bone); color: var(--fg); margin: 0; font-family: var(--font-body); }
+  main { max-width: 1200px; margin: 0 auto; padding: 64px 32px 96px; }
+  .eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+             letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3); }
+  h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(40px, 5vw, 64px);
+       line-height: 1.05; letter-spacing: -0.01em; margin: 12px 0 16px; }
+  p.lead { font-size: 17px; line-height: 1.6; color: var(--fg-2); max-width: 720px; margin: 0 0 48px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 24px; }
+  .card { display: block; padding: 0; background: var(--bg-card); border: 1px solid var(--border);
+          text-decoration: none; color: var(--fg); transition: border-color .2s; }
+  .card:hover { border-color: var(--border-strong); }
+  .card .preview {
+    height: 220px; border-bottom: 1px solid var(--border);
+    background: var(--castle-bone); display: flex; align-items: center; justify-content: center;
+    padding: 24px; overflow: hidden;
+  }
+  .card .body { padding: 20px 24px 24px; }
+  .card .num { font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+               letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3); }
+  .card h3 { font-family: var(--font-display); font-weight: 400; font-size: 22px; line-height: 1.2;
+             letter-spacing: -0.01em; margin: 6px 0 8px; }
+  .card .desc { font-size: 13px; color: var(--fg-3); line-height: 1.5; margin: 0; }
+  /* Preview snippets — quick visual hint of each concept's character */
+  .pv-broadsheet { font-family: var(--font-display); font-size: 36px; line-height: 1; letter-spacing: -0.01em; text-align: center; color: var(--fg); }
+  .pv-broadsheet small { display: block; font-size: 9px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3); margin-bottom: 12px; font-family: var(--font-mono); }
+  .pv-terminal { font-family: var(--font-mono); font-size: 11px; line-height: 1.6; color: var(--fg); width: 100%; }
+  .pv-terminal .row { display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); padding: 4px 0; }
+  .pv-terminal .row .num { color: var(--accent-teal); font-weight: 700; }
+  .pv-editorial { width: 100%; height: 100%; background: linear-gradient(180deg, rgba(36,96,117,0.18), transparent 60%);
+                  display: flex; flex-direction: column; justify-content: flex-end; }
+  .pv-editorial h4 { font-family: var(--font-display); font-size: 28px; line-height: 1; margin: 0; padding: 0 16px 16px; }
+  .pv-report { width: 100%; }
+  .pv-report .head { border-bottom: 2px solid var(--fg); padding-bottom: 8px; margin-bottom: 12px;
+                     font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+                     display: flex; justify-content: space-between; }
+  .pv-report .title { font-family: var(--font-display); font-size: 22px; line-height: 1.1; }
+  .pv-report .sect { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3); margin-top: 16px; padding: 4px 0; border-top: 1px solid var(--border); }
+  .pv-almanac { text-align: center; }
+  .pv-almanac .day { font-family: var(--font-display); font-size: 76px; line-height: 0.9; }
+  .pv-almanac .ym { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--fg-3); margin-top: 8px; }
+  .nav { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.25em;
+         text-transform: uppercase; color: var(--fg-3); }
+  .nav a { color: inherit; margin-right: 16px; }
+  .nav a:hover { color: var(--fg); }
+</style>
+</head>
+<body>
+<main>
+  <div class="nav"><a href="../index.html">← Back to live brief</a></div>
+  <span class="eyebrow" style="margin-top:32px;display:block">Castle Energy Risk · Design concepts</span>
+  <h1>Five takes on the weekly brief.</h1>
+  <p class="lead">Each concept renders the same live data — Claude-written headline + thesis, dated catalyst calendar, project composites — in a different visual register. Pick the one that best fits how a renewables CFO actually reads research.</p>
+
+  <div class="grid">
+    <a class="card" href="01-broadsheet.html">
+      <div class="preview"><div class="pv-broadsheet"><small>Castle Observations · No. XLI</small>Hedging the Unhedgeable.</div></div>
+      <div class="body">
+        <div class="num">01 · Broadsheet</div>
+        <h3>The morning paper.</h3>
+        <p class="desc">19th-century newspaper layout. Massive masthead, three-column body, drop caps, asterism dividers. Reads top-to-bottom, left-to-right like a broadsheet.</p>
+      </div>
+    </a>
+
+    <a class="card" href="02-terminal.html">
+      <div class="preview"><div class="pv-terminal">
+        <div class="row"><span>LONE STAR SOLAR I</span><span class="num">54</span></div>
+        <div class="row"><span>VINEYARD WIND II</span><span class="num">48</span></div>
+        <div class="row"><span>MOJAVE BESS</span><span class="num">48</span></div>
+        <div class="row"><span>PERMIAN H2 HUB</span><span class="num">47</span></div>
+        <div class="row"><span>I-95 EV NETWORK</span><span class="num">34</span></div>
+      </div></div>
+      <div class="body">
+        <div class="num">02 · Terminal</div>
+        <h3>The Bloomberg desk.</h3>
+        <p class="desc">Three-column dense layout — pinned project scores left, narrative center, top movers right. Geist Mono throughout. Information density over breathing room.</p>
+      </div>
+    </a>
+
+    <a class="card" href="03-editorial.html">
+      <div class="preview" style="padding:0;background:linear-gradient(135deg,#2a3636 0%,#4a5050 100%);position:relative">
+        <div style="position:absolute;inset:0;background:url(../../design-system/assets/castle-asset-1.png) center/cover;opacity:0.7;mix-blend-mode:luminosity"></div>
+        <div class="pv-editorial"><h4 style="color:var(--castle-bone);text-shadow:0 1px 8px rgba(0,0,0,0.4)">Castle Quarterly</h4></div>
+      </div>
+      <div class="body">
+        <div class="num">03 · Editorial</div>
+        <h3>The magazine cover.</h3>
+        <p class="desc">Dithered Midjourney hero, asymmetric headline/thesis grid, pull-quote callouts, horizontal catalyst strip. The most expressive — for the sales deck.</p>
+      </div>
+    </a>
+
+    <a class="card" href="04-report.html">
+      <div class="preview"><div class="pv-report">
+        <div class="head"><span>Castle / Energy / No. 41</span><span>Page 1 / 12</span></div>
+        <div class="title">Weekly Risk Observations</div>
+        <div class="sect">§ I · Thesis</div>
+        <div class="sect">§ II · Catalyst Calendar</div>
+        <div class="sect">§ III · Portfolio Composite</div>
+        <div class="sect">§ IV · Hedge Inventory</div>
+      </div></div>
+      <div class="body">
+        <div class="num">04 · Report</div>
+        <h3>The institutional fund letter.</h3>
+        <p class="desc">Document feel — running header with issue + page number, Roman-numeral sections, heavy ruling, footer disclaimer. Reads like a printed quarterly.</p>
+      </div>
+    </a>
+
+    <a class="card" href="05-almanac.html">
+      <div class="preview"><div class="pv-almanac">
+        <div class="day">24</div>
+        <div class="ym">May · MMXXVI</div>
+      </div></div>
+      <div class="body">
+        <div class="num">05 · Almanac</div>
+        <h3>The diarist's page.</h3>
+        <p class="desc">Centered narrow column, ritualistic, date-driven. Almanac-style dated entries. Calendar woven into the prose flow. Sparse, contemplative, slow.</p>
+      </div>
+    </a>
+  </div>
+</main>
+</body>
+</html>
