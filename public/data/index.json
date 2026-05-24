@@ -7,8 +7,133 @@
       "macro": 0.15
     },
     "version": "v0.1",
-    "generated_at": "2026-05-24T16:48:37+00:00"
+    "generated_at": "2026-05-24T19:08:46+00:00"
   },
+  "observation": {
+    "headline": "EO 14154's offshore-wind leasing pause now threatens $630M Phase II COP approval.",
+    "thesis": "BOEM's informal freeze on Construction and Operations Plan approvals under EO 14154 has no published procedural pathway to resolution, making the Phase II COP the single largest unhedged exposure in the portfolio at $630M and 79% probability of loss. The Jones Act WTIV constraint (46 U.S.C. \u00a755102) compounds this: Charybdis commissioning slip to mid-2025 leaves Q4 2028 COD viable only if BOEM clears the COP before the installation weather window closes, and this administration will not grant a waiver. Meanwhile, KXTARIFFREVENUE-26DEC31-T200 pricing at $0.65 signals the market is pricing real escalation risk on Section 232 steel tariffs that directly hit monopile supply under HTS 7208.51.0060 \u2014 the offshore wind book faces sequential, correlated shocks with no current hedge covering the COP",
+    "week_label": "Week of May 24, 2026"
+  },
+  "catalysts": [
+    {
+      "date": "2026-05-26",
+      "day_offset": 1,
+      "label": "Rule takes effect: Order No. 917; Filing Process and Data Collection for the Electric Quarterly Report",
+      "detail": "Energy Department, Federal Energy Regulatory Commission \u00b7 Final rule.",
+      "kind": "rule",
+      "affected_project_ids": [
+        "lone-star-solar-i"
+      ],
+      "factor_ids": [],
+      "url": "https://www.federalregister.gov/documents/2026/03/24/2026-05709/order-no-917-filing-process-and-data-collection-for-the-electric-quarterly-report"
+    },
+    {
+      "date": "2026-06-08",
+      "day_offset": 14,
+      "label": "Rule takes effect: Reconsideration of Standards of Performance for New, Reconstructed, and Modified Sources and Emissions Guidelines for Exi",
+      "detail": "Environmental Protection Agency \u00b7 Final rule.",
+      "kind": "rule",
+      "affected_project_ids": [
+        "permian-h2-hub"
+      ],
+      "factor_ids": [],
+      "url": "https://www.federalregister.gov/documents/2026/04/09/2026-06808/reconsideration-of-standards-of-performance-for-new-reconstructed-and-modified-sources-and-emissions"
+    },
+    {
+      "date": "2026-06-15",
+      "day_offset": 21,
+      "label": "Comments close: Endangered and Threatened Species; Notice of 12-Month Findings on a Petition To List the Tope Shark as Threatened or Endange",
+      "detail": "Commerce Department, National Oceanic and Atmospheric Administration \u00b7 Notice of 12-month petition findings; proposed ru",
+      "kind": "deadline",
+      "affected_project_ids": [
+        "vineyard-wind-ii"
+      ],
+      "factor_ids": [],
+      "url": "https://www.federalregister.gov/documents/2026/04/15/2026-07294/endangered-and-threatened-species-notice-of-12-month-findings-on-a-petition-to-list-the-tope-shark"
+    },
+    {
+      "date": "2026-06-15",
+      "day_offset": 21,
+      "label": "Rule takes effect: Renewable Fuel Standard (RFS) Program: Standards for 2026 and 2027, Partial Waiver of 2025 Cellulosic Biofuel Volume Requ",
+      "detail": "Environmental Protection Agency \u00b7 Final rule.",
+      "kind": "rule",
+      "affected_project_ids": [
+        "permian-h2-hub"
+      ],
+      "factor_ids": [],
+      "url": "https://www.federalregister.gov/documents/2026/04/01/2026-06275/renewable-fuel-standard-rfs-program-standards-for-2026-and-2027-partial-waiver-of-2025-cellulosic"
+    },
+    {
+      "date": "2026-06-22",
+      "day_offset": 28,
+      "label": "Comments close: National Emission Standards for Hazardous Air Pollutants: Crude Oil and Natural Gas Production Facilities and Natural Gas Tr",
+      "detail": "Environmental Protection Agency \u00b7 Proposed rule.",
+      "kind": "deadline",
+      "affected_project_ids": [
+        "permian-h2-hub"
+      ],
+      "factor_ids": [],
+      "url": "https://www.federalregister.gov/documents/2026/04/22/2026-07800/national-emission-standards-for-hazardous-air-pollutants-crude-oil-and-natural-gas-production"
+    },
+    {
+      "date": "2026-06-29",
+      "day_offset": 35,
+      "label": "Comments close: Equal Access to Housing in HUD Programs Revisions",
+      "detail": "Housing and Urban Development Department \u00b7 Proposed rule.",
+      "kind": "deadline",
+      "affected_project_ids": [
+        "lone-star-solar-i"
+      ],
+      "factor_ids": [],
+      "url": "https://www.federalregister.gov/documents/2026/04/28/2026-08244/equal-access-to-housing-in-hud-programs-revisions"
+    },
+    {
+      "date": "2026-07-06",
+      "day_offset": 42,
+      "label": "Comments close: Revision of Tier 4 Criteria Pollutant Standards, Part 1: Amendments to Phase-In Schedule for Light-Duty and Medium-Duty Vehi",
+      "detail": "Environmental Protection Agency \u00b7 Proposed rule.",
+      "kind": "deadline",
+      "affected_project_ids": [
+        "i95-evcharging"
+      ],
+      "factor_ids": [],
+      "url": "https://www.federalregister.gov/documents/2026/05/18/2026-09905/revision-of-tier-4-criteria-pollutant-standards-part-1-amendments-to-phase-in-schedule-for"
+    },
+    {
+      "date": "2027-03-31",
+      "day_offset": 310,
+      "label": "Will at least 35 GWdc of solar capacity be installed in 2026",
+      "detail": "Kalshi YES $0.98 \u00b7 hedges AD/CVD Orders \u2014 Southeast Asia CSPV Modules",
+      "kind": "market",
+      "affected_project_ids": [
+        "lone-star-solar-i"
+      ],
+      "factor_ids": [
+        "lone-star-solar-i__f03"
+      ],
+      "url": "https://kalshi.com/markets/KXSOLAR-26-35"
+    },
+    {
+      "date": "2027-06-01",
+      "day_offset": 372,
+      "label": "Will US tariff revenue for 2026 be above $200\u200e billion",
+      "detail": "Kalshi YES $0.65 \u00b7 hedges Section 301 Tariff Escalation on LFP Cells HTS 8507.60",
+      "kind": "market",
+      "affected_project_ids": [
+        "i95-evcharging",
+        "mojave-bess",
+        "permian-h2-hub",
+        "vineyard-wind-ii"
+      ],
+      "factor_ids": [
+        "vineyard-wind-ii__f04",
+        "mojave-bess__f03",
+        "permian-h2-hub__f04",
+        "i95-evcharging__f05"
+      ],
+      "url": "https://kalshi.com/markets/KXTARIFFREVENUE-26DEC31-T200"
+    }
+  ],
   "projects": [
     {
       "id": "lone-star-solar-i",
@@ -353,7 +478,7 @@
         0,
         0
       ],
-      "attention_score": 20,
+      "attention_score": 15,
       "likelihood_bucket": "medium"
     },
     {
@@ -427,7 +552,7 @@
         0,
         0
       ],
-      "attention_score": 10,
+      "attention_score": 8,
       "likelihood_bucket": "high"
     },
     {
@@ -464,7 +589,7 @@
         1,
         0
       ],
-      "attention_score": 40,
+      "attention_score": 31,
       "likelihood_bucket": "high"
     },
     {
@@ -501,7 +626,7 @@
         1,
         0
       ],
-      "attention_score": 80,
+      "attention_score": 62,
       "likelihood_bucket": "medium"
     },
     {
@@ -538,7 +663,7 @@
         0,
         0
       ],
-      "attention_score": 30,
+      "attention_score": 23,
       "likelihood_bucket": "high"
     },
     {
@@ -575,7 +700,7 @@
         2,
         0
       ],
-      "attention_score": 20,
+      "attention_score": 15,
       "likelihood_bucket": "medium"
     },
     {
@@ -686,7 +811,7 @@
         0,
         0
       ],
-      "attention_score": 10,
+      "attention_score": 8,
       "likelihood_bucket": "high"
     },
     {
@@ -723,7 +848,7 @@
         1,
         0
       ],
-      "attention_score": 30,
+      "attention_score": 23,
       "likelihood_bucket": "high"
     },
     {
@@ -834,7 +959,7 @@
         4,
         0
       ],
-      "attention_score": 80,
+      "attention_score": 62,
       "likelihood_bucket": "high"
     },
     {
@@ -871,7 +996,7 @@
         0,
         0
       ],
-      "attention_score": 20,
+      "attention_score": 15,
       "likelihood_bucket": "high"
     },
     {
@@ -908,7 +1033,7 @@
         0,
         0
       ],
-      "attention_score": 60,
+      "attention_score": 46,
       "likelihood_bucket": "medium"
     },
     {
@@ -945,7 +1070,7 @@
         3,
         0
       ],
-      "attention_score": 50,
+      "attention_score": 38,
       "likelihood_bucket": "medium"
     },
     {
@@ -982,7 +1107,7 @@
         0,
         0
       ],
-      "attention_score": 10,
+      "attention_score": 8,
       "likelihood_bucket": "medium"
     },
     {
@@ -1019,7 +1144,7 @@
         0,
         1
       ],
-      "attention_score": 20,
+      "attention_score": 15,
       "likelihood_bucket": "medium"
     },
     {
@@ -1092,7 +1217,7 @@
         0,
         0
       ],
-      "attention_score": 20,
+      "attention_score": 15,
       "likelihood_bucket": "medium"
     },
     {
@@ -1129,7 +1254,7 @@
         1,
         0
       ],
-      "attention_score": 40,
+      "attention_score": 31,
       "likelihood_bucket": "high"
     },
     {
@@ -1165,7 +1290,7 @@
         0,
         0
       ],
-      "attention_score": 20,
+      "attention_score": 15,
       "likelihood_bucket": "medium"
     },
     {
@@ -1202,7 +1327,7 @@
         1,
         0
       ],
-      "attention_score": 80,
+      "attention_score": 62,
       "likelihood_bucket": "high"
     },
     {
@@ -1239,7 +1364,7 @@
         1,
         0
       ],
-      "attention_score": 60,
+      "attention_score": 46,
       "likelihood_bucket": "medium"
     },
     {
@@ -1313,7 +1438,7 @@
         2,
         0
       ],
-      "attention_score": 20,
+      "attention_score": 15,
       "likelihood_bucket": "medium"
     },
     {
@@ -1451,10 +1576,10 @@
         1,
         0,
         0,
-        0,
-        2,
         1,
-        0,
+        3,
+        1,
+        1,
         1,
         1,
         0,
@@ -1498,7 +1623,7 @@
         0,
         1
       ],
-      "attention_score": 10,
+      "attention_score": 8,
       "likelihood_bucket": "high"
     },
     {
@@ -1572,7 +1697,7 @@
         0,
         0
       ],
-      "attention_score": 60,
+      "attention_score": 46,
       "likelihood_bucket": "medium"
     },
     {
@@ -1609,7 +1734,7 @@
         0,
         0
       ],
-      "attention_score": 30,
+      "attention_score": 23,
       "likelihood_bucket": "high"
     },
     {
@@ -1646,7 +1771,7 @@
         1,
         0
       ],
-      "attention_score": 80,
+      "attention_score": 62,
       "likelihood_bucket": "high"
     },
     {
@@ -1720,7 +1845,7 @@
         1,
         0
       ],
-      "attention_score": 10,
+      "attention_score": 8,
       "likelihood_bucket": "medium"
     },
     {
@@ -1831,7 +1956,7 @@
         3,
         1
       ],
-      "attention_score": 60,
+      "attention_score": 46,
       "likelihood_bucket": "medium"
     },
     {
@@ -1905,7 +2030,7 @@
         0,
         0
       ],
-      "attention_score": 10,
+      "attention_score": 8,
       "likelihood_bucket": "high"
     },
     {
@@ -1942,7 +2067,7 @@
         0,
         1
       ],
-      "attention_score": 80,
+      "attention_score": 62,
       "likelihood_bucket": "medium"
     },
     {
@@ -1979,7 +2104,7 @@
         0,
         0
       ],
-      "attention_score": 60,
+      "attention_score": 46,
       "likelihood_bucket": "high"
     },
     {
@@ -2016,7 +2141,7 @@
         1,
         0
       ],
-      "attention_score": 60,
+      "attention_score": 46,
       "likelihood_bucket": "medium"
     },
     {
@@ -2053,7 +2178,7 @@
         0,
         0
       ],
-      "attention_score": 10,
+      "attention_score": 8,
       "likelihood_bucket": "medium"
     },
     {
@@ -2164,7 +2289,7 @@
         0,
         0
       ],
-      "attention_score": 10,
+      "attention_score": 8,
       "likelihood_bucket": "medium"
     }
   ],
@@ -2278,8 +2403,8 @@
       "factor_id": "lone-star-solar-i__f06",
       "market_id": "kalshi::CHINAUSGDP-30",
       "relevance": 0.218,
-      "notional_usd": 11538000.0,
-      "rationale": "Pays $1 if YES; hedges 'China Export Controls on Solar-Grade Polysilicon' (EL $9.0M, market p=0.22)."
+      "notional_usd": 11688000.0,
+      "rationale": "Pays $1 if YES; hedges 'China Export Controls on Solar-Grade Polysilicon' (EL $9.0M, market p=0.23)."
     },
     {
       "project_id": "lone-star-solar-i",
@@ -2342,8 +2467,8 @@
       "factor_id": "lone-star-solar-i__f08",
       "market_id": "kalshi::KXIMPEACHCABINET-28JAN01",
       "relevance": 0.133,
-      "notional_usd": 25610000.0,
-      "rationale": "Pays $1 if YES; hedges 'Treasury Yield Spike Compressing Tax Equity Returns' (EL $10.5M, market p=0.59)."
+      "notional_usd": 26250000.0,
+      "rationale": "Pays $1 if YES; hedges 'Treasury Yield Spike Compressing Tax Equity Returns' (EL $10.5M, market p=0.60)."
     },
     {
       "project_id": "lone-star-solar-i",
@@ -2534,8 +2659,8 @@
       "factor_id": "vineyard-wind-ii__f08",
       "market_id": "kalshi::KXINSURRECTION-29-27",
       "relevance": 0.156,
-      "notional_usd": 159494000.0,
-      "rationale": "Pays $1 if YES; hedges 'Jones Act WTIV Availability \u2014 Charybdis Schedule Risk' (EL $126.0M, market p=0.21)."
+      "notional_usd": 161538000.0,
+      "rationale": "Pays $1 if YES; hedges 'Jones Act WTIV Availability \u2014 Charybdis Schedule Risk' (EL $126.0M, market p=0.22)."
     },
     {
       "project_id": "vineyard-wind-ii",
@@ -2614,8 +2739,8 @@
       "factor_id": "mojave-bess__f06",
       "market_id": "kalshi::CHINAUSGDP-30",
       "relevance": 0.218,
-      "notional_usd": 11282000.0,
-      "rationale": "Pays $1 if YES; hedges 'China Export Controls on Battery-Grade Graphite' (EL $8.8M, market p=0.22)."
+      "notional_usd": 11429000.0,
+      "rationale": "Pays $1 if YES; hedges 'China Export Controls on Battery-Grade Graphite' (EL $8.8M, market p=0.23)."
     },
     {
       "project_id": "mojave-bess",
@@ -2638,23 +2763,23 @@
       "factor_id": "mojave-bess__f07",
       "market_id": "kalshi::CHINAUSGDP-30",
       "relevance": 0.153,
-      "notional_usd": 12308000.0,
-      "rationale": "Pays $1 if YES; hedges 'China-Taiwan Strait Escalation \u2014 CATL/BYD Supply Disruption' (EL $9.6M, market p=0.22)."
+      "notional_usd": 12468000.0,
+      "rationale": "Pays $1 if YES; hedges 'China-Taiwan Strait Escalation \u2014 CATL/BYD Supply Disruption' (EL $9.6M, market p=0.23)."
     },
     {
       "project_id": "mojave-bess",
       "factor_id": "mojave-bess__f07",
       "market_id": "kalshi::KXRECOGROC-29-27",
       "relevance": 0.153,
-      "notional_usd": 10435000.0,
-      "rationale": "Pays $1 if YES; hedges 'China-Taiwan Strait Escalation \u2014 CATL/BYD Supply Disruption' (EL $9.6M, market p=0.08)."
+      "notional_usd": 10323000.0,
+      "rationale": "Pays $1 if YES; hedges 'China-Taiwan Strait Escalation \u2014 CATL/BYD Supply Disruption' (EL $9.6M, market p=0.07)."
     },
     {
       "project_id": "mojave-bess",
       "factor_id": "mojave-bess__f07",
       "market_id": "kalshi::KXTAIWANLVL4-26JUL01",
       "relevance": 0.145,
-      "notional_usd": 9928000.0,
+      "notional_usd": 9938000.0,
       "rationale": "Pays $1 if YES; hedges 'China-Taiwan Strait Escalation \u2014 CATL/BYD Supply Disruption' (EL $9.6M, market p=0.03)."
     },
     {
@@ -2838,24 +2963,24 @@
       "factor_id": "permian-h2-hub__f07",
       "market_id": "kalshi::CHINAUSGDP-30",
       "relevance": 0.153,
-      "notional_usd": 16154000.0,
-      "rationale": "Pays $1 if YES; hedges 'Chinese Rare-Earth / Magnet Export Controls on BOP Equipment' (EL $12.6M, market p=0.22)."
+      "notional_usd": 16364000.0,
+      "rationale": "Pays $1 if YES; hedges 'Chinese Rare-Earth / Magnet Export Controls on BOP Equipment' (EL $12.6M, market p=0.23)."
     },
     {
       "project_id": "permian-h2-hub",
       "factor_id": "permian-h2-hub__f07",
       "market_id": "kalshi::KXRECOGROC-29-27",
       "relevance": 0.153,
-      "notional_usd": 13696000.0,
-      "rationale": "Pays $1 if YES; hedges 'Chinese Rare-Earth / Magnet Export Controls on BOP Equipment' (EL $12.6M, market p=0.08)."
+      "notional_usd": 13548000.0,
+      "rationale": "Pays $1 if YES; hedges 'Chinese Rare-Earth / Magnet Export Controls on BOP Equipment' (EL $12.6M, market p=0.07)."
     },
     {
       "project_id": "permian-h2-hub",
       "factor_id": "permian-h2-hub__f07",
       "market_id": "kalshi::KXSUPERSONIC-28",
       "relevance": 0.153,
-      "notional_usd": 23333000.0,
-      "rationale": "Pays $1 if YES; hedges 'Chinese Rare-Earth / Magnet Export Controls on BOP Equipment' (EL $12.6M, market p=0.46)."
+      "notional_usd": 23774000.0,
+      "rationale": "Pays $1 if YES; hedges 'Chinese Rare-Earth / Magnet Export Controls on BOP Equipment' (EL $12.6M, market p=0.47)."
     },
     {
       "project_id": "permian-h2-hub",
@@ -3006,7 +3131,7 @@
       "factor_id": "i95-evcharging__f07",
       "market_id": "kalshi::KXTAIWANLVL4-26JUL01",
       "relevance": 0.195,
-      "notional_usd": 5584000.0,
+      "notional_usd": 5590000.0,
       "rationale": "Pays $1 if YES; hedges 'Taiwan Strait Escalation \u2014 Semiconductor Supply Disruption' (EL $5.4M, market p=0.03)."
     },
     {
@@ -3014,8 +3139,8 @@
       "factor_id": "i95-evcharging__f07",
       "market_id": "kalshi::KXTAIWANLVL4-27JAN01",
       "relevance": 0.195,
-      "notional_usd": 6207000.0,
-      "rationale": "Pays $1 if YES; hedges 'Taiwan Strait Escalation \u2014 Semiconductor Supply Disruption' (EL $5.4M, market p=0.13)."
+      "notional_usd": 6279000.0,
+      "rationale": "Pays $1 if YES; hedges 'Taiwan Strait Escalation \u2014 Semiconductor Supply Disruption' (EL $5.4M, market p=0.14)."
     },
     {
       "project_id": "i95-evcharging",

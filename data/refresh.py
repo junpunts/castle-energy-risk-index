@@ -8,6 +8,7 @@ from __future__ import annotations
 import asyncio
 import json
 import logging
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -19,9 +20,11 @@ from dotenv import load_dotenv
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 load_dotenv(Path(__file__).resolve().parents[1] / ".env")
 
-from castle_eri import index_math, mapping  # noqa: E402
+from castle_eri import index_math, mapping, narrative  # noqa: E402
 from castle_eri.clients import congress, federal_register, kalshi  # noqa: E402
-from castle_eri.models import Bundle, HedgeSuggestion, MarketContract, Methodology, PolicyItem, RiskFactor  # noqa: E402
+from castle_eri.models import (  # noqa: E402
+    Bundle, Catalyst, HedgeSuggestion, MarketContract, Methodology, Observation, PolicyItem, RiskFactor,
+)
 from castle_eri.projects import PROJECTS  # noqa: E402
 from castle_eri.settings import OUT_DIR, settings  # noqa: E402
 
@@ -94,6 +97,8 @@ def _fr_to_item(doc: dict, project_ids: list[str], keywords: list[str]) -> Polic
         severity="medium",
         affected_project_ids=sorted(set(project_ids)),
         keywords=keywords[:6],
+        comments_close_on=doc.get("comments_close_on") or "",
+        effective_on=doc.get("effective_on") or "",
     )
 
 
@@ -273,6 +278,156 @@ def _enrich_factors_with_attention(factors: list[RiskFactor], policies: list[Pol
             f.likelihood_bucket = "high"
 
 
+# ── catalysts ─────────────────────────────────────────────────────────
+
+
+def _build_catalysts(
+    markets: list[MarketContract], hedges: list[HedgeSuggestion], factors: list[RiskFactor],
+    policies: list[PolicyItem] | None = None,
+    *, max_days: int = 365, top_n: int = 6,
+    min_relevance: float = 0.20, min_yes_price: float = 0.05,
+) -> list[Catalyst]:
+    """Real, dated upcoming events: Kalshi market resolutions whose mapped hedge
+    has high relevance (>= 0.20 Jaccard) AND non-trivial YES price (>= 5¢).
+    Filters out the long tail of loose semantic matches. Sorted by proximity."""
+    now = datetime.now(timezone.utc)
+    factor_by_id = {f.id: f for f in factors}
+    market_by_id = {m.id: m for m in markets}
+
+    # Group qualifying hedges by market
+    by_market: dict[str, list[HedgeSuggestion]] = {}
+    for h in hedges:
+        if h.relevance < min_relevance:
+            continue
+        m = market_by_id.get(h.market_id)
+        if not m or m.yes_price < min_yes_price:
+            continue
+        by_market.setdefault(h.market_id, []).append(h)
+
+    out: list[Catalyst] = []
+    seen_titles: set[str] = set()
+    for market_id, market_hedges in by_market.items():
+        m = market_by_id[market_id]
+        if not m.expiry_date:
+            continue
+        try:
+            dt = datetime.fromisoformat(m.expiry_date)
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+        except (ValueError, TypeError):
+            continue
+        day_offset = (dt - now).days
+        if day_offset < -7 or day_offset > max_days:
+            continue
+
+        # Kalshi has lots of threshold variants of the same question
+        # (e.g. KXTARIFFREVENUE at $80B / $100B / $125B / $150B / $200B).
+        # Collapse to the same canonical key so we surface only one.
+        title_key = re.sub(r"[\d,.\$\s]+(billion|GWdc|MW|trillion)?", "", m.title.split('?')[0]).lower()[:60]
+        if title_key in seen_titles:
+            continue
+        seen_titles.add(title_key)
+
+        affected_factor_ids = [h.factor_id for h in market_hedges]
+        affected_factors = [factor_by_id[fid] for fid in affected_factor_ids if fid in factor_by_id]
+        affected_projects = sorted(set(f.project_id for f in affected_factors))
+        best_factor = max(affected_factors, key=lambda f: f.attention_score * f.dollar_impact_usd * f.probability,
+                          default=None) if affected_factors else None
+        best_relevance = max(h.relevance for h in market_hedges)
+
+        out.append(Catalyst(
+            date=m.expiry_date,
+            day_offset=day_offset,
+            label=_shorten_market_title(m.title),
+            detail=(
+                f"Kalshi YES ${m.yes_price:.2f} · "
+                f"hedges {best_factor.title}" if best_factor
+                else f"Kalshi YES ${m.yes_price:.2f}"
+            ),
+            kind="market",
+            affected_project_ids=affected_projects,
+            factor_ids=affected_factor_ids,
+            url=m.url,
+        ))
+
+    # ── Federal Register comment-period closures + effective dates ──
+    # These are real, dated, future regulatory milestones. We require an
+    # explicit affected_project link so off-topic items (HUD housing,
+    # endangered species, etc) that slip through keyword matches don't pollute.
+    for p in policies or []:
+        if p.source != "federal_register":
+            continue
+        if not p.affected_project_ids:
+            continue
+        # Sanity check: the keyword overlap should at least mention an
+        # energy / tax / tariff / Treasury / FERC / EPA-renewables term.
+        text = (p.title + " " + (p.summary or "") + " " + (p.agency or "")).lower()
+        if not any(t in text for t in (
+            "energy", "renewable", "solar", "wind", "hydrogen", "battery",
+            "ferc", "treasury", "irs", "ev", "electric", "tax credit",
+            "tariff", "section 301", "section 232", "section 201", "ad/cvd",
+            "boem", "bureau of ocean", "epa standards of performance",
+            "rfs", "renewable fuel", "ira", "45v", "45y", "48e", "45x", "30c", "45w",
+        )):
+            continue
+        for date_str, kind, label_prefix in [
+            (p.comments_close_on, "deadline", "Comments close"),
+            (p.effective_on, "rule", "Rule takes effect"),
+        ]:
+            if not date_str:
+                continue
+            try:
+                dt = datetime.fromisoformat(date_str)
+                if dt.tzinfo is None:
+                    dt = dt.replace(tzinfo=timezone.utc)
+            except (ValueError, TypeError):
+                continue
+            day_offset = (dt - now).days
+            if day_offset < 0 or day_offset > max_days:
+                continue
+            label = f"{label_prefix}: {p.title}"
+            out.append(Catalyst(
+                date=date_str,
+                day_offset=day_offset,
+                label=label[:140],
+                detail=(p.agency + " · " + (p.latest_action or ""))[:120],
+                kind=kind,
+                affected_project_ids=p.affected_project_ids,
+                factor_ids=[],
+                url=p.url,
+            ))
+
+    # Sort: nearest first; if tied, highest-impact first
+    out.sort(key=lambda c: c.day_offset)
+    return out[:top_n]
+
+
+def _shorten_market_title(title: str) -> str:
+    """Trim Kalshi's verbose 'Will X be Y by Z?' titles into a clean label.
+    We keep the original verb form by lowercasing rather than aggressively
+    rewriting grammar."""
+    if not title:
+        return ""
+    t = title.strip()
+    # Drop trailing date-range qualifier
+    t = re.sub(r"\s+(by|before|through|during)\s+[A-Z][a-z]+ \d+,?\s*\d{4}\??$", "?", t)
+    t = re.sub(r"\s+(by|before|through|during)\s+\d{4}\??$", "?", t)
+    # Drop the question mark
+    t = re.sub(r"\s*\?+$", "", t).strip()
+    return t[:140]
+
+
+def _compute_wow_change(factors: list[RiskFactor]) -> float:
+    last2 = 0; prev2 = 0
+    for f in factors:
+        w = f.attention_weekly or []
+        last2 += sum(w[-2:])
+        prev2 += sum(w[-4:-2])
+    if prev2 == 0:
+        return 0.0
+    return ((last2 - prev2) / prev2) * 100.0
+
+
 # ── pipeline ─────────────────────────────────────────────────────────
 
 def _write(path: Path, data) -> None:
@@ -324,12 +479,30 @@ async def _run_full() -> None:
     scores = [index_math.compute(p, [f for f in factors if f.project_id == p.id]) for p in PROJECTS]
     hedges = _rank_hedges(factors, markets, top_n=3)
 
+    log.info("Building catalyst calendar")
+    catalysts = _build_catalysts(markets, hedges, factors, policies, max_days=400, top_n=10)
+    log.info("  %d upcoming catalysts inside 400-day window", len(catalysts))
+
+    log.info("Generating Claude weekly narrative")
+    wow = _compute_wow_change(factors)
+    narr = narrative.generate(factors, policies, markets, hedges, wow)
+    log.info("  headline: %s", narr["headline"][:80])
+
+    now = datetime.now(timezone.utc)
+    week_label = f"Week of {now.strftime('%B %-d, %Y')}"
+
     bundle = Bundle(
         methodology=Methodology(
             weights=index_math.WEIGHTS,
             version="v0.1",
-            generated_at=datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            generated_at=now.isoformat(timespec="seconds"),
         ),
+        observation=Observation(
+            headline=narr["headline"],
+            thesis=narr["thesis"],
+            week_label=week_label,
+        ),
+        catalysts=catalysts,
         projects=PROJECTS,
         factors=factors,
         hedges=hedges,

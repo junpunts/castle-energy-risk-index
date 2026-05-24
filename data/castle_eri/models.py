@@ -67,6 +67,8 @@ class PolicyItem(BaseModel):
     severity: Literal["low", "medium", "high", "critical"] = "medium"
     affected_project_ids: list[str] = Field(default_factory=list)
     keywords: list[str] = Field(default_factory=list)
+    comments_close_on: str = ""  # ISO date — Federal Register comment-period end
+    effective_on: str = ""       # ISO date — when a final rule takes effect
 
 
 class MarketContract(BaseModel):
@@ -114,9 +116,30 @@ class Methodology(BaseModel):
     generated_at: str = ""
 
 
+class Catalyst(BaseModel):
+    """A dated upcoming event the portfolio is exposed to."""
+    date: str                    # YYYY-MM-DD
+    day_offset: int              # days from generated_at; can be negative
+    label: str                   # short headline
+    detail: str = ""             # 1-line detail
+    kind: Literal["market", "rule", "bill", "deadline"] = "market"
+    affected_project_ids: list[str] = Field(default_factory=list)
+    factor_ids: list[str] = Field(default_factory=list)
+    url: str = ""
+
+
+class Observation(BaseModel):
+    """The Claude-written weekly narrative."""
+    headline: str = ""
+    thesis: str = ""
+    week_label: str = ""         # "Week of May 24, 2026"
+
+
 class Bundle(BaseModel):
     """Everything we ship to public/data/index.json."""
     methodology: Methodology
+    observation: Observation
+    catalysts: list[Catalyst] = Field(default_factory=list)
     projects: list[Project]
     factors: list[RiskFactor]
     hedges: list[HedgeSuggestion]

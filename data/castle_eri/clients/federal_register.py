@@ -26,6 +26,12 @@ async def search_documents(
         "conditions[term]": term,
         "per_page": per_page,
         "order": "newest",
+        # Explicitly request comments_close_on so we can surface comment-period catalysts
+        "fields[]": [
+            "document_number", "title", "abstract", "agencies", "action",
+            "html_url", "publication_date", "comments_close_on", "type",
+            "agency_names", "effective_on", "dates",
+        ],
     }
     if agencies:
         for i, agency in enumerate(agencies):

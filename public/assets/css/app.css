@@ -652,6 +652,141 @@ img, svg { display: block; max-width: 100%; }
 .method-weight-val.is-geopolitical { color: var(--accent-forest); }
 .method-weight-val.is-macro { color: var(--accent-blue-deep); }
 
+/* ── Project link list (replaces card grid) ───────────────── */
+.project-list { border-top: 1px solid var(--border); }
+.project-link {
+  display: grid;
+  grid-template-columns: 96px 1fr 36px;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  color: var(--fg);
+  transition: padding .12s;
+}
+.project-link:hover { padding-left: 8px; padding-right: 8px; margin: 0 -8px; background: var(--surface-overlay); }
+.project-link .pl-score {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.project-link .pl-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: var(--track-display);
+  color: var(--fg);
+  margin-bottom: 4px;
+}
+.project-link .pl-meta { font-size: 13px; color: var(--fg-3); }
+.project-link .pl-arrow { font-family: var(--font-mono); font-size: 18px; color: var(--fg-3); }
+@media (max-width: 720px) {
+  .project-link { grid-template-columns: 64px 1fr 24px; gap: 16px; }
+  .project-link .pl-score { font-size: 32px; }
+  .project-link .pl-name { font-size: 18px; }
+}
+
+/* ── Calendar (catalysts) ────────────────────────────────── */
+.calendar {
+  border-top: 1px solid var(--border);
+}
+.calendar-row {
+  display: grid;
+  grid-template-columns: 110px 56px 1fr auto;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+.calendar-row + .calendar-row { }
+.cal-date {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+}
+.cal-date .day {
+  font-family: var(--font-display);
+  font-size: 32px;
+  line-height: 1;
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: -0.02em;
+}
+.cal-date .ym {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--fg-3);
+  display: block;
+}
+.cal-when {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--fg-3);
+  padding-top: 4px;
+}
+.cal-when strong { color: var(--fg); font-size: 14px; font-weight: 700; display: block; }
+.cal-body { min-width: 0; }
+.cal-kind {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--fg-2);
+  border: 1px solid var(--border);
+  padding: 2px 7px;
+  margin-bottom: 8px;
+}
+.cal-kind.is-deadline { color: var(--accent-teal); border-color: var(--accent-teal); }
+.cal-kind.is-rule { color: var(--accent-teal-deep); border-color: var(--accent-teal-deep); }
+.cal-kind.is-market { color: var(--accent-blue-deep); border-color: var(--accent-blue-deep); }
+.cal-label {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--fg);
+  margin: 0 0 6px;
+}
+.cal-detail {
+  font-size: 12px;
+  color: var(--fg-3);
+  line-height: 1.45;
+}
+.cal-affected {
+  display: flex; gap: 4px; flex-wrap: wrap;
+  align-items: start;
+  padding-top: 4px;
+}
+.cal-affected .chip {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--fg-3);
+  border: 1px solid var(--border);
+  padding: 3px 6px;
+}
+
+@media (max-width: 720px) {
+  .calendar-row { grid-template-columns: 80px 1fr; gap: 16px; }
+  .cal-when, .cal-affected { grid-column: 2 / -1; }
+}
+
 /* ── Observation / research-note layout ──────────────────── */
 .obs-page { max-width: 980px; margin: 0 auto; padding: 64px 32px 96px; }
 .obs-masthead {

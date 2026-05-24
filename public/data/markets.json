@@ -150,7 +150,7 @@
     "event_title": "Will Trump buy at least part of Greenland?",
     "title": "Will Trump buy Greenland?",
     "yes_price": 0.074,
-    "volume_usd": 96158.93074,
+    "volume_usd": 96177.04372,
     "expiry_date": "2027-01-01",
     "url": "https://kalshi.com/markets/KXGREENLAND-29-27",
     "keywords": [
@@ -166,7 +166,7 @@
     "event_title": "Will Trump buy at least part of Greenland?",
     "title": "Will Trump buy Greenland?",
     "yes_price": 0.26,
-    "volume_usd": 876774.015,
+    "volume_usd": 876774.6884,
     "expiry_date": "2029-01-20",
     "url": "https://kalshi.com/markets/KXGREENLAND-29",
     "keywords": [
@@ -346,8 +346,8 @@
     "ticker": "CHINAUSGDP-30",
     "event_title": "China overtakes USA\u2019s economy by 2030?",
     "title": "Will China overtake US GDP by 2030?",
-    "yes_price": 0.22,
-    "volume_usd": 18679.716,
+    "yes_price": 0.23,
+    "volume_usd": 19528.794,
     "expiry_date": "2030-01-01",
     "url": "https://kalshi.com/markets/CHINAUSGDP-30",
     "keywords": [
@@ -363,8 +363,8 @@
     "ticker": "KXRECOGROC-29-27",
     "event_title": "Will Trump recognize Taiwan?",
     "title": "Will Trump recognize the Republic of China?",
-    "yes_price": 0.08,
-    "volume_usd": 139.136,
+    "yes_price": 0.07,
+    "volume_usd": 121.74400000000001,
     "expiry_date": "2027-01-01",
     "url": "https://kalshi.com/markets/KXRECOGROC-29-27",
     "keywords": [
@@ -410,8 +410,8 @@
     "ticker": "KXSUPERSONIC-28",
     "event_title": "Will the ban on supersonic flight over land end before 2028?",
     "title": "Will the ban on supersonic flight over land end before 2028?",
-    "yes_price": 0.46,
-    "volume_usd": 7608.239000000001,
+    "yes_price": 0.47,
+    "volume_usd": 7773.6355,
     "expiry_date": "2028-01-01",
     "url": "https://kalshi.com/markets/KXSUPERSONIC-28",
     "keywords": [
@@ -615,8 +615,8 @@
     "ticker": "KXOAIANTH-40-ANTH",
     "event_title": "Will OpenAI or Anthropic IPO first?",
     "title": "Will Open AI or Anthropic IPO first?",
-    "yes_price": 0.24,
-    "volume_usd": 19857.0072,
+    "yes_price": 0.23,
+    "volume_usd": 19029.6319,
     "expiry_date": "2040-01-01",
     "url": "https://kalshi.com/markets/KXOAIANTH-40-ANTH",
     "keywords": [
@@ -704,7 +704,7 @@
     "event_title": "Will the Supreme Court let Trump fire\u00a0FTC Commissioners at will?",
     "title": "Will the Supreme Court rule in favor of Trump in Trump v. Slaughter",
     "yes_price": 0.949,
-    "volume_usd": 35274.8045,
+    "volume_usd": 35462.68752,
     "expiry_date": "2027-08-01",
     "url": "https://kalshi.com/markets/KXTRUMPVSLAUGHTER",
     "keywords": [
@@ -834,8 +834,8 @@
     "ticker": "KXINSURRECTION-29-27",
     "event_title": "Will Trump invoke the Insurrection Act?",
     "title": "Will Trump invoke the Insurrection Act during his Presidency?",
-    "yes_price": 0.21,
-    "volume_usd": 53715.603899999995,
+    "yes_price": 0.22,
+    "volume_usd": 56294.3502,
     "expiry_date": "2027-01-01",
     "url": "https://kalshi.com/markets/KXINSURRECTION-29-27",
     "keywords": [
@@ -864,7 +864,7 @@
     "event_title": "US test scores in Reading in 2026?",
     "title": "Will US test scores in Reading decline?",
     "yes_price": 0.65,
-    "volume_usd": 13397.319,
+    "volume_usd": 13426.959,
     "expiry_date": "2027-12-31",
     "url": "https://kalshi.com/markets/KXUSTESTSREADING-26-SD",
     "keywords": [
@@ -891,8 +891,8 @@
     "ticker": "KXUSTESTSREADING-26-SI",
     "event_title": "US test scores in Reading in 2026?",
     "title": "Will US test scores in Reading decline?",
-    "yes_price": 0.098,
-    "volume_usd": 502.77038000000005,
+    "yes_price": 0.096,
+    "volume_usd": 492.50976,
     "expiry_date": "2027-12-31",
     "url": "https://kalshi.com/markets/KXUSTESTSREADING-26-SI",
     "keywords": [
@@ -906,7 +906,7 @@
     "event_title": "US test scores in Math in 2026?",
     "title": "Will US test scores in Math decline?",
     "yes_price": 0.64,
-    "volume_usd": 10622.9312,
+    "volume_usd": 10671.6992,
     "expiry_date": "2027-12-31",
     "url": "https://kalshi.com/markets/KXUSTESTSMATH-26-SD",
     "keywords": [
@@ -994,8 +994,8 @@
     "ticker": "KXTAIWANLVL4-26JUL01",
     "event_title": "Will the US issue a Level 4 travel advisory for Taiwan?",
     "title": "Will the U.S. State Department issue a Level 4 warning for Taiwan before Jul 1, 2026?",
-    "yes_price": 0.033,
-    "volume_usd": 4784.16873,
+    "yes_price": 0.034,
+    "volume_usd": 4929.14354,
     "expiry_date": "2026-07-01",
     "url": "https://kalshi.com/markets/KXTAIWANLVL4-26JUL01",
     "keywords": [
@@ -1008,8 +1008,8 @@
     "ticker": "KXTAIWANLVL4-27JAN01",
     "event_title": "Will the US issue a Level 4 travel advisory for Taiwan?",
     "title": "Will the U.S. State Department issue a Level 4 warning for Taiwan before Jan 1, 2027?",
-    "yes_price": 0.13,
-    "volume_usd": 19187.6373,
+    "yes_price": 0.14,
+    "volume_usd": 20763.989400000002,
     "expiry_date": "2027-01-01",
     "url": "https://kalshi.com/markets/KXTAIWANLVL4-27JAN01",
     "keywords": [
@@ -1100,8 +1100,8 @@
     "ticker": "KXIMPEACHCABINET-28JAN01",
     "event_title": "Will a cabinet member be impeached?",
     "title": "Will any member of the Cabinet (defined as: the Vice President, Secretary of State, Secretary of the Treasury, Secretary of Defense, Attorney General, Secretary of the Interior, Secretary of Agricultu",
-    "yes_price": 0.59,
-    "volume_usd": 10262.2653,
+    "yes_price": 0.6,
+    "volume_usd": 10436.202,
     "expiry_date": "2028-01-01",
     "url": "https://kalshi.com/markets/KXIMPEACHCABINET-28JAN01",
     "keywords": [
@@ -1165,7 +1165,7 @@
     "event_title": "How much will the US acquire Greenland for?",
     "title": "Will the U.S. pay between $10 billion and $99 billion for Greenland during Trump's term?",
     "yes_price": 0.039,
-    "volume_usd": 4254.17616,
+    "volume_usd": 4255.77594,
     "expiry_date": "2029-01-22",
     "url": "https://kalshi.com/markets/KXGREENLANDPRICE-29JAN21-54B",
     "keywords": [
@@ -1319,7 +1319,7 @@
     "event_title": "What will be the largest source of global primary energy consumption in 2030?",
     "title": "What will be the largest source of global primary energy consumption in 2030?",
     "yes_price": 0.55,
-    "volume_usd": 21450.275,
+    "volume_usd": 21450.825,
     "expiry_date": "2032-12-30",
     "url": "https://kalshi.com/markets/KXPRIMEENGCONSUMPTION-30-OIL",
     "keywords": [
