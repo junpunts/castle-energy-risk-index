@@ -99,7 +99,6 @@ const CAT_LABEL = { policy: 'Policy', trade: 'Trade', geopolitical: 'Geopolitica
       </p>
       <figure class="obs-chart">
         <div class="obs-chart-title">Attention score — ${topByAttn.length} loudest risks</div>
-        <div class="obs-chart-sub">0–100, normalized to portfolio peak · 12-week window</div>
         ${chart1}
         ${categoryLegend()}
         <p class="obs-chart-caption">
@@ -126,7 +125,6 @@ const CAT_LABEL = { policy: 'Policy', trade: 'Trade', geopolitical: 'Geopolitica
       </p>
       <figure class="obs-chart">
         <div class="obs-chart-title">Weekly mentions across the portfolio</div>
-        <div class="obs-chart-sub">Congress.gov + Federal Register · count of items per week</div>
         ${chart2}
         <p class="obs-chart-caption">
           Most recent week highlighted in black. Quiet weeks are not necessarily quiet quarters — policy moves on its own clock.
@@ -158,7 +156,6 @@ const CAT_LABEL = { policy: 'Policy', trade: 'Trade', geopolitical: 'Geopolitica
       </p>
       <figure class="obs-chart">
         <div class="obs-chart-title">Attention vs. expected loss</div>
-        <div class="obs-chart-sub">All ${bundle.factors.length} tracked exposures · dot size scales with $ at risk</div>
         ${scatter(scatterPts, {
           xLabel: 'Attention score', yLabel: 'Expected loss (USD)',
           xMax: 100, yMax: maxEL,
@@ -205,7 +202,6 @@ const CAT_LABEL = { policy: 'Policy', trade: 'Trade', geopolitical: 'Geopolitica
       </p>
       <figure class="obs-chart">
         <div class="obs-chart-title">Composite score by project</div>
-        <div class="obs-chart-sub">Stacked weighted sub-scores · 0–100 scale</div>
         ${stackedBarsByRow(stackRows)}
         ${categoryLegend()}
         <p class="obs-chart-caption">
@@ -244,7 +240,6 @@ const CAT_LABEL = { policy: 'Policy', trade: 'Trade', geopolitical: 'Geopolitica
       </p>
       <figure class="obs-chart">
         <div class="obs-chart-title">Foreign component value by country</div>
-        <div class="obs-chart-sub">~15% of capex × foreign supplier share · portfolio total</div>
         <div style="display:grid;grid-template-columns:320px 1fr;gap:32px;align-items:center">
           ${donut(supplySegments, { width: 320, height: 320 })}
           <div>

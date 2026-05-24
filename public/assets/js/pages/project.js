@@ -84,7 +84,6 @@ const CAT_LABEL = { policy: 'Policy', trade: 'Trade', geopolitical: 'Geopolitica
       </p>
       <figure class="obs-chart">
         <div class="obs-chart-title">Composite contribution by category</div>
-        <div class="obs-chart-sub">value × weight = contribution · 0–100 total</div>
         ${compositeBar}
         ${categoryLegend()}
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:24px;border-top:1px solid var(--border);border-left:1px solid var(--border)">
@@ -121,7 +120,6 @@ const CAT_LABEL = { policy: 'Policy', trade: 'Trade', geopolitical: 'Geopolitica
       </p>
       <figure class="obs-chart">
         <div class="obs-chart-title">Expected loss by exposure</div>
-        <div class="obs-chart-sub">Top ${rows.length} of ${factors.length}</div>
         ${hBarChart(rows, { valueFmt: v => fmtUsd(v), labelWidth: 320, valueLabelWidth: 90 })}
         ${categoryLegend()}
         <p class="obs-chart-caption">
@@ -150,7 +148,6 @@ const CAT_LABEL = { policy: 'Policy', trade: 'Trade', geopolitical: 'Geopolitica
       </p>
       <figure class="obs-chart">
         <div class="obs-chart-title">Weekly mentions referencing this project's exposures</div>
-        <div class="obs-chart-sub">Congress.gov + Federal Register · count per week</div>
         ${weeklyBars(weeklyTotals, { highlight: weeks - 1, labels })}
         <p class="obs-chart-caption">
           Most recent week highlighted in black. Compare against the portfolio aggregate on the main brief.
@@ -182,7 +179,6 @@ const CAT_LABEL = { policy: 'Policy', trade: 'Trade', geopolitical: 'Geopolitica
       </p>
       <figure class="obs-chart">
         <div class="obs-chart-title">Suppliers by country</div>
-        <div class="obs-chart-sub">Sum of share-of-supply across all supplier rows</div>
         <div style="display:grid;grid-template-columns:320px 1fr;gap:32px;align-items:center">
           ${donut(segs, { width: 320, height: 320 })}
           <div>
