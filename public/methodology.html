@@ -59,6 +59,13 @@
   </section>
 
   <section class="method-section">
+    <h2>Attention score</h2>
+    <p>Each tracked risk carries an attention score (0–100) and a 12-week activity sparkline. Activity counts the number of Congress.gov bills and Federal Register notices in the live pull whose title / summary / latest action references any of the risk's keywords, bucketed by the week the action occurred.</p>
+    <p>The score is normalized so the most-mentioned risk in the portfolio reads 100; everything else is the ratio of its total mentions to that peak. Likelihood (Low / Medium / High) is a separate, judgment-based bucketing of the Claude mapper's probability estimate: &lt; 25% Low, 25–55% Medium, ≥ 55% High.</p>
+    <p>This split mirrors a two-track approach — a quantitative <em>what's-getting-attention-right-now</em> signal alongside a qualitative <em>what's-likely-to-happen</em> assessment.</p>
+  </section>
+
+  <section class="method-section">
     <h2>How exposures are mapped</h2>
     <p>For each project, Claude (Sonnet 4.6) is prompted with the project's technology, suppliers, location, capex, target IRR, offtake status, and policy dependencies. It returns a structured list of 6–10 specific risk factors spanning all four sub-score categories, each carrying:</p>
     <ul style="font-size:14px;color:var(--fg-2);line-height:1.7;max-width:720px">

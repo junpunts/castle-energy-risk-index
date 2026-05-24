@@ -1,23 +1,28 @@
-import { loadAll, projectById, factorsForProject, scoreForProject, hedgesForProject, marketById, fmtUsd, fmtPct } from '../data.js';
-import { renderRiskBar, renderRiskLegend, renderSubScoreReadouts, renderExposureRow, renderHedgeCard } from '../components.js';
+import { loadAll, projectById, factorsForProject, scoreForProject, hedgesForProject, fmtUsd, fmtPct } from '../data.js';
+import {
+  renderRiskBar, renderRiskLegend, renderSubScoreReadouts,
+  renderRiskTableHead, renderRiskRow, renderRiskDrawer, attachRiskRowHandlers,
+} from '../components.js';
 
 (async function init() {
   const params = new URLSearchParams(window.location.search);
   const id = params.get('id') || 'lone-star-solar-i';
   try {
-    const { bundle, projects, markets } = await loadAll();
+    const { bundle, projects, markets, policies } = await loadAll();
     const project = projectById(projects, id);
     if (!project) {
       document.getElementById('content').innerHTML = `<div class="empty">No project with id "${id}".</div>`;
       return;
     }
+    const projectMap = new Map(projects.map(p => [p.id, p]));
     const score = scoreForProject(bundle, id);
     const factors = factorsForProject(bundle, id);
+    const factorsById = new Map(factors.map(f => [f.id, f]));
     const hedges = hedgesForProject(bundle, id);
 
     document.title = `${project.name} — Castle Energy Risk Index`;
 
-    // Header
+    // ── Header ──────────────────────────────────────────
     document.getElementById('hero').innerHTML = `
       <div>
         <div class="eri-eyebrow">${escape(project.technology)} · ${escape(project.capacity_label)} · ${escape(project.location)}</div>
@@ -36,65 +41,39 @@ import { renderRiskBar, renderRiskLegend, renderSubScoreReadouts, renderExposure
       </div>
     `;
 
-    // Risk panel
+    // ── Risk panel (stacked bar + sub-score readouts) ───
     document.getElementById('risk-panel').innerHTML = `
       ${renderRiskBar(score.sub_scores, { large: true })}
       ${renderRiskLegend(score.sub_scores)}
       ${renderSubScoreReadouts(score.sub_scores)}
     `;
 
-    // Exposure table
-    const sortedFactors = factors.slice().sort((a, b) => {
-      const order = { policy: 0, trade: 1, geopolitical: 2, macro: 3 };
-      return (order[a.category] - order[b.category]) || (b.dollar_impact_usd * b.probability) - (a.dollar_impact_usd * a.probability);
+    // ── BlackRock-style risk table (filtered to project) ─
+    const ranked = factors.slice().sort((a, b) => {
+      const aEL = a.dollar_impact_usd * a.probability;
+      const bEL = b.dollar_impact_usd * b.probability;
+      const maxEL = Math.max(...factors.map(f => f.dollar_impact_usd * f.probability), 1);
+      const aScore = a.attention_score * 0.55 + (aEL / maxEL * 100) * 0.45;
+      const bScore = b.attention_score * 0.55 + (bEL / maxEL * 100) * 0.45;
+      return bScore - aScore;
     });
-    document.getElementById('exposures').innerHTML = `
-      <table class="exposure-table">
-        <thead>
-          <tr>
-            <th>Category</th>
-            <th>Exposure</th>
-            <th>$ at risk</th>
-            <th>Probability</th>
-            <th>Expected loss</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${sortedFactors.map(renderExposureRow).join('')}
-        </tbody>
-      </table>
+    document.getElementById('risk-table').innerHTML = `
+      ${renderRiskTableHead({ showAffected: false })}
+      ${ranked.map(f => renderRiskRow(f, projectMap, { showAffected: false })).join('')}
     `;
+    attachRiskRowHandlers(document.getElementById('risk-table'), {
+      onExpand: (factorId) => {
+        const f = factorsById.get(factorId);
+        return renderRiskDrawer(f, project, hedges, markets, policies);
+      },
+    });
 
-    // Hedges
-    const factorsById = new Map(factors.map(f => [f.id, f]));
-    const sortedHedges = hedges
-      .slice()
-      .sort((a, b) => b.relevance - a.relevance)
-      .slice(0, 12);
-    if (sortedHedges.length) {
-      document.getElementById('hedges').innerHTML = sortedHedges.map(h => {
-        const market = marketById(markets, h.market_id);
-        const factor = factorsById.get(h.factor_id);
-        return renderHedgeCard(h, market, factor);
-      }).join('');
-    } else {
-      document.getElementById('hedges').innerHTML = '<div class="empty">No Kalshi markets currently mapped to this project\'s exposures.</div>';
-    }
-
-    // Narrative
+    // ── Narrative + suppliers ───────────────────────────
     document.getElementById('narrative').innerHTML = `<p class="eri-lead">${escape(project.narrative)}</p>`;
-
-    // Supplier table (small, dense)
     document.getElementById('suppliers').innerHTML = `
       <table class="exposure-table">
         <thead>
-          <tr>
-            <th>Supplier</th>
-            <th>Country</th>
-            <th>Component</th>
-            <th>Share</th>
-          </tr>
+          <tr><th>Supplier</th><th>Country</th><th>Component</th><th>Share</th></tr>
         </thead>
         <tbody>
           ${project.key_suppliers.map(s => `<tr>

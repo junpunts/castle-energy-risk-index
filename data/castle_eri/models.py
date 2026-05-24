@@ -43,6 +43,11 @@ class RiskFactor(BaseModel):
     probability: float = 0.0
     status: str = "active"
     keywords: list[str] = Field(default_factory=list)
+    # Filled in post-Claude by refresh.py
+    our_view: str = ""                       # 1-sentence analyst take
+    attention_weekly: list[int] = Field(default_factory=list)   # last 12 weeks of mention counts
+    attention_score: int = 0                 # 0–100 normalized
+    likelihood_bucket: Literal["low", "medium", "high"] = "medium"
 
 
 class PolicyItem(BaseModel):

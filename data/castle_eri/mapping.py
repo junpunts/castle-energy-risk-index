@@ -47,6 +47,7 @@ OUTPUT — return ONLY a JSON object of the form:
       "category": "policy" | "trade" | "geopolitical" | "macro",
       "title": "Short label, 3–8 words, Title Case",
       "description": "1–2 sentence explanation of the specific mechanism",
+      "our_view": "ONE sentence (max 30 words) of Castle's analyst take on RECENT developments — what's moving right now, what to watch. Plain prose, declarative, no hedging.",
       "citation": "Bill number / rule citation / HTS code / executive order — if applicable",
       "source": "congress" | "federal_register" | "kalshi" | "ustr" | "internal",
       "dollar_impact_usd": <number — adverse-outcome dollar impact to this project's NPV>,
@@ -105,6 +106,7 @@ def _stub_factors(project: Project) -> list[dict[str, Any]]:
             "category": "policy",
             "title": dep.split("—")[0].strip()[:60],
             "description": f"Adverse change to {dep} would impact the project's IRR.",
+            "our_view": f"Watching {dep.split('—')[0].strip()} for legislative movement; no major action this quarter.",
             "citation": dep,
             "source": "congress" if "§" in dep or "IRC" in dep or "USC" in dep else "federal_register",
             "dollar_impact_usd": capex * (0.10 - i * 0.025),
@@ -123,6 +125,7 @@ def _stub_factors(project: Project) -> list[dict[str, Any]]:
                 f"Section 301 / 232 escalation on {s.component_type} from {s.country} would "
                 f"raise landed cost on {s.share_of_supply*100:.0f}% of this project's supply."
             ),
+            "our_view": f"USTR has signaled review of {s.country} trade actions; rate increase plausible inside 12 months.",
             "citation": f"Supplier: {s.name}",
             "source": "ustr",
             "dollar_impact_usd": capex * 0.05 * s.share_of_supply,
@@ -141,6 +144,7 @@ def _stub_factors(project: Project) -> list[dict[str, Any]]:
                 f"Heavy reliance on {top.country} for {top.component_type} exposes the "
                 f"project to export controls, sanctions, or supply disruption."
             ),
+            "our_view": f"Concentration in {top.country} elevates supply-chain tail risk; diversification options thin.",
             "citation": f"{top.name} — {top.country}",
             "source": "internal",
             "dollar_impact_usd": capex * 0.04 * top.share_of_supply,
@@ -157,6 +161,7 @@ def _stub_factors(project: Project) -> list[dict[str, Any]]:
             f"A 100 bps move in the long curve would compress equity IRR materially given "
             f"{project.cod_quarter} COD and ${project.capex_usd/1e6:,.0f}M capex."
         ),
+        "our_view": "Long-end yields range-bound but Fed cuts could re-rate equity IRR materially.",
         "citation": "Internal IRR model",
         "source": "internal",
         "dollar_impact_usd": project.capex_usd * 0.05,
@@ -285,6 +290,7 @@ def map_project(project: Project) -> list[RiskFactor]:
                 category=cat,  # type: ignore[arg-type]
                 title=str(f.get("title", "Untitled risk"))[:120],
                 description=str(f.get("description", ""))[:600],
+                our_view=str(f.get("our_view", ""))[:280],
                 source=str(f.get("source", "internal")),  # type: ignore[arg-type]
                 citation=str(f.get("citation", ""))[:200],
                 dollar_impact_usd=float(f.get("dollar_impact_usd") or 0.0),

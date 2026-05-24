@@ -215,6 +215,64 @@ def _rank_hedges(
     return out
 
 
+# ── attention timeseries ─────────────────────────────────────────────
+
+WEEKS = 12
+
+
+def _enrich_factors_with_attention(factors: list[RiskFactor], policies: list[PolicyItem]) -> None:
+    """For each factor: compute a 12-week activity sparkline from policies whose
+    title/summary contains any of the factor's keywords. Then normalize to a
+    0–100 attention score (max across all factors → 100) and bucket the
+    factor's probability into a Likelihood label."""
+    now = datetime.now(timezone.utc)
+    # Pre-tokenize policy text for fast matching
+    policy_corpus: list[tuple[datetime, str]] = []
+    for p in policies:
+        if not p.latest_action_date:
+            continue
+        try:
+            dt = datetime.fromisoformat(p.latest_action_date.replace("Z", "+00:00"))
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=timezone.utc)
+        except ValueError:
+            continue
+        text = " ".join([p.title, p.summary, p.latest_action]).lower()
+        policy_corpus.append((dt, text))
+
+    max_total = 1
+    for f in factors:
+        weekly = [0] * WEEKS
+        f_kw = [k.lower() for k in f.keywords if len(k) > 3]
+        # Add factor title tokens as fallback keywords
+        title_tokens = [t.lower() for t in f.title.split() if len(t) > 4]
+        f_kw = list(set(f_kw + title_tokens))
+        if not f_kw:
+            f.attention_weekly = weekly
+            continue
+        for dt, text in policy_corpus:
+            if not any(k in text for k in f_kw):
+                continue
+            weeks_ago = int((now - dt).days // 7)
+            if 0 <= weeks_ago < WEEKS:
+                # Index 0 = oldest, WEEKS-1 = most recent
+                weekly[WEEKS - 1 - weeks_ago] += 1
+        f.attention_weekly = weekly
+        max_total = max(max_total, sum(weekly))
+
+    # Normalize attention_score: 100 = the factor with the most total mentions
+    for f in factors:
+        total = sum(f.attention_weekly)
+        f.attention_score = round(100.0 * total / max_total) if max_total else 0
+        # Likelihood bucket
+        if f.probability < 0.25:
+            f.likelihood_bucket = "low"
+        elif f.probability < 0.55:
+            f.likelihood_bucket = "medium"
+        else:
+            f.likelihood_bucket = "high"
+
+
 # ── pipeline ─────────────────────────────────────────────────────────
 
 def _write(path: Path, data) -> None:
@@ -245,7 +303,7 @@ async def _run_full() -> None:
     markets = await _gather_markets(PROJECTS, factors)
     log.info("  collected %d unique markets", len(markets))
 
-    log.info("Step 4/4 — computing index scores + hedge mapping")
+    log.info("Step 4/4 — enriching factors, scoring, mapping hedges")
     # Modulate policy-category factor probabilities by the count of live policy
     # items affecting the project, so the Policy sub-score is load-bearing on the
     # actual Congress/FR pull (BUILD.md verification step 5).
@@ -259,6 +317,9 @@ async def _run_full() -> None:
         n = policy_counts.get(f.project_id, 0)
         pressure = 0.55 + min(1.05, n / 25)  # 0.55× at 0 items → 1.60× saturated
         f.probability = max(0.0, min(1.0, f.probability * pressure))
+
+    # Attention timeseries (12 weekly buckets) + likelihood bucket per factor
+    _enrich_factors_with_attention(factors, policies)
 
     scores = [index_math.compute(p, [f for f in factors if f.project_id == p.id]) for p in PROJECTS]
     hedges = _rank_hedges(factors, markets, top_n=3)

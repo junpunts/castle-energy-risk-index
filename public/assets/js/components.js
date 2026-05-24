@@ -214,4 +214,212 @@ export function buildProjectMap(projects) {
   return m;
 }
 
-export { CATS, CAT_LABEL };
+// ── BlackRock-style risk row + sparkline ──────────────────
+
+export function renderSparkline(weekly, { w = 140, h = 28 } = {}) {
+  if (!weekly || !weekly.length) return '';
+  const max = Math.max(1, ...weekly);
+  const step = w / (weekly.length - 1 || 1);
+  const points = weekly.map((v, i) => [i * step, h - (v / max) * (h - 4) - 2]);
+  const line = points.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
+  const fill = `${line} L${w},${h} L0,${h} Z`;
+  const last = points[points.length - 1];
+  return `<svg class="sparkline" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+    <path class="fill" d="${fill}"/>
+    <path class="line" d="${line}"/>
+    <circle class="last" cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2"/>
+  </svg>`;
+}
+
+const LIKELIHOOD_LABEL = { low: 'Low', medium: 'Medium', high: 'High' };
+
+export function renderLikelihoodPill(bucket) {
+  return `<span class="likelihood-pill is-${bucket}">${LIKELIHOOD_LABEL[bucket] || bucket}</span>`;
+}
+
+// Map a factor's category + magnitude into per-sub-score arrows.
+// The factor primarily loads onto its own category. We render one arrow row for the primary category;
+// for high-impact factors we add a secondary arrow on the closest neighbor category.
+const NEIGHBOR = {
+  policy: 'trade',
+  trade: 'policy',
+  geopolitical: 'trade',
+  macro: 'policy',
+};
+function arrowsFor(magnitude) {
+  if (magnitude >= 2) return '↑↑';
+  if (magnitude >= 1) return '↑';
+  if (magnitude <= -2) return '↓↓';
+  if (magnitude <= -1) return '↓';
+  return '→';
+}
+
+export function renderImpactArrows(factor, project) {
+  const expectedFrac = (factor.dollar_impact_usd * factor.probability) / (project?.capex_usd || factor.dollar_impact_usd || 1);
+  let primary = 2;
+  if (expectedFrac < 0.01) primary = 1;
+  if (expectedFrac < 0.005) primary = 0;
+  if (expectedFrac >= 0.04) primary = 2;
+  const main = factor.category;
+  const secondary = expectedFrac >= 0.03 ? NEIGHBOR[main] : null;
+  const rows = [
+    `<div class="impact-row"><span class="swatch is-${main}"></span><span class="label">${CAT_LABEL[main].slice(0, 4)}</span><span class="arrows">${arrowsFor(primary)}</span></div>`,
+  ];
+  if (secondary) {
+    rows.push(`<div class="impact-row"><span class="swatch is-${secondary}"></span><span class="label">${CAT_LABEL[secondary].slice(0, 4)}</span><span class="arrows">${arrowsFor(1)}</span></div>`);
+  }
+  return `<div class="risk-impact">${rows.join('')}</div>`;
+}
+
+export function renderRiskTableHead({ showAffected = true } = {}) {
+  return `<div class="risk-table-head">
+    <div>${showAffected ? 'Risk · affected projects' : 'Risk'}</div>
+    <div>Attention · 12-week activity</div>
+    <div>Likelihood</div>
+    <div>Castle view</div>
+    <div>Impact</div>
+    <div></div>
+  </div>`;
+}
+
+export function renderRiskRow(factor, projectMap, { showAffected = true } = {}) {
+  const project = projectMap.get(factor.project_id);
+  const affectedChips = showAffected && project
+    ? `<div class="affected"><span class="chip">${escapeHtml(project.name)}</span></div>`
+    : '';
+  return `<article class="risk-row" data-factor-id="${escapeHtml(factor.id)}" tabindex="0" role="button">
+    <div class="risk-row-name">
+      <div class="name-line">
+        <span class="cat-pill is-${factor.category}">${CAT_LABEL[factor.category]}</span>
+        <span class="title">${escapeHtml(factor.title)}</span>
+      </div>
+      ${factor.citation ? `<div class="citation">${escapeHtml(factor.citation)}</div>` : ''}
+      ${affectedChips}
+    </div>
+    <div class="risk-attn">
+      <span class="num">${factor.attention_score}</span>
+      ${renderSparkline(factor.attention_weekly)}
+      <span class="note">${sumActivity(factor.attention_weekly)} mentions · 12w</span>
+    </div>
+    <div>${renderLikelihoodPill(factor.likelihood_bucket)}</div>
+    <div class="risk-view">${escapeHtml(factor.our_view || factor.description.split(/[.!?]/)[0])}</div>
+    ${renderImpactArrows(factor, project)}
+    <div class="risk-expand-toggle">+</div>
+  </article>`;
+}
+
+function sumActivity(weekly) {
+  return (weekly || []).reduce((a, b) => a + b, 0);
+}
+
+export function renderRiskDrawer(factor, project, hedges, markets, policies) {
+  const expected = factor.dollar_impact_usd * factor.probability;
+  const factorHedges = hedges
+    .filter(h => h.factor_id === factor.id)
+    .map(h => ({ h, market: markets.find(m => m.id === h.market_id) }))
+    .filter(({ market }) => market)
+    .slice(0, 4);
+
+  // Up to 5 most recent policy items whose text references any factor keyword
+  const f_kw = factor.keywords.map(k => k.toLowerCase());
+  const relatedPolicies = policies
+    .filter(p => {
+      const text = (p.title + ' ' + (p.summary || '') + ' ' + (p.latest_action || '')).toLowerCase();
+      return f_kw.some(k => k && k.length > 3 && text.includes(k));
+    })
+    .sort((a, b) => (b.latest_action_date || '').localeCompare(a.latest_action_date || ''))
+    .slice(0, 5);
+
+  return `<div class="risk-drawer">
+    <div class="risk-drawer-grid">
+      <div>
+        <h4>Detailed view</h4>
+        <p class="desc">${escapeHtml(factor.description)}</p>
+        <div class="stat-line">
+          <div class="stat-cell"><div class="stat-label">$ at risk</div><div class="stat-val">${fmtUsd(factor.dollar_impact_usd)}</div></div>
+          <div class="stat-cell"><div class="stat-label">Probability</div><div class="stat-val">${fmtPct(factor.probability)}</div></div>
+          <div class="stat-cell"><div class="stat-label">Expected loss</div><div class="stat-val">${fmtUsd(expected)}</div></div>
+          <div class="stat-cell"><div class="stat-label">Source</div><div class="stat-val" style="font-size:12px;text-transform:uppercase">${escapeHtml(factor.source.replace('_', ' '))}</div></div>
+        </div>
+        ${relatedPolicies.length ? `<h4 style="margin-top:20px">Related items</h4>
+          <div class="links">
+            ${relatedPolicies.map(p => `<a href="${escapeHtml(p.url || '#')}" target="_blank" rel="noopener" title="${escapeHtml(p.title)}">${escapeHtml(truncate(p.title, 60))}</a>`).join('')}
+          </div>` : ''}
+      </div>
+      <div>
+        <h4>Mapped Kalshi hedges</h4>
+        ${factorHedges.length ? `<div class="hedge-list">
+          ${factorHedges.map(({ h, market }) => `<article class="hedge-card">
+            <div class="hedge-top">
+              <div class="hedge-event">${escapeHtml(market.event_title || market.ticker)}</div>
+              <span class="hedge-platform">${escapeHtml(market.platform)}</span>
+            </div>
+            <div class="hedge-title">${escapeHtml(market.title)}</div>
+            <div class="hedge-bottom">
+              <div><span class="hedge-prob-label">YES</span><div class="hedge-prob num">${Math.round(market.yes_price * 100)}%</div></div>
+              <div class="hedge-notional"><span class="label">Notional</span>${fmtUsd(h.notional_usd)}</div>
+            </div>
+          </article>`).join('')}
+        </div>` : '<div class="empty" style="padding:16px">No mapped Kalshi market.</div>'}
+      </div>
+    </div>
+  </div>`;
+}
+
+function truncate(s, n) {
+  if (!s) return '';
+  return s.length > n ? s.slice(0, n - 1) + '…' : s;
+}
+
+export function attachRiskRowHandlers(container, { onExpand } = {}) {
+  container.querySelectorAll('.risk-row').forEach(row => {
+    const toggle = () => {
+      const wasExpanded = row.classList.contains('is-expanded');
+      // Collapse all other rows in the container
+      container.querySelectorAll('.risk-row.is-expanded').forEach(r => {
+        if (r !== row) {
+          r.classList.remove('is-expanded');
+          const t = r.querySelector('.risk-expand-toggle'); if (t) t.textContent = '+';
+          const d = r.querySelector('.risk-drawer'); if (d) d.remove();
+        }
+      });
+      if (wasExpanded) {
+        row.classList.remove('is-expanded');
+        row.querySelector('.risk-expand-toggle').textContent = '+';
+        const d = row.querySelector('.risk-drawer'); if (d) d.remove();
+      } else {
+        row.classList.add('is-expanded');
+        row.querySelector('.risk-expand-toggle').textContent = '−';
+        if (onExpand) {
+          const drawerHtml = onExpand(row.dataset.factorId);
+          if (drawerHtml) row.insertAdjacentHTML('beforeend', drawerHtml);
+        }
+      }
+    };
+    row.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      toggle();
+    });
+    row.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+  });
+}
+
+export function renderAttnBarometer({ portfolioAttention, hottest, weeklyTotals }) {
+  return `<section class="attn-barometer">
+    <div>
+      <span class="label">Portfolio attention · live · 12-week window</span>
+      <h2>${escapeHtml(hottest ? hottest.headline : 'The portfolio is quiet this week.')}</h2>
+      <p class="sub">${escapeHtml(hottest ? hottest.subline : 'No risk factor is currently registering elevated activity in Congress.gov or the Federal Register.')}</p>
+    </div>
+    <div class="reading">
+      <span class="label">Attention reading</span>
+      <div class="reading-val num">${portfolioAttention}</div>
+      ${renderSparkline(weeklyTotals, { w: 240, h: 48 })}
+      <span class="label" style="margin-top:6px;display:block">12-week activity · all risks</span>
+    </div>
+  </section>`;
+}
+
+export { CATS, CAT_LABEL, fmtUsd, fmtPct };

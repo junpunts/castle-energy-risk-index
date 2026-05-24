@@ -652,7 +652,301 @@ img, svg { display: block; max-width: 100%; }
 .method-weight-val.is-geopolitical { color: var(--accent-forest); }
 .method-weight-val.is-macro { color: var(--accent-blue-deep); }
 
-/* ── Footer ─────────────────────────────────────────────────── */
+/* ── BlackRock-style risk table ──────────────────────────── */
+.risk-table {
+  border-top: 1px solid var(--border);
+  background: var(--bg-card);
+}
+.risk-table-head {
+  display: grid;
+  grid-template-columns: 1.9fr 1.1fr 0.6fr 1.7fr 0.9fr 0.5fr;
+  gap: 16px;
+  padding: 14px 20px 12px;
+  background: var(--castle-paper);
+  border-bottom: 1px solid var(--border-strong);
+}
+.risk-table-head > div {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.risk-row {
+  display: grid;
+  grid-template-columns: 1.9fr 1.1fr 0.6fr 1.7fr 0.9fr 0.5fr;
+  gap: 16px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+  cursor: pointer;
+  transition: background .12s;
+}
+.risk-row:hover { background: var(--surface-overlay); }
+.risk-row.is-expanded { background: var(--castle-paper); }
+.risk-row-name { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.risk-row-name .name-line { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.risk-row-name .title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: var(--track-display);
+  color: var(--fg);
+}
+.risk-row-name .citation {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-3);
+  letter-spacing: -0.01em;
+}
+.risk-row-name .affected {
+  display: flex; gap: 4px; flex-wrap: wrap;
+  margin-top: 4px;
+}
+.risk-row-name .affected .chip {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  color: var(--fg-3);
+}
+.risk-attn { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.risk-attn .num {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+}
+.sparkline { width: 100%; max-width: 140px; height: 28px; }
+.sparkline path.fill { fill: rgba(36, 96, 117, 0.10); }
+.sparkline path.line { fill: none; stroke: var(--accent-teal); stroke-width: 1.5; }
+.sparkline circle.last { fill: var(--accent-teal); }
+.risk-attn .note {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.likelihood-pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--fg-2);
+}
+.likelihood-pill.is-low {
+  color: var(--accent-forest);
+  border-color: var(--accent-forest);
+}
+.likelihood-pill.is-medium {
+  color: var(--accent-blue-deep);
+  border-color: var(--accent-blue-deep);
+}
+.likelihood-pill.is-high {
+  color: var(--castle-bone);
+  background: #8B2A1C;
+  border-color: #8B2A1C;
+}
+.risk-view {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fg-2);
+}
+.risk-impact {
+  display: flex; flex-direction: column; gap: 4px;
+}
+.impact-row {
+  display: flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.impact-row .label { width: 38px; }
+.impact-row .swatch { width: 6px; height: 6px; }
+.impact-row .swatch.is-policy { background: var(--accent-teal); }
+.impact-row .swatch.is-trade { background: var(--accent-teal-deep); }
+.impact-row .swatch.is-geopolitical { background: var(--accent-forest); }
+.impact-row .swatch.is-macro { background: var(--accent-blue-deep); }
+.impact-row .arrows {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-2);
+}
+.risk-expand-toggle {
+  font-family: var(--font-mono);
+  font-size: 16px;
+  color: var(--fg-3);
+  align-self: start;
+  margin-top: 4px;
+  user-select: none;
+  text-align: right;
+}
+
+/* Expanded drawer */
+.risk-drawer {
+  grid-column: 1 / -1;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  display: none;
+}
+.risk-row.is-expanded .risk-drawer { display: block; }
+.risk-drawer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 32px;
+}
+.risk-drawer h4 {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--fg-3);
+  margin: 0 0 10px;
+}
+.risk-drawer .desc { font-size: 14px; color: var(--fg-2); line-height: 1.55; margin: 0 0 16px; }
+.risk-drawer .stat-line {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+.risk-drawer .stat-cell {
+  padding: 12px 14px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-card);
+}
+.risk-drawer .stat-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.risk-drawer .stat-val {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+  margin-top: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.risk-drawer .hedge-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+}
+.risk-drawer .hedge-list .hedge-card {
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  min-height: 0;
+  padding: 14px;
+}
+.risk-drawer .links {
+  display: flex; flex-wrap: wrap; gap: 8px;
+}
+.risk-drawer .links a {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+  color: var(--fg-2);
+  letter-spacing: -0.01em;
+}
+.risk-drawer .links a:hover { color: var(--fg); border-color: var(--border-strong); }
+
+@media (max-width: 1100px) {
+  .risk-table-head, .risk-row {
+    grid-template-columns: 1.5fr 0.8fr 0.6fr 1.4fr 0.5fr;
+  }
+  .risk-table-head > div:nth-child(5), .risk-row > .risk-impact { display: none; }
+  .risk-drawer-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .risk-table-head { display: none; }
+  .risk-row { grid-template-columns: 1fr; gap: 12px; }
+  .risk-row > * { width: 100%; }
+}
+
+/* ── Portfolio attention barometer ──────────────────────── */
+.attn-barometer {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 32px;
+  margin: 40px 0 24px;
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+}
+.attn-barometer .label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+.attn-barometer h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: var(--track-display);
+  margin: 8px 0 6px;
+  max-width: 560px;
+}
+.attn-barometer .sub {
+  color: var(--fg-3);
+  font-size: 14px;
+  max-width: 560px;
+  margin: 0;
+}
+.attn-barometer .reading {
+  text-align: right;
+}
+.attn-barometer .reading-val {
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+.attn-barometer .reading-spark { width: 240px; height: 48px; margin-left: auto; margin-top: 8px; }
+.attn-barometer .reading-spark path.fill { fill: rgba(36, 96, 117, 0.12); }
+.attn-barometer .reading-spark path.line { fill: none; stroke: var(--accent-teal); stroke-width: 2; }
+.attn-barometer .reading-spark circle.last { fill: var(--accent-teal); }
+
+@media (max-width: 1024px) {
+  .attn-barometer { grid-template-columns: 1fr; }
+  .attn-barometer .reading { text-align: left; }
+  .attn-barometer .reading-spark { margin-left: 0; }
+}
+
 .eri-footer {
   border-top: 1px solid var(--border);
   background: var(--castle-bone);
