@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Policy tracker — Castle Energy Risk Index</title>
+  <link rel="stylesheet" href="assets/css/colors_and_type.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="is-loading">
+
+<nav class="eri-nav">
+  <div class="eri-nav-inner">
+    <a class="eri-brand" href="index.html">
+      <img src="assets/svg/castle-logo-black.svg" alt="Castle" class="eri-brand-logo">
+      <span class="eri-brand-product">Energy Risk Index</span>
+    </a>
+    <div class="eri-nav-links">
+      <a href="index.html">Portfolio</a>
+      <a href="policies.html" class="is-active">Policies</a>
+      <a href="hedges.html">Hedges</a>
+      <a href="methodology.html">Methodology</a>
+    </div>
+  </div>
+</nav>
+
+<main class="eri-main">
+  <header>
+    <span class="eri-eyebrow is-strong">Policy tracker · Congress.gov + Federal Register</span>
+    <h1 class="eri-h1">Bills and rules that move the portfolio.</h1>
+    <p class="eri-lead">Every legislative bill, Treasury rule, and federal-register notice currently mapped to one or more portfolio projects. Filter by source, project, or time window.</p>
+  </header>
+
+  <section class="eri-filters">
+    <div id="filter-source" class="eri-filter-group"></div>
+    <div id="filter-project" class="eri-filter-group"></div>
+    <div id="filter-window" class="eri-filter-group"></div>
+  </section>
+
+  <div class="section-head">
+    <h2 class="eri-h2">Items</h2>
+    <div class="section-head-meta"><span id="count">—</span></div>
+  </div>
+  <section id="list"></section>
+</main>
+
+<footer class="eri-footer">
+  <div class="eri-footer-inner">
+    <span>© 2026 Castle Technologies · For informational purposes only</span>
+    <div class="eri-footer-links">
+      <a href="methodology.html">Methodology</a>
+      <a href="https://www.congress.gov" target="_blank" rel="noopener">Congress.gov</a>
+      <a href="https://www.federalregister.gov" target="_blank" rel="noopener">Federal Register</a>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="assets/js/pages/policies.js"></script>
+</body>
+</html>

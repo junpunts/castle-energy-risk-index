@@ -7,7 +7,7 @@
       "macro": 0.15
     },
     "version": "v0.1",
-    "generated_at": "2026-05-24T15:57:05+00:00"
+    "generated_at": "2026-05-24T16:08:11+00:00"
   },
   "projects": [
     {
@@ -328,7 +328,7 @@
       "source": "congress",
       "citation": "IRC \u00a748E (IRA \u00a713702); House Ways & Means reconciliation discussion draft, 119th Congress; One Big Beautiful Bill Act, H.R. 1 (2025)",
       "dollar_impact_usd": 180000000.0,
-      "probability": 0.35,
+      "probability": 0.5285,
       "status": "active",
       "keywords": [
         "48E ITC repeal",
@@ -348,7 +348,7 @@
       "source": "federal_register",
       "citation": "IRC \u00a748E(a)(3); Treasury NPRM REG-100908-23 (68 FR 41959, Aug. 2023); IRS Notice 2023-29",
       "dollar_impact_usd": 22000000.0,
-      "probability": 0.4,
+      "probability": 0.6040000000000001,
       "status": "pending",
       "keywords": [
         "domestic content bonus",
@@ -368,7 +368,7 @@
       "source": "internal",
       "citation": "PUCT Docket 54530; ERCOT NPRR 1196, NPRR 1197; FERC Order 2023 (state analogue applicability)",
       "dollar_impact_usd": 45000000.0,
-      "probability": 0.45,
+      "probability": 0.6795,
       "status": "active",
       "keywords": [
         "ERCOT interconnection queue",
@@ -528,7 +528,7 @@
       "source": "federal_register",
       "citation": "EO 14154 (Jan 20, 2025) \u2014 'Unleashing American Energy'; BOEM COP review docket for OCS-A 0501; 30 CFR Part 585",
       "dollar_impact_usd": 630000000.0,
-      "probability": 0.55,
+      "probability": 0.7865000000000002,
       "status": "active",
       "keywords": [
         "BOEM COP",
@@ -548,7 +548,7 @@
       "source": "congress",
       "citation": "IRC \u00a745Y, \u00a748E (Inflation Reduction Act, P.L. 117-169); House Budget Reconciliation draft, 119th Cong. (2025)",
       "dollar_impact_usd": 840000000.0,
-      "probability": 0.35,
+      "probability": 0.5005000000000001,
       "status": "active",
       "keywords": [
         "Section 45Y PTC",
@@ -568,7 +568,7 @@
       "source": "federal_register",
       "citation": "IRC \u00a745Y(g)(11); IRS Notice 2023-29, Notice 2024-41; Proposed Reg. REG-110412-23",
       "dollar_impact_usd": 294000000.0,
-      "probability": 0.65,
+      "probability": 0.9295000000000001,
       "status": "pending",
       "keywords": [
         "Treasury 45Y domestic content",
@@ -728,7 +728,7 @@
       "source": "federal_register",
       "citation": "IRC \u00a748E; IRS REG-100908-23; TD 10003 (Aug 2023)",
       "dollar_impact_usd": 72000000.0,
-      "probability": 0.18,
+      "probability": 0.2574,
       "status": "active",
       "keywords": [
         "Section 48E",
@@ -748,7 +748,7 @@
       "source": "federal_register",
       "citation": "IRC \u00a748E(d)(4); IRS Notice 2024-05; IRS REG-118492-23",
       "dollar_impact_usd": 96000000.0,
-      "probability": 0.42,
+      "probability": 0.6006,
       "status": "active",
       "keywords": [
         "FEOC restriction",
@@ -768,7 +768,7 @@
       "source": "federal_register",
       "citation": "IRC \u00a745X; IRS REG-107423-23; Treasury Final Rule (Dec 2024)",
       "dollar_impact_usd": 15000000.0,
-      "probability": 0.25,
+      "probability": 0.35750000000000004,
       "status": "pending",
       "keywords": [
         "Section 45X",
@@ -788,7 +788,7 @@
       "source": "federal_register",
       "citation": "FERC Order No. 2222 (Sept 2020); CAISO Compliance Filing ER21-377",
       "dollar_impact_usd": 18000000.0,
-      "probability": 0.35,
+      "probability": 0.5005000000000001,
       "status": "watching",
       "keywords": [
         "FERC Order 2222",
@@ -928,7 +928,7 @@
       "source": "federal_register",
       "citation": "IRC \u00a745V; Treasury Final Rule TD 10024 (Jan 3, 2025); 26 CFR \u00a71.45V-4",
       "dollar_impact_usd": 240000000.0,
-      "probability": 0.45,
+      "probability": 0.6435000000000001,
       "status": "active",
       "keywords": [
         "45V three pillars",
@@ -948,7 +948,7 @@
       "source": "congress",
       "citation": "IRC \u00a745V; House Budget Reconciliation Discussion Draft (Feb 2025); IRA \u00a713204",
       "dollar_impact_usd": 300000000.0,
-      "probability": 0.3,
+      "probability": 0.42900000000000005,
       "status": "active",
       "keywords": [
         "IRA repeal",
@@ -968,7 +968,7 @@
       "source": "federal_register",
       "citation": "IIJA \u00a740314 (H2Hubs, 42 U.S.C. \u00a716161a); DOE Cooperative Agreement DE-EE0010679; EO 14154 (Jan 20, 2025)",
       "dollar_impact_usd": 120000000.0,
-      "probability": 0.35,
+      "probability": 0.5005000000000001,
       "status": "active",
       "keywords": [
         "H2Hubs funding",
@@ -988,7 +988,7 @@
       "source": "federal_register",
       "citation": "EPA 40 CFR Part 98 Subpart W/RR; EPA Proposed Rule 88 FR 65460 (Sep 2023); IRC \u00a745V(c)(1)(B)",
       "dollar_impact_usd": 90000000.0,
-      "probability": 0.3,
+      "probability": 0.42900000000000005,
       "status": "pending",
       "keywords": [
         "EPA Subpart 98",
@@ -1128,7 +1128,7 @@
       "source": "federal_register",
       "citation": "23 USC 175; FHWA Notice of Review Jan 2025; Infrastructure Investment and Jobs Act (IIJA) \u00a711401",
       "dollar_impact_usd": 90000000.0,
-      "probability": 0.42,
+      "probability": 0.5334,
       "status": "active",
       "keywords": [
         "NEVI rescission",
@@ -1148,7 +1148,7 @@
       "source": "congress",
       "citation": "IRC \u00a730C; House Ways & Means Committee reconciliation markup, April 2025",
       "dollar_impact_usd": 36000000.0,
-      "probability": 0.38,
+      "probability": 0.48260000000000003,
       "status": "active",
       "keywords": [
         "Section 30C",
@@ -1168,7 +1168,7 @@
       "source": "federal_register",
       "citation": "41 USC 8301 et seq.; 23 CFR 635.410; FHWA Buy America EV Charger Guidance, FY2024; Build America Buy America Act \u00a770901-70952 IIJA",
       "dollar_impact_usd": 45000000.0,
-      "probability": 0.45,
+      "probability": 0.5715,
       "status": "active",
       "keywords": [
         "BABA waiver",
@@ -1188,7 +1188,7 @@
       "source": "federal_register",
       "citation": "23 CFR Part 680; FHWA Final Rule 88 FR 12724 (Feb 2023); potential NPRM under EO 14192 deregulatory review",
       "dollar_impact_usd": 12000000.0,
-      "probability": 0.3,
+      "probability": 0.381,
       "status": "watching",
       "keywords": [
         "23 CFR 680",
@@ -1326,48 +1326,48 @@
       "factor_id": "lone-star-solar-i__f00",
       "market_id": "kalshi::KX48ETAXCREDIT-26MAY",
       "relevance": 0.351,
-      "notional_usd": 1260000000.0,
-      "rationale": "Pays $1 if YES; hedges 'IRA Repeal or \u00a748E ITC Phase-Down Risk' (EL $63.0M, market p=0.98)."
+      "notional_usd": 1902600000.0,
+      "rationale": "Pays $1 if YES; hedges 'IRA Repeal or \u00a748E ITC Phase-Down Risk' (EL $95.1M, market p=0.98)."
     },
     {
       "project_id": "lone-star-solar-i",
       "factor_id": "lone-star-solar-i__f00",
       "market_id": "kalshi::KXCONSTAMEND-29-JAN20",
       "relevance": 0.163,
-      "notional_usd": 70787000.0,
-      "rationale": "Pays $1 if YES; hedges 'IRA Repeal or \u00a748E ITC Phase-Down Risk' (EL $63.0M, market p=0.11)."
+      "notional_usd": 106888000.0,
+      "rationale": "Pays $1 if YES; hedges 'IRA Repeal or \u00a748E ITC Phase-Down Risk' (EL $95.1M, market p=0.11)."
     },
     {
       "project_id": "lone-star-solar-i",
       "factor_id": "lone-star-solar-i__f00",
       "market_id": "kalshi::KXAMEND25-29",
       "relevance": 0.159,
-      "notional_usd": 91304000.0,
-      "rationale": "Pays $1 if YES; hedges 'IRA Repeal or \u00a748E ITC Phase-Down Risk' (EL $63.0M, market p=0.31)."
+      "notional_usd": 137870000.0,
+      "rationale": "Pays $1 if YES; hedges 'IRA Repeal or \u00a748E ITC Phase-Down Risk' (EL $95.1M, market p=0.31)."
     },
     {
       "project_id": "lone-star-solar-i",
       "factor_id": "lone-star-solar-i__f01",
       "market_id": "kalshi::KXIMPEACHCABINET-28JAN01",
       "relevance": 0.133,
-      "notional_usd": 21463000.0,
-      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a748E Domestic Content Bonus Guidance Delay' (EL $8.8M, market p=0.59)."
+      "notional_usd": 32410000.0,
+      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a748E Domestic Content Bonus Guidance Delay' (EL $13.3M, market p=0.59)."
     },
     {
       "project_id": "lone-star-solar-i",
       "factor_id": "lone-star-solar-i__f01",
       "market_id": "kalshi::KXIMPEACHCABINET-29JAN20",
       "relevance": 0.133,
-      "notional_usd": 26667000.0,
-      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a748E Domestic Content Bonus Guidance Delay' (EL $8.8M, market p=0.67)."
+      "notional_usd": 40267000.0,
+      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a748E Domestic Content Bonus Guidance Delay' (EL $13.3M, market p=0.67)."
     },
     {
       "project_id": "lone-star-solar-i",
       "factor_id": "lone-star-solar-i__f01",
       "market_id": "kalshi::KXIMPEACHCABINET-26JUL01",
       "relevance": 0.132,
-      "notional_usd": 9293000.0,
-      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a748E Domestic Content Bonus Guidance Delay' (EL $8.8M, market p=0.05)."
+      "notional_usd": 14032000.0,
+      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a748E Domestic Content Bonus Guidance Delay' (EL $13.3M, market p=0.05)."
     },
     {
       "project_id": "lone-star-solar-i",
@@ -1542,40 +1542,40 @@
       "factor_id": "vineyard-wind-ii__f00",
       "market_id": "kalshi::KXPRIMEENGCONSUMPTION-30-WIND",
       "relevance": 0.137,
-      "notional_usd": 353571000.0,
-      "rationale": "Pays $1 if YES; hedges 'BOEM COP Approval Delay or Denial' (EL $346.5M, market p=0.02)."
+      "notional_usd": 505607000.0,
+      "rationale": "Pays $1 if YES; hedges 'BOEM COP Approval Delay or Denial' (EL $495.5M, market p=0.02)."
     },
     {
       "project_id": "vineyard-wind-ii",
       "factor_id": "vineyard-wind-ii__f01",
       "market_id": "kalshi::KX48ETAXCREDIT-26MAY",
       "relevance": 0.233,
-      "notional_usd": 5880000000.0,
-      "rationale": "Pays $1 if YES; hedges 'IRC \u00a745Y / \u00a748E Credit Repeal or Phase-Down' (EL $294.0M, market p=0.98)."
+      "notional_usd": 8408400000.0,
+      "rationale": "Pays $1 if YES; hedges 'IRC \u00a745Y / \u00a748E Credit Repeal or Phase-Down' (EL $420.4M, market p=0.98)."
     },
     {
       "project_id": "vineyard-wind-ii",
       "factor_id": "vineyard-wind-ii__f02",
       "market_id": "kalshi::KXAGENCYELIM-29-IRS",
       "relevance": 0.177,
-      "notional_usd": 205484000.0,
-      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a745Y Domestic-Content Adder Denial' (EL $191.1M, market p=0.07)."
+      "notional_usd": 293842000.0,
+      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a745Y Domestic-Content Adder Denial' (EL $273.3M, market p=0.07)."
     },
     {
       "project_id": "vineyard-wind-ii",
       "factor_id": "vineyard-wind-ii__f02",
       "market_id": "kalshi::KXMUSKTRILLION-29",
       "relevance": 0.159,
-      "notional_usd": 3822000000.0,
-      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a745Y Domestic-Content Adder Denial' (EL $191.1M, market p=0.97)."
+      "notional_usd": 5465460000.0,
+      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a745Y Domestic-Content Adder Denial' (EL $273.3M, market p=0.97)."
     },
     {
       "project_id": "vineyard-wind-ii",
       "factor_id": "vineyard-wind-ii__f02",
       "market_id": "kalshi::KXGDPSHAREMANU-29",
       "relevance": 0.156,
-      "notional_usd": 294000000.0,
-      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a745Y Domestic-Content Adder Denial' (EL $191.1M, market p=0.35)."
+      "notional_usd": 420420000.0,
+      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a745Y Domestic-Content Adder Denial' (EL $273.3M, market p=0.35)."
     },
     {
       "project_id": "vineyard-wind-ii",
@@ -1750,48 +1750,48 @@
       "factor_id": "mojave-bess__f00",
       "market_id": "kalshi::KX48ETAXCREDIT-26MAY",
       "relevance": 0.116,
-      "notional_usd": 259200000.0,
-      "rationale": "Pays $1 if YES; hedges 'IRC \u00a748E Standalone Storage ITC Recapture Risk' (EL $13.0M, market p=0.98)."
+      "notional_usd": 370656000.0,
+      "rationale": "Pays $1 if YES; hedges 'IRC \u00a748E Standalone Storage ITC Recapture Risk' (EL $18.5M, market p=0.98)."
     },
     {
       "project_id": "mojave-bess",
       "factor_id": "mojave-bess__f01",
       "market_id": "kalshi::KX48ETAXCREDIT-26MAY",
       "relevance": 0.116,
-      "notional_usd": 806400000.0,
-      "rationale": "Pays $1 if YES; hedges 'FEOC Restriction Disqualifies CATL/BYD Cells from \u00a748E' (EL $40.3M, market p=0.98)."
+      "notional_usd": 1153152000.0,
+      "rationale": "Pays $1 if YES; hedges 'FEOC Restriction Disqualifies CATL/BYD Cells from \u00a748E' (EL $57.7M, market p=0.98)."
     },
     {
       "project_id": "mojave-bess",
       "factor_id": "mojave-bess__f01",
       "market_id": "kalshi::KXWITHDRAW-29-WBANK",
       "relevance": 0.045,
-      "notional_usd": 56000000.0,
-      "rationale": "Pays $1 if YES; hedges 'FEOC Restriction Disqualifies CATL/BYD Cells from \u00a748E' (EL $40.3M, market p=0.28)."
+      "notional_usd": 80080000.0,
+      "rationale": "Pays $1 if YES; hedges 'FEOC Restriction Disqualifies CATL/BYD Cells from \u00a748E' (EL $57.7M, market p=0.28)."
     },
     {
       "project_id": "mojave-bess",
       "factor_id": "mojave-bess__f01",
       "market_id": "kalshi::KXBANTRANS-26",
       "relevance": 0.04,
-      "notional_usd": 56789000.0,
-      "rationale": "Pays $1 if YES; hedges 'FEOC Restriction Disqualifies CATL/BYD Cells from \u00a748E' (EL $40.3M, market p=0.29)."
+      "notional_usd": 81208000.0,
+      "rationale": "Pays $1 if YES; hedges 'FEOC Restriction Disqualifies CATL/BYD Cells from \u00a748E' (EL $57.7M, market p=0.29)."
     },
     {
       "project_id": "mojave-bess",
       "factor_id": "mojave-bess__f02",
       "market_id": "kalshi::KXGDPSHAREMANU-29",
       "relevance": 0.156,
-      "notional_usd": 5769000.0,
-      "rationale": "Pays $1 if YES; hedges 'IRC \u00a745X Advanced Manufacturing PTC Guidance Delay' (EL $3.8M, market p=0.35)."
+      "notional_usd": 8250000.0,
+      "rationale": "Pays $1 if YES; hedges 'IRC \u00a745X Advanced Manufacturing PTC Guidance Delay' (EL $5.4M, market p=0.35)."
     },
     {
       "project_id": "mojave-bess",
       "factor_id": "mojave-bess__f02",
       "market_id": "kalshi::KX48ETAXCREDIT-26MAY",
       "relevance": 0.116,
-      "notional_usd": 75000000.0,
-      "rationale": "Pays $1 if YES; hedges 'IRC \u00a745X Advanced Manufacturing PTC Guidance Delay' (EL $3.8M, market p=0.98)."
+      "notional_usd": 107250000.0,
+      "rationale": "Pays $1 if YES; hedges 'IRC \u00a745X Advanced Manufacturing PTC Guidance Delay' (EL $5.4M, market p=0.98)."
     },
     {
       "project_id": "mojave-bess",
@@ -1942,24 +1942,24 @@
       "factor_id": "permian-h2-hub__f00",
       "market_id": "kalshi::KXBANTRANS-26",
       "relevance": 0.043,
-      "notional_usd": 152113000.0,
-      "rationale": "Pays $1 if YES; hedges '\u00a745V Three-Pillars Final Rule Stringency' (EL $108.0M, market p=0.29)."
+      "notional_usd": 217521000.0,
+      "rationale": "Pays $1 if YES; hedges '\u00a745V Three-Pillars Final Rule Stringency' (EL $154.4M, market p=0.29)."
     },
     {
       "project_id": "permian-h2-hub",
       "factor_id": "permian-h2-hub__f02",
       "market_id": "kalshi::KXSCOURT-29-BG",
       "relevance": 0.153,
-      "notional_usd": 42424000.0,
-      "rationale": "Pays $1 if YES; hedges 'DOE H2Hubs Milestone Clawback or Funding Freeze' (EL $42.0M, market p=0.01)."
+      "notional_usd": 60667000.0,
+      "rationale": "Pays $1 if YES; hedges 'DOE H2Hubs Milestone Clawback or Funding Freeze' (EL $60.1M, market p=0.01)."
     },
     {
       "project_id": "permian-h2-hub",
       "factor_id": "permian-h2-hub__f03",
       "market_id": "kalshi::KXAGENCYELIM-29-EPA",
       "relevance": 0.177,
-      "notional_usd": 31395000.0,
-      "rationale": "Pays $1 if YES; hedges 'EPA Subpart W/RR Hydrogen Reporting Finalization' (EL $27.0M, market p=0.14)."
+      "notional_usd": 44895000.0,
+      "rationale": "Pays $1 if YES; hedges 'EPA Subpart W/RR Hydrogen Reporting Finalization' (EL $38.6M, market p=0.14)."
     },
     {
       "project_id": "permian-h2-hub",
@@ -2086,40 +2086,40 @@
       "factor_id": "i95-evcharging__f01",
       "market_id": "kalshi::KX48ETAXCREDIT-26MAY",
       "relevance": 0.351,
-      "notional_usd": 273600000.0,
-      "rationale": "Pays $1 if YES; hedges 'IRC \u00a730C Tax Credit Repeal or Phase-Down' (EL $13.7M, market p=0.98)."
+      "notional_usd": 347472000.0,
+      "rationale": "Pays $1 if YES; hedges 'IRC \u00a730C Tax Credit Repeal or Phase-Down' (EL $17.4M, market p=0.98)."
     },
     {
       "project_id": "i95-evcharging",
       "factor_id": "i95-evcharging__f02",
       "market_id": "kalshi::KXGREENLAND-29-26JUL",
       "relevance": 0.167,
-      "notional_usd": 20496000.0,
-      "rationale": "Pays $1 if YES; hedges 'FHWA BABA Waiver Denial or Tightening' (EL $20.2M, market p=0.01)."
+      "notional_usd": 26030000.0,
+      "rationale": "Pays $1 if YES; hedges 'FHWA BABA Waiver Denial or Tightening' (EL $25.7M, market p=0.01)."
     },
     {
       "project_id": "i95-evcharging",
       "factor_id": "i95-evcharging__f02",
       "market_id": "kalshi::KXGREENLAND-29-27",
       "relevance": 0.167,
-      "notional_usd": 22035000.0,
-      "rationale": "Pays $1 if YES; hedges 'FHWA BABA Waiver Denial or Tightening' (EL $20.2M, market p=0.08)."
+      "notional_usd": 27984000.0,
+      "rationale": "Pays $1 if YES; hedges 'FHWA BABA Waiver Denial or Tightening' (EL $25.7M, market p=0.08)."
     },
     {
       "project_id": "i95-evcharging",
       "factor_id": "i95-evcharging__f02",
       "market_id": "kalshi::KXGREENLAND-29",
       "relevance": 0.167,
-      "notional_usd": 27365000.0,
-      "rationale": "Pays $1 if YES; hedges 'FHWA BABA Waiver Denial or Tightening' (EL $20.2M, market p=0.26)."
+      "notional_usd": 34753000.0,
+      "rationale": "Pays $1 if YES; hedges 'FHWA BABA Waiver Denial or Tightening' (EL $25.7M, market p=0.26)."
     },
     {
       "project_id": "i95-evcharging",
       "factor_id": "i95-evcharging__f03",
       "market_id": "kalshi::KXBANTRANS-26",
       "relevance": 0.043,
-      "notional_usd": 5070000.0,
-      "rationale": "Pays $1 if YES; hedges 'FHWA Minimum Standards Rule Revision' (EL $3.6M, market p=0.29)."
+      "notional_usd": 6439000.0,
+      "rationale": "Pays $1 if YES; hedges 'FHWA Minimum Standards Rule Revision' (EL $4.6M, market p=0.29)."
     },
     {
       "project_id": "i95-evcharging",
@@ -2245,17 +2245,17 @@
   "scores": [
     {
       "project_id": "lone-star-solar-i",
-      "composite": 50,
+      "composite": 55,
       "sub_scores": [
         {
           "category": "policy",
-          "value": 53.56345055768686,
+          "value": 68.5979130947999,
           "weight": 0.35,
-          "contribution": 18.7472076951904,
+          "contribution": 24.009269583179965,
           "drivers": [
-            "IRA Repeal or \u00a748E ITC Phase-Down Risk \u00b7 $180M \u00d7 35%",
-            "Treasury \u00a748E Domestic Content Bonus Guidance Delay \u00b7 $22M \u00d7 40%",
-            "ERCOT GIS Queue Reform Interconnection Delay \u00b7 $45M \u00d7 45%"
+            "IRA Repeal or \u00a748E ITC Phase-Down Risk \u00b7 $180M \u00d7 53%",
+            "Treasury \u00a748E Domestic Content Bonus Guidance Delay \u00b7 $22M \u00d7 60%",
+            "ERCOT GIS Queue Reform Interconnection Delay \u00b7 $45M \u00d7 68%"
           ]
         },
         {
@@ -2308,17 +2308,17 @@
     },
     {
       "project_id": "vineyard-wind-ii",
-      "composite": 40,
+      "composite": 45,
       "sub_scores": [
         {
           "category": "policy",
-          "value": 62.84233089779543,
+          "value": 75.72443749777811,
           "weight": 0.35,
-          "contribution": 21.9948158142284,
+          "contribution": 26.50355312422234,
           "drivers": [
-            "BOEM COP Approval Delay or Denial \u00b7 $630M \u00d7 55%",
-            "IRC \u00a745Y / \u00a748E Credit Repeal or Phase-Down \u00b7 $840M \u00d7 35%",
-            "Treasury \u00a745Y Domestic-Content Adder Denial \u00b7 $294M \u00d7 65%"
+            "BOEM COP Approval Delay or Denial \u00b7 $630M \u00d7 79%",
+            "IRC \u00a745Y / \u00a748E Credit Repeal or Phase-Down \u00b7 $840M \u00d7 50%",
+            "Treasury \u00a745Y Domestic-Content Adder Denial \u00b7 $294M \u00d7 93%"
           ]
         },
         {
@@ -2372,18 +2372,18 @@
     },
     {
       "project_id": "mojave-bess",
-      "composite": 45,
+      "composite": 50,
       "sub_scores": [
         {
           "category": "policy",
-          "value": 54.68921036174657,
+          "value": 67.7619821074746,
           "weight": 0.35,
-          "contribution": 19.141223626611296,
+          "contribution": 23.716693737616108,
           "drivers": [
-            "IRC \u00a748E Standalone Storage ITC Recapture Risk \u00b7 $72M \u00d7 18%",
-            "FEOC Restriction Disqualifies CATL/BYD Cells from \u00a748E \u00b7 $96M \u00d7 42%",
-            "IRC \u00a745X Advanced Manufacturing PTC Guidance Delay \u00b7 $15M \u00d7 25%",
-            "FERC Order 2222 CAISO Implementation Stall \u00b7 $18M \u00d7 35%"
+            "IRC \u00a748E Standalone Storage ITC Recapture Risk \u00b7 $72M \u00d7 26%",
+            "FEOC Restriction Disqualifies CATL/BYD Cells from \u00a748E \u00b7 $96M \u00d7 60%",
+            "IRC \u00a745X Advanced Manufacturing PTC Guidance Delay \u00b7 $15M \u00d7 36%",
+            "FERC Order 2222 CAISO Implementation Stall \u00b7 $18M \u00d7 50%"
           ]
         },
         {
@@ -2436,18 +2436,18 @@
     },
     {
       "project_id": "permian-h2-hub",
-      "composite": 40,
+      "composite": 45,
       "sub_scores": [
         {
           "category": "policy",
-          "value": 67.12639073134359,
+          "value": 79.62527451335448,
           "weight": 0.35,
-          "contribution": 23.494236755970256,
+          "contribution": 27.868846079674068,
           "drivers": [
-            "\u00a745V Three-Pillars Final Rule Stringency \u00b7 $240M \u00d7 45%",
-            "\u00a745V Regulatory Rollback or Credit Repeal Risk \u00b7 $300M \u00d7 30%",
-            "DOE H2Hubs Milestone Clawback or Funding Freeze \u00b7 $120M \u00d7 35%",
-            "EPA Subpart W/RR Hydrogen Reporting Finalization \u00b7 $90M \u00d7 30%"
+            "\u00a745V Three-Pillars Final Rule Stringency \u00b7 $240M \u00d7 64%",
+            "\u00a745V Regulatory Rollback or Credit Repeal Risk \u00b7 $300M \u00d7 43%",
+            "DOE H2Hubs Milestone Clawback or Funding Freeze \u00b7 $120M \u00d7 50%",
+            "EPA Subpart W/RR Hydrogen Reporting Finalization \u00b7 $90M \u00d7 43%"
           ]
         },
         {
@@ -2500,18 +2500,18 @@
     },
     {
       "project_id": "i95-evcharging",
-      "composite": 39,
+      "composite": 42,
       "sub_scores": [
         {
           "category": "policy",
-          "value": 71.5066654071116,
+          "value": 79.698694669245,
           "weight": 0.35,
-          "contribution": 25.027332892489056,
+          "contribution": 27.89454313423575,
           "drivers": [
-            "NEVI Program Funding Rescission or Freeze \u00b7 $90M \u00d7 42%",
-            "IRC \u00a730C Tax Credit Repeal or Phase-Down \u00b7 $36M \u00d7 38%",
-            "FHWA BABA Waiver Denial or Tightening \u00b7 $45M \u00d7 45%",
-            "FHWA Minimum Standards Rule Revision \u00b7 $12M \u00d7 30%"
+            "NEVI Program Funding Rescission or Freeze \u00b7 $90M \u00d7 53%",
+            "IRC \u00a730C Tax Credit Repeal or Phase-Down \u00b7 $36M \u00d7 48%",
+            "FHWA BABA Waiver Denial or Tightening \u00b7 $45M \u00d7 57%",
+            "FHWA Minimum Standards Rule Revision \u00b7 $12M \u00d7 38%"
           ]
         },
         {

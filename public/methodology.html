@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Methodology — Castle Energy Risk Index</title>
+  <link rel="stylesheet" href="assets/css/colors_and_type.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="is-loaded">
+
+<nav class="eri-nav">
+  <div class="eri-nav-inner">
+    <a class="eri-brand" href="index.html">
+      <img src="assets/svg/castle-logo-black.svg" alt="Castle" class="eri-brand-logo">
+      <span class="eri-brand-product">Energy Risk Index</span>
+    </a>
+    <div class="eri-nav-links">
+      <a href="index.html">Portfolio</a>
+      <a href="policies.html">Policies</a>
+      <a href="hedges.html">Hedges</a>
+      <a href="methodology.html" class="is-active">Methodology</a>
+    </div>
+  </div>
+</nav>
+
+<main class="eri-main">
+  <header>
+    <span class="eri-eyebrow is-strong">Methodology · v0.1</span>
+    <h1 class="eri-h1">How the index is computed.</h1>
+    <p class="eri-lead">Every score is derived from a transparent set of weights, live policy data, and a Claude-generated map of project-specific exposures. The math is in <code>data/castle_eri/index_math.py</code>.</p>
+  </header>
+
+  <section class="method-section">
+    <h2>The four sub-scores</h2>
+    <p>Each project gets four sub-scores on 0–100 (higher = more risk). The composite is the weighted sum, rounded.</p>
+    <div class="method-weights">
+      <div class="method-weight">
+        <div class="method-weight-cat">Policy</div>
+        <div class="method-weight-val is-policy">35%</div>
+        <p style="font-size:13px;color:var(--fg-3);margin:0">Bills, Treasury rules, and agency actions that change the tax credit, permitting, or domestic-content regime tied to the project.</p>
+      </div>
+      <div class="method-weight">
+        <div class="method-weight-cat">Trade</div>
+        <div class="method-weight-val is-trade">25%</div>
+        <p style="font-size:13px;color:var(--fg-3);margin:0">Tariffs (Section 201 / 232 / 301), AD/CVD, UFLPA enforcement — sized to imported component value × current rate × probability of escalation.</p>
+      </div>
+      <div class="method-weight">
+        <div class="method-weight-cat">Geopolitical</div>
+        <div class="method-weight-val is-geopolitical">25%</div>
+        <p style="font-size:13px;color:var(--fg-3);margin:0">Supply-chain HHI by country × country risk index; export controls, sanctions, and disruption scenarios.</p>
+      </div>
+      <div class="method-weight">
+        <div class="method-weight-cat">Macro</div>
+        <div class="method-weight-val is-macro">15%</div>
+        <p style="font-size:13px;color:var(--fg-3);margin:0">IRR cushion against ±100 bps rate moves, weighted by time-to-COD. Material only for pre-FNTP projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="method-section">
+    <h2>How exposures are mapped</h2>
+    <p>For each project, Claude (Sonnet 4.6) is prompted with the project's technology, suppliers, location, capex, target IRR, offtake status, and policy dependencies. It returns a structured list of 6–10 specific risk factors spanning all four sub-score categories, each carrying:</p>
+    <ul style="font-size:14px;color:var(--fg-2);line-height:1.7;max-width:720px">
+      <li>A category (policy / trade / geopolitical / macro)</li>
+      <li>A specific citation — bill number, IRC section, HTS code, EO, or rule docket</li>
+      <li>A dollar impact, defended as a fraction of the project's capex</li>
+      <li>A probability of the adverse outcome over the next 18 months</li>
+      <li>3–6 search keywords used to find live Kalshi markets and Congress / Federal Register items</li>
+    </ul>
+    <p>The system prompt is cached via Anthropic prompt caching so repeat invocations across projects re-use the cached prefix. If the call fails or the SDK is unavailable, a deterministic stub maps each project's seed dependencies + suppliers into a baseline factor list — so the dashboard never goes blank.</p>
+  </section>
+
+  <section class="method-section">
+    <h2>How hedges are sized</h2>
+    <p>For each factor, the data layer ranks every live Kalshi market by token overlap between the factor's keywords and the market's title / event / category. Top 3 per factor are surfaced.</p>
+    <p>Notional sizing uses the BUILD.md formula for binary YES contracts:</p>
+    <p><code>notional = expected_loss / (1 − YES_price)</code></p>
+    <p>The cost to enter is then <code>notional × YES_price</code>. Notional represents the number of $1-payoff shares; if the adverse event resolves YES, the payoff covers the expected loss net of premium.</p>
+  </section>
+
+  <section class="method-section">
+    <h2>Data sources</h2>
+    <h3>Congress.gov</h3>
+    <p>Bills are pulled from the <code>api.congress.gov/v3/bill</code> endpoint keyed via api.data.gov, filtered to substantive bill types (no <code>HCONRES</code> / <code>SCONRES</code> adjournment resolutions), with at least one query token appearing in the bill title.</p>
+    <h3>Federal Register</h3>
+    <p><code>federalregister.gov/api/v1/documents</code>, sorted newest, filtered by per-project keyword seed. No authentication required.</p>
+    <h3>Kalshi</h3>
+    <p><code>api.elections.kalshi.com/trade-api/v2/events?with_nested_markets=true</code>, filtered to relevant categories (Politics, Economics, Climate and Weather, Companies, World, Commodities, Financials), then token-matched against the factor's keywords. Public read endpoints — no API key required.</p>
+    <h3>Caching</h3>
+    <p>Each client caches responses by request key in <code>data/castle_eri/cache/</code> with TTLs: Congress 6h, Federal Register 12h, Kalshi 15m. Re-runs of <code>refresh.py</code> are <2s after the first run.</p>
+  </section>
+
+  <section class="method-section">
+    <h2>Limitations</h2>
+    <p>This is a prototype, not investment advice. The factor probabilities and dollar impacts are Claude-generated estimates anchored against the project's actual seed data — they are explainable but not auditable. The country-risk table is static. The hedge mapping ranks markets by keyword overlap, not by historical hedge effectiveness. Kalshi markets resolve based on a specific event description, which may not match the underlying exposure exactly.</p>
+    <p>This prototype lives at <code>github.com/junpunts/castle-energy-risk-index</code>. <strong>For informational purposes only.</strong></p>
+  </section>
+</main>
+
+<footer class="eri-footer">
+  <div class="eri-footer-inner">
+    <span>© 2026 Castle Technologies · Hedging the unhedgeable.</span>
+    <div class="eri-footer-links">
+      <a href="index.html">Portfolio</a>
+      <a href="policies.html">Policies</a>
+      <a href="hedges.html">Hedges</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

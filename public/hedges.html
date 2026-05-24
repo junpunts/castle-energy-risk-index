@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Hedge marketplace — Castle Energy Risk Index</title>
+  <link rel="stylesheet" href="assets/css/colors_and_type.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body class="is-loading">
+
+<nav class="eri-nav">
+  <div class="eri-nav-inner">
+    <a class="eri-brand" href="index.html">
+      <img src="assets/svg/castle-logo-black.svg" alt="Castle" class="eri-brand-logo">
+      <span class="eri-brand-product">Energy Risk Index</span>
+    </a>
+    <div class="eri-nav-links">
+      <a href="index.html">Portfolio</a>
+      <a href="policies.html">Policies</a>
+      <a href="hedges.html" class="is-active">Hedges</a>
+      <a href="methodology.html">Methodology</a>
+    </div>
+  </div>
+</nav>
+
+<main class="eri-main">
+  <header>
+    <span class="eri-eyebrow is-strong">Hedge marketplace · Kalshi · live prices</span>
+    <h1 class="eri-h1">Tradeable protection.</h1>
+    <p class="eri-lead">Every Kalshi market currently mapped to a portfolio exposure. Notional sizing comes from the per-exposure expected-loss and current YES price.</p>
+  </header>
+
+  <section class="eri-filters">
+    <div id="filter-project" class="eri-filter-group"></div>
+    <div id="filter-sort" class="eri-filter-group"></div>
+  </section>
+
+  <div class="section-head">
+    <h2 class="eri-h2">Markets</h2>
+    <div class="section-head-meta"><span id="count">—</span></div>
+  </div>
+  <section id="grid" class="hedge-grid"></section>
+</main>
+
+<footer class="eri-footer">
+  <div class="eri-footer-inner">
+    <span>© 2026 Castle Technologies · For informational purposes only · Not investment advice</span>
+    <div class="eri-footer-links">
+      <a href="methodology.html">Methodology</a>
+      <a href="https://kalshi.com" target="_blank" rel="noopener">Kalshi</a>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="assets/js/pages/hedges.js"></script>
+</body>
+</html>

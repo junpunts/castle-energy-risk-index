@@ -246,6 +246,20 @@ async def _run_full() -> None:
     log.info("  collected %d unique markets", len(markets))
 
     log.info("Step 4/4 — computing index scores + hedge mapping")
+    # Modulate policy-category factor probabilities by the count of live policy
+    # items affecting the project, so the Policy sub-score is load-bearing on the
+    # actual Congress/FR pull (BUILD.md verification step 5).
+    policy_counts: dict[str, int] = {p.id: 0 for p in PROJECTS}
+    for item in policies:
+        for pid in item.affected_project_ids:
+            policy_counts[pid] = policy_counts.get(pid, 0) + 1
+    for f in factors:
+        if f.category != "policy":
+            continue
+        n = policy_counts.get(f.project_id, 0)
+        pressure = 0.55 + min(1.05, n / 25)  # 0.55× at 0 items → 1.60× saturated
+        f.probability = max(0.0, min(1.0, f.probability * pressure))
+
     scores = [index_math.compute(p, [f for f in factors if f.project_id == p.id]) for p in PROJECTS]
     hedges = _rank_hedges(factors, markets, top_n=3)
 
