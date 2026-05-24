@@ -7,7 +7,7 @@
       "macro": 0.15
     },
     "version": "v0.1",
-    "generated_at": "2026-05-24T16:08:11+00:00"
+    "generated_at": "2026-05-24T16:10:06+00:00"
   },
   "projects": [
     {
@@ -1342,8 +1342,8 @@
       "factor_id": "lone-star-solar-i__f00",
       "market_id": "kalshi::KXAMEND25-29",
       "relevance": 0.159,
-      "notional_usd": 137870000.0,
-      "rationale": "Pays $1 if YES; hedges 'IRA Repeal or \u00a748E ITC Phase-Down Risk' (EL $95.1M, market p=0.31)."
+      "notional_usd": 135900000.0,
+      "rationale": "Pays $1 if YES; hedges 'IRA Repeal or \u00a748E ITC Phase-Down Risk' (EL $95.1M, market p=0.30)."
     },
     {
       "project_id": "lone-star-solar-i",
@@ -1366,8 +1366,8 @@
       "factor_id": "lone-star-solar-i__f01",
       "market_id": "kalshi::KXIMPEACHCABINET-26JUL01",
       "relevance": 0.132,
-      "notional_usd": 14032000.0,
-      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a748E Domestic Content Bonus Guidance Delay' (EL $13.3M, market p=0.05)."
+      "notional_usd": 13559000.0,
+      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a748E Domestic Content Bonus Guidance Delay' (EL $13.3M, market p=0.02)."
     },
     {
       "project_id": "lone-star-solar-i",
@@ -1502,8 +1502,8 @@
       "factor_id": "lone-star-solar-i__f08",
       "market_id": "kalshi::KXRAMPBREX-40-BREX",
       "relevance": 0.159,
-      "notional_usd": 7609000.0,
-      "rationale": "Pays $1 if YES; hedges 'Sungrow Inverter Supply Disruption or Sanctions Risk' (EL $7.0M, market p=0.08)."
+      "notional_usd": 7527000.0,
+      "rationale": "Pays $1 if YES; hedges 'Sungrow Inverter Supply Disruption or Sanctions Risk' (EL $7.0M, market p=0.07)."
     },
     {
       "project_id": "lone-star-solar-i",
@@ -1830,8 +1830,8 @@
       "factor_id": "mojave-bess__f05",
       "market_id": "kalshi::KXRAMPBREX-40-BREX",
       "relevance": 0.167,
-      "notional_usd": 9783000.0,
-      "rationale": "Pays $1 if YES; hedges 'AD/CVD Investigation on Chinese BESS Components' (EL $9.0M, market p=0.08)."
+      "notional_usd": 9677000.0,
+      "rationale": "Pays $1 if YES; hedges 'AD/CVD Investigation on Chinese BESS Components' (EL $9.0M, market p=0.07)."
     },
     {
       "project_id": "mojave-bess",
@@ -2102,8 +2102,8 @@
       "factor_id": "i95-evcharging__f02",
       "market_id": "kalshi::KXGREENLAND-29-27",
       "relevance": 0.167,
-      "notional_usd": 27984000.0,
-      "rationale": "Pays $1 if YES; hedges 'FHWA BABA Waiver Denial or Tightening' (EL $25.7M, market p=0.08)."
+      "notional_usd": 27773000.0,
+      "rationale": "Pays $1 if YES; hedges 'FHWA BABA Waiver Denial or Tightening' (EL $25.7M, market p=0.07)."
     },
     {
       "project_id": "i95-evcharging",
@@ -2134,8 +2134,8 @@
       "factor_id": "i95-evcharging__f04",
       "market_id": "kalshi::KXRAMPBREX-40-BREX",
       "relevance": 0.163,
-      "notional_usd": 11957000.0,
-      "rationale": "Pays $1 if YES; hedges 'Section 301 / New Tariffs on Swiss and EU Charger Components' (EL $11.0M, market p=0.08)."
+      "notional_usd": 11828000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 301 / New Tariffs on Swiss and EU Charger Components' (EL $11.0M, market p=0.07)."
     },
     {
       "project_id": "i95-evcharging",
@@ -2158,8 +2158,8 @@
       "factor_id": "i95-evcharging__f05",
       "market_id": "kalshi::KXRAMPBREX-40-BREX",
       "relevance": 0.159,
-      "notional_usd": 6848000.0,
-      "rationale": "Pays $1 if YES; hedges 'AD/CVD or Section 201 Action on Chinese Power Electronics' (EL $6.3M, market p=0.08)."
+      "notional_usd": 6774000.0,
+      "rationale": "Pays $1 if YES; hedges 'AD/CVD or Section 201 Action on Chinese Power Electronics' (EL $6.3M, market p=0.07)."
     },
     {
       "project_id": "i95-evcharging",
