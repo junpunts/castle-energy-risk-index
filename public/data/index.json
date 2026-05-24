@@ -1,0 +1,2566 @@
+{
+  "methodology": {
+    "weights": {
+      "policy": 0.35,
+      "trade": 0.25,
+      "geopolitical": 0.25,
+      "macro": 0.15
+    },
+    "version": "v0.1",
+    "generated_at": "2026-05-24T15:57:05+00:00"
+  },
+  "projects": [
+    {
+      "id": "lone-star-solar-i",
+      "name": "Lone Star Solar I",
+      "technology": "Utility-scale PV",
+      "capacity_mw": 500.0,
+      "capacity_label": "500 MW",
+      "location": "West Texas",
+      "cod_quarter": "Q2 2027",
+      "capex_usd": 600000000.0,
+      "equity_irr_target": 0.1,
+      "key_suppliers": [
+        {
+          "name": "Jinko Solar",
+          "country": "China",
+          "component_type": "PV modules",
+          "share_of_supply": 0.55
+        },
+        {
+          "name": "JA Solar (Malaysia)",
+          "country": "Malaysia",
+          "component_type": "PV modules",
+          "share_of_supply": 0.25
+        },
+        {
+          "name": "First Solar",
+          "country": "USA",
+          "component_type": "PV modules",
+          "share_of_supply": 0.2
+        },
+        {
+          "name": "Sungrow",
+          "country": "China",
+          "component_type": "Inverters",
+          "share_of_supply": 0.6
+        }
+      ],
+      "offtake_status": "PPA signed (Meta), 80% contracted at $34/MWh",
+      "policy_dependencies": [
+        "IRC \u00a748E ITC (technology-neutral)",
+        "Section 301 \u2014 Chinese polysilicon (HTS 3818)",
+        "UFLPA detention orders \u2014 CBP",
+        "AD/CVD \u2014 Southeast Asia crystalline silicon",
+        "ERCOT interconnection queue (GIS reform)"
+      ],
+      "narrative": "Lone Star Solar I is a 500 MW single-axis-tracker PV plant in Pecos County, Texas, anchored by a 15-year corporate PPA with Meta. The project relies on Tier-1 Chinese and Southeast-Asian module supply, leaving it materially exposed to Section 301 escalation and UFLPA-driven CBP detentions, while its returns hinge on the durability of the \u00a748E ITC and ERCOT interconnection timing.",
+      "keyword_seeds": [
+        "Section 48E ITC",
+        "IRA repeal solar",
+        "Section 301 solar",
+        "polysilicon UFLPA",
+        "ERCOT interconnection",
+        "AD CVD solar Cambodia",
+        "Buy America domestic content",
+        "Treasury 48E guidance",
+        "solar tracker tariff",
+        "Vietnam solar tariff",
+        "Inflation Reduction Act amendment"
+      ]
+    },
+    {
+      "id": "vineyard-wind-ii",
+      "name": "Vineyard Wind Phase II",
+      "technology": "Fixed-bottom offshore wind",
+      "capacity_mw": 800.0,
+      "capacity_label": "800 MW",
+      "location": "Massachusetts coast (BOEM Lease OCS-A 0501)",
+      "cod_quarter": "Q4 2028",
+      "capex_usd": 4200000000.0,
+      "equity_irr_target": 0.085,
+      "key_suppliers": [
+        {
+          "name": "Siemens Gamesa",
+          "country": "Denmark",
+          "component_type": "14 MW turbines",
+          "share_of_supply": 1.0
+        },
+        {
+          "name": "POSCO",
+          "country": "South Korea",
+          "component_type": "Monopile steel",
+          "share_of_supply": 0.65
+        },
+        {
+          "name": "EEW SPC (Vietnam)",
+          "country": "Vietnam",
+          "component_type": "Monopile fabrication",
+          "share_of_supply": 0.35
+        },
+        {
+          "name": "Dominion Energy (Charybdis)",
+          "country": "USA",
+          "component_type": "Jones Act WTIV",
+          "share_of_supply": 1.0
+        },
+        {
+          "name": "Prysmian",
+          "country": "Italy",
+          "component_type": "HV export cable",
+          "share_of_supply": 1.0
+        }
+      ],
+      "offtake_status": "OREC contracts with Massachusetts (3-state RFP), price under review",
+      "policy_dependencies": [
+        "IRC \u00a745Y PTC + \u00a748E ITC (offshore-wind bonus)",
+        "BOEM Construction & Operations Plan approval",
+        "Section 232 \u2014 Korean steel plate (HTS 7208)",
+        "Merchant Marine Act of 1920 (Jones Act) \u2014 installation vessels",
+        "Treasury \u00a745Y domestic-content adder rules",
+        "EO on offshore-wind leasing \u2014 review and pause"
+      ],
+      "narrative": "Vineyard Wind Phase II is an 800 MW fixed-bottom offshore wind project on the BOEM OCS-A 0501 lease. Capital-intensity is dominated by Siemens Gamesa 14 MW turbines and POSCO-supplied monopile steel, both of which sit in trade-action crosshairs. The schedule is at the mercy of BOEM permitting and Jones Act vessel availability, and the project's IRR hinges on the OREC re-pricing and the \u00a745Y PTC remaining intact through 2028.",
+      "keyword_seeds": [
+        "offshore wind moratorium",
+        "BOEM permitting reform",
+        "Section 232 steel",
+        "Jones Act offshore wind",
+        "Section 45Y PTC",
+        "Korean steel plate tariff",
+        "Vineyard Wind",
+        "offshore wind executive order",
+        "Treasury 45Y domestic content",
+        "OCS-A lease",
+        "monopile fabrication tariff"
+      ]
+    },
+    {
+      "id": "mojave-bess",
+      "name": "Mojave Battery Storage Hub",
+      "technology": "Li-ion BESS (LFP)",
+      "capacity_mw": 250.0,
+      "capacity_label": "250 MW / 1 GWh",
+      "location": "San Bernardino County, CA",
+      "cod_quarter": "Q1 2026",
+      "capex_usd": 400000000.0,
+      "equity_irr_target": 0.12,
+      "key_suppliers": [
+        {
+          "name": "CATL",
+          "country": "China",
+          "component_type": "LFP cells",
+          "share_of_supply": 0.55
+        },
+        {
+          "name": "BYD",
+          "country": "China",
+          "component_type": "LFP cells",
+          "share_of_supply": 0.25
+        },
+        {
+          "name": "LG Energy Solution (Michigan)",
+          "country": "USA",
+          "component_type": "LFP cells",
+          "share_of_supply": 0.2
+        },
+        {
+          "name": "Sungrow",
+          "country": "China",
+          "component_type": "PCS / inverters",
+          "share_of_supply": 0.5
+        },
+        {
+          "name": "Tesla Megapack",
+          "country": "USA",
+          "component_type": "Integration",
+          "share_of_supply": 0.4
+        }
+      ],
+      "offtake_status": "Resource adequacy contract with SCE (10-yr, $7.50/kW-mo)",
+      "policy_dependencies": [
+        "IRC \u00a745X advanced-manufacturing PTC (cells, modules)",
+        "IRC \u00a748E ITC standalone storage",
+        "Section 301 \u2014 Chinese lithium-ion batteries (HTS 8507.60)",
+        "FERC Order 2222 \u2014 DER aggregation",
+        "California Resource Adequacy framework"
+      ],
+      "narrative": "Mojave Battery Storage Hub is a 250 MW / 1 GWh standalone LFP BESS contracted for resource-adequacy in CAISO. With Chinese-cell content above 80%, the project's economics are squarely exposed to Section 301 escalation on HTS 8507.60 (current 25% \u2192 proposed 25-50%), and its tax equity hinges on \u00a748E remaining technology-neutral and \u00a745X manufacturing credits flowing to its domestic cell partner.",
+      "keyword_seeds": [
+        "Section 301 lithium battery",
+        "battery storage tariff",
+        "Section 45X manufacturing",
+        "FERC Order 2222",
+        "CATL tariff",
+        "LFP cell import",
+        "Section 48E storage",
+        "FEOC restriction battery",
+        "CAISO resource adequacy",
+        "Treasury 45X guidance",
+        "battery component tariff"
+      ]
+    },
+    {
+      "id": "permian-h2-hub",
+      "name": "Permian Hydrogen Hub",
+      "technology": "Electrolytic H\u2082 + co-located solar",
+      "capacity_mw": 200.0,
+      "capacity_label": "200 MW electrolyzer",
+      "location": "Reeves County, TX",
+      "cod_quarter": "Q3 2029",
+      "capex_usd": 1200000000.0,
+      "equity_irr_target": 0.11,
+      "key_suppliers": [
+        {
+          "name": "Plug Power",
+          "country": "USA",
+          "component_type": "PEM electrolyzer",
+          "share_of_supply": 0.5
+        },
+        {
+          "name": "Cummins (Accelera)",
+          "country": "USA",
+          "component_type": "PEM electrolyzer",
+          "share_of_supply": 0.3
+        },
+        {
+          "name": "Nel Hydrogen",
+          "country": "Norway",
+          "component_type": "Alkaline electrolyzer",
+          "share_of_supply": 0.2
+        },
+        {
+          "name": "Air Products",
+          "country": "USA",
+          "component_type": "Compression / liquefaction",
+          "share_of_supply": 1.0
+        }
+      ],
+      "offtake_status": "Letter of intent with ExxonMobil for ammonia feedstock; no firm offtake",
+      "policy_dependencies": [
+        "IRC \u00a745V production tax credit (Treasury three-pillars rule)",
+        "DOE H2Hubs program funding (selected H2Hubs round 1)",
+        "EPA Subpart 98 hydrogen reporting",
+        "ERCOT interconnection \u2014 large load study"
+      ],
+      "narrative": "Permian Hydrogen Hub is a 200 MW PEM electrolyzer co-located with new utility PV and 24/7 PPAs, structured to qualify for the top $3/kg \u00a745V tier under Treasury's three-pillars rule. With no firm offtake yet and most of the IRR tied to the \u00a745V structure, the project is exposed to any Treasury softening of incrementality / hourly-matching requirements and to slippage in the H2Hubs milestone payments.",
+      "keyword_seeds": [
+        "Section 45V hydrogen",
+        "Treasury 45V three pillars",
+        "DOE H2Hubs",
+        "hourly matching hydrogen",
+        "incrementality hydrogen",
+        "green hydrogen tax credit",
+        "Plug Power electrolyzer",
+        "EPA Subpart 98 hydrogen",
+        "blue hydrogen",
+        "hydrogen production credit",
+        "H2Hubs milestone"
+      ]
+    },
+    {
+      "id": "i95-evcharging",
+      "name": "I-95 EV Charging Network",
+      "technology": "DC fast charging (150\u2013350 kW)",
+      "capacity_mw": 120.0,
+      "capacity_label": "1,200 stations \u00b7 ~120 MW peak",
+      "location": "I-95 corridor (ME \u2192 FL)",
+      "cod_quarter": "Rolling 2025\u20132027",
+      "capex_usd": 300000000.0,
+      "equity_irr_target": 0.13,
+      "key_suppliers": [
+        {
+          "name": "ABB Terra",
+          "country": "Switzerland",
+          "component_type": "DC fast chargers",
+          "share_of_supply": 0.4
+        },
+        {
+          "name": "ChargePoint",
+          "country": "USA",
+          "component_type": "DC fast chargers",
+          "share_of_supply": 0.35
+        },
+        {
+          "name": "Wallbox / Hypercharger",
+          "country": "Spain",
+          "component_type": "DC fast chargers",
+          "share_of_supply": 0.25
+        },
+        {
+          "name": "Eaton",
+          "country": "USA",
+          "component_type": "Switchgear",
+          "share_of_supply": 1.0
+        }
+      ],
+      "offtake_status": "State NEVI awards across 8 states; site host revenue share",
+      "policy_dependencies": [
+        "23 USC 175 \u2014 NEVI Formula Program",
+        "IRC \u00a730C alt-fuel refueling property credit",
+        "IRC \u00a745W commercial clean vehicle credit",
+        "Buy America Build America (BABA) \u2014 FHWA waivers",
+        "FHWA minimum standards 23 CFR 680"
+      ],
+      "narrative": "I-95 EV Charging Network is a 1,200-site DC fast-charging rollout funded through NEVI state awards across 8 states, with site economics layered on host revenue share. The project's risk profile is dominated by federal policy continuity \u2014 NEVI obligations, \u00a730C refueling credit, and BABA domestic-content waivers \u2014 and is comparatively light on macro and trade exposure relative to the generation projects in the portfolio.",
+      "keyword_seeds": [
+        "NEVI program",
+        "EV charging tax credit",
+        "Section 30C",
+        "Build America Buy America",
+        "FHWA EV charging",
+        "Section 45W commercial EV",
+        "domestic content EV charger",
+        "BABA waiver",
+        "EV charging executive order",
+        "NEVI rescission",
+        "alternative fuel vehicle infrastructure"
+      ]
+    }
+  ],
+  "factors": [
+    {
+      "id": "lone-star-solar-i__f00",
+      "project_id": "lone-star-solar-i",
+      "category": "policy",
+      "title": "IRA Repeal or \u00a748E ITC Phase-Down Risk",
+      "description": "Republican reconciliation proposals (2025 budget bills) include full repeal or accelerated phase-out of IRC \u00a748E technology-neutral ITC, which currently provides a 30\u201340% investment tax credit baseline for this project. Loss of the \u00a748E ITC at full capex of $600M would destroy approximately $180M in tax credit value, collapsing the project's equity IRR below the 10% threshold.",
+      "source": "congress",
+      "citation": "IRC \u00a748E (IRA \u00a713702); House Ways & Means reconciliation discussion draft, 119th Congress; One Big Beautiful Bill Act, H.R. 1 (2025)",
+      "dollar_impact_usd": 180000000.0,
+      "probability": 0.35,
+      "status": "active",
+      "keywords": [
+        "48E ITC repeal",
+        "IRA solar amendment",
+        "reconciliation tax credit",
+        "technology-neutral ITC",
+        "IRA phase-out",
+        "solar ITC 2025"
+      ]
+    },
+    {
+      "id": "lone-star-solar-i__f01",
+      "project_id": "lone-star-solar-i",
+      "category": "policy",
+      "title": "Treasury \u00a748E Domestic Content Bonus Guidance Delay",
+      "description": "The 10% domestic content bonus adder under \u00a748E requires IRS/Treasury final guidance on qualifying components and cost allocation methodology; delayed or restrictive final rules (beyond proposed regs REG-100908-23) could disqualify First Solar's 20% module share from satisfying the 40% domestic content threshold, eliminating ~$18\u201324M in bonus credit value.",
+      "source": "federal_register",
+      "citation": "IRC \u00a748E(a)(3); Treasury NPRM REG-100908-23 (68 FR 41959, Aug. 2023); IRS Notice 2023-29",
+      "dollar_impact_usd": 22000000.0,
+      "probability": 0.4,
+      "status": "pending",
+      "keywords": [
+        "domestic content bonus",
+        "48E Treasury guidance",
+        "REG-100908-23",
+        "qualifying components",
+        "Buy America solar",
+        "domestic content adder"
+      ]
+    },
+    {
+      "id": "lone-star-solar-i__f02",
+      "project_id": "lone-star-solar-i",
+      "category": "policy",
+      "title": "ERCOT GIS Queue Reform Interconnection Delay",
+      "description": "PUCT/ERCOT's ongoing Generator Interconnection Study (GIS) reform and restudies under the new study process (NPRR 1196/1197 cluster methodology) risk pushing Lone Star Solar I's Q2 2027 COD by 6\u201318 months, triggering PPA termination rights for Meta and forcing merchant exposure on 80% of contracted revenues.",
+      "source": "internal",
+      "citation": "PUCT Docket 54530; ERCOT NPRR 1196, NPRR 1197; FERC Order 2023 (state analogue applicability)",
+      "dollar_impact_usd": 45000000.0,
+      "probability": 0.45,
+      "status": "active",
+      "keywords": [
+        "ERCOT interconnection queue",
+        "GIS reform",
+        "NPRR 1196",
+        "PUCT 54530",
+        "COD delay",
+        "solar interconnection Texas"
+      ]
+    },
+    {
+      "id": "lone-star-solar-i__f03",
+      "project_id": "lone-star-solar-i",
+      "category": "trade",
+      "title": "AD/CVD Expansion to Malaysia and Southeast Asia Modules",
+      "description": "USITC/Commerce AD/CVD investigations into crystalline silicon PV cells and modules from Cambodia, Malaysia, Thailand, and Vietnam (initiated 2024, preliminary determinations expected 2025) could impose duties of 40\u2013200%+ on JA Solar's Malaysian-origin modules representing 25% of this project's module supply, increasing capex by an estimated $24\u201342M.",
+      "source": "ustr",
+      "citation": "Commerce Case Nos. A-557-831, A-549-843, A-555-101, A-552-842 (CSPV Cambodia/Malaysia/Thailand/Vietnam); 19 U.S.C. \u00a71673; USITC Pub. 5570",
+      "dollar_impact_usd": 33000000.0,
+      "probability": 0.6,
+      "status": "active",
+      "keywords": [
+        "AD CVD solar Malaysia",
+        "CSPV Southeast Asia",
+        "JA Solar duties",
+        "Cambodia solar tariff",
+        "Vietnam solar tariff",
+        "Commerce antidumping"
+      ]
+    },
+    {
+      "id": "lone-star-solar-i__f04",
+      "project_id": "lone-star-solar-i",
+      "category": "trade",
+      "title": "Section 301 Tariff Escalation on Chinese Modules and Inverters",
+      "description": "USTR's Section 301 List 3 action raised solar-grade polysilicon and PV cell/module tariffs (HTS 8541.40, 3818.00) to 50% effective 2024; a further escalation or new action targeting inverters (HTS 8504.40, Sungrow 60% share) could add $30\u201360M to procurement costs on top of existing tariff exposure on Jinko's Chinese-origin content.",
+      "source": "ustr",
+      "citation": "USTR Section 301 Action (85 FR 67025); HTS 8541.40.6020, 8504.40.9550, 3818.00.0000; Presidential Proclamation May 2024 (tariff modifications)",
+      "dollar_impact_usd": 38000000.0,
+      "probability": 0.5,
+      "status": "active",
+      "keywords": [
+        "Section 301 solar",
+        "HTS 8541.40",
+        "Chinese inverter tariff",
+        "Sungrow Section 301",
+        "polysilicon HTS 3818",
+        "USTR tariff escalation"
+      ]
+    },
+    {
+      "id": "lone-star-solar-i__f05",
+      "project_id": "lone-star-solar-i",
+      "category": "trade",
+      "title": "Solar Tracker and Steel Component Tariff Exposure",
+      "description": "Section 232 steel/aluminum tariffs and potential Section 201 safeguard modifications affect single-axis tracker systems (HTS 8479.89, 7308.90); a tracker supplier (likely steel-intensive imported components) price increase of 15\u201325% on an estimated $60M tracker budget translates to $9\u201315M in additional capex, compressing IRR by ~30\u201350 bps.",
+      "source": "federal_register",
+      "citation": "Presidential Proclamation 9705 (Section 232 steel); HTS 7308.90.9590, 8479.89.9499; USTR Section 201 Solar Safeguard (86 FR 12620)",
+      "dollar_impact_usd": 12000000.0,
+      "probability": 0.35,
+      "status": "watching",
+      "keywords": [
+        "solar tracker tariff",
+        "Section 232 steel",
+        "HTS 7308.90",
+        "Section 201 safeguard",
+        "tracker capex",
+        "steel aluminum tariff"
+      ]
+    },
+    {
+      "id": "lone-star-solar-i__f06",
+      "project_id": "lone-star-solar-i",
+      "category": "geopolitical",
+      "title": "UFLPA Enforcement \u2014 Jinko Xinjiang Polysilicon Detention",
+      "description": "CBP UFLPA Entity List enforcement targets Xinjiang-origin polysilicon flowing through Jinko Solar's supply chain (HTS 3818.00, 8541.40); with Jinko comprising 55% of module supply (~330 MW), a port detention event pending supply-chain documentation rebuttal could halt module delivery for 3\u20139 months, threatening COD and triggering $45\u201375M in delay costs and PPA penalties.",
+      "source": "federal_register",
+      "citation": "Uyghur Forced Labor Prevention Act, Pub. L. 117-78; CBP UFLPA Entity List (FLETF); 19 U.S.C. \u00a71307; CBP Withhold Release Order (WRO) precedents",
+      "dollar_impact_usd": 60000000.0,
+      "probability": 0.55,
+      "status": "active",
+      "keywords": [
+        "UFLPA solar modules",
+        "Jinko UFLPA",
+        "polysilicon Xinjiang",
+        "CBP detention",
+        "forced labor solar",
+        "FLETF entity list"
+      ]
+    },
+    {
+      "id": "lone-star-solar-i__f07",
+      "project_id": "lone-star-solar-i",
+      "category": "geopolitical",
+      "title": "China Export Controls on Solar-Grade Polysilicon",
+      "description": "Beijing's Commerce Ministry has signaled potential export controls on polysilicon and solar manufacturing technology under China's Export Control Law (2020) in retaliation for US tariff and UFLPA actions; a restriction or licensing regime on Chinese polysilicon exports would constrict global supply, pushing spot module prices up 20\u201335% and adding $18\u201330M to the uncontracted module procurement budget.",
+      "source": "internal",
+      "citation": "China Export Control Law (Oct. 2020); MOFCOM Announcement No. 38 (2023, gallium/germanium precedent); Chinese Ministry of Commerce dual-use controls",
+      "dollar_impact_usd": 24000000.0,
+      "probability": 0.3,
+      "status": "watching",
+      "keywords": [
+        "China export controls",
+        "polysilicon supply shortage",
+        "Chinese solar supply chain",
+        "MOFCOM export restriction",
+        "module price spike",
+        "China retaliation solar"
+      ]
+    },
+    {
+      "id": "lone-star-solar-i__f08",
+      "project_id": "lone-star-solar-i",
+      "category": "geopolitical",
+      "title": "Sungrow Inverter Supply Disruption or Sanctions Risk",
+      "description": "Sungrow (60% of inverter supply) is a Chinese-headquartered manufacturer with US revenue exposure; escalating US\u2013China technology decoupling, potential BIS Entity List designation, or secondary sanctions related to Xinjiang or military-civil fusion programs could restrict import of Sungrow inverters (HTS 8504.40), requiring costly re-specification to SMA or ABB alternatives with 6\u201312 month lead times.",
+      "source": "federal_register",
+      "citation": "Export Administration Regulations (EAR), 15 CFR \u00a7744; BIS Entity List (15 CFR Part 774, Supp. 4); EO 13959 (Chinese Military-Industrial Complex); HTS 8504.40.9550",
+      "dollar_impact_usd": 28000000.0,
+      "probability": 0.25,
+      "status": "watching",
+      "keywords": [
+        "Sungrow inverter sanctions",
+        "BIS entity list inverter",
+        "Chinese inverter ban",
+        "HTS 8504.40",
+        "inverter supply chain",
+        "military civil fusion"
+      ]
+    },
+    {
+      "id": "lone-star-solar-i__f09",
+      "project_id": "lone-star-solar-i",
+      "category": "macro",
+      "title": "Interest Rate Elevated \u2014 Tax Equity and Debt Cost Compression",
+      "description": "With Fed Funds rate sustained above 4.5% through H1 2025 and long-end Treasury yields (10Y UST) at 4.3\u20134.7%, project finance debt pricing at SOFR+175\u2013225 bps compresses levered equity IRR by 80\u2013150 bps versus the 10% underwrite; a 100 bps increase in the all-in cost of the ~$420M senior debt tranche reduces NPV by approximately $18\u201325M through higher DSCR constraints and reduced leverage capacity.",
+      "source": "internal",
+      "citation": "FOMC Statement (Jan. 2025); Bloomberg SOFR forward curve; S&P Global infrastructure loan pricing survey Q1 2025",
+      "dollar_impact_usd": 21000000.0,
+      "probability": 0.45,
+      "status": "active",
+      "keywords": [
+        "SOFR rate project finance",
+        "solar debt cost",
+        "tax equity compression",
+        "interest rate IRR",
+        "10Y Treasury solar",
+        "renewable project finance rates"
+      ]
+    },
+    {
+      "id": "vineyard-wind-ii__f00",
+      "project_id": "vineyard-wind-ii",
+      "category": "policy",
+      "title": "BOEM COP Approval Delay or Denial",
+      "description": "The Construction and Operations Plan for OCS-A 0501 remains subject to BOEM review; the current administration has paused new offshore-wind leasing and signaled broader permitting reviews that could delay or rescind COP approval, pushing COD beyond Q4 2028 and triggering OREC contract penalties or renegotiation clauses.",
+      "source": "federal_register",
+      "citation": "EO 14154 (Jan 20, 2025) \u2014 'Unleashing American Energy'; BOEM COP review docket for OCS-A 0501; 30 CFR Part 585",
+      "dollar_impact_usd": 630000000.0,
+      "probability": 0.55,
+      "status": "active",
+      "keywords": [
+        "BOEM COP",
+        "offshore wind moratorium",
+        "OCS-A 0501",
+        "permitting pause",
+        "EO 14154",
+        "BOEM permitting reform"
+      ]
+    },
+    {
+      "id": "vineyard-wind-ii__f01",
+      "project_id": "vineyard-wind-ii",
+      "category": "policy",
+      "title": "IRC \u00a745Y / \u00a748E Credit Repeal or Phase-Down",
+      "description": "Congressional reconciliation efforts under the 119th Congress include proposals to repeal or accelerate the phase-down of the \u00a745Y PTC and \u00a748E ITC for offshore wind; loss of the full PTC (est. ~$28/MWh at 2025 rates) would reduce project NPV by collapsing the LCOE stack underpinning OREC pricing.",
+      "source": "congress",
+      "citation": "IRC \u00a745Y, \u00a748E (Inflation Reduction Act, P.L. 117-169); House Budget Reconciliation draft, 119th Cong. (2025)",
+      "dollar_impact_usd": 840000000.0,
+      "probability": 0.35,
+      "status": "active",
+      "keywords": [
+        "Section 45Y PTC",
+        "Section 48E ITC",
+        "IRA repeal",
+        "offshore wind tax credit",
+        "reconciliation",
+        "production tax credit"
+      ]
+    },
+    {
+      "id": "vineyard-wind-ii__f02",
+      "project_id": "vineyard-wind-ii",
+      "category": "policy",
+      "title": "Treasury \u00a745Y Domestic-Content Adder Denial",
+      "description": "Treasury's forthcoming final rules on the \u00a745Y domestic-content adder (10 pp. bonus ITC/PTC) impose manufactured-product and steel/iron requirements; monopiles sourced from POSCO/South Korea and EEW SPC/Vietnam are unlikely to qualify, eliminating the bonus credit worth roughly $0.3B in NPV uplift that the project's OREC pricing model assumes.",
+      "source": "federal_register",
+      "citation": "IRC \u00a745Y(g)(11); IRS Notice 2023-29, Notice 2024-41; Proposed Reg. REG-110412-23",
+      "dollar_impact_usd": 294000000.0,
+      "probability": 0.65,
+      "status": "pending",
+      "keywords": [
+        "Treasury 45Y domestic content",
+        "domestic content adder",
+        "IRS Notice 2023-29",
+        "manufactured products",
+        "steel iron requirement",
+        "bonus ITC"
+      ]
+    },
+    {
+      "id": "vineyard-wind-ii__f03",
+      "project_id": "vineyard-wind-ii",
+      "category": "trade",
+      "title": "Section 232 Tariff Escalation on Korean Steel Monopiles",
+      "description": "POSCO-supplied monopile steel plate (HTS 7208.51, 7208.52) is currently subject to a 25% Section 232 tariff with a South Korea quota arrangement; any presidential proclamation terminating or reducing the quota exemption, or imposing derivative-product duties on fabricated monopiles, would increase landed steel cost by an estimated $45\u201360M on the POSCO tranche alone.",
+      "source": "ustr",
+      "citation": "Proclamation 9705 (Mar 8, 2018); Proclamation 9740 (Apr 30, 2018) \u2014 Korean quota arrangement; HTS 7208.51.0060, 7208.52.0000; 19 USC \u00a71862",
+      "dollar_impact_usd": 105000000.0,
+      "probability": 0.45,
+      "status": "active",
+      "keywords": [
+        "Section 232 steel",
+        "Korean steel plate",
+        "HTS 7208",
+        "monopile tariff",
+        "Proclamation 9705",
+        "steel quota"
+      ]
+    },
+    {
+      "id": "vineyard-wind-ii__f04",
+      "project_id": "vineyard-wind-ii",
+      "category": "trade",
+      "title": "AD/CVD or Section 301 Duties on Vietnam Monopile Fabrication",
+      "description": "EEW SPC's Vietnam-fabricated monopiles (HTS 7308.20) face exposure to anti-dumping / countervailing-duty petitions from US steel and fabrication interests, as well as potential Section 301 List 4B extension to Vietnamese structural steel products; a 25\u201350% duty on the Vietnam tranche would add $60\u2013100M to procurement cost.",
+      "source": "ustr",
+      "citation": "HTS 7308.20.0000; USTR Section 301 Four-List Review (2024); potential AD/CVD petition under 19 USC \u00a71673",
+      "dollar_impact_usd": 84000000.0,
+      "probability": 0.4,
+      "status": "watching",
+      "keywords": [
+        "Vietnam monopile",
+        "AD CVD offshore wind",
+        "HTS 7308.20",
+        "Section 301 Vietnam",
+        "monopile fabrication tariff",
+        "structural steel duties"
+      ]
+    },
+    {
+      "id": "vineyard-wind-ii__f05",
+      "project_id": "vineyard-wind-ii",
+      "category": "trade",
+      "title": "Section 201 Safeguard Extension on Wind Tower Components",
+      "description": "The existing Section 201 safeguard on large wind towers and tower sections (HTS 7308.20) expires on a rolling schedule; a USITC four-year extension review could broaden scope to cover offshore monopole substructures, adding incremental duties of 15\u201320% on imported fabricated steel substructures and increasing EPC cost by an estimated $50\u201370M.",
+      "source": "ustr",
+      "citation": "Presidential Proclamation 9693 (Jan 23, 2018); 19 USC \u00a72253; USITC Inv. No. TA-201-075; HTS 7308.20.0000",
+      "dollar_impact_usd": 63000000.0,
+      "probability": 0.3,
+      "status": "watching",
+      "keywords": [
+        "Section 201 wind towers",
+        "safeguard extension",
+        "USITC wind",
+        "HTS 7308.20",
+        "offshore substructure",
+        "wind tower duties"
+      ]
+    },
+    {
+      "id": "vineyard-wind-ii__f06",
+      "project_id": "vineyard-wind-ii",
+      "category": "geopolitical",
+      "title": "Siemens Gamesa Supply-Chain Concentration and Export Control Risk",
+      "description": "100% turbine supply from a single Danish OEM creates single-source concentration risk; escalating US\u2013EU trade frictions or potential export-control harmonization measures on dual-use electrical machinery (ECCN 3A999 / EAR99 permanent magnet drivetrains with Chinese rare-earth inputs) could trigger licensing delays or supply disruptions affecting turbine delivery schedules critical to the Q4 2028 COD.",
+      "source": "federal_register",
+      "citation": "EAR Part 744; ECCN 3A999; EU Dual-Use Regulation 2021/821; potential Foreign Direct Product Rule application",
+      "dollar_impact_usd": 210000000.0,
+      "probability": 0.25,
+      "status": "watching",
+      "keywords": [
+        "Siemens Gamesa supply chain",
+        "offshore wind turbine concentration",
+        "export controls wind",
+        "rare earth magnets",
+        "ECCN 3A999",
+        "single-source turbine risk"
+      ]
+    },
+    {
+      "id": "vineyard-wind-ii__f07",
+      "project_id": "vineyard-wind-ii",
+      "category": "geopolitical",
+      "title": "UFLPA Enforcement on Vietnamese Steel Supply Chain",
+      "description": "CBP enforcement of the Uyghur Forced Labor Prevention Act creates rebuttable-presumption detention risk for Vietnamese-origin monopile fabrications if upstream steel inputs are traced to Xinjiang-linked Chinese mills; detention at port could delay monopile delivery by 6\u201318 months, causing liquidated damages under the OREC contract and forcing costly re-procurement.",
+      "source": "federal_register",
+      "citation": "P.L. 117-78 (UFLPA); CBP UFLPA Entity List; 19 USC \u00a71307; FLETF Strategic Plan 2022",
+      "dollar_impact_usd": 168000000.0,
+      "probability": 0.35,
+      "status": "active",
+      "keywords": [
+        "UFLPA",
+        "forced labor",
+        "Vietnam steel supply chain",
+        "CBP detention",
+        "Xinjiang steel",
+        "monopile importation"
+      ]
+    },
+    {
+      "id": "vineyard-wind-ii__f08",
+      "project_id": "vineyard-wind-ii",
+      "category": "macro",
+      "title": "Long-Term Interest Rate Spike Eroding Equity IRR",
+      "description": "The project's 8.5% target equity IRR is modeled on a ~5.0% long-term Treasury base; a 75\u2013100 bps parallel shift in the 10-year and 30-year curve (driven by persistent fiscal deficits or stagflation) would increase project WACC, compress levered equity returns to sub-7%, and potentially trigger OREC re-opener clauses or require equity re-pricing that dilutes sponsor returns.",
+      "source": "internal",
+      "citation": "Internal IRR sensitivity model; Federal Reserve SEP (Mar 2025); US 10-yr Treasury yield dynamics",
+      "dollar_impact_usd": 252000000.0,
+      "probability": 0.4,
+      "status": "watching",
+      "keywords": [
+        "interest rate risk",
+        "Treasury yield",
+        "WACC offshore wind",
+        "IRR sensitivity",
+        "long-term rates",
+        "project finance refinancing"
+      ]
+    },
+    {
+      "id": "vineyard-wind-ii__f09",
+      "project_id": "vineyard-wind-ii",
+      "category": "macro",
+      "title": "Construction Cost Inflation and USD/EUR FX Exposure",
+      "description": "Approximately 60% of capex is denominated in EUR (Siemens Gamesa turbines, Prysmian cable) and KRW (POSCO steel); a 10% USD depreciation against EUR and KRW relative to the base-case FX assumptions embedded in the EPC contract would increase total capex by ~$170\u2013200M, compressing equity IRR by roughly 60\u201380 bps absent contractual FX hedges.",
+      "source": "internal",
+      "citation": "Internal FX model; EPC contract FX exposure schedule; EUR/USD and USD/KRW forward curves (Q1 2025)",
+      "dollar_impact_usd": 189000000.0,
+      "probability": 0.35,
+      "status": "watching",
+      "keywords": [
+        "FX exposure offshore wind",
+        "EUR USD capex",
+        "KRW steel cost",
+        "construction cost inflation",
+        "EPC currency risk",
+        "offshore wind LCOE inflation"
+      ]
+    },
+    {
+      "id": "mojave-bess__f00",
+      "project_id": "mojave-bess",
+      "category": "policy",
+      "title": "IRC \u00a748E Standalone Storage ITC Recapture Risk",
+      "description": "Treasury and IRS have not finalized prevailing-wage and apprenticeship (PWA) guidance for \u00a748E standalone storage projects with COD in 2026; failure to satisfy PWA requirements reduces the ITC rate from 30% to 6%, eliminating approximately $72M in expected tax credit value. Proposed regulations published in August 2023 remain partially finalized, creating compliance uncertainty for a Q1 2026 COD.",
+      "source": "federal_register",
+      "citation": "IRC \u00a748E; IRS REG-100908-23; TD 10003 (Aug 2023)",
+      "dollar_impact_usd": 72000000.0,
+      "probability": 0.18,
+      "status": "active",
+      "keywords": [
+        "Section 48E",
+        "standalone storage ITC",
+        "prevailing wage",
+        "apprenticeship",
+        "ITC recapture",
+        "Treasury guidance"
+      ]
+    },
+    {
+      "id": "mojave-bess__f01",
+      "project_id": "mojave-bess",
+      "category": "policy",
+      "title": "FEOC Restriction Disqualifies CATL/BYD Cells from \u00a748E",
+      "description": "The Inflation Reduction Act's Foreign Entity of Concern (FEOC) provisions, as interpreted under proposed Treasury guidance, risk disqualifying battery systems containing CATL or BYD cells from the full \u00a748E ITC beginning in 2025; with 80% of cell supply from Chinese-domiciled FEOC-designated entities, up to $96M of ITC basis could be at risk. Final FEOC rules for stationary storage are expected mid-2025 and could retroactively affect procurement already under contract.",
+      "source": "federal_register",
+      "citation": "IRC \u00a748E(d)(4); IRS Notice 2024-05; IRS REG-118492-23",
+      "dollar_impact_usd": 96000000.0,
+      "probability": 0.42,
+      "status": "active",
+      "keywords": [
+        "FEOC restriction",
+        "battery storage",
+        "CATL BYD",
+        "Section 48E",
+        "foreign entity concern",
+        "ITC eligibility"
+      ]
+    },
+    {
+      "id": "mojave-bess__f02",
+      "project_id": "mojave-bess",
+      "category": "policy",
+      "title": "IRC \u00a745X Advanced Manufacturing PTC Guidance Delay",
+      "description": "Final Treasury rules for \u00a745X electrode active materials and battery cell PTCs have not fully clarified whether LFP cells assembled outside the US but using domestically processed materials qualify; uncertainty threatens ~$15M in anticipated \u00a745X passthrough credits embedded in LG Energy Solution supply pricing. Any narrowing of eligible components in final rulemaking would increase effective cell costs.",
+      "source": "federal_register",
+      "citation": "IRC \u00a745X; IRS REG-107423-23; Treasury Final Rule (Dec 2024)",
+      "dollar_impact_usd": 15000000.0,
+      "probability": 0.25,
+      "status": "pending",
+      "keywords": [
+        "Section 45X",
+        "manufacturing PTC",
+        "LFP cell",
+        "electrode active material",
+        "battery component",
+        "Treasury guidance"
+      ]
+    },
+    {
+      "id": "mojave-bess__f03",
+      "project_id": "mojave-bess",
+      "category": "policy",
+      "title": "FERC Order 2222 CAISO Implementation Stall",
+      "description": "CAISO's compliance filing for FERC Order 2222 DER aggregation remains contested; delays in final CAISO tariff implementation could prevent the project from stacking ancillary-service and capacity revenues beyond the SCE RA contract, directly reducing projected merchant revenue that underpins the 12% equity IRR. A 12-month implementation delay could reduce NPV by depressing post-COD cash flows during the critical 2026\u20132027 ramp period.",
+      "source": "federal_register",
+      "citation": "FERC Order No. 2222 (Sept 2020); CAISO Compliance Filing ER21-377",
+      "dollar_impact_usd": 18000000.0,
+      "probability": 0.35,
+      "status": "watching",
+      "keywords": [
+        "FERC Order 2222",
+        "CAISO",
+        "DER aggregation",
+        "resource adequacy",
+        "ancillary services",
+        "tariff compliance"
+      ]
+    },
+    {
+      "id": "mojave-bess__f04",
+      "project_id": "mojave-bess",
+      "category": "trade",
+      "title": "Section 301 Tariff Escalation on LFP Cells (HTS 8507.60)",
+      "description": "The Biden administration raised Section 301 tariffs on Chinese lithium-ion batteries (HTS 8507.60.00) from 7.5% to 25% effective September 2024; the Trump administration is reviewing additional escalation to 35\u201350% as part of a broader China trade action, which would increase cell procurement costs for CATL and BYD supply by $24\u201348M above current budgets. A tariff hike announced before the project's final cell shipments in Q3\u2013Q4 2025 would directly erode equity returns.",
+      "source": "ustr",
+      "citation": "USTR Section 301 Four-Year Review; HTS 8507.60.00; FR Vol. 89 No. 88 (May 2024)",
+      "dollar_impact_usd": 36000000.0,
+      "probability": 0.45,
+      "status": "active",
+      "keywords": [
+        "Section 301",
+        "lithium battery tariff",
+        "HTS 8507.60",
+        "CATL tariff",
+        "BYD tariff",
+        "LFP cell import"
+      ]
+    },
+    {
+      "id": "mojave-bess__f05",
+      "project_id": "mojave-bess",
+      "category": "trade",
+      "title": "AD/CVD Investigation on Chinese BESS Components",
+      "description": "A domestic-industry petition for antidumping and countervailing duties on Chinese battery energy storage system components, including power conversion systems and battery modules, is anticipated following the June 2024 AD/CVD petition on solar cells; if filed and preliminary duties imposed, Sungrow PCS equipment (50% of inverter supply, HTS 8504.40) could face 50\u2013200% preliminary duties before COD. This would require emergency re-sourcing or absorb $20\u201340M in additional costs.",
+      "source": "ustr",
+      "citation": "19 U.S.C. \u00a71673; HTS 8504.40.95; precedent: CVD Case C-570-979",
+      "dollar_impact_usd": 30000000.0,
+      "probability": 0.3,
+      "status": "watching",
+      "keywords": [
+        "AD/CVD",
+        "battery storage",
+        "Sungrow inverter",
+        "power conversion system",
+        "HTS 8504.40",
+        "Chinese BESS"
+      ]
+    },
+    {
+      "id": "mojave-bess__f06",
+      "project_id": "mojave-bess",
+      "category": "trade",
+      "title": "UFLPA Enforcement Action on LFP Cell Shipments",
+      "description": "CBP has expanded UFLPA Entity List enforcement to battery supply chains linked to Xinjiang-sourced lithium carbonate and graphite; CATL and BYD supply chains have documented exposure to Xinjiang materials, and a CBP detention order on inbound cell shipments could halt procurement for 60\u2013120 days, jeopardizing Q1 2026 COD and triggering SCE RA contract penalties. Project faces $12\u201320M in delay costs and potential $8M liquidated damages under the offtake agreement.",
+      "source": "federal_register",
+      "citation": "Uyghur Forced Labor Prevention Act (P.L. 117-78); CBP UFLPA Entity List (updated 2024); 19 U.S.C. \u00a71307",
+      "dollar_impact_usd": 22000000.0,
+      "probability": 0.28,
+      "status": "active",
+      "keywords": [
+        "UFLPA",
+        "forced labor",
+        "CATL supply chain",
+        "CBP detention",
+        "Xinjiang lithium",
+        "battery import"
+      ]
+    },
+    {
+      "id": "mojave-bess__f07",
+      "project_id": "mojave-bess",
+      "category": "geopolitical",
+      "title": "China Export Controls on Battery-Grade Graphite/Lithium",
+      "description": "China imposed export licensing requirements on natural graphite and related materials in October 2023 and has signaled further controls on lithium processing chemicals in retaliation for US chip export restrictions; tightening of these controls in 2025 would constrain CATL and BYD production capacity, causing cell delivery delays of 3\u20136 months and a 10\u201320% spot-price premium on contracted volumes. With 80% of cells from Chinese suppliers, supply disruption risk is concentrated.",
+      "source": "internal",
+      "citation": "China MOFCOM Announcement No. 33 (Oct 2023); China Export Control Law (2020 Art. 9); EO 13959 analogs",
+      "dollar_impact_usd": 28000000.0,
+      "probability": 0.35,
+      "status": "active",
+      "keywords": [
+        "China export controls",
+        "graphite restriction",
+        "lithium supply chain",
+        "CATL delivery risk",
+        "battery material",
+        "geopolitical supply"
+      ]
+    },
+    {
+      "id": "mojave-bess__f08",
+      "project_id": "mojave-bess",
+      "category": "geopolitical",
+      "title": "CATL US Treasury SDN / Sanctions Designation Risk",
+      "description": "Bipartisan legislation (BIOSECURE Act analogs and proposed CATL-specific bills) and DoD Section 1260H 'Chinese Military Company' list inclusion of CATL create a risk of Treasury OFAC secondary-sanctions exposure or federal contract counterparty restrictions that could force contract termination with the company's largest cell supplier mid-procurement. Replacement sourcing at comparable cost and timeline is not feasible within the COD schedule.",
+      "source": "congress",
+      "citation": "DoD \u00a71260H List (FY2024 NDAA); S.3834 Protecting America's Battery Supply Chain Act; 50 U.S.C. \u00a71701",
+      "dollar_impact_usd": 50000000.0,
+      "probability": 0.2,
+      "status": "watching",
+      "keywords": [
+        "CATL sanctions",
+        "Chinese military company",
+        "OFAC",
+        "Section 1260H",
+        "supply chain restriction",
+        "BIOSECURE"
+      ]
+    },
+    {
+      "id": "mojave-bess__f09",
+      "project_id": "mojave-bess",
+      "category": "macro",
+      "title": "Interest Rate Sensitivity on Construction Financing Cost",
+      "description": "The project's $400M capex is partially financed through a tax-equity bridge and construction loan priced at SOFR + 175 bps; if the Fed maintains higher-for-longer policy and SOFR remains above 4.5% through mid-2025, financing costs increase by approximately $6\u20139M versus the underwriting base case of a 75 bps rate cut cycle, compressing equity IRR below the 12% target. A 100 bps adverse rate move reduces project NPV by an estimated $12M.",
+      "source": "internal",
+      "citation": "Federal Reserve FOMC projections (Dec 2024 SEP); SOFR term rate; IRC \u00a745Q tax-equity market benchmarks",
+      "dollar_impact_usd": 12000000.0,
+      "probability": 0.4,
+      "status": "active",
+      "keywords": [
+        "SOFR rate",
+        "construction financing",
+        "tax equity",
+        "interest rate",
+        "IRR compression",
+        "higher for longer"
+      ]
+    },
+    {
+      "id": "permian-h2-hub__f00",
+      "project_id": "permian-h2-hub",
+      "category": "policy",
+      "title": "\u00a745V Three-Pillars Final Rule Stringency",
+      "description": "Treasury's January 2025 final rule on \u00a745V mandates hourly matching, incrementality, and deliverability by 2028; if the hourly-matching or incrementality requirements survive legal challenge and remain unamended, the project's H\u2082 lifecycle emissions intensity may exceed the 0.45 kg CO\u2082e/kg H\u2082 threshold required to claim the full $3/kg credit, collapsing project economics.",
+      "source": "federal_register",
+      "citation": "IRC \u00a745V; Treasury Final Rule TD 10024 (Jan 3, 2025); 26 CFR \u00a71.45V-4",
+      "dollar_impact_usd": 240000000.0,
+      "probability": 0.45,
+      "status": "active",
+      "keywords": [
+        "45V three pillars",
+        "hourly matching",
+        "incrementality",
+        "deliverability",
+        "hydrogen PTC",
+        "Treasury 45V"
+      ]
+    },
+    {
+      "id": "permian-h2-hub__f01",
+      "project_id": "permian-h2-hub",
+      "category": "policy",
+      "title": "\u00a745V Regulatory Rollback or Credit Repeal Risk",
+      "description": "Congressional reconciliation efforts in 2025 include proposals to repeal or curtail IRA clean-energy credits including \u00a745V; a successful reconciliation bill eliminating or phasing out the hydrogen production credit before the project's COD would remove up to $3/kg of revenue support underpinning the equity return.",
+      "source": "congress",
+      "citation": "IRC \u00a745V; House Budget Reconciliation Discussion Draft (Feb 2025); IRA \u00a713204",
+      "dollar_impact_usd": 300000000.0,
+      "probability": 0.3,
+      "status": "active",
+      "keywords": [
+        "IRA repeal",
+        "45V repeal",
+        "reconciliation",
+        "hydrogen production credit",
+        "clean energy rollback",
+        "budget reconciliation"
+      ]
+    },
+    {
+      "id": "permian-h2-hub__f02",
+      "project_id": "permian-h2-hub",
+      "category": "policy",
+      "title": "DOE H2Hubs Milestone Clawback or Funding Freeze",
+      "description": "DOGE-driven budget reviews and executive directives freezing IRA/IIJA grant disbursements could delay or cancel DOE H2Hubs cooperative agreement tranches; a funding freeze or milestone-default clawback on the project's Hub allocation would require replacement equity or debt at materially higher cost.",
+      "source": "federal_register",
+      "citation": "IIJA \u00a740314 (H2Hubs, 42 U.S.C. \u00a716161a); DOE Cooperative Agreement DE-EE0010679; EO 14154 (Jan 20, 2025)",
+      "dollar_impact_usd": 120000000.0,
+      "probability": 0.35,
+      "status": "active",
+      "keywords": [
+        "H2Hubs funding",
+        "DOE freeze",
+        "IIJA grant",
+        "cooperative agreement",
+        "DOGE",
+        "H2Hubs milestone"
+      ]
+    },
+    {
+      "id": "permian-h2-hub__f03",
+      "project_id": "permian-h2-hub",
+      "category": "policy",
+      "title": "EPA Subpart W/RR Hydrogen Reporting Finalization",
+      "description": "EPA's finalization of Subpart RR (hydrogen production GHG reporting under 40 CFR Part 98) will determine the emissions accounting methodology used for \u00a745V credit verification; a more conservative lifecycle methodology than modeled could push the project's carbon intensity above the top credit tier.",
+      "source": "federal_register",
+      "citation": "EPA 40 CFR Part 98 Subpart W/RR; EPA Proposed Rule 88 FR 65460 (Sep 2023); IRC \u00a745V(c)(1)(B)",
+      "dollar_impact_usd": 90000000.0,
+      "probability": 0.3,
+      "status": "pending",
+      "keywords": [
+        "EPA Subpart 98",
+        "GHG reporting",
+        "hydrogen lifecycle",
+        "40 CFR Part 98",
+        "emissions intensity",
+        "carbon accounting"
+      ]
+    },
+    {
+      "id": "permian-h2-hub__f04",
+      "project_id": "permian-h2-hub",
+      "category": "trade",
+      "title": "Section 301 / AD-CVD Tariffs on Solar Module Inputs",
+      "description": "The co-located 200 MW+ solar array depends on PV modules; expanded Section 301 tariffs or anti-dumping/countervailing duty orders on solar cells and modules from Southeast Asian transshipment countries (Cambodia, Malaysia, Thailand, Vietnam) under existing CBP circumvention findings could increase solar capex by 15\u201325%, compressing the project's renewable energy cost stack.",
+      "source": "ustr",
+      "citation": "Section 301, 19 U.S.C. \u00a72411; USTR 4-List HTS 8541.40; AD/CVD Case A-570-979; CAATSA Circumvention Inquiry CBP 2022-02",
+      "dollar_impact_usd": 45000000.0,
+      "probability": 0.4,
+      "status": "active",
+      "keywords": [
+        "Section 301 solar",
+        "AD CVD solar",
+        "solar circumvention",
+        "HTS 8541.40",
+        "solar tariff",
+        "Southeast Asia solar"
+      ]
+    },
+    {
+      "id": "permian-h2-hub__f05",
+      "project_id": "permian-h2-hub",
+      "category": "trade",
+      "title": "Tariffs on Imported Electrolyzer Components",
+      "description": "Nel Hydrogen (Norway) alkaline electrolyzers (20% share, ~$48M capex) and key stack components sourced from Europe or Asia face potential Section 232 tariff expansion or new reciprocal tariff schedules; a 25% tariff on HTS 8421.39 / 8501.40 industrial electrolytic equipment would directly increase equipment procurement cost.",
+      "source": "ustr",
+      "citation": "Section 232, 19 U.S.C. \u00a71862; HTS 8421.39.80, 8501.40.20; EO 14257 (Apr 2, 2025 'Liberation Day' tariffs); USTR Reciprocal Tariff Framework",
+      "dollar_impact_usd": 18000000.0,
+      "probability": 0.45,
+      "status": "active",
+      "keywords": [
+        "electrolyzer tariff",
+        "Section 232",
+        "HTS 8421.39",
+        "reciprocal tariff",
+        "Nel Hydrogen",
+        "industrial equipment tariff"
+      ]
+    },
+    {
+      "id": "permian-h2-hub__f06",
+      "project_id": "permian-h2-hub",
+      "category": "trade",
+      "title": "UFLPA Enforcement on PEM Stack Materials",
+      "description": "Proton exchange membranes, iridium-coated titanium components, and platinum-group catalysts used in Plug Power and Cummins/Accelera PEM stacks have upstream supply chains traceable to Xinjiang or sanctioned entities; a CBP UFLPA withhold order on shipments would halt electrolyzer deliveries and delay COD.",
+      "source": "federal_register",
+      "citation": "UFLPA, P.L. 117-78; CBP Operational Guidance (Jun 2022); HTS 3926.90, 8421.39; UFLPA Entity List",
+      "dollar_impact_usd": 60000000.0,
+      "probability": 0.25,
+      "status": "watching",
+      "keywords": [
+        "UFLPA",
+        "PEM materials",
+        "Xinjiang",
+        "CBP withhold",
+        "iridium supply chain",
+        "electrolyzer components"
+      ]
+    },
+    {
+      "id": "permian-h2-hub__f07",
+      "project_id": "permian-h2-hub",
+      "category": "geopolitical",
+      "title": "Critical Mineral Supply Concentration \u2014 Iridium/Platinum",
+      "description": "PEM electrolyzers require iridium (>80% of global supply from South Africa and Zimbabwe) and platinum as catalysts; geopolitical instability in southern Africa, export restrictions, or a supply squeeze driven by growing global electrolyzer deployment could spike iridium spot prices (currently ~$5,000/troy oz) and inflate replacement/warranty costs for a 20-year asset.",
+      "source": "internal",
+      "citation": "USGS Mineral Commodity Summaries 2024 (Iridium, Platinum); EO 13817 (Critical Minerals); DOE Critical Materials Assessment 2023",
+      "dollar_impact_usd": 36000000.0,
+      "probability": 0.3,
+      "status": "watching",
+      "keywords": [
+        "iridium supply",
+        "platinum group metals",
+        "critical minerals",
+        "PEM catalyst",
+        "South Africa PGM",
+        "mineral concentration"
+      ]
+    },
+    {
+      "id": "permian-h2-hub__f08",
+      "project_id": "permian-h2-hub",
+      "category": "geopolitical",
+      "title": "Norway Export Controls on Electrolyzer Technology",
+      "description": "Nel Hydrogen's alkaline systems are manufactured in Norway; escalating NATO-Russia tensions or Norwegian government review of dual-use technology exports could subject advanced electrolyzer stack shipments to export-license delays under Norwegian Strategic Goods regulations, disrupting the construction schedule and triggering delay liquidated damages.",
+      "source": "internal",
+      "citation": "Norwegian Export Control Act (Lov om eksportkontroll); EU Dual-Use Regulation 2021/821; EAR 15 CFR \u00a7734 (US re-export considerations for US-origin content)",
+      "dollar_impact_usd": 24000000.0,
+      "probability": 0.2,
+      "status": "watching",
+      "keywords": [
+        "Norway export control",
+        "Nel Hydrogen",
+        "dual use",
+        "alkaline electrolyzer",
+        "NATO supply chain",
+        "strategic goods"
+      ]
+    },
+    {
+      "id": "permian-h2-hub__f09",
+      "project_id": "permian-h2-hub",
+      "category": "macro",
+      "title": "SOFR / Treasury Rate Sensitivity on Project Debt",
+      "description": "The project's estimated $720M+ of senior debt (assumed ~60% leverage) is exposed to long-end rate levels at financial close (~2027); a sustained 100 bps increase in 10-year Treasury yields relative to current model assumptions would widen the all-in cost of debt and reduce levered equity IRR by approximately 150\u2013200 bps, potentially breaching the 11% target hurdle.",
+      "source": "internal",
+      "citation": "FOMC SEP (Mar 2025); CME FedWatch; Bloomberg SOFR forward curve",
+      "dollar_impact_usd": 85000000.0,
+      "probability": 0.4,
+      "status": "watching",
+      "keywords": [
+        "interest rate risk",
+        "SOFR",
+        "project finance debt",
+        "Treasury yield",
+        "IRR sensitivity",
+        "cost of capital"
+      ]
+    },
+    {
+      "id": "i95-evcharging__f00",
+      "project_id": "i95-evcharging",
+      "category": "policy",
+      "title": "NEVI Program Funding Rescission or Freeze",
+      "description": "The Trump administration paused NEVI formula-fund disbursements in January 2025 pending program review; a prolonged freeze or rescission of unobligated state allocations would eliminate the primary funding source for roughly 60\u201370% of planned station deployments across the 8-state corridor, triggering revenue shortfalls and potential contract terminations.",
+      "source": "federal_register",
+      "citation": "23 USC 175; FHWA Notice of Review Jan 2025; Infrastructure Investment and Jobs Act (IIJA) \u00a711401",
+      "dollar_impact_usd": 90000000.0,
+      "probability": 0.42,
+      "status": "active",
+      "keywords": [
+        "NEVI rescission",
+        "NEVI freeze",
+        "FHWA EV funding",
+        "23 USC 175",
+        "IIJA EV",
+        "state NEVI awards"
+      ]
+    },
+    {
+      "id": "i95-evcharging__f01",
+      "project_id": "i95-evcharging",
+      "category": "policy",
+      "title": "IRC \u00a730C Tax Credit Repeal or Phase-Down",
+      "description": "Reconciliation legislation advancing in the 119th Congress targets elimination or material reduction of the Alternative Fuel Vehicle Refueling Property Credit (\u00a730C), which provides up to 30% / $100K per station credit; loss of this credit would reduce after-tax equity returns by approximately 150\u2013200 bps and impair project-level cash flows on commercially-funded stations not covered by NEVI.",
+      "source": "congress",
+      "citation": "IRC \u00a730C; House Ways & Means Committee reconciliation markup, April 2025",
+      "dollar_impact_usd": 36000000.0,
+      "probability": 0.38,
+      "status": "active",
+      "keywords": [
+        "Section 30C",
+        "alt-fuel refueling credit",
+        "EV charging tax credit",
+        "reconciliation",
+        "IRC 30C repeal",
+        "alternative fuel infrastructure"
+      ]
+    },
+    {
+      "id": "i95-evcharging__f02",
+      "project_id": "i95-evcharging",
+      "category": "policy",
+      "title": "FHWA BABA Waiver Denial or Tightening",
+      "description": "FHWA's Buy America Build America rules require domestically manufactured charging equipment; ABB Terra (Swiss) and Wallbox/Hypercharger (Spanish) together represent 65% of the supply mix and currently rely on general or product-specific waivers \u2014 tightened waiver standards or outright denial would force costly domestic-content substitution or disqualify stations from NEVI reimbursement.",
+      "source": "federal_register",
+      "citation": "41 USC 8301 et seq.; 23 CFR 635.410; FHWA Buy America EV Charger Guidance, FY2024; Build America Buy America Act \u00a770901-70952 IIJA",
+      "dollar_impact_usd": 45000000.0,
+      "probability": 0.45,
+      "status": "active",
+      "keywords": [
+        "BABA waiver",
+        "Buy America EV charger",
+        "domestic content",
+        "FHWA waiver",
+        "23 CFR 635",
+        "NEVI BABA compliance"
+      ]
+    },
+    {
+      "id": "i95-evcharging__f03",
+      "project_id": "i95-evcharging",
+      "category": "policy",
+      "title": "FHWA Minimum Standards Rule Revision",
+      "description": "FHWA's 23 CFR Part 680 sets technical minimums (uptime, connector type, payment, accessibility) for NEVI-funded stations; a regulatory rollback removing mandatory uptime requirements (currently 97%) or open-payment mandates could undermine state offtake contract terms and trigger renegotiation penalties with site hosts, while a tightening of standards could impose retrofit capex.",
+      "source": "federal_register",
+      "citation": "23 CFR Part 680; FHWA Final Rule 88 FR 12724 (Feb 2023); potential NPRM under EO 14192 deregulatory review",
+      "dollar_impact_usd": 12000000.0,
+      "probability": 0.3,
+      "status": "watching",
+      "keywords": [
+        "23 CFR 680",
+        "FHWA minimum standards",
+        "NEVI uptime requirement",
+        "EV charging standards",
+        "open payment EV",
+        "FHWA NPRM"
+      ]
+    },
+    {
+      "id": "i95-evcharging__f04",
+      "project_id": "i95-evcharging",
+      "category": "trade",
+      "title": "Section 301 / New Tariffs on Swiss and EU Charger Components",
+      "description": "ABB Terra units (Switzerland, 40% supply share) and Wallbox/Hypercharger units (Spain/EU, 25% share) are subject to potential escalation of Section 301 or new reciprocal tariffs on electrical apparatus and EV charging equipment (HTS 8504.40, 8544.42); the April 2025 'reciprocal tariff' framework included a 20% baseline EU rate before the 90-day pause, and reinstatement would add $18\u201324M in equipment procurement costs.",
+      "source": "ustr",
+      "citation": "HTS 8504.40.95; HTS 8544.42.90; EO 14257 (Reciprocal Tariffs, Apr 2025); USTR Section 301 List modifications",
+      "dollar_impact_usd": 22000000.0,
+      "probability": 0.5,
+      "status": "active",
+      "keywords": [
+        "Section 301 EU tariffs",
+        "HTS 8504.40",
+        "EV charger tariff",
+        "reciprocal tariff",
+        "ABB Terra import",
+        "EU electrical equipment"
+      ]
+    },
+    {
+      "id": "i95-evcharging__f05",
+      "project_id": "i95-evcharging",
+      "category": "trade",
+      "title": "AD/CVD or Section 201 Action on Chinese Power Electronics",
+      "description": "Key subcomponents in ABB, Wallbox, and ChargePoint units \u2014 including IGBT modules, rectifiers, and power conversion assemblies \u2014 are manufactured in or sourced from China; expansion of existing AD/CVD orders or a new Section 201 safeguard on power electronics (HTS 8501.40, 8504.40) could increase bill-of-materials costs by 15\u201325% and extend lead times by 3\u20136 months, compressing margins on the rolling 2025\u20132027 COD schedule.",
+      "source": "ustr",
+      "citation": "HTS 8501.40.60; HTS 8504.40.95; AD/CVD Case A-570 series (inverters/power electronics); potential USITC Section 201 petition",
+      "dollar_impact_usd": 18000000.0,
+      "probability": 0.35,
+      "status": "watching",
+      "keywords": [
+        "AD/CVD power electronics",
+        "Section 201 charger",
+        "HTS 8504.40",
+        "IGBT tariff",
+        "Chinese power conversion",
+        "USITC safeguard"
+      ]
+    },
+    {
+      "id": "i95-evcharging__f06",
+      "project_id": "i95-evcharging",
+      "category": "geopolitical",
+      "title": "Supply Concentration in China-Dependent Power Semiconductors",
+      "description": "Gallium nitride and silicon carbide semiconductors used in high-power DC-DC conversion stages are predominantly manufactured or processed in China; China's December 2023 export controls on gallium and germanium and potential expansion to SiC substrates could cause 6\u201312 month supply disruptions, force spot-market procurement at 2\u20133\u00d7 contract prices, and jeopardize COD dates for the 2025 tranche of stations.",
+      "source": "internal",
+      "citation": "China MOFCOM Gallium/Germanium Export Control Order (Aug 2023, effective Dec 2023); potential SiC controls under China Export Control Law Art. 9",
+      "dollar_impact_usd": 15000000.0,
+      "probability": 0.28,
+      "status": "watching",
+      "keywords": [
+        "gallium export control",
+        "SiC semiconductor",
+        "China export controls",
+        "power semiconductor supply",
+        "GaN charger",
+        "critical mineral EV"
+      ]
+    },
+    {
+      "id": "i95-evcharging__f07",
+      "project_id": "i95-evcharging",
+      "category": "geopolitical",
+      "title": "UFLPA Enforcement on Charger Sub-Assembly Supply Chain",
+      "description": "U.S. Customs and Border Protection has expanded UFLPA Entity List enforcement to electronics and EV-related goods with Xinjiang-linked supply chains; ABB and Wallbox units with components sourced from flagged Chinese contract manufacturers could face CBP detention at port of entry, requiring costly supply-chain audits, country-of-origin re-documentation, or supplier replacement that delays equipment delivery and triggers NEVI milestone penalties.",
+      "source": "federal_register",
+      "citation": "Uyghur Forced Labor Prevention Act (PL 117-78); CBP UFLPA Entity List (updated 2024\u20132025); 19 USC 1307",
+      "dollar_impact_usd": 10000000.0,
+      "probability": 0.25,
+      "status": "watching",
+      "keywords": [
+        "UFLPA EV charger",
+        "CBP detention electronics",
+        "Xinjiang supply chain",
+        "forced labor EV",
+        "UFLPA entity list",
+        "supply chain audit"
+      ]
+    },
+    {
+      "id": "i95-evcharging__f08",
+      "project_id": "i95-evcharging",
+      "category": "macro",
+      "title": "Elevated Long-End Rates Compressing Equity IRR",
+      "description": "The project targets a 13.0% equity IRR underwritten at a ~6.5\u20137.0% construction/term debt rate; a sustained 50\u201375 bps increase in the 10-year Treasury (currently pricing above 4.4%) would raise all-in borrowing costs and compress levered IRR below the 12% LP hurdle, potentially triggering equity re-pricing requirements or forcing additional sponsor equity contributions to maintain DSCR covenants across the rolling multi-state portfolio.",
+      "source": "internal",
+      "citation": "Federal Reserve FOMC projections (Mar 2025 SEP); 10-yr UST benchmark; project financing term sheet assumptions",
+      "dollar_impact_usd": 20000000.0,
+      "probability": 0.4,
+      "status": "active",
+      "keywords": [
+        "interest rate risk",
+        "IRR compression",
+        "10-year Treasury",
+        "construction debt cost",
+        "DSCR covenant",
+        "equity IRR EV"
+      ]
+    },
+    {
+      "id": "i95-evcharging__f09",
+      "project_id": "i95-evcharging",
+      "category": "macro",
+      "title": "EV Adoption Slowdown Reducing Utilization Revenue",
+      "description": "Project revenue underwriting assumes 18\u201322% utilization rates by 2027 based on EV fleet penetration forecasts; a sustained macroeconomic slowdown, consumer spending contraction, or slower-than-projected EV adoption (exacerbated by potential rollback of \u00a745W commercial clean vehicle credits) could compress utilization to 10\u201313%, reducing annual revenue by $8\u201312M and pushing IRR below target thresholds for commercially-funded stations in lower-traffic corridor segments.",
+      "source": "internal",
+      "citation": "IRC \u00a745W; BloombergNEF EV Outlook 2025; FHWA traffic volume data; EIA Annual Energy Outlook 2025",
+      "dollar_impact_usd": 25000000.0,
+      "probability": 0.35,
+      "status": "watching",
+      "keywords": [
+        "EV utilization risk",
+        "EV adoption slowdown",
+        "Section 45W repeal",
+        "charging revenue forecast",
+        "EV fleet penetration",
+        "macro EV demand"
+      ]
+    }
+  ],
+  "hedges": [
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f00",
+      "market_id": "kalshi::KX48ETAXCREDIT-26MAY",
+      "relevance": 0.351,
+      "notional_usd": 1260000000.0,
+      "rationale": "Pays $1 if YES; hedges 'IRA Repeal or \u00a748E ITC Phase-Down Risk' (EL $63.0M, market p=0.98)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f00",
+      "market_id": "kalshi::KXCONSTAMEND-29-JAN20",
+      "relevance": 0.163,
+      "notional_usd": 70787000.0,
+      "rationale": "Pays $1 if YES; hedges 'IRA Repeal or \u00a748E ITC Phase-Down Risk' (EL $63.0M, market p=0.11)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f00",
+      "market_id": "kalshi::KXAMEND25-29",
+      "relevance": 0.159,
+      "notional_usd": 91304000.0,
+      "rationale": "Pays $1 if YES; hedges 'IRA Repeal or \u00a748E ITC Phase-Down Risk' (EL $63.0M, market p=0.31)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f01",
+      "market_id": "kalshi::KXIMPEACHCABINET-28JAN01",
+      "relevance": 0.133,
+      "notional_usd": 21463000.0,
+      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a748E Domestic Content Bonus Guidance Delay' (EL $8.8M, market p=0.59)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f01",
+      "market_id": "kalshi::KXIMPEACHCABINET-29JAN20",
+      "relevance": 0.133,
+      "notional_usd": 26667000.0,
+      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a748E Domestic Content Bonus Guidance Delay' (EL $8.8M, market p=0.67)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f01",
+      "market_id": "kalshi::KXIMPEACHCABINET-26JUL01",
+      "relevance": 0.132,
+      "notional_usd": 9293000.0,
+      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a748E Domestic Content Bonus Guidance Delay' (EL $8.8M, market p=0.05)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f03",
+      "market_id": "kalshi::KXSOLAR-26-35",
+      "relevance": 0.277,
+      "notional_usd": 396000000.0,
+      "rationale": "Pays $1 if YES; hedges 'AD/CVD Expansion to Malaysia and Southeast Asia Modules' (EL $19.8M, market p=0.98)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f03",
+      "market_id": "kalshi::KXSOLAR-26-40",
+      "relevance": 0.277,
+      "notional_usd": 396000000.0,
+      "rationale": "Pays $1 if YES; hedges 'AD/CVD Expansion to Malaysia and Southeast Asia Modules' (EL $19.8M, market p=0.99)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f03",
+      "market_id": "kalshi::KXSOLAR-26-45",
+      "relevance": 0.277,
+      "notional_usd": 396000000.0,
+      "rationale": "Pays $1 if YES; hedges 'AD/CVD Expansion to Malaysia and Southeast Asia Modules' (EL $19.8M, market p=0.95)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f04",
+      "market_id": "kalshi::KXTARIFFREVENUE-26DEC31-T200",
+      "relevance": 0.187,
+      "notional_usd": 54286000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 301 Tariff Escalation on Chinese Modules and Inverters' (EL $19.0M, market p=0.65)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f04",
+      "market_id": "kalshi::KXTARIFFREVENUE-26DEC31-T150",
+      "relevance": 0.183,
+      "notional_usd": 118750000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 301 Tariff Escalation on Chinese Modules and Inverters' (EL $19.0M, market p=0.84)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f04",
+      "market_id": "kalshi::KXTARIFFREVENUE-26DEC31-T80",
+      "relevance": 0.18,
+      "notional_usd": 380000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 301 Tariff Escalation on Chinese Modules and Inverters' (EL $19.0M, market p=0.98)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f05",
+      "market_id": "kalshi::KX48ETAXCREDIT-26MAY",
+      "relevance": 0.249,
+      "notional_usd": 84000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Solar Tracker and Steel Component Tariff Exposure' (EL $4.2M, market p=0.98)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f05",
+      "market_id": "kalshi::KXTARIFFREVENUE-26DEC31-T80",
+      "relevance": 0.18,
+      "notional_usd": 84000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Solar Tracker and Steel Component Tariff Exposure' (EL $4.2M, market p=0.98)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f05",
+      "market_id": "kalshi::KXTARIFFREVENUE-26DEC31-T100",
+      "relevance": 0.18,
+      "notional_usd": 84000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Solar Tracker and Steel Component Tariff Exposure' (EL $4.2M, market p=0.98)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f06",
+      "market_id": "kalshi::KXSOLAR-26-35",
+      "relevance": 0.137,
+      "notional_usd": 660000000.0,
+      "rationale": "Pays $1 if YES; hedges 'UFLPA Enforcement \u2014 Jinko Xinjiang Polysilicon Detention' (EL $33.0M, market p=0.98)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f06",
+      "market_id": "kalshi::KXSOLAR-26-40",
+      "relevance": 0.137,
+      "notional_usd": 660000000.0,
+      "rationale": "Pays $1 if YES; hedges 'UFLPA Enforcement \u2014 Jinko Xinjiang Polysilicon Detention' (EL $33.0M, market p=0.99)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f06",
+      "market_id": "kalshi::KXSOLAR-26-45",
+      "relevance": 0.137,
+      "notional_usd": 660000000.0,
+      "rationale": "Pays $1 if YES; hedges 'UFLPA Enforcement \u2014 Jinko Xinjiang Polysilicon Detention' (EL $33.0M, market p=0.95)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f07",
+      "market_id": "kalshi::CHINAUSGDP-30",
+      "relevance": 0.243,
+      "notional_usd": 9351000.0,
+      "rationale": "Pays $1 if YES; hedges 'China Export Controls on Solar-Grade Polysilicon' (EL $7.2M, market p=0.23)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f07",
+      "market_id": "kalshi::KXFTAPRC-29",
+      "relevance": 0.2,
+      "notional_usd": 12632000.0,
+      "rationale": "Pays $1 if YES; hedges 'China Export Controls on Solar-Grade Polysilicon' (EL $7.2M, market p=0.43)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f07",
+      "market_id": "kalshi::KXRECOGROC-29-27",
+      "relevance": 0.163,
+      "notional_usd": 7826000.0,
+      "rationale": "Pays $1 if YES; hedges 'China Export Controls on Solar-Grade Polysilicon' (EL $7.2M, market p=0.08)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f08",
+      "market_id": "kalshi::KXRAMPBREX-40-RAMP",
+      "relevance": 0.159,
+      "notional_usd": 87500000.0,
+      "rationale": "Pays $1 if YES; hedges 'Sungrow Inverter Supply Disruption or Sanctions Risk' (EL $7.0M, market p=0.92)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f08",
+      "market_id": "kalshi::KXRAMPBREX-40-BREX",
+      "relevance": 0.159,
+      "notional_usd": 7609000.0,
+      "rationale": "Pays $1 if YES; hedges 'Sungrow Inverter Supply Disruption or Sanctions Risk' (EL $7.0M, market p=0.08)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f08",
+      "market_id": "kalshi::KXOAIANTH-40-OAI",
+      "relevance": 0.159,
+      "notional_usd": 38889000.0,
+      "rationale": "Pays $1 if YES; hedges 'Sungrow Inverter Supply Disruption or Sanctions Risk' (EL $7.0M, market p=0.82)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f09",
+      "market_id": "kalshi::KXFED-27APR-T0.00",
+      "relevance": 0.18,
+      "notional_usd": 189000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Interest Rate Elevated \u2014 Tax Equity and Debt Cost Compression' (EL $9.4M, market p=0.99)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f09",
+      "market_id": "kalshi::KXFED-27APR-T0.25",
+      "relevance": 0.18,
+      "notional_usd": 189000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Interest Rate Elevated \u2014 Tax Equity and Debt Cost Compression' (EL $9.4M, market p=0.99)."
+    },
+    {
+      "project_id": "lone-star-solar-i",
+      "factor_id": "lone-star-solar-i__f09",
+      "market_id": "kalshi::KXFED-27APR-T0.50",
+      "relevance": 0.18,
+      "notional_usd": 189000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Interest Rate Elevated \u2014 Tax Equity and Debt Cost Compression' (EL $9.4M, market p=0.99)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f00",
+      "market_id": "kalshi::KXPRIMEENGCONSUMPTION-30-WIND",
+      "relevance": 0.137,
+      "notional_usd": 353571000.0,
+      "rationale": "Pays $1 if YES; hedges 'BOEM COP Approval Delay or Denial' (EL $346.5M, market p=0.02)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f01",
+      "market_id": "kalshi::KX48ETAXCREDIT-26MAY",
+      "relevance": 0.233,
+      "notional_usd": 5880000000.0,
+      "rationale": "Pays $1 if YES; hedges 'IRC \u00a745Y / \u00a748E Credit Repeal or Phase-Down' (EL $294.0M, market p=0.98)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f02",
+      "market_id": "kalshi::KXAGENCYELIM-29-IRS",
+      "relevance": 0.177,
+      "notional_usd": 205484000.0,
+      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a745Y Domestic-Content Adder Denial' (EL $191.1M, market p=0.07)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f02",
+      "market_id": "kalshi::KXMUSKTRILLION-29",
+      "relevance": 0.159,
+      "notional_usd": 3822000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a745Y Domestic-Content Adder Denial' (EL $191.1M, market p=0.97)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f02",
+      "market_id": "kalshi::KXGDPSHAREMANU-29",
+      "relevance": 0.156,
+      "notional_usd": 294000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Treasury \u00a745Y Domestic-Content Adder Denial' (EL $191.1M, market p=0.35)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f03",
+      "market_id": "kalshi::KXFULLTERMSKPRES-29",
+      "relevance": 0.191,
+      "notional_usd": 726923000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 232 Tariff Escalation on Korean Steel Monopiles' (EL $47.2M, market p=0.94)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f03",
+      "market_id": "kalshi::KX48ETAXCREDIT-26MAY",
+      "relevance": 0.132,
+      "notional_usd": 945000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 232 Tariff Escalation on Korean Steel Monopiles' (EL $47.2M, market p=0.98)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f03",
+      "market_id": "kalshi::KXTARIFFREVENUE-26DEC31-T200",
+      "relevance": 0.042,
+      "notional_usd": 135000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 232 Tariff Escalation on Korean Steel Monopiles' (EL $47.2M, market p=0.65)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f04",
+      "market_id": "kalshi::EVSHARE-30JAN-20",
+      "relevance": 0.167,
+      "notional_usd": 93333000.0,
+      "rationale": "Pays $1 if YES; hedges 'AD/CVD or Section 301 Duties on Vietnam Monopile Fabrication' (EL $33.6M, market p=0.64)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f04",
+      "market_id": "kalshi::KXU3MAX-30-20",
+      "relevance": 0.159,
+      "notional_usd": 38182000.0,
+      "rationale": "Pays $1 if YES; hedges 'AD/CVD or Section 301 Duties on Vietnam Monopile Fabrication' (EL $33.6M, market p=0.12)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f04",
+      "market_id": "kalshi::KXEOTRUMPTERM-29JAN20-324",
+      "relevance": 0.15,
+      "notional_usd": 35936000.0,
+      "rationale": "Pays $1 if YES; hedges 'AD/CVD or Section 301 Duties on Vietnam Monopile Fabrication' (EL $33.6M, market p=0.07)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f05",
+      "market_id": "kalshi::KXPRIMEENGCONSUMPTION-30-WIND",
+      "relevance": 0.271,
+      "notional_usd": 19286000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 201 Safeguard Extension on Wind Tower Components' (EL $18.9M, market p=0.02)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f05",
+      "market_id": "kalshi::EVSHARE-30JAN-20",
+      "relevance": 0.167,
+      "notional_usd": 52500000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 201 Safeguard Extension on Wind Tower Components' (EL $18.9M, market p=0.64)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f05",
+      "market_id": "kalshi::KXU3MAX-30-20",
+      "relevance": 0.159,
+      "notional_usd": 21477000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 201 Safeguard Extension on Wind Tower Components' (EL $18.9M, market p=0.12)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f06",
+      "market_id": "kalshi::KXPRIMEENGCONSUMPTION-30-WIND",
+      "relevance": 0.269,
+      "notional_usd": 53571000.0,
+      "rationale": "Pays $1 if YES; hedges 'Siemens Gamesa Supply-Chain Concentration and Export Control Risk' (EL $52.5M, market p=0.02)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f06",
+      "market_id": "kalshi::KXCO2LEVEL-30-440",
+      "relevance": 0.218,
+      "notional_usd": 437500000.0,
+      "rationale": "Pays $1 if YES; hedges 'Siemens Gamesa Supply-Chain Concentration and Export Control Risk' (EL $52.5M, market p=0.88)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f06",
+      "market_id": "kalshi::KXCO2LEVEL-30-445",
+      "relevance": 0.218,
+      "notional_usd": 84677000.0,
+      "rationale": "Pays $1 if YES; hedges 'Siemens Gamesa Supply-Chain Concentration and Export Control Risk' (EL $52.5M, market p=0.38)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f07",
+      "market_id": "kalshi::KXNEXTLABORSEC-29-KSON",
+      "relevance": 0.163,
+      "notional_usd": 90462000.0,
+      "rationale": "Pays $1 if YES; hedges 'UFLPA Enforcement on Vietnamese Steel Supply Chain' (EL $58.8M, market p=0.35)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f07",
+      "market_id": "kalshi::KXNEXTLABORSEC-29-PPIZ",
+      "relevance": 0.163,
+      "notional_usd": 63226000.0,
+      "rationale": "Pays $1 if YES; hedges 'UFLPA Enforcement on Vietnamese Steel Supply Chain' (EL $58.8M, market p=0.07)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f07",
+      "market_id": "kalshi::KXNEXTLABORSEC-29-BSLA",
+      "relevance": 0.163,
+      "notional_usd": 61250000.0,
+      "rationale": "Pays $1 if YES; hedges 'UFLPA Enforcement on Vietnamese Steel Supply Chain' (EL $58.8M, market p=0.04)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f08",
+      "market_id": "kalshi::KXIMPEACHCABINET-28JAN01",
+      "relevance": 0.134,
+      "notional_usd": 245854000.0,
+      "rationale": "Pays $1 if YES; hedges 'Long-Term Interest Rate Spike Eroding Equity IRR' (EL $100.8M, market p=0.59)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f08",
+      "market_id": "kalshi::KXIMPEACHCABINET-29JAN20",
+      "relevance": 0.134,
+      "notional_usd": 305455000.0,
+      "rationale": "Pays $1 if YES; hedges 'Long-Term Interest Rate Spike Eroding Equity IRR' (EL $100.8M, market p=0.67)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f08",
+      "market_id": "kalshi::KXPRIMEENGCONSUMPTION-30-WIND",
+      "relevance": 0.134,
+      "notional_usd": 102857000.0,
+      "rationale": "Pays $1 if YES; hedges 'Long-Term Interest Rate Spike Eroding Equity IRR' (EL $100.8M, market p=0.02)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f09",
+      "market_id": "kalshi::KXFYREFESTPRICE-30-1250",
+      "relevance": 0.153,
+      "notional_usd": 1323000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Construction Cost Inflation and USD/EUR FX Exposure' (EL $66.1M, market p=0.99)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f09",
+      "market_id": "kalshi::KXFYREFESTPRICE-30-100",
+      "relevance": 0.15,
+      "notional_usd": 735000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Construction Cost Inflation and USD/EUR FX Exposure' (EL $66.1M, market p=0.91)."
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "factor_id": "vineyard-wind-ii__f09",
+      "market_id": "kalshi::KXFYREFESTPRICE-30-500",
+      "relevance": 0.15,
+      "notional_usd": 1323000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Construction Cost Inflation and USD/EUR FX Exposure' (EL $66.1M, market p=0.99)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f00",
+      "market_id": "kalshi::KX48ETAXCREDIT-26MAY",
+      "relevance": 0.116,
+      "notional_usd": 259200000.0,
+      "rationale": "Pays $1 if YES; hedges 'IRC \u00a748E Standalone Storage ITC Recapture Risk' (EL $13.0M, market p=0.98)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f01",
+      "market_id": "kalshi::KX48ETAXCREDIT-26MAY",
+      "relevance": 0.116,
+      "notional_usd": 806400000.0,
+      "rationale": "Pays $1 if YES; hedges 'FEOC Restriction Disqualifies CATL/BYD Cells from \u00a748E' (EL $40.3M, market p=0.98)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f01",
+      "market_id": "kalshi::KXWITHDRAW-29-WBANK",
+      "relevance": 0.045,
+      "notional_usd": 56000000.0,
+      "rationale": "Pays $1 if YES; hedges 'FEOC Restriction Disqualifies CATL/BYD Cells from \u00a748E' (EL $40.3M, market p=0.28)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f01",
+      "market_id": "kalshi::KXBANTRANS-26",
+      "relevance": 0.04,
+      "notional_usd": 56789000.0,
+      "rationale": "Pays $1 if YES; hedges 'FEOC Restriction Disqualifies CATL/BYD Cells from \u00a748E' (EL $40.3M, market p=0.29)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f02",
+      "market_id": "kalshi::KXGDPSHAREMANU-29",
+      "relevance": 0.156,
+      "notional_usd": 5769000.0,
+      "rationale": "Pays $1 if YES; hedges 'IRC \u00a745X Advanced Manufacturing PTC Guidance Delay' (EL $3.8M, market p=0.35)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f02",
+      "market_id": "kalshi::KX48ETAXCREDIT-26MAY",
+      "relevance": 0.116,
+      "notional_usd": 75000000.0,
+      "rationale": "Pays $1 if YES; hedges 'IRC \u00a745X Advanced Manufacturing PTC Guidance Delay' (EL $3.8M, market p=0.98)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f04",
+      "market_id": "kalshi::KXTARIFFREVENUE-26DEC31-T200",
+      "relevance": 0.336,
+      "notional_usd": 46286000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 301 Tariff Escalation on LFP Cells (HTS 8507.60)' (EL $16.2M, market p=0.65)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f04",
+      "market_id": "kalshi::KXTARIFFREVENUE-26DEC31-T150",
+      "relevance": 0.33,
+      "notional_usd": 101250000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 301 Tariff Escalation on LFP Cells (HTS 8507.60)' (EL $16.2M, market p=0.84)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f04",
+      "market_id": "kalshi::KXTARIFFREVENUE-26DEC31-T80",
+      "relevance": 0.325,
+      "notional_usd": 324000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 301 Tariff Escalation on LFP Cells (HTS 8507.60)' (EL $16.2M, market p=0.98)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f05",
+      "market_id": "kalshi::KXRAMPBREX-40-RAMP",
+      "relevance": 0.167,
+      "notional_usd": 112500000.0,
+      "rationale": "Pays $1 if YES; hedges 'AD/CVD Investigation on Chinese BESS Components' (EL $9.0M, market p=0.92)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f05",
+      "market_id": "kalshi::KXRAMPBREX-40-BREX",
+      "relevance": 0.167,
+      "notional_usd": 9783000.0,
+      "rationale": "Pays $1 if YES; hedges 'AD/CVD Investigation on Chinese BESS Components' (EL $9.0M, market p=0.08)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f05",
+      "market_id": "kalshi::KXOAIANTH-40-OAI",
+      "relevance": 0.167,
+      "notional_usd": 50000000.0,
+      "rationale": "Pays $1 if YES; hedges 'AD/CVD Investigation on Chinese BESS Components' (EL $9.0M, market p=0.82)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f06",
+      "market_id": "kalshi::KXNEXTLABORSEC-29-KSON",
+      "relevance": 0.167,
+      "notional_usd": 9477000.0,
+      "rationale": "Pays $1 if YES; hedges 'UFLPA Enforcement Action on LFP Cell Shipments' (EL $6.2M, market p=0.35)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f06",
+      "market_id": "kalshi::KXNEXTLABORSEC-29-PPIZ",
+      "relevance": 0.167,
+      "notional_usd": 6624000.0,
+      "rationale": "Pays $1 if YES; hedges 'UFLPA Enforcement Action on LFP Cell Shipments' (EL $6.2M, market p=0.07)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f06",
+      "market_id": "kalshi::KXNEXTLABORSEC-29-BSLA",
+      "relevance": 0.167,
+      "notional_usd": 6417000.0,
+      "rationale": "Pays $1 if YES; hedges 'UFLPA Enforcement Action on LFP Cell Shipments' (EL $6.2M, market p=0.04)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f07",
+      "market_id": "kalshi::CHINAUSGDP-30",
+      "relevance": 0.243,
+      "notional_usd": 12727000.0,
+      "rationale": "Pays $1 if YES; hedges 'China Export Controls on Battery-Grade Graphite/Lithium' (EL $9.8M, market p=0.23)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f07",
+      "market_id": "kalshi::KXFTAPRC-29",
+      "relevance": 0.2,
+      "notional_usd": 17193000.0,
+      "rationale": "Pays $1 if YES; hedges 'China Export Controls on Battery-Grade Graphite/Lithium' (EL $9.8M, market p=0.43)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f07",
+      "market_id": "kalshi::KXRECOGROC-29-27",
+      "relevance": 0.163,
+      "notional_usd": 10652000.0,
+      "rationale": "Pays $1 if YES; hedges 'China Export Controls on Battery-Grade Graphite/Lithium' (EL $9.8M, market p=0.08)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f08",
+      "market_id": "kalshi::KXAGICO-COMP-26Q2",
+      "relevance": 0.145,
+      "notional_usd": 10526000.0,
+      "rationale": "Pays $1 if YES; hedges 'CATL US Treasury SDN / Sanctions Designation Risk' (EL $10.0M, market p=0.05)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f08",
+      "market_id": "kalshi::KXAGICO-COMP-26Q3",
+      "relevance": 0.145,
+      "notional_usd": 11494000.0,
+      "rationale": "Pays $1 if YES; hedges 'CATL US Treasury SDN / Sanctions Designation Risk' (EL $10.0M, market p=0.13)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f08",
+      "market_id": "kalshi::KXAGICO-COMP-26Q4",
+      "relevance": 0.145,
+      "notional_usd": 11765000.0,
+      "rationale": "Pays $1 if YES; hedges 'CATL US Treasury SDN / Sanctions Designation Risk' (EL $10.0M, market p=0.15)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f09",
+      "market_id": "kalshi::KXFED-27APR-T1.00",
+      "relevance": 0.187,
+      "notional_usd": 96000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Interest Rate Sensitivity on Construction Financing Cost' (EL $4.8M, market p=0.99)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f09",
+      "market_id": "kalshi::KXFED-27APR-T0.00",
+      "relevance": 0.183,
+      "notional_usd": 96000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Interest Rate Sensitivity on Construction Financing Cost' (EL $4.8M, market p=0.99)."
+    },
+    {
+      "project_id": "mojave-bess",
+      "factor_id": "mojave-bess__f09",
+      "market_id": "kalshi::KXFED-27APR-T0.25",
+      "relevance": 0.183,
+      "notional_usd": 96000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Interest Rate Sensitivity on Construction Financing Cost' (EL $4.8M, market p=0.99)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f00",
+      "market_id": "kalshi::KXBANTRANS-26",
+      "relevance": 0.043,
+      "notional_usd": 152113000.0,
+      "rationale": "Pays $1 if YES; hedges '\u00a745V Three-Pillars Final Rule Stringency' (EL $108.0M, market p=0.29)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f02",
+      "market_id": "kalshi::KXSCOURT-29-BG",
+      "relevance": 0.153,
+      "notional_usd": 42424000.0,
+      "rationale": "Pays $1 if YES; hedges 'DOE H2Hubs Milestone Clawback or Funding Freeze' (EL $42.0M, market p=0.01)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f03",
+      "market_id": "kalshi::KXAGENCYELIM-29-EPA",
+      "relevance": 0.177,
+      "notional_usd": 31395000.0,
+      "rationale": "Pays $1 if YES; hedges 'EPA Subpart W/RR Hydrogen Reporting Finalization' (EL $27.0M, market p=0.14)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f04",
+      "market_id": "kalshi::KXSOLAR-26-35",
+      "relevance": 0.467,
+      "notional_usd": 360000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 301 / AD-CVD Tariffs on Solar Module Inputs' (EL $18.0M, market p=0.98)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f04",
+      "market_id": "kalshi::KXSOLAR-26-40",
+      "relevance": 0.467,
+      "notional_usd": 360000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 301 / AD-CVD Tariffs on Solar Module Inputs' (EL $18.0M, market p=0.99)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f04",
+      "market_id": "kalshi::KXSOLAR-26-45",
+      "relevance": 0.467,
+      "notional_usd": 360000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 301 / AD-CVD Tariffs on Solar Module Inputs' (EL $18.0M, market p=0.95)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f05",
+      "market_id": "kalshi::KXTARIFFREVENUE-26DEC31-T200",
+      "relevance": 0.145,
+      "notional_usd": 23143000.0,
+      "rationale": "Pays $1 if YES; hedges 'Tariffs on Imported Electrolyzer Components' (EL $8.1M, market p=0.65)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f05",
+      "market_id": "kalshi::KXTARIFFREVENUE-26DEC31-T150",
+      "relevance": 0.143,
+      "notional_usd": 50625000.0,
+      "rationale": "Pays $1 if YES; hedges 'Tariffs on Imported Electrolyzer Components' (EL $8.1M, market p=0.84)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f05",
+      "market_id": "kalshi::KXTARIFFREVENUE-26DEC31-T80",
+      "relevance": 0.142,
+      "notional_usd": 162000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Tariffs on Imported Electrolyzer Components' (EL $8.1M, market p=0.98)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f07",
+      "market_id": "kalshi::KXWITHDRAW-29-WBANK",
+      "relevance": 0.15,
+      "notional_usd": 15000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Critical Mineral Supply Concentration \u2014 Iridium/Platinum' (EL $10.8M, market p=0.28)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f07",
+      "market_id": "kalshi::KXCO2LEVEL-30-440",
+      "relevance": 0.062,
+      "notional_usd": 90000000.0,
+      "rationale": "Pays $1 if YES; hedges 'Critical Mineral Supply Concentration \u2014 Iridium/Platinum' (EL $10.8M, market p=0.88)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f07",
+      "market_id": "kalshi::KXCO2LEVEL-30-445",
+      "relevance": 0.062,
+      "notional_usd": 17419000.0,
+      "rationale": "Pays $1 if YES; hedges 'Critical Mineral Supply Concentration \u2014 Iridium/Platinum' (EL $10.8M, market p=0.38)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f08",
+      "market_id": "kalshi::KXGREENTERRITORY-29-27",
+      "relevance": 0.15,
+      "notional_usd": 5393000.0,
+      "rationale": "Pays $1 if YES; hedges 'Norway Export Controls on Electrolyzer Technology' (EL $4.8M, market p=0.11)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f08",
+      "market_id": "kalshi::KXGREENTERRITORY-29",
+      "relevance": 0.15,
+      "notional_usd": 7500000.0,
+      "rationale": "Pays $1 if YES; hedges 'Norway Export Controls on Electrolyzer Technology' (EL $4.8M, market p=0.36)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f08",
+      "market_id": "kalshi::KXCANTERRITORY-29",
+      "relevance": 0.15,
+      "notional_usd": 5783000.0,
+      "rationale": "Pays $1 if YES; hedges 'Norway Export Controls on Electrolyzer Technology' (EL $4.8M, market p=0.17)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f09",
+      "market_id": "kalshi::KXDEBTGROWTH-28DEC31-40",
+      "relevance": 0.218,
+      "notional_usd": 680000000.0,
+      "rationale": "Pays $1 if YES; hedges 'SOFR / Treasury Rate Sensitivity on Project Debt' (EL $34.0M, market p=0.98)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f09",
+      "market_id": "kalshi::KXDEBTGROWTH-28DEC31-45",
+      "relevance": 0.218,
+      "notional_usd": 226667000.0,
+      "rationale": "Pays $1 if YES; hedges 'SOFR / Treasury Rate Sensitivity on Project Debt' (EL $34.0M, market p=0.85)."
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "factor_id": "permian-h2-hub__f09",
+      "market_id": "kalshi::KXDEBTGROWTH-28DEC31-50",
+      "relevance": 0.218,
+      "notional_usd": 59649000.0,
+      "rationale": "Pays $1 if YES; hedges 'SOFR / Treasury Rate Sensitivity on Project Debt' (EL $34.0M, market p=0.43)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f01",
+      "market_id": "kalshi::KX48ETAXCREDIT-26MAY",
+      "relevance": 0.351,
+      "notional_usd": 273600000.0,
+      "rationale": "Pays $1 if YES; hedges 'IRC \u00a730C Tax Credit Repeal or Phase-Down' (EL $13.7M, market p=0.98)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f02",
+      "market_id": "kalshi::KXGREENLAND-29-26JUL",
+      "relevance": 0.167,
+      "notional_usd": 20496000.0,
+      "rationale": "Pays $1 if YES; hedges 'FHWA BABA Waiver Denial or Tightening' (EL $20.2M, market p=0.01)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f02",
+      "market_id": "kalshi::KXGREENLAND-29-27",
+      "relevance": 0.167,
+      "notional_usd": 22035000.0,
+      "rationale": "Pays $1 if YES; hedges 'FHWA BABA Waiver Denial or Tightening' (EL $20.2M, market p=0.08)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f02",
+      "market_id": "kalshi::KXGREENLAND-29",
+      "relevance": 0.167,
+      "notional_usd": 27365000.0,
+      "rationale": "Pays $1 if YES; hedges 'FHWA BABA Waiver Denial or Tightening' (EL $20.2M, market p=0.26)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f03",
+      "market_id": "kalshi::KXBANTRANS-26",
+      "relevance": 0.043,
+      "notional_usd": 5070000.0,
+      "rationale": "Pays $1 if YES; hedges 'FHWA Minimum Standards Rule Revision' (EL $3.6M, market p=0.29)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f04",
+      "market_id": "kalshi::KXRAMPBREX-40-RAMP",
+      "relevance": 0.163,
+      "notional_usd": 137500000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 301 / New Tariffs on Swiss and EU Charger Components' (EL $11.0M, market p=0.92)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f04",
+      "market_id": "kalshi::KXRAMPBREX-40-BREX",
+      "relevance": 0.163,
+      "notional_usd": 11957000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 301 / New Tariffs on Swiss and EU Charger Components' (EL $11.0M, market p=0.08)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f04",
+      "market_id": "kalshi::KXOAIANTH-40-OAI",
+      "relevance": 0.163,
+      "notional_usd": 61111000.0,
+      "rationale": "Pays $1 if YES; hedges 'Section 301 / New Tariffs on Swiss and EU Charger Components' (EL $11.0M, market p=0.82)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f05",
+      "market_id": "kalshi::KXRAMPBREX-40-RAMP",
+      "relevance": 0.159,
+      "notional_usd": 78750000.0,
+      "rationale": "Pays $1 if YES; hedges 'AD/CVD or Section 201 Action on Chinese Power Electronics' (EL $6.3M, market p=0.92)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f05",
+      "market_id": "kalshi::KXRAMPBREX-40-BREX",
+      "relevance": 0.159,
+      "notional_usd": 6848000.0,
+      "rationale": "Pays $1 if YES; hedges 'AD/CVD or Section 201 Action on Chinese Power Electronics' (EL $6.3M, market p=0.08)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f05",
+      "market_id": "kalshi::KXOAIANTH-40-OAI",
+      "relevance": 0.159,
+      "notional_usd": 35000000.0,
+      "rationale": "Pays $1 if YES; hedges 'AD/CVD or Section 201 Action on Chinese Power Electronics' (EL $6.3M, market p=0.82)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f06",
+      "market_id": "kalshi::CHINAUSGDP-30",
+      "relevance": 0.167,
+      "notional_usd": 5455000.0,
+      "rationale": "Pays $1 if YES; hedges 'Supply Concentration in China-Dependent Power Semiconductors' (EL $4.2M, market p=0.23)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f06",
+      "market_id": "kalshi::KXRECOGROC-29-27",
+      "relevance": 0.163,
+      "notional_usd": 4565000.0,
+      "rationale": "Pays $1 if YES; hedges 'Supply Concentration in China-Dependent Power Semiconductors' (EL $4.2M, market p=0.08)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f06",
+      "market_id": "kalshi::KXGREENTERRITORY-29-27",
+      "relevance": 0.15,
+      "notional_usd": 4719000.0,
+      "rationale": "Pays $1 if YES; hedges 'Supply Concentration in China-Dependent Power Semiconductors' (EL $4.2M, market p=0.11)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f08",
+      "market_id": "kalshi::EVSHARE-30JAN-10",
+      "relevance": 0.171,
+      "notional_usd": 61538000.0,
+      "rationale": "Pays $1 if YES; hedges 'Elevated Long-End Rates Compressing Equity IRR' (EL $8.0M, market p=0.87)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f08",
+      "market_id": "kalshi::KXU3MAX-30-10",
+      "relevance": 0.163,
+      "notional_usd": 12903000.0,
+      "rationale": "Pays $1 if YES; hedges 'Elevated Long-End Rates Compressing Equity IRR' (EL $8.0M, market p=0.38)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f08",
+      "market_id": "kalshi::KXGREENLANDPRICE-29JAN21-54B",
+      "relevance": 0.153,
+      "notional_usd": 8325000.0,
+      "rationale": "Pays $1 if YES; hedges 'Elevated Long-End Rates Compressing Equity IRR' (EL $8.0M, market p=0.04)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f09",
+      "market_id": "kalshi::KXUKRENEWOB-28JAN01-INDX",
+      "relevance": 0.171,
+      "notional_usd": 12153000.0,
+      "rationale": "Pays $1 if YES; hedges 'EV Adoption Slowdown Reducing Utilization Revenue' (EL $8.8M, market p=0.28)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f09",
+      "market_id": "kalshi::KX48ETAXCREDIT-26MAY",
+      "relevance": 0.116,
+      "notional_usd": 175000000.0,
+      "rationale": "Pays $1 if YES; hedges 'EV Adoption Slowdown Reducing Utilization Revenue' (EL $8.8M, market p=0.98)."
+    },
+    {
+      "project_id": "i95-evcharging",
+      "factor_id": "i95-evcharging__f09",
+      "market_id": "kalshi::KXTARIFFREVENUE-26DEC31-T200",
+      "relevance": 0.043,
+      "notional_usd": 25000000.0,
+      "rationale": "Pays $1 if YES; hedges 'EV Adoption Slowdown Reducing Utilization Revenue' (EL $8.8M, market p=0.65)."
+    }
+  ],
+  "scores": [
+    {
+      "project_id": "lone-star-solar-i",
+      "composite": 50,
+      "sub_scores": [
+        {
+          "category": "policy",
+          "value": 53.56345055768686,
+          "weight": 0.35,
+          "contribution": 18.7472076951904,
+          "drivers": [
+            "IRA Repeal or \u00a748E ITC Phase-Down Risk \u00b7 $180M \u00d7 35%",
+            "Treasury \u00a748E Domestic Content Bonus Guidance Delay \u00b7 $22M \u00d7 40%",
+            "ERCOT GIS Queue Reform Interconnection Delay \u00b7 $45M \u00d7 45%"
+          ]
+        },
+        {
+          "category": "trade",
+          "value": 37.98400049972415,
+          "weight": 0.25,
+          "contribution": 9.496000124931037,
+          "drivers": [
+            "AD/CVD Expansion to Malaysia and Southeast Asia Modules \u00b7 $33M \u00d7 60%",
+            "Section 301 Tariff Escalation on Chinese Modules and Inverters \u00b7 $38M \u00d7 50%",
+            "Solar Tracker and Steel Component Tariff Exposure \u00b7 $12M \u00d7 35%"
+          ]
+        },
+        {
+          "category": "geopolitical",
+          "value": 64.9959716796875,
+          "weight": 0.25,
+          "contribution": 16.248992919921875,
+          "drivers": [
+            "Supply HHI 0.56 \u00b7 weighted country risk 0.69",
+            "Top countries: China 72%, Malaysia 16%, USA 13%",
+            "UFLPA Enforcement \u2014 Jinko Xinjiang Polysilicon Detention \u00b7 55%",
+            "China Export Controls on Solar-Grade Polysilicon \u00b7 30%"
+          ]
+        },
+        {
+          "category": "macro",
+          "value": 37.575,
+          "weight": 0.15,
+          "contribution": 5.63625,
+          "drivers": [
+            "Target equity IRR 10.0% \u2014 cushion 4.0pp",
+            "~1.5 years to COD",
+            "Interest Rate Elevated \u2014 Tax Equity and Debt Cost Compression \u00b7 45%"
+          ]
+        }
+      ],
+      "factor_ids": [
+        "lone-star-solar-i__f00",
+        "lone-star-solar-i__f01",
+        "lone-star-solar-i__f02",
+        "lone-star-solar-i__f03",
+        "lone-star-solar-i__f04",
+        "lone-star-solar-i__f05",
+        "lone-star-solar-i__f06",
+        "lone-star-solar-i__f07",
+        "lone-star-solar-i__f08",
+        "lone-star-solar-i__f09"
+      ]
+    },
+    {
+      "project_id": "vineyard-wind-ii",
+      "composite": 40,
+      "sub_scores": [
+        {
+          "category": "policy",
+          "value": 62.84233089779543,
+          "weight": 0.35,
+          "contribution": 21.9948158142284,
+          "drivers": [
+            "BOEM COP Approval Delay or Denial \u00b7 $630M \u00d7 55%",
+            "IRC \u00a745Y / \u00a748E Credit Repeal or Phase-Down \u00b7 $840M \u00d7 35%",
+            "Treasury \u00a745Y Domestic-Content Adder Denial \u00b7 $294M \u00d7 65%"
+          ]
+        },
+        {
+          "category": "trade",
+          "value": 14.643478719467906,
+          "weight": 0.25,
+          "contribution": 3.6608696798669764,
+          "drivers": [
+            "Section 232 Tariff Escalation on Korean Steel Monopiles \u00b7 $105M \u00d7 45%",
+            "AD/CVD or Section 301 Duties on Vietnam Monopile Fabrication \u00b7 $84M \u00d7 40%",
+            "Section 201 Safeguard Extension on Wind Tower Components \u00b7 $63M \u00d7 30%"
+          ]
+        },
+        {
+          "category": "geopolitical",
+          "value": 20.544228515625,
+          "weight": 0.25,
+          "contribution": 5.13605712890625,
+          "drivers": [
+            "Supply HHI 0.22 \u00b7 weighted country risk 0.24",
+            "Top countries: Denmark 25%, USA 25%, Italy 25%",
+            "Siemens Gamesa Supply-Chain Concentration and Export Control Risk \u00b7 25%",
+            "UFLPA Enforcement on Vietnamese Steel Supply Chain \u00b7 35%"
+          ]
+        },
+        {
+          "category": "macro",
+          "value": 63.975,
+          "weight": 0.15,
+          "contribution": 9.59625,
+          "drivers": [
+            "Target equity IRR 8.5% \u2014 cushion 2.5pp",
+            "~2.5 years to COD",
+            "Long-Term Interest Rate Spike Eroding Equity IRR \u00b7 40%",
+            "Construction Cost Inflation and USD/EUR FX Exposure \u00b7 35%"
+          ]
+        }
+      ],
+      "factor_ids": [
+        "vineyard-wind-ii__f00",
+        "vineyard-wind-ii__f01",
+        "vineyard-wind-ii__f02",
+        "vineyard-wind-ii__f03",
+        "vineyard-wind-ii__f04",
+        "vineyard-wind-ii__f05",
+        "vineyard-wind-ii__f06",
+        "vineyard-wind-ii__f07",
+        "vineyard-wind-ii__f08",
+        "vineyard-wind-ii__f09"
+      ]
+    },
+    {
+      "project_id": "mojave-bess",
+      "composite": 45,
+      "sub_scores": [
+        {
+          "category": "policy",
+          "value": 54.68921036174657,
+          "weight": 0.35,
+          "contribution": 19.141223626611296,
+          "drivers": [
+            "IRC \u00a748E Standalone Storage ITC Recapture Risk \u00b7 $72M \u00d7 18%",
+            "FEOC Restriction Disqualifies CATL/BYD Cells from \u00a748E \u00b7 $96M \u00d7 42%",
+            "IRC \u00a745X Advanced Manufacturing PTC Guidance Delay \u00b7 $15M \u00d7 25%",
+            "FERC Order 2222 CAISO Implementation Stall \u00b7 $18M \u00d7 35%"
+          ]
+        },
+        {
+          "category": "trade",
+          "value": 40.70627281846156,
+          "weight": 0.25,
+          "contribution": 10.17656820461539,
+          "drivers": [
+            "Section 301 Tariff Escalation on LFP Cells (HTS 8507.60) \u00b7 $36M \u00d7 45%",
+            "AD/CVD Investigation on Chinese BESS Components \u00b7 $30M \u00d7 30%",
+            "UFLPA Enforcement Action on LFP Cell Shipments \u00b7 $22M \u00d7 28%"
+          ]
+        },
+        {
+          "category": "geopolitical",
+          "value": 53.56750255139234,
+          "weight": 0.25,
+          "contribution": 13.391875637848084,
+          "drivers": [
+            "Supply HHI 0.57 \u00b7 weighted country risk 0.61",
+            "Top countries: China 68%, USA 32%",
+            "China Export Controls on Battery-Grade Graphite/Lithium \u00b7 35%",
+            "CATL US Treasury SDN / Sanctions Designation Risk \u00b7 20%"
+          ]
+        },
+        {
+          "category": "macro",
+          "value": 17.2,
+          "weight": 0.15,
+          "contribution": 2.5799999999999996,
+          "drivers": [
+            "Target equity IRR 12.0% \u2014 cushion 6.0pp",
+            "~0.5 years to COD",
+            "Interest Rate Sensitivity on Construction Financing Cost \u00b7 40%"
+          ]
+        }
+      ],
+      "factor_ids": [
+        "mojave-bess__f00",
+        "mojave-bess__f01",
+        "mojave-bess__f02",
+        "mojave-bess__f03",
+        "mojave-bess__f04",
+        "mojave-bess__f05",
+        "mojave-bess__f06",
+        "mojave-bess__f07",
+        "mojave-bess__f08",
+        "mojave-bess__f09"
+      ]
+    },
+    {
+      "project_id": "permian-h2-hub",
+      "composite": 40,
+      "sub_scores": [
+        {
+          "category": "policy",
+          "value": 67.12639073134359,
+          "weight": 0.35,
+          "contribution": 23.494236755970256,
+          "drivers": [
+            "\u00a745V Three-Pillars Final Rule Stringency \u00b7 $240M \u00d7 45%",
+            "\u00a745V Regulatory Rollback or Credit Repeal Risk \u00b7 $300M \u00d7 30%",
+            "DOE H2Hubs Milestone Clawback or Funding Freeze \u00b7 $120M \u00d7 35%",
+            "EPA Subpart W/RR Hydrogen Reporting Finalization \u00b7 $90M \u00d7 30%"
+          ]
+        },
+        {
+          "category": "trade",
+          "value": 20.41410706936132,
+          "weight": 0.25,
+          "contribution": 5.10352676734033,
+          "drivers": [
+            "Section 301 / AD-CVD Tariffs on Solar Module Inputs \u00b7 $45M \u00d7 40%",
+            "Tariffs on Imported Electrolyzer Components \u00b7 $18M \u00d7 45%",
+            "UFLPA Enforcement on PEM Stack Materials \u00b7 $60M \u00d7 25%"
+          ]
+        },
+        {
+          "category": "geopolitical",
+          "value": 14.555000000000001,
+          "weight": 0.25,
+          "contribution": 3.6387500000000004,
+          "drivers": [
+            "Supply HHI 0.82 \u00b7 weighted country risk 0.11",
+            "Top countries: USA 90%, Norway 10%",
+            "Critical Mineral Supply Concentration \u2014 Iridium/Platinum \u00b7 30%",
+            "Norway Export Controls on Electrolyzer Technology \u00b7 20%"
+          ]
+        },
+        {
+          "category": "macro",
+          "value": 52.833333333333336,
+          "weight": 0.15,
+          "contribution": 7.925,
+          "drivers": [
+            "Target equity IRR 11.0% \u2014 cushion 5.0pp",
+            "~3.5 years to COD",
+            "SOFR / Treasury Rate Sensitivity on Project Debt \u00b7 40%"
+          ]
+        }
+      ],
+      "factor_ids": [
+        "permian-h2-hub__f00",
+        "permian-h2-hub__f01",
+        "permian-h2-hub__f02",
+        "permian-h2-hub__f03",
+        "permian-h2-hub__f04",
+        "permian-h2-hub__f05",
+        "permian-h2-hub__f06",
+        "permian-h2-hub__f07",
+        "permian-h2-hub__f08",
+        "permian-h2-hub__f09"
+      ]
+    },
+    {
+      "project_id": "i95-evcharging",
+      "composite": 39,
+      "sub_scores": [
+        {
+          "category": "policy",
+          "value": 71.5066654071116,
+          "weight": 0.35,
+          "contribution": 25.027332892489056,
+          "drivers": [
+            "NEVI Program Funding Rescission or Freeze \u00b7 $90M \u00d7 42%",
+            "IRC \u00a730C Tax Credit Repeal or Phase-Down \u00b7 $36M \u00d7 38%",
+            "FHWA BABA Waiver Denial or Tightening \u00b7 $45M \u00d7 45%",
+            "FHWA Minimum Standards Rule Revision \u00b7 $12M \u00d7 30%"
+          ]
+        },
+        {
+          "category": "trade",
+          "value": 31.917123063692475,
+          "weight": 0.25,
+          "contribution": 7.979280765923119,
+          "drivers": [
+            "Section 301 / New Tariffs on Swiss and EU Charger Components \u00b7 $22M \u00d7 50%",
+            "AD/CVD or Section 201 Action on Chinese Power Electronics \u00b7 $18M \u00d7 35%"
+          ]
+        },
+        {
+          "category": "geopolitical",
+          "value": 14.273046875,
+          "weight": 0.25,
+          "contribution": 3.56826171875,
+          "drivers": [
+            "Supply HHI 0.51 \u00b7 weighted country risk 0.12",
+            "Top countries: USA 68%, Switzerland 20%, Spain 12%",
+            "Supply Concentration in China-Dependent Power Semiconductors \u00b7 28%",
+            "UFLPA Enforcement on Charger Sub-Assembly Supply Chain \u00b7 25%"
+          ]
+        },
+        {
+          "category": "macro",
+          "value": 14.58333333333333,
+          "weight": 0.15,
+          "contribution": 2.1874999999999996,
+          "drivers": [
+            "Target equity IRR 13.0% \u2014 cushion 7.0pp",
+            "~0.0 years to COD",
+            "Elevated Long-End Rates Compressing Equity IRR \u00b7 40%",
+            "EV Adoption Slowdown Reducing Utilization Revenue \u00b7 35%"
+          ]
+        }
+      ],
+      "factor_ids": [
+        "i95-evcharging__f00",
+        "i95-evcharging__f01",
+        "i95-evcharging__f02",
+        "i95-evcharging__f03",
+        "i95-evcharging__f04",
+        "i95-evcharging__f05",
+        "i95-evcharging__f06",
+        "i95-evcharging__f07",
+        "i95-evcharging__f08",
+        "i95-evcharging__f09"
+      ]
+    }
+  ]
+}

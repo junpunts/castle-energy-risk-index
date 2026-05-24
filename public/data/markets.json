@@ -1,0 +1,1471 @@
+[
+  {
+    "id": "kalshi::EVSHARE-30JAN-10",
+    "platform": "kalshi",
+    "ticker": "EVSHARE-30JAN-10",
+    "event_title": "EV market share in 2030?",
+    "title": "EV market share in 2030?",
+    "yes_price": 0.87,
+    "volume_usd": 1610.4743999999998,
+    "expiry_date": "2030-05-01",
+    "url": "https://kalshi.com/markets/EVSHARE-30JAN-10",
+    "keywords": [
+      "10-year Treasury"
+    ]
+  },
+  {
+    "id": "kalshi::KXU3MAX-30-10",
+    "platform": "kalshi",
+    "ticker": "KXU3MAX-30-10",
+    "event_title": "How high will unemployment get before 2030?",
+    "title": "How high will unemployment get before 2030?",
+    "yes_price": 0.38,
+    "volume_usd": 1113.4,
+    "expiry_date": "2030-01-04",
+    "url": "https://kalshi.com/markets/KXU3MAX-30-10",
+    "keywords": [
+      "10-year Treasury"
+    ]
+  },
+  {
+    "id": "kalshi::KXGREENLANDPRICE-29JAN21-54B",
+    "platform": "kalshi",
+    "ticker": "KXGREENLANDPRICE-29JAN21-54B",
+    "event_title": "How much will the US acquire Greenland for?",
+    "title": "Will the U.S. pay between $10 billion and $99 billion for Greenland during Trump's term?",
+    "yes_price": 0.039,
+    "volume_usd": 4254.17616,
+    "expiry_date": "2029-01-22",
+    "url": "https://kalshi.com/markets/KXGREENLANDPRICE-29JAN21-54B",
+    "keywords": [
+      "10-year Treasury"
+    ]
+  },
+  {
+    "id": "kalshi::KXIMPEACHCABINET-26JUL01",
+    "platform": "kalshi",
+    "ticker": "KXIMPEACHCABINET-26JUL01",
+    "event_title": "Will a cabinet member be impeached?",
+    "title": "Will any member of the Cabinet (defined as: the Vice President, Secretary of State, Secretary of the Treasury, Secretary of Defense, Attorney General, Secretary of the Interior, Secretary of Agricultu",
+    "yes_price": 0.053,
+    "volume_usd": 4456.97405,
+    "expiry_date": "2026-07-01",
+    "url": "https://kalshi.com/markets/KXIMPEACHCABINET-26JUL01",
+    "keywords": [
+      "10-year Treasury",
+      "48E Treasury guidance",
+      "Treasury 45V three pillars",
+      "Treasury 45Y domestic content",
+      "Treasury yield"
+    ]
+  },
+  {
+    "id": "kalshi::KXIMPEACHCABINET-27JAN01",
+    "platform": "kalshi",
+    "ticker": "KXIMPEACHCABINET-27JAN01",
+    "event_title": "Will a cabinet member be impeached?",
+    "title": "Will any member of the Cabinet (defined as: the Vice President, Secretary of State, Secretary of the Treasury, Secretary of Defense, Attorney General, Secretary of the Interior, Secretary of Agricultu",
+    "yes_price": 0.1,
+    "volume_usd": 3455.631,
+    "expiry_date": "2027-01-01",
+    "url": "https://kalshi.com/markets/KXIMPEACHCABINET-27JAN01",
+    "keywords": [
+      "10-year Treasury",
+      "48E Treasury guidance",
+      "Treasury 45V three pillars",
+      "Treasury 45Y domestic content",
+      "Treasury yield"
+    ]
+  },
+  {
+    "id": "kalshi::KX48ETAXCREDIT-26MAY",
+    "platform": "kalshi",
+    "ticker": "KX48ETAXCREDIT-26MAY",
+    "event_title": "Will the 48E commercial solar Investment Tax Credit be reinstated before December 31, 2029?",
+    "title": "Will legislation that reinstates the Section 48E commercial Investment Tax Credit, or an equivalent credit, equal to 30% or greater of the solar value for commercial filers who own solar assets beyond",
+    "yes_price": 0.98,
+    "volume_usd": 13.524000000000001,
+    "expiry_date": "2029-12-31",
+    "url": "https://kalshi.com/markets/KX48ETAXCREDIT-26MAY",
+    "keywords": [
+      "48E ITC repeal",
+      "48E Treasury guidance",
+      "AD CVD solar",
+      "AD CVD solar Cambodia",
+      "AD CVD solar Malaysia",
+      "Chinese solar supply chain",
+      "EV charging tax credit",
+      "IRA repeal solar",
+      "IRA solar amendment",
+      "JA Solar duties",
+      "Jones Act offshore wind",
+      "Section 201 charger",
+      "Section 201 wind towers",
+      "Section 232",
+      "Section 232 steel",
+      "Section 301",
+      "Section 301 EU tariffs",
+      "Section 301 lithium battery",
+      "Section 301 solar",
+      "Section 30C",
+      "Section 45V hydrogen",
+      "Section 45W commercial EV",
+      "Section 45W repeal",
+      "Section 45X",
+      "Section 45X manufacturing",
+      "Section 45Y PTC",
+      "Section 48E",
+      "Section 48E ITC",
+      "UFLPA solar modules",
+      "alt-fuel refueling credit",
+      "green hydrogen tax credit",
+      "reconciliation tax credit",
+      "solar circumvention",
+      "solar tracker tariff",
+      "tax equity",
+      "tax equity compression"
+    ]
+  },
+  {
+    "id": "kalshi::KXIMPEACHCABINET-28JAN01",
+    "platform": "kalshi",
+    "ticker": "KXIMPEACHCABINET-28JAN01",
+    "event_title": "Will a cabinet member be impeached?",
+    "title": "Will any member of the Cabinet (defined as: the Vice President, Secretary of State, Secretary of the Treasury, Secretary of Defense, Attorney General, Secretary of the Interior, Secretary of Agricultu",
+    "yes_price": 0.59,
+    "volume_usd": 10262.2653,
+    "expiry_date": "2028-01-01",
+    "url": "https://kalshi.com/markets/KXIMPEACHCABINET-28JAN01",
+    "keywords": [
+      "48E Treasury guidance",
+      "Treasury 45V three pillars",
+      "Treasury 45Y domestic content",
+      "Treasury yield"
+    ]
+  },
+  {
+    "id": "kalshi::KXIMPEACHCABINET-29JAN20",
+    "platform": "kalshi",
+    "ticker": "KXIMPEACHCABINET-29JAN20",
+    "event_title": "Will a cabinet member be impeached?",
+    "title": "Will any member of the Cabinet (defined as: the Vice President, Secretary of State, Secretary of the Treasury, Secretary of Defense, Attorney General, Secretary of the Interior, Secretary of Agricultu",
+    "yes_price": 0.67,
+    "volume_usd": 3430.7752000000005,
+    "expiry_date": "2029-01-20",
+    "url": "https://kalshi.com/markets/KXIMPEACHCABINET-29JAN20",
+    "keywords": [
+      "48E Treasury guidance",
+      "Treasury 45V three pillars",
+      "Treasury 45Y domestic content",
+      "Treasury yield"
+    ]
+  },
+  {
+    "id": "kalshi::KXPRIMEENGCONSUMPTION-30-WIND",
+    "platform": "kalshi",
+    "ticker": "KXPRIMEENGCONSUMPTION-30-WIND",
+    "event_title": "What will be the largest source of global primary energy consumption in 2030?",
+    "title": "What will be the largest source of global primary energy consumption in 2030?",
+    "yes_price": 0.02,
+    "volume_usd": 179.31580000000002,
+    "expiry_date": "2032-12-30",
+    "url": "https://kalshi.com/markets/KXPRIMEENGCONSUMPTION-30-WIND",
+    "keywords": [
+      "AD CVD offshore wind",
+      "FX exposure offshore wind",
+      "Jones Act offshore wind",
+      "Section 201 wind towers",
+      "USITC wind",
+      "WACC offshore wind",
+      "export controls wind",
+      "offshore wind moratorium",
+      "offshore wind turbine concentration"
+    ]
+  },
+  {
+    "id": "kalshi::KXPRIMEENGCONSUMPTION-30-SOLAR",
+    "platform": "kalshi",
+    "ticker": "KXPRIMEENGCONSUMPTION-30-SOLAR",
+    "event_title": "What will be the largest source of global primary energy consumption in 2030?",
+    "title": "What will be the largest source of global primary energy consumption in 2030?",
+    "yes_price": 0.03,
+    "volume_usd": 777.5429999999999,
+    "expiry_date": "2032-12-30",
+    "url": "https://kalshi.com/markets/KXPRIMEENGCONSUMPTION-30-SOLAR",
+    "keywords": [
+      "AD CVD solar",
+      "AD CVD solar Cambodia",
+      "AD CVD solar Malaysia",
+      "Chinese solar supply chain",
+      "IRA repeal solar",
+      "IRA solar amendment",
+      "JA Solar duties",
+      "Section 301 solar",
+      "UFLPA solar modules",
+      "solar circumvention",
+      "solar debt cost",
+      "solar tracker tariff"
+    ]
+  },
+  {
+    "id": "kalshi::KXSOLAR-26-35",
+    "platform": "kalshi",
+    "ticker": "KXSOLAR-26-35",
+    "event_title": "US solar capacity installed in\u200b 2026",
+    "title": "Will at least 35 GWdc of solar capacity be installed in 2026?",
+    "yes_price": 0.98,
+    "volume_usd": 97.02,
+    "expiry_date": "2027-03-31",
+    "url": "https://kalshi.com/markets/KXSOLAR-26-35",
+    "keywords": [
+      "AD CVD solar",
+      "AD CVD solar Cambodia",
+      "AD CVD solar Malaysia",
+      "Chinese solar supply chain",
+      "IRA repeal solar",
+      "JA Solar duties",
+      "Section 301 solar",
+      "UFLPA solar modules",
+      "solar circumvention"
+    ]
+  },
+  {
+    "id": "kalshi::KXSOLAR-26-40",
+    "platform": "kalshi",
+    "ticker": "KXSOLAR-26-40",
+    "event_title": "US solar capacity installed in\u200b 2026",
+    "title": "Will at least 40 GWdc of solar capacity be installed in 2026?",
+    "yes_price": 0.99,
+    "volume_usd": 849.42,
+    "expiry_date": "2027-03-31",
+    "url": "https://kalshi.com/markets/KXSOLAR-26-40",
+    "keywords": [
+      "AD CVD solar",
+      "AD CVD solar Cambodia",
+      "AD CVD solar Malaysia",
+      "Chinese solar supply chain",
+      "IRA repeal solar",
+      "JA Solar duties",
+      "Section 301 solar",
+      "UFLPA solar modules",
+      "solar circumvention"
+    ]
+  },
+  {
+    "id": "kalshi::KXSOLAR-26-45",
+    "platform": "kalshi",
+    "ticker": "KXSOLAR-26-45",
+    "event_title": "US solar capacity installed in\u200b 2026",
+    "title": "Will at least 45 GWdc of solar capacity be installed in 2026?",
+    "yes_price": 0.95,
+    "volume_usd": 2087.7865,
+    "expiry_date": "2027-03-31",
+    "url": "https://kalshi.com/markets/KXSOLAR-26-45",
+    "keywords": [
+      "AD CVD solar",
+      "AD CVD solar Cambodia",
+      "AD CVD solar Malaysia",
+      "Chinese solar supply chain",
+      "IRA repeal solar",
+      "JA Solar duties",
+      "Section 301 solar",
+      "UFLPA solar modules",
+      "solar circumvention"
+    ]
+  },
+  {
+    "id": "kalshi::KXGREENLAND-29-26JUL",
+    "platform": "kalshi",
+    "ticker": "KXGREENLAND-29-26JUL",
+    "event_title": "Will Trump buy at least part of Greenland?",
+    "title": "Will Trump buy Greenland?",
+    "yes_price": 0.012,
+    "volume_usd": 1085.00496,
+    "expiry_date": "2026-07-01",
+    "url": "https://kalshi.com/markets/KXGREENLAND-29-26JUL",
+    "keywords": [
+      "Build America Buy America",
+      "Buy America EV charger"
+    ]
+  },
+  {
+    "id": "kalshi::KXGREENLAND-29-27",
+    "platform": "kalshi",
+    "ticker": "KXGREENLAND-29-27",
+    "event_title": "Will Trump buy at least part of Greenland?",
+    "title": "Will Trump buy Greenland?",
+    "yes_price": 0.081,
+    "volume_usd": 105244.97994,
+    "expiry_date": "2027-01-01",
+    "url": "https://kalshi.com/markets/KXGREENLAND-29-27",
+    "keywords": [
+      "Build America Buy America",
+      "Buy America EV charger"
+    ]
+  },
+  {
+    "id": "kalshi::KXGREENLAND-29",
+    "platform": "kalshi",
+    "ticker": "KXGREENLAND-29",
+    "event_title": "Will Trump buy at least part of Greenland?",
+    "title": "Will Trump buy Greenland?",
+    "yes_price": 0.26,
+    "volume_usd": 876774.015,
+    "expiry_date": "2029-01-20",
+    "url": "https://kalshi.com/markets/KXGREENLAND-29",
+    "keywords": [
+      "Build America Buy America",
+      "Buy America EV charger"
+    ]
+  },
+  {
+    "id": "kalshi::KXUKRENEWOB-28JAN01-INDX",
+    "platform": "kalshi",
+    "ticker": "KXUKRENEWOB-28JAN01-INDX",
+    "event_title": "UK Renewables Obligation scheme changes",
+    "title": "Will the United Kingdom agree to or announce the adoption of an inflation index other than CPI for the Renewables Obligation buy-out price before Jan 1, 2028?",
+    "yes_price": 0.28,
+    "volume_usd": 311.92,
+    "expiry_date": "2028-01-01",
+    "url": "https://kalshi.com/markets/KXUKRENEWOB-28JAN01-INDX",
+    "keywords": [
+      "Build America Buy America",
+      "Buy America EV charger",
+      "EV adoption slowdown"
+    ]
+  },
+  {
+    "id": "kalshi::KXUKRENEWOB-28JAN01-ROCC",
+    "platform": "kalshi",
+    "ticker": "KXUKRENEWOB-28JAN01-ROCC",
+    "event_title": "UK Renewables Obligation scheme changes",
+    "title": "Will the United Kingdom agree to or announce the removal or replacement of the Renewables Obligation Certificate buy-out fund redistribution mechanism before Jan 1, 2028?",
+    "yes_price": 0.99,
+    "volume_usd": 403.92,
+    "expiry_date": "2028-01-01",
+    "url": "https://kalshi.com/markets/KXUKRENEWOB-28JAN01-ROCC",
+    "keywords": [
+      "Build America Buy America",
+      "Buy America EV charger"
+    ]
+  },
+  {
+    "id": "kalshi::KXTARIFFREVENUE-26DEC31-T80",
+    "platform": "kalshi",
+    "ticker": "KXTARIFFREVENUE-26DEC31-T80",
+    "event_title": "US tariff revenue for 2026",
+    "title": "Will US tariff revenue for 2026 be above $80\u200e billion?",
+    "yes_price": 0.98,
+    "volume_usd": 33.32,
+    "expiry_date": "2027-06-01",
+    "url": "https://kalshi.com/markets/KXTARIFFREVENUE-26DEC31-T80",
+    "keywords": [
+      "CATL tariff",
+      "Chinese inverter tariff",
+      "EV charger tariff",
+      "Korean steel plate tariff",
+      "battery storage tariff",
+      "electrolyzer tariff",
+      "lithium battery tariff",
+      "solar tracker tariff"
+    ]
+  },
+  {
+    "id": "kalshi::KXTARIFFREVENUE-26DEC31-T100",
+    "platform": "kalshi",
+    "ticker": "KXTARIFFREVENUE-26DEC31-T100",
+    "event_title": "US tariff revenue for 2026",
+    "title": "Will US tariff revenue for 2026 be above $100\u200e billion?",
+    "yes_price": 0.98,
+    "volume_usd": 69.58,
+    "expiry_date": "2027-06-01",
+    "url": "https://kalshi.com/markets/KXTARIFFREVENUE-26DEC31-T100",
+    "keywords": [
+      "CATL tariff",
+      "Chinese inverter tariff",
+      "EV charger tariff",
+      "Korean steel plate tariff",
+      "battery storage tariff",
+      "electrolyzer tariff",
+      "lithium battery tariff",
+      "solar tracker tariff"
+    ]
+  },
+  {
+    "id": "kalshi::KXTARIFFREVENUE-26DEC31-T125",
+    "platform": "kalshi",
+    "ticker": "KXTARIFFREVENUE-26DEC31-T125",
+    "event_title": "US tariff revenue for 2026",
+    "title": "Will US tariff revenue for 2026 be above $125\u200e billion?",
+    "yes_price": 0.94,
+    "volume_usd": 171.6252,
+    "expiry_date": "2027-06-01",
+    "url": "https://kalshi.com/markets/KXTARIFFREVENUE-26DEC31-T125",
+    "keywords": [
+      "CATL tariff",
+      "Chinese inverter tariff",
+      "EV charger tariff",
+      "Korean steel plate tariff",
+      "battery storage tariff",
+      "electrolyzer tariff",
+      "lithium battery tariff",
+      "solar tracker tariff"
+    ]
+  },
+  {
+    "id": "kalshi::KXTARIFFREVENUE-26DEC31-T150",
+    "platform": "kalshi",
+    "ticker": "KXTARIFFREVENUE-26DEC31-T150",
+    "event_title": "US tariff revenue for 2026",
+    "title": "Will US tariff revenue for 2026 be above $150\u200e billion?",
+    "yes_price": 0.84,
+    "volume_usd": 1152.06,
+    "expiry_date": "2027-06-01",
+    "url": "https://kalshi.com/markets/KXTARIFFREVENUE-26DEC31-T150",
+    "keywords": [
+      "CATL tariff",
+      "Chinese inverter tariff",
+      "EV charger tariff",
+      "Korean steel plate tariff",
+      "battery storage tariff",
+      "electrolyzer tariff",
+      "lithium battery tariff"
+    ]
+  },
+  {
+    "id": "kalshi::KXTARIFFREVENUE-26DEC31-T200",
+    "platform": "kalshi",
+    "ticker": "KXTARIFFREVENUE-26DEC31-T200",
+    "event_title": "US tariff revenue for 2026",
+    "title": "Will US tariff revenue for 2026 be above $200\u200e billion?",
+    "yes_price": 0.65,
+    "volume_usd": 2353.5135,
+    "expiry_date": "2027-06-01",
+    "url": "https://kalshi.com/markets/KXTARIFFREVENUE-26DEC31-T200",
+    "keywords": [
+      "CATL tariff",
+      "Chinese inverter tariff",
+      "EV charger tariff",
+      "battery storage tariff",
+      "electrolyzer tariff",
+      "lithium battery tariff"
+    ]
+  },
+  {
+    "id": "kalshi::CHINAUSGDP-30",
+    "platform": "kalshi",
+    "ticker": "CHINAUSGDP-30",
+    "event_title": "China overtakes USA\u2019s economy by 2030?",
+    "title": "Will China overtake US GDP by 2030?",
+    "yes_price": 0.23,
+    "volume_usd": 19528.794,
+    "expiry_date": "2030-01-01",
+    "url": "https://kalshi.com/markets/CHINAUSGDP-30",
+    "keywords": [
+      "China export controls"
+    ]
+  },
+  {
+    "id": "kalshi::KXRECOGROC-29-27",
+    "platform": "kalshi",
+    "ticker": "KXRECOGROC-29-27",
+    "event_title": "Will Trump recognize Taiwan?",
+    "title": "Will Trump recognize the Republic of China?",
+    "yes_price": 0.08,
+    "volume_usd": 139.136,
+    "expiry_date": "2027-01-01",
+    "url": "https://kalshi.com/markets/KXRECOGROC-29-27",
+    "keywords": [
+      "China export controls"
+    ]
+  },
+  {
+    "id": "kalshi::KXFTAPRC-29",
+    "platform": "kalshi",
+    "ticker": "KXFTAPRC-29",
+    "event_title": "Will Trump make a new free trade agreement with China?",
+    "title": "Will Trump make a new free trade agreement with China before Jan 20, 2029?",
+    "yes_price": 0.43,
+    "volume_usd": 26628.433699999998,
+    "expiry_date": "2029-01-20",
+    "url": "https://kalshi.com/markets/KXFTAPRC-29",
+    "keywords": [
+      "China export controls"
+    ]
+  },
+  {
+    "id": "kalshi::KXBANTRANS-26",
+    "platform": "kalshi",
+    "ticker": "KXBANTRANS-26",
+    "event_title": "Will US Supreme Court ban transgender girls and women from competing on female sports teams?",
+    "title": "Will US Supreme Court rule ban transgender girls and women from competing on female sports teams?",
+    "yes_price": 0.29,
+    "volume_usd": 3874.0345999999995,
+    "expiry_date": "2029-01-01",
+    "url": "https://kalshi.com/markets/KXBANTRANS-26",
+    "keywords": [
+      "Chinese inverter ban"
+    ]
+  },
+  {
+    "id": "kalshi::KXSUPERSONIC-28",
+    "platform": "kalshi",
+    "ticker": "KXSUPERSONIC-28",
+    "event_title": "Will the ban on supersonic flight over land end before 2028?",
+    "title": "Will the ban on supersonic flight over land end before 2028?",
+    "yes_price": 0.46,
+    "volume_usd": 7608.239000000001,
+    "expiry_date": "2028-01-01",
+    "url": "https://kalshi.com/markets/KXSUPERSONIC-28",
+    "keywords": [
+      "Chinese inverter ban"
+    ]
+  },
+  {
+    "id": "kalshi::KXAGICO-COMP-26Q2",
+    "platform": "kalshi",
+    "ticker": "KXAGICO-COMP-26Q2",
+    "event_title": "When will any company achieve AGI?",
+    "title": "Will any company announce that it has achieved Artificial General Intelligence (AGI) before Jul 1, 2026?",
+    "yes_price": 0.05,
+    "volume_usd": 591.0680000000001,
+    "expiry_date": "2026-07-01",
+    "url": "https://kalshi.com/markets/KXAGICO-COMP-26Q2",
+    "keywords": [
+      "Chinese military company"
+    ]
+  },
+  {
+    "id": "kalshi::KXAGICO-COMP-26Q3",
+    "platform": "kalshi",
+    "ticker": "KXAGICO-COMP-26Q3",
+    "event_title": "When will any company achieve AGI?",
+    "title": "Will any company announce that it has achieved Artificial General Intelligence (AGI) before Oct 1, 2026?",
+    "yes_price": 0.13,
+    "volume_usd": 935.2616,
+    "expiry_date": "2026-10-01",
+    "url": "https://kalshi.com/markets/KXAGICO-COMP-26Q3",
+    "keywords": [
+      "Chinese military company"
+    ]
+  },
+  {
+    "id": "kalshi::KXAGICO-COMP-26Q4",
+    "platform": "kalshi",
+    "ticker": "KXAGICO-COMP-26Q4",
+    "event_title": "When will any company achieve AGI?",
+    "title": "Will any company announce that it has achieved Artificial General Intelligence (AGI) before Jan 1, 2027?",
+    "yes_price": 0.15,
+    "volume_usd": 1043.346,
+    "expiry_date": "2027-01-01",
+    "url": "https://kalshi.com/markets/KXAGICO-COMP-26Q4",
+    "keywords": [
+      "Chinese military company"
+    ]
+  },
+  {
+    "id": "kalshi::KXAGICO-COMP-27Q1",
+    "platform": "kalshi",
+    "ticker": "KXAGICO-COMP-27Q1",
+    "event_title": "When will any company achieve AGI?",
+    "title": "Will any company announce that it has achieved Artificial General Intelligence (AGI) before Apr 1, 2027?",
+    "yes_price": 0.26,
+    "volume_usd": 1311.6246,
+    "expiry_date": "2027-04-01",
+    "url": "https://kalshi.com/markets/KXAGICO-COMP-27Q1",
+    "keywords": [
+      "Chinese military company"
+    ]
+  },
+  {
+    "id": "kalshi::KXAGICO-COMP-27Q2",
+    "platform": "kalshi",
+    "ticker": "KXAGICO-COMP-27Q2",
+    "event_title": "When will any company achieve AGI?",
+    "title": "Will any company announce that it has achieved Artificial General Intelligence (AGI) before Jul 1, 2027?",
+    "yes_price": 0.37,
+    "volume_usd": 1050.5410000000002,
+    "expiry_date": "2027-07-01",
+    "url": "https://kalshi.com/markets/KXAGICO-COMP-27Q2",
+    "keywords": [
+      "Chinese military company"
+    ]
+  },
+  {
+    "id": "kalshi::KXAGENCYELIM-29-EPA",
+    "platform": "kalshi",
+    "ticker": "KXAGENCYELIM-29-EPA",
+    "event_title": "Which agencies will Trump eliminate?",
+    "title": "Will EPA be eliminated?",
+    "yes_price": 0.14,
+    "volume_usd": 1127.1680000000001,
+    "expiry_date": "2029-01-20",
+    "url": "https://kalshi.com/markets/KXAGENCYELIM-29-EPA",
+    "keywords": [
+      "EPA Subpart 98"
+    ]
+  },
+  {
+    "id": "kalshi::EVSHARE-30JAN-20",
+    "platform": "kalshi",
+    "ticker": "EVSHARE-30JAN-20",
+    "event_title": "EV market share in 2030?",
+    "title": "EV market share in 2030?",
+    "yes_price": 0.64,
+    "volume_usd": 6546.2208,
+    "expiry_date": "2030-05-01",
+    "url": "https://kalshi.com/markets/EVSHARE-30JAN-20",
+    "keywords": [
+      "HTS 7308.20"
+    ]
+  },
+  {
+    "id": "kalshi::KXU3MAX-30-20",
+    "platform": "kalshi",
+    "ticker": "KXU3MAX-30-20",
+    "event_title": "How high will unemployment get before 2030?",
+    "title": "How high will unemployment get before 2030?",
+    "yes_price": 0.12,
+    "volume_usd": 120.11999999999999,
+    "expiry_date": "2030-01-04",
+    "url": "https://kalshi.com/markets/KXU3MAX-30-20",
+    "keywords": [
+      "HTS 7308.20"
+    ]
+  },
+  {
+    "id": "kalshi::KXEOTRUMPTERM-29JAN20-300",
+    "platform": "kalshi",
+    "ticker": "KXEOTRUMPTERM-29JAN20-300",
+    "event_title": "How many executive orders will Trump sign in his second term?",
+    "title": "Will the President sign fewer than 300 Executive Orders between Jan 20, 2025 and Jan 20, 2029?",
+    "yes_price": 0.09,
+    "volume_usd": 863.9001,
+    "expiry_date": "2029-01-21",
+    "url": "https://kalshi.com/markets/KXEOTRUMPTERM-29JAN20-300",
+    "keywords": [
+      "HTS 7308.20"
+    ]
+  },
+  {
+    "id": "kalshi::KXEOTRUMPTERM-29JAN20-324",
+    "platform": "kalshi",
+    "ticker": "KXEOTRUMPTERM-29JAN20-324",
+    "event_title": "How many executive orders will Trump sign in his second term?",
+    "title": "Will the President sign between 300 and 349 Executive Orders between Jan 20, 2025 and Jan 20, 2029?",
+    "yes_price": 0.065,
+    "volume_usd": 297.45755,
+    "expiry_date": "2029-01-21",
+    "url": "https://kalshi.com/markets/KXEOTRUMPTERM-29JAN20-324",
+    "keywords": [
+      "HTS 7308.20"
+    ]
+  },
+  {
+    "id": "kalshi::KXEOTRUMPTERM-29JAN20-374",
+    "platform": "kalshi",
+    "ticker": "KXEOTRUMPTERM-29JAN20-374",
+    "event_title": "How many executive orders will Trump sign in his second term?",
+    "title": "Will the President sign between 350 and 399 Executive Orders between Jan 20, 2025 and Jan 20, 2029?",
+    "yes_price": 0.14,
+    "volume_usd": 699.2636,
+    "expiry_date": "2029-01-21",
+    "url": "https://kalshi.com/markets/KXEOTRUMPTERM-29JAN20-374",
+    "keywords": [
+      "HTS 7308.20"
+    ]
+  },
+  {
+    "id": "kalshi::ECMOV-28NOV07-DEM61T90",
+    "platform": "kalshi",
+    "ticker": "ECMOV-28NOV07-DEM61T90",
+    "event_title": "2028 Electoral College margin of victory?",
+    "title": "Will Democratic win the 2028 presidential election by 61 to 90 Electoral College votes?",
+    "yes_price": 0.12,
+    "volume_usd": 0.0,
+    "expiry_date": "2029-05-06",
+    "url": "https://kalshi.com/markets/ECMOV-28NOV07-DEM61T90",
+    "keywords": [
+      "HTS 7308.90"
+    ]
+  },
+  {
+    "id": "kalshi::ECMOV-28NOV07-REP61T90",
+    "platform": "kalshi",
+    "ticker": "ECMOV-28NOV07-REP61T90",
+    "event_title": "2028 Electoral College margin of victory?",
+    "title": "Will Republican win the 2028 presidential election by 61 to 90 Electoral College votes?",
+    "yes_price": 0.1,
+    "volume_usd": 0.0,
+    "expiry_date": "2029-05-06",
+    "url": "https://kalshi.com/markets/ECMOV-28NOV07-REP61T90",
+    "keywords": [
+      "HTS 7308.90"
+    ]
+  },
+  {
+    "id": "kalshi::KXRAMPBREX-40-RAMP",
+    "platform": "kalshi",
+    "ticker": "KXRAMPBREX-40-RAMP",
+    "event_title": "Will Ramp or Brex IPO first?",
+    "title": "Will Ramp or Brex IPO first?",
+    "yes_price": 0.92,
+    "volume_usd": 7124.5168,
+    "expiry_date": "2040-01-01",
+    "url": "https://kalshi.com/markets/KXRAMPBREX-40-RAMP",
+    "keywords": [
+      "HTS 8504.40",
+      "HTS 8541.40"
+    ]
+  },
+  {
+    "id": "kalshi::KXRAMPBREX-40-BREX",
+    "platform": "kalshi",
+    "ticker": "KXRAMPBREX-40-BREX",
+    "event_title": "Will Ramp or Brex IPO first?",
+    "title": "Will Ramp or Brex IPO first?",
+    "yes_price": 0.08,
+    "volume_usd": 1103.7928,
+    "expiry_date": "2040-01-01",
+    "url": "https://kalshi.com/markets/KXRAMPBREX-40-BREX",
+    "keywords": [
+      "HTS 8504.40",
+      "HTS 8541.40"
+    ]
+  },
+  {
+    "id": "kalshi::KXOAIANTH-40-OAI",
+    "platform": "kalshi",
+    "ticker": "KXOAIANTH-40-OAI",
+    "event_title": "Will OpenAI or Anthropic IPO first?",
+    "title": "Will OpenAI or Anthropic IPO first?",
+    "yes_price": 0.82,
+    "volume_usd": 67580.7674,
+    "expiry_date": "2040-01-01",
+    "url": "https://kalshi.com/markets/KXOAIANTH-40-OAI",
+    "keywords": [
+      "HTS 8504.40",
+      "HTS 8541.40"
+    ]
+  },
+  {
+    "id": "kalshi::KXOAIANTH-40-ANTH",
+    "platform": "kalshi",
+    "ticker": "KXOAIANTH-40-ANTH",
+    "event_title": "Will OpenAI or Anthropic IPO first?",
+    "title": "Will Open AI or Anthropic IPO first?",
+    "yes_price": 0.25,
+    "volume_usd": 20356.8825,
+    "expiry_date": "2040-01-01",
+    "url": "https://kalshi.com/markets/KXOAIANTH-40-ANTH",
+    "keywords": [
+      "HTS 8504.40",
+      "HTS 8541.40"
+    ]
+  },
+  {
+    "id": "kalshi::KXDEELRIP-40-DEEL",
+    "platform": "kalshi",
+    "ticker": "KXDEELRIP-40-DEEL",
+    "event_title": "Will Deel or Rippling IPO first?",
+    "title": "Will Deel or Rippling IPO first?",
+    "yes_price": 0.76,
+    "volume_usd": 2799.004,
+    "expiry_date": "2040-01-01",
+    "url": "https://kalshi.com/markets/KXDEELRIP-40-DEEL",
+    "keywords": [
+      "HTS 8504.40",
+      "HTS 8541.40"
+    ]
+  },
+  {
+    "id": "kalshi::ECMOV-28NOV07-DEM31T60",
+    "platform": "kalshi",
+    "ticker": "ECMOV-28NOV07-DEM31T60",
+    "event_title": "2028 Electoral College margin of victory?",
+    "title": "Will Democratic win the 2028 presidential election by 31 to 60 Electoral College votes?",
+    "yes_price": 0.12,
+    "volume_usd": 0.0,
+    "expiry_date": "2029-05-06",
+    "url": "https://kalshi.com/markets/ECMOV-28NOV07-DEM31T60",
+    "keywords": [
+      "HTS 8507.60"
+    ]
+  },
+  {
+    "id": "kalshi::ECMOV-28NOV07-REP31T60",
+    "platform": "kalshi",
+    "ticker": "ECMOV-28NOV07-REP31T60",
+    "event_title": "2028 Electoral College margin of victory?",
+    "title": "Will Republican win the 2028 presidential election by 31 to 60 Electoral College votes?",
+    "yes_price": 0.08,
+    "volume_usd": 0.0,
+    "expiry_date": "2029-05-06",
+    "url": "https://kalshi.com/markets/ECMOV-28NOV07-REP31T60",
+    "keywords": [
+      "HTS 8507.60"
+    ]
+  },
+  {
+    "id": "kalshi::KXDEMOCRACYUS-28-7.60",
+    "platform": "kalshi",
+    "ticker": "KXDEMOCRACYUS-28-7.60",
+    "event_title": "How much will US democracy weaken under Trump?",
+    "title": "Will the US fall below 7.60 during the Trump Administration on the Economist's Democracy Index between 2025 and 2028",
+    "yes_price": 0.91,
+    "volume_usd": 16779.49,
+    "expiry_date": "2029-05-17",
+    "url": "https://kalshi.com/markets/KXDEMOCRACYUS-28-7.60",
+    "keywords": [
+      "HTS 8507.60"
+    ]
+  },
+  {
+    "id": "kalshi::KXSCOURT-29-BG",
+    "platform": "kalshi",
+    "ticker": "KXSCOURT-29-BG",
+    "event_title": "Who will be the next Supreme Court justice?",
+    "title": "Will Britt Grant become the next Justice on the Supreme Court?",
+    "yes_price": 0.01,
+    "volume_usd": 27.73,
+    "expiry_date": "2029-01-21",
+    "url": "https://kalshi.com/markets/KXSCOURT-29-BG",
+    "keywords": [
+      "IIJA grant"
+    ]
+  },
+  {
+    "id": "kalshi::KXSCOTUSCERT3RD-29JAN-3RD",
+    "platform": "kalshi",
+    "ticker": "KXSCOTUSCERT3RD-29JAN-3RD",
+    "event_title": "Will the Supreme Court hear a 3rd Amendment case before Trump's term ends?",
+    "title": "What cases will the Supreme Court agree to hear before Jan 2029?",
+    "yes_price": 0.13,
+    "volume_usd": 1004.6842,
+    "expiry_date": "2029-01-20",
+    "url": "https://kalshi.com/markets/KXSCOTUSCERT3RD-29JAN-3RD",
+    "keywords": [
+      "IRA solar amendment"
+    ]
+  },
+  {
+    "id": "kalshi::KXCONSTAMEND-29-JAN20",
+    "platform": "kalshi",
+    "ticker": "KXCONSTAMEND-29-JAN20",
+    "event_title": "Will a new Constitutional Amendment be added during Trump's term?",
+    "title": "Will a new Constitutional Amendment be added before Jan 20, 2029?",
+    "yes_price": 0.11,
+    "volume_usd": 3878.1940999999997,
+    "expiry_date": "2029-01-20",
+    "url": "https://kalshi.com/markets/KXCONSTAMEND-29-JAN20",
+    "keywords": [
+      "IRA solar amendment"
+    ]
+  },
+  {
+    "id": "kalshi::KXAMEND25-29",
+    "platform": "kalshi",
+    "ticker": "KXAMEND25-29",
+    "event_title": "Will the 25th Amendment be used during Trump's Presidency?",
+    "title": "Will the 25th Amendment be used during Trump's Presidency?",
+    "yes_price": 0.31,
+    "volume_usd": 42654.068699999996,
+    "expiry_date": "2029-01-20",
+    "url": "https://kalshi.com/markets/KXAMEND25-29",
+    "keywords": [
+      "IRA solar amendment"
+    ]
+  },
+  {
+    "id": "kalshi::KXAGENCYELIM-29-IRS",
+    "platform": "kalshi",
+    "ticker": "KXAGENCYELIM-29-IRS",
+    "event_title": "Which agencies will Trump eliminate?",
+    "title": "Will IRS be eliminated?",
+    "yes_price": 0.07,
+    "volume_usd": 2166.36,
+    "expiry_date": "2029-01-20",
+    "url": "https://kalshi.com/markets/KXAGENCYELIM-29-IRS",
+    "keywords": [
+      "IRS Notice 2023-29"
+    ]
+  },
+  {
+    "id": "kalshi::KXAGICO-COMP-29",
+    "platform": "kalshi",
+    "ticker": "KXAGICO-COMP-29",
+    "event_title": "When will any company achieve AGI?",
+    "title": "Will any company announce that it has achieved Artificial General Intelligence (AGI) before Jan 1, 2030?",
+    "yes_price": 0.72,
+    "volume_usd": 2174.3783999999996,
+    "expiry_date": "2030-01-01",
+    "url": "https://kalshi.com/markets/KXAGICO-COMP-29",
+    "keywords": [
+      "IRS Notice 2023-29"
+    ]
+  },
+  {
+    "id": "kalshi::KXMUSKTRILLION-29",
+    "platform": "kalshi",
+    "ticker": "KXMUSKTRILLION-29",
+    "event_title": "When will Elon Musk become a trillionaire?",
+    "title": "Will Elon Musk be a trillionaire before 2029?",
+    "yes_price": 0.97,
+    "volume_usd": 36807.949799999995,
+    "expiry_date": "2029-01-01",
+    "url": "https://kalshi.com/markets/KXMUSKTRILLION-29",
+    "keywords": [
+      "IRS Notice 2023-29"
+    ]
+  },
+  {
+    "id": "kalshi::KXGDPSHAREMANU-29",
+    "platform": "kalshi",
+    "ticker": "KXGDPSHAREMANU-29",
+    "event_title": "Will Trump bring back manufacturing?",
+    "title": "Will Trump bring back manufacturing?",
+    "yes_price": 0.35,
+    "volume_usd": 7177.744,
+    "expiry_date": "2029-06-30",
+    "url": "https://kalshi.com/markets/KXGDPSHAREMANU-29",
+    "keywords": [
+      "IRS Notice 2023-29",
+      "Section 45X manufacturing",
+      "manufacturing PTC"
+    ]
+  },
+  {
+    "id": "kalshi::KXFULLTERMSKPRES-29",
+    "platform": "kalshi",
+    "ticker": "KXFULLTERMSKPRES-29",
+    "event_title": "Will South Korean President Lee Jae-myung serve their full term?",
+    "title": "Will South Korean President Lee Jae-myung serve their full term?",
+    "yes_price": 0.935,
+    "volume_usd": 12610.419800000001,
+    "expiry_date": "2029-06-04",
+    "url": "https://kalshi.com/markets/KXFULLTERMSKPRES-29",
+    "keywords": [
+      "IRS Notice 2023-29",
+      "Korean steel plate",
+      "Korean steel plate tariff"
+    ]
+  },
+  {
+    "id": "kalshi::KXSCOURT-29-AJR",
+    "platform": "kalshi",
+    "ticker": "KXSCOURT-29-AJR",
+    "event_title": "Who will be the next Supreme Court justice?",
+    "title": "Will Allison Jones Rushing become the next Justice on the Supreme Court?",
+    "yes_price": 0.01,
+    "volume_usd": 53.27,
+    "expiry_date": "2029-01-21",
+    "url": "https://kalshi.com/markets/KXSCOURT-29-AJR",
+    "keywords": [
+      "Jones Act offshore wind"
+    ]
+  },
+  {
+    "id": "kalshi::KXTAFTHARTLEY-29",
+    "platform": "kalshi",
+    "ticker": "KXTAFTHARTLEY-29",
+    "event_title": "Will Trump invoke the Taft-Hartley Act during his presidency?",
+    "title": "Will Trump invoke the Taft-Hartley Act during his presidency?",
+    "yes_price": 0.33,
+    "volume_usd": 1370.8200000000002,
+    "expiry_date": "2029-01-20",
+    "url": "https://kalshi.com/markets/KXTAFTHARTLEY-29",
+    "keywords": [
+      "Jones Act offshore wind"
+    ]
+  },
+  {
+    "id": "kalshi::KXINSURRECTION-29-27",
+    "platform": "kalshi",
+    "ticker": "KXINSURRECTION-29-27",
+    "event_title": "Will Trump invoke the Insurrection Act?",
+    "title": "Will Trump invoke the Insurrection Act during his Presidency?",
+    "yes_price": 0.21,
+    "volume_usd": 53715.603899999995,
+    "expiry_date": "2027-01-01",
+    "url": "https://kalshi.com/markets/KXINSURRECTION-29-27",
+    "keywords": [
+      "Jones Act offshore wind"
+    ]
+  },
+  {
+    "id": "kalshi::KXFYREFESTPRICE-30-100",
+    "platform": "kalshi",
+    "ticker": "KXFYREFESTPRICE-30-100",
+    "event_title": "How much will a Fyre Festival 2 General Admission Ticket cost?",
+    "title": "How much will a Fyre Festival 2 General Admission Ticket cost?",
+    "yes_price": 0.91,
+    "volume_usd": 1120.21,
+    "expiry_date": "2030-01-01",
+    "url": "https://kalshi.com/markets/KXFYREFESTPRICE-30-100",
+    "keywords": [
+      "KRW steel cost",
+      "solar debt cost"
+    ]
+  },
+  {
+    "id": "kalshi::KXFYREFESTPRICE-30-500",
+    "platform": "kalshi",
+    "ticker": "KXFYREFESTPRICE-30-500",
+    "event_title": "How much will a Fyre Festival 2 General Admission Ticket cost?",
+    "title": "How much will a Fyre Festival 2 General Admission Ticket cost?",
+    "yes_price": 0.99,
+    "volume_usd": 57.42,
+    "expiry_date": "2030-01-01",
+    "url": "https://kalshi.com/markets/KXFYREFESTPRICE-30-500",
+    "keywords": [
+      "KRW steel cost",
+      "solar debt cost"
+    ]
+  },
+  {
+    "id": "kalshi::KXFYREFESTPRICE-30-750",
+    "platform": "kalshi",
+    "ticker": "KXFYREFESTPRICE-30-750",
+    "event_title": "How much will a Fyre Festival 2 General Admission Ticket cost?",
+    "title": "How much will a Fyre Festival 2 General Admission Ticket cost?",
+    "yes_price": 0.98,
+    "volume_usd": 122.5,
+    "expiry_date": "2030-01-01",
+    "url": "https://kalshi.com/markets/KXFYREFESTPRICE-30-750",
+    "keywords": [
+      "KRW steel cost",
+      "solar debt cost"
+    ]
+  },
+  {
+    "id": "kalshi::KXFYREFESTPRICE-30-1000",
+    "platform": "kalshi",
+    "ticker": "KXFYREFESTPRICE-30-1000",
+    "event_title": "How much will a Fyre Festival 2 General Admission Ticket cost?",
+    "title": "How much will a Fyre Festival 2 General Admission Ticket cost?",
+    "yes_price": 0.99,
+    "volume_usd": 153.45,
+    "expiry_date": "2030-01-01",
+    "url": "https://kalshi.com/markets/KXFYREFESTPRICE-30-1000",
+    "keywords": [
+      "KRW steel cost",
+      "solar debt cost"
+    ]
+  },
+  {
+    "id": "kalshi::KXFYREFESTPRICE-30-1250",
+    "platform": "kalshi",
+    "ticker": "KXFYREFESTPRICE-30-1250",
+    "event_title": "How much will a Fyre Festival 2 General Admission Ticket cost?",
+    "title": "How much will a Fyre Festival 2 General Admission Ticket cost?",
+    "yes_price": 0.99,
+    "volume_usd": 154.44,
+    "expiry_date": "2030-01-01",
+    "url": "https://kalshi.com/markets/KXFYREFESTPRICE-30-1250",
+    "keywords": [
+      "KRW steel cost"
+    ]
+  },
+  {
+    "id": "kalshi::KXH1B-29",
+    "platform": "kalshi",
+    "ticker": "KXH1B-29",
+    "event_title": "Will Trump expand the H1-B program?",
+    "title": "Will Trump expand high-skill immigration?",
+    "yes_price": 0.23,
+    "volume_usd": 27486.3018,
+    "expiry_date": "2029-01-20",
+    "url": "https://kalshi.com/markets/KXH1B-29",
+    "keywords": [
+      "NEVI program"
+    ]
+  },
+  {
+    "id": "kalshi::KXUSTAKEOVER-30",
+    "platform": "kalshi",
+    "ticker": "KXUSTAKEOVER-30",
+    "event_title": "Will the US government take control of any AI company or project before 2030?",
+    "title": "Will the US government take control of any AI company or project before 2030?",
+    "yes_price": 0.38,
+    "volume_usd": 2799.7602,
+    "expiry_date": "2030-01-01",
+    "url": "https://kalshi.com/markets/KXUSTAKEOVER-30",
+    "keywords": [
+      "Norway export control",
+      "SOFR rate project finance",
+      "gallium export control",
+      "project finance debt"
+    ]
+  },
+  {
+    "id": "kalshi::KXGREENTERRITORY-29-27",
+    "platform": "kalshi",
+    "ticker": "KXGREENTERRITORY-29-27",
+    "event_title": "Will the US take control of any part of Greenland?",
+    "title": "Will the United States acquire any part of Greenland before Jan 1, 2027?",
+    "yes_price": 0.11,
+    "volume_usd": 49417.5429,
+    "expiry_date": "2027-01-01",
+    "url": "https://kalshi.com/markets/KXGREENTERRITORY-29-27",
+    "keywords": [
+      "Norway export control",
+      "gallium export control"
+    ]
+  },
+  {
+    "id": "kalshi::KXGREENTERRITORY-29",
+    "platform": "kalshi",
+    "ticker": "KXGREENTERRITORY-29",
+    "event_title": "Will the US take control of any part of Greenland?",
+    "title": "Will the United States acquire any part of Greenland before 2029?",
+    "yes_price": 0.36,
+    "volume_usd": 952378.1567999999,
+    "expiry_date": "2029-01-21",
+    "url": "https://kalshi.com/markets/KXGREENTERRITORY-29",
+    "keywords": [
+      "Norway export control",
+      "gallium export control"
+    ]
+  },
+  {
+    "id": "kalshi::KXCANTERRITORY-29",
+    "platform": "kalshi",
+    "ticker": "KXCANTERRITORY-29",
+    "event_title": "Will the US take control of any part of Canada?",
+    "title": "Will the United States acquire any part of Canada before 2029?",
+    "yes_price": 0.17,
+    "volume_usd": 21278.6212,
+    "expiry_date": "2029-01-21",
+    "url": "https://kalshi.com/markets/KXCANTERRITORY-29",
+    "keywords": [
+      "Norway export control",
+      "gallium export control"
+    ]
+  },
+  {
+    "id": "kalshi::KXFED-27APR-T0.00",
+    "platform": "kalshi",
+    "ticker": "KXFED-27APR-T0.00",
+    "event_title": "Fed funds rate after Apr 2027 meeting?",
+    "title": "Will the upper bound of the federal funds rate be above 0.00% following the Fed's Apr 28, 2027 meeting?",
+    "yes_price": 0.99,
+    "volume_usd": 1607.76,
+    "expiry_date": "2027-04-28",
+    "url": "https://kalshi.com/markets/KXFED-27APR-T0.00",
+    "keywords": [
+      "SOFR rate",
+      "SOFR rate project finance"
+    ]
+  },
+  {
+    "id": "kalshi::KXFED-27APR-T0.25",
+    "platform": "kalshi",
+    "ticker": "KXFED-27APR-T0.25",
+    "event_title": "Fed funds rate after Apr 2027 meeting?",
+    "title": "Will the upper bound of the federal funds rate be above 0.25% following the Fed's Apr 28, 2027 meeting?",
+    "yes_price": 0.99,
+    "volume_usd": 1436.49,
+    "expiry_date": "2027-04-28",
+    "url": "https://kalshi.com/markets/KXFED-27APR-T0.25",
+    "keywords": [
+      "SOFR rate",
+      "SOFR rate project finance"
+    ]
+  },
+  {
+    "id": "kalshi::KXFED-27APR-T0.50",
+    "platform": "kalshi",
+    "ticker": "KXFED-27APR-T0.50",
+    "event_title": "Fed funds rate after Apr 2027 meeting?",
+    "title": "Will the upper bound of the federal funds rate be above 0.50% following the Fed's Apr 28, 2027 meeting?",
+    "yes_price": 0.99,
+    "volume_usd": 2445.2604,
+    "expiry_date": "2027-04-28",
+    "url": "https://kalshi.com/markets/KXFED-27APR-T0.50",
+    "keywords": [
+      "SOFR rate",
+      "SOFR rate project finance"
+    ]
+  },
+  {
+    "id": "kalshi::KXFED-27APR-T0.75",
+    "platform": "kalshi",
+    "ticker": "KXFED-27APR-T0.75",
+    "event_title": "Fed funds rate after Apr 2027 meeting?",
+    "title": "Will the upper bound of the federal funds rate be above 0.75% following the Fed's Apr 28, 2027 meeting?",
+    "yes_price": 0.98,
+    "volume_usd": 3106.6,
+    "expiry_date": "2027-04-28",
+    "url": "https://kalshi.com/markets/KXFED-27APR-T0.75",
+    "keywords": [
+      "SOFR rate",
+      "SOFR rate project finance"
+    ]
+  },
+  {
+    "id": "kalshi::KXFED-27APR-T1.00",
+    "platform": "kalshi",
+    "ticker": "KXFED-27APR-T1.00",
+    "event_title": "Fed funds rate after Apr 2027 meeting?",
+    "title": "Will the upper bound of the federal funds rate be above 1.00% following the Fed's Apr 28, 2027 meeting?",
+    "yes_price": 0.99,
+    "volume_usd": 3695.67,
+    "expiry_date": "2027-04-28",
+    "url": "https://kalshi.com/markets/KXFED-27APR-T1.00",
+    "keywords": [
+      "SOFR rate"
+    ]
+  },
+  {
+    "id": "kalshi::KXNEXTLABORSEC-29-KSON",
+    "platform": "kalshi",
+    "ticker": "KXNEXTLABORSEC-29-KSON",
+    "event_title": "Who will be Trump's next Secretary of Labor?",
+    "title": "Who will be Trump's next Secretary of Labor?",
+    "yes_price": 0.35,
+    "volume_usd": 9790.774,
+    "expiry_date": "2029-01-20",
+    "url": "https://kalshi.com/markets/KXNEXTLABORSEC-29-KSON",
+    "keywords": [
+      "forced labor"
+    ]
+  },
+  {
+    "id": "kalshi::KXNEXTLABORSEC-29-PPIZ",
+    "platform": "kalshi",
+    "ticker": "KXNEXTLABORSEC-29-PPIZ",
+    "event_title": "Who will be Trump's next Secretary of Labor?",
+    "title": "Who will be Trump's next Secretary of Labor?",
+    "yes_price": 0.07,
+    "volume_usd": 192.43210000000002,
+    "expiry_date": "2029-01-20",
+    "url": "https://kalshi.com/markets/KXNEXTLABORSEC-29-PPIZ",
+    "keywords": [
+      "forced labor"
+    ]
+  },
+  {
+    "id": "kalshi::KXNEXTLABORSEC-29-BSLA",
+    "platform": "kalshi",
+    "ticker": "KXNEXTLABORSEC-29-BSLA",
+    "event_title": "Who will be Trump's next Secretary of Labor?",
+    "title": "Who will be Trump's next Secretary of Labor?",
+    "yes_price": 0.04,
+    "volume_usd": 176.04,
+    "expiry_date": "2029-01-20",
+    "url": "https://kalshi.com/markets/KXNEXTLABORSEC-29-BSLA",
+    "keywords": [
+      "forced labor"
+    ]
+  },
+  {
+    "id": "kalshi::KXNEXTLABORSEC-29-JBER",
+    "platform": "kalshi",
+    "ticker": "KXNEXTLABORSEC-29-JBER",
+    "event_title": "Who will be Trump's next Secretary of Labor?",
+    "title": "Who will be Trump's next Secretary of Labor?",
+    "yes_price": 0.02,
+    "volume_usd": 67.64,
+    "expiry_date": "2029-01-20",
+    "url": "https://kalshi.com/markets/KXNEXTLABORSEC-29-JBER",
+    "keywords": [
+      "forced labor"
+    ]
+  },
+  {
+    "id": "kalshi::KXNEXTLABORSEC-29-JTAY",
+    "platform": "kalshi",
+    "ticker": "KXNEXTLABORSEC-29-JTAY",
+    "event_title": "Who will be Trump's next Secretary of Labor?",
+    "title": "Who will be Trump's next Secretary of Labor?",
+    "yes_price": 0.01,
+    "volume_usd": 22.7,
+    "expiry_date": "2029-01-20",
+    "url": "https://kalshi.com/markets/KXNEXTLABORSEC-29-JTAY",
+    "keywords": [
+      "forced labor"
+    ]
+  },
+  {
+    "id": "kalshi::KXCOMPANYACTIONMERGER-27-26JUN01",
+    "platform": "kalshi",
+    "ticker": "KXCOMPANYACTIONMERGER-27-26JUN01",
+    "event_title": "When will Tesla and SpaceX merge?",
+    "title": "Will Tesla or SpaceX announce a definitive, binding agreement for Tesla to acquire SpaceX, SpaceX to acquire Tesla, or the two entities to merge or combine in any structure that results in a transfer ",
+    "yes_price": 0.01,
+    "volume_usd": 48.7011,
+    "expiry_date": "2026-06-01",
+    "url": "https://kalshi.com/markets/KXCOMPANYACTIONMERGER-27-26JUN01",
+    "keywords": [
+      "interest rate risk"
+    ]
+  },
+  {
+    "id": "kalshi::KXCOMPANYACTIONMERGER-27-26JUL01",
+    "platform": "kalshi",
+    "ticker": "KXCOMPANYACTIONMERGER-27-26JUL01",
+    "event_title": "When will Tesla and SpaceX merge?",
+    "title": "Will Tesla or SpaceX announce a definitive, binding agreement for Tesla to acquire SpaceX, SpaceX to acquire Tesla, or the two entities to merge or combine in any structure that results in a transfer ",
+    "yes_price": 0.04,
+    "volume_usd": 350.262,
+    "expiry_date": "2026-07-01",
+    "url": "https://kalshi.com/markets/KXCOMPANYACTIONMERGER-27-26JUL01",
+    "keywords": [
+      "interest rate risk"
+    ]
+  },
+  {
+    "id": "kalshi::KXCOMPANYACTIONMERGER-27-26AUG01",
+    "platform": "kalshi",
+    "ticker": "KXCOMPANYACTIONMERGER-27-26AUG01",
+    "event_title": "When will Tesla and SpaceX merge?",
+    "title": "Will Tesla or SpaceX announce a definitive, binding agreement for Tesla to acquire SpaceX, SpaceX to acquire Tesla, or the two entities to merge or combine in any structure that results in a transfer ",
+    "yes_price": 0.1,
+    "volume_usd": 1127.865,
+    "expiry_date": "2026-08-01",
+    "url": "https://kalshi.com/markets/KXCOMPANYACTIONMERGER-27-26AUG01",
+    "keywords": [
+      "interest rate risk"
+    ]
+  },
+  {
+    "id": "kalshi::KXCOMPANYACTIONMERGER-27-26SEP01",
+    "platform": "kalshi",
+    "ticker": "KXCOMPANYACTIONMERGER-27-26SEP01",
+    "event_title": "When will Tesla and SpaceX merge?",
+    "title": "Will Tesla or SpaceX announce a definitive, binding agreement for Tesla to acquire SpaceX, SpaceX to acquire Tesla, or the two entities to merge or combine in any structure that results in a transfer ",
+    "yes_price": 0.13,
+    "volume_usd": 1321.2731999999999,
+    "expiry_date": "2026-09-01",
+    "url": "https://kalshi.com/markets/KXCOMPANYACTIONMERGER-27-26SEP01",
+    "keywords": [
+      "interest rate risk"
+    ]
+  },
+  {
+    "id": "kalshi::KXCOMPANYACTIONMERGER-27-26OCT01",
+    "platform": "kalshi",
+    "ticker": "KXCOMPANYACTIONMERGER-27-26OCT01",
+    "event_title": "When will Tesla and SpaceX merge?",
+    "title": "Will Tesla or SpaceX announce a definitive, binding agreement for Tesla to acquire SpaceX, SpaceX to acquire Tesla, or the two entities to merge or combine in any structure that results in a transfer ",
+    "yes_price": 0.14,
+    "volume_usd": 1496.3816000000002,
+    "expiry_date": "2026-10-01",
+    "url": "https://kalshi.com/markets/KXCOMPANYACTIONMERGER-27-26OCT01",
+    "keywords": [
+      "interest rate risk"
+    ]
+  },
+  {
+    "id": "kalshi::KXCO2LEVEL-30-440",
+    "platform": "kalshi",
+    "ticker": "KXCO2LEVEL-30-440",
+    "event_title": "How bad will CO2 atmospheric concentration get before 2030?",
+    "title": "How bad will CO2 atmospheric concentration get before 2030?",
+    "yes_price": 0.88,
+    "volume_usd": 2006.0656,
+    "expiry_date": "2030-01-01",
+    "url": "https://kalshi.com/markets/KXCO2LEVEL-30-440",
+    "keywords": [
+      "offshore wind turbine concentration"
+    ]
+  },
+  {
+    "id": "kalshi::KXCO2LEVEL-30-445",
+    "platform": "kalshi",
+    "ticker": "KXCO2LEVEL-30-445",
+    "event_title": "How bad will CO2 atmospheric concentration get before 2030?",
+    "title": "How bad will CO2 atmospheric concentration get before 2030?",
+    "yes_price": 0.38,
+    "volume_usd": 740.468,
+    "expiry_date": "2030-01-01",
+    "url": "https://kalshi.com/markets/KXCO2LEVEL-30-445",
+    "keywords": [
+      "offshore wind turbine concentration"
+    ]
+  },
+  {
+    "id": "kalshi::KXCO2LEVEL-30-450",
+    "platform": "kalshi",
+    "ticker": "KXCO2LEVEL-30-450",
+    "event_title": "How bad will CO2 atmospheric concentration get before 2030?",
+    "title": "How bad will CO2 atmospheric concentration get before 2030?",
+    "yes_price": 0.22,
+    "volume_usd": 768.7636,
+    "expiry_date": "2030-01-01",
+    "url": "https://kalshi.com/markets/KXCO2LEVEL-30-450",
+    "keywords": [
+      "offshore wind turbine concentration"
+    ]
+  },
+  {
+    "id": "kalshi::KXCO2LEVEL-30-455",
+    "platform": "kalshi",
+    "ticker": "KXCO2LEVEL-30-455",
+    "event_title": "How bad will CO2 atmospheric concentration get before 2030?",
+    "title": "How bad will CO2 atmospheric concentration get before 2030?",
+    "yes_price": 0.1,
+    "volume_usd": 73.507,
+    "expiry_date": "2030-01-01",
+    "url": "https://kalshi.com/markets/KXCO2LEVEL-30-455",
+    "keywords": [
+      "offshore wind turbine concentration"
+    ]
+  },
+  {
+    "id": "kalshi::KXWITHDRAW-29-WBANK",
+    "platform": "kalshi",
+    "ticker": "KXWITHDRAW-29-WBANK",
+    "event_title": "What will the U.S. withdraw from during the Trump Administration?",
+    "title": "Will the U.S. withdraw from World Bank Group before Jan 20, 2029?",
+    "yes_price": 0.28,
+    "volume_usd": 110.04,
+    "expiry_date": "2029-01-20",
+    "url": "https://kalshi.com/markets/KXWITHDRAW-29-WBANK",
+    "keywords": [
+      "platinum group metals"
+    ]
+  },
+  {
+    "id": "kalshi::KXDEBTGROWTH-28DEC31-40",
+    "platform": "kalshi",
+    "ticker": "KXDEBTGROWTH-28DEC31-40",
+    "event_title": "Peak US National Debt Under Trump Administration",
+    "title": "Will the national debt hit $40 trillion during the Trump Administration?",
+    "yes_price": 0.98,
+    "volume_usd": 43590.48819999999,
+    "expiry_date": "2029-03-31",
+    "url": "https://kalshi.com/markets/KXDEBTGROWTH-28DEC31-40",
+    "keywords": [
+      "project finance debt"
+    ]
+  },
+  {
+    "id": "kalshi::KXDEBTGROWTH-28DEC31-45",
+    "platform": "kalshi",
+    "ticker": "KXDEBTGROWTH-28DEC31-45",
+    "event_title": "Peak US National Debt Under Trump Administration",
+    "title": "Will the national debt hit $45 trillion during the Trump Administration?",
+    "yes_price": 0.85,
+    "volume_usd": 6701.876,
+    "expiry_date": "2029-03-31",
+    "url": "https://kalshi.com/markets/KXDEBTGROWTH-28DEC31-45",
+    "keywords": [
+      "project finance debt"
+    ]
+  },
+  {
+    "id": "kalshi::KXDEBTGROWTH-28DEC31-50",
+    "platform": "kalshi",
+    "ticker": "KXDEBTGROWTH-28DEC31-50",
+    "event_title": "Peak US National Debt Under Trump Administration",
+    "title": "Will the national debt hit $50 trillion during the Trump Administration?",
+    "yes_price": 0.43,
+    "volume_usd": 7951.409500000001,
+    "expiry_date": "2029-03-31",
+    "url": "https://kalshi.com/markets/KXDEBTGROWTH-28DEC31-50",
+    "keywords": [
+      "project finance debt"
+    ]
+  }
+]

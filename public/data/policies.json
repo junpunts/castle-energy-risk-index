@@ -1,0 +1,1939 @@
+[
+  {
+    "id": "fr::2025-00196",
+    "source": "federal_register",
+    "title": "Section 45Y Clean Electricity Production Credit and Section 48E Clean Electricity Investment Credit",
+    "summary": "This document sets forth final regulations regarding the clean electricity production credit and the clean electricity investment credit established by the Inflation Reduction Act of 2022. These final regulations provide rules for determining greenhouse gas emissions rates result",
+    "latest_action": "Rule",
+    "latest_action_date": "2025-01-15",
+    "url": "https://www.federalregister.gov/documents/2025/01/15/2025-00196/section-45y-clean-electricity-production-credit-and-section-48e-clean-electricity-investment-credit",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Treasury Department, Internal Revenue Service",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i",
+      "mojave-bess",
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "Section 45X manufacturing",
+      "Section 45Y PTC",
+      "Section 48E ITC"
+    ]
+  },
+  {
+    "id": "fr::2024-30692",
+    "source": "federal_register",
+    "title": "Nonavailability Waiver applicable to Domestically Assembled Solar Photovoltaics (PV) Panels Referred to as \u201cSolar Modules\u201d Under Build America, Buy America Manufactured Product Provisions as Applied to Recipients of Department of Housing and Urban Development Federal Financial Assistance",
+    "summary": "In accordance with the Build America, Buy America Act (BABA), this notice advises that HUD is proposing to issue a temporary, limited non-availability partial waiver of the manufactured product requirements in BABA included in the Infrastructure Investment and Jobs Act (IIJA) for",
+    "latest_action": "Notice",
+    "latest_action_date": "2024-12-26",
+    "url": "https://www.federalregister.gov/documents/2024/12/26/2024-30692/nonavailability-waiver-applicable-to-domestically-assembled-solar-photovoltaics-pv-panels-referred",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Housing and Urban Development Department",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "Section 48E ITC"
+    ]
+  },
+  {
+    "id": "fr::2024-09233",
+    "source": "federal_register",
+    "title": "New Source Performance Standards for Greenhouse Gas Emissions From New, Modified, and Reconstructed Fossil Fuel-Fired Electric Generating Units; Emission Guidelines for Greenhouse Gas Emissions From Existing Fossil Fuel-Fired Electric Generating Units; and Repeal of the Affordable Clean Energy Rule",
+    "summary": "The Environmental Protection Agency (EPA) is finalizing multiple actions under section 111 of the Clean Air Act (CAA) addressing greenhouse gas (GHG) emissions from fossil fuel-fired electric generating units (EGUs). First, the EPA is finalizing the repeal of the Affordable Clean",
+    "latest_action": "Rule",
+    "latest_action_date": "2024-05-09",
+    "url": "https://www.federalregister.gov/documents/2024/05/09/2024-09233/new-source-performance-standards-for-greenhouse-gas-emissions-from-new-modified-and-reconstructed",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Environmental Protection Agency",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i",
+      "permian-h2-hub",
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "DOE H2Hubs",
+      "Section 45Y PTC",
+      "Section 48E ITC"
+    ]
+  },
+  {
+    "id": "fr::2024-08926",
+    "source": "federal_register",
+    "title": "Transfer of Certain Credits",
+    "summary": "This document contains final regulations concerning the election under the Inflation Reduction Act of 2022 to transfer certain tax credits. The regulations describe rules for the election to transfer eligible credits in a taxable year, including definitions and special rules appl",
+    "latest_action": "Rule",
+    "latest_action_date": "2024-04-30",
+    "url": "https://www.federalregister.gov/documents/2024/04/30/2024-08926/transfer-of-certain-credits",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Treasury Department, Internal Revenue Service",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i",
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "Section 45Y PTC",
+      "Section 48E ITC"
+    ]
+  },
+  {
+    "id": "fr::2026-03638",
+    "source": "federal_register",
+    "title": "National Emission Standards for Hazardous Air Pollutants: Coal- and Oil-Fired Electric Utility Steam Generating Units: Final Repeal",
+    "summary": "The U.S. Environmental Protection Agency (EPA) is finalizing the repeal of specific amendments to the National Emission Standards for Hazardous Air Pollutants (NESHAP) for Coal- and Oil-Fired Electric Utility Steam Generating Units (EGUs), commonly referred to as the Mercury and ",
+    "latest_action": "Rule",
+    "latest_action_date": "2026-02-24",
+    "url": "https://www.federalregister.gov/documents/2026/02/24/2026-03638/national-emission-standards-for-hazardous-air-pollutants-coal--and-oil-fired-electric-utility-steam",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Environmental Protection Agency",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "IRA repeal solar"
+    ]
+  },
+  {
+    "id": "fr::2026-03157",
+    "source": "federal_register",
+    "title": "Rescission of the Greenhouse Gas Endangerment Finding and Motor Vehicle Greenhouse Gas Emission Standards Under the Clean Air Act",
+    "summary": "In this action, the U.S. Environmental Protection Agency (EPA) is rescinding the Administrator's 2009 findings of contribution and endangerment and repealing all greenhouse gas (GHG) emission standards for light-duty, medium-duty, and heavy-duty vehicles and engines to effectuate",
+    "latest_action": "Rule",
+    "latest_action_date": "2026-02-18",
+    "url": "https://www.federalregister.gov/documents/2026/02/18/2026-03157/rescission-of-the-greenhouse-gas-endangerment-finding-and-motor-vehicle-greenhouse-gas-emission",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Environmental Protection Agency",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging",
+      "lone-star-solar-i",
+      "mojave-bess"
+    ],
+    "keywords": [
+      "EV charging tax credit",
+      "IRA repeal solar",
+      "Section 30C",
+      "Section 45W commercial EV",
+      "Section 45X manufacturing"
+    ]
+  },
+  {
+    "id": "fr::2025-22014",
+    "source": "federal_register",
+    "title": "The Safer Affordable Fuel-Efficient (SAFE) Vehicles Rule III for Model Years 2022 to 2031 Passenger Cars and Light Trucks",
+    "summary": "NHTSA, on behalf of the Department of Transportation (DOT), proposes to substantially recalibrate the Corporate Average Fuel Economy (CAFE) program to realign this program with Congressional intent. That recalibration includes proposing to amend DOT's fuel economy standards for l",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2025-12-05",
+    "url": "https://www.federalregister.gov/documents/2025/12/05/2025-22014/the-safer-affordable-fuel-efficient-safe-vehicles-rule-iii-for-model-years-2022-to-2031-passenger",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Transportation Department, National Highway Traffic Safety Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging",
+      "lone-star-solar-i",
+      "mojave-bess",
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "EV charging tax credit",
+      "FHWA EV charging",
+      "IRA repeal solar",
+      "LFP cell import",
+      "Section 45W commercial EV",
+      "Section 45X manufacturing",
+      "hourly matching hydrogen"
+    ]
+  },
+  {
+    "id": "fr::2024-17021",
+    "source": "federal_register",
+    "title": "Medicare and Medicaid Programs and the Children's Health Insurance Program; Hospital Inpatient Prospective Payment Systems for Acute Care Hospitals and the Long-Term Care Hospital Prospective Payment System and Policy Changes and Fiscal Year 2025 Rates; Quality Programs Requirements; and Other Policy Changes",
+    "summary": "This final rule revises the Medicare hospital inpatient prospective payment systems (IPPS) for operating and capital-related costs of acute care hospitals; makes changes relating to Medicare graduate medical education (GME) for teaching hospitals; updates the payment policies and",
+    "latest_action": "Rule",
+    "latest_action_date": "2024-08-28",
+    "url": "https://www.federalregister.gov/documents/2024/08/28/2024-17021/medicare-and-medicaid-programs-and-the-childrens-health-insurance-program-hospital-inpatient",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Health and Human Services Department, Centers for Medicare & Medicaid Services",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging",
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "IRA repeal solar",
+      "NEVI program"
+    ]
+  },
+  {
+    "id": "fr::2026-08244",
+    "source": "federal_register",
+    "title": "Equal Access to Housing in HUD Programs Revisions",
+    "summary": "This proposed rule would harmonize HUD's existing Equal Access regulations with the directions of the Executive Order titled \"Defending Women from Gender Ideology Extremism and Restoring Biological Truth to the Federal Government.\" The rule would remove references to \"gender\" and",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2026-04-28",
+    "url": "https://www.federalregister.gov/documents/2026/04/28/2026-08244/equal-access-to-housing-in-hud-programs-revisions",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Housing and Urban Development Department",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "Section 301 solar"
+    ]
+  },
+  {
+    "id": "fr::2026-06537",
+    "source": "federal_register",
+    "title": "National Environmental Policy Act",
+    "summary": "The U.S. Department of Agriculture (USDA) is adopting the interim final rule (IFR) published on July 3, 2025, with minor changes, as final. The IFR revised departmental regulations implementing the National Environmental Policy Act (NEPA) and removed various USDA agency regulatio",
+    "latest_action": "Rule",
+    "latest_action_date": "2026-04-03",
+    "url": "https://www.federalregister.gov/documents/2026/04/03/2026-06537/national-environmental-policy-act",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Agriculture Department",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging",
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "Section 301 solar",
+      "Section 30C"
+    ]
+  },
+  {
+    "id": "fr::2026-05709",
+    "source": "federal_register",
+    "title": "Order No. 917; Filing Process and Data Collection for the Electric Quarterly Report",
+    "summary": "The Federal Energy Regulatory Commission adopts eXtensible Business Reporting Language-Comma-Separated Values as the standard for filing the Electric Quarterly Report (EQR). In addition, the Commission amends its regulations to require Regional Transmission Organizations and Inde",
+    "latest_action": "Rule",
+    "latest_action_date": "2026-03-24",
+    "url": "https://www.federalregister.gov/documents/2026/03/24/2026-05709/order-no-917-filing-process-and-data-collection-for-the-electric-quarterly-report",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Energy Department, Federal Energy Regulatory Commission",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "Section 301 solar"
+    ]
+  },
+  {
+    "id": "fr::2026-05678",
+    "source": "federal_register",
+    "title": "Endangered and Threatened Wildlife and Plants; Designation of Critical Habitat for 22 Species in the Commonwealth of the Northern Mariana Islands and the Territory of Guam",
+    "summary": "We, the U.S. Fish and Wildlife Service (Service), propose to designate critical habitat for 9 animal species and 13 plant species from the Mariana Islands (the U.S. Territory of Guam and the Commonwealth of Northern Mariana Islands) under the Endangered Species Act (Act). In tota",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2026-03-24",
+    "url": "https://www.federalregister.gov/documents/2026/03/24/2026-05678/endangered-and-threatened-wildlife-and-plants-designation-of-critical-habitat-for-22-species-in-the",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Interior Department, Fish and Wildlife Service",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "Section 301 solar"
+    ]
+  },
+  {
+    "id": "fr::2024-27337",
+    "source": "federal_register",
+    "title": "Notice Regarding the Uyghur Forced Labor Prevention Act Entity List",
+    "summary": "The U.S. Department of Homeland Security (DHS), as the Chair of the Forced Labor Enforcement Task Force (FLETF), announces the publication and availability of the updated Uyghur Forced Labor Prevention Act (UFLPA) Entity List, a consolidated register of the four lists required to",
+    "latest_action": "Notice",
+    "latest_action_date": "2024-11-25",
+    "url": "https://www.federalregister.gov/documents/2024/11/25/2024-27337/notice-regarding-the-uyghur-forced-labor-prevention-act-entity-list",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Homeland Security Department",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "polysilicon UFLPA"
+    ]
+  },
+  {
+    "id": "fr::2023-12178",
+    "source": "federal_register",
+    "title": "Rights-of-Way, Leasing, and Operations for Renewable Energy",
+    "summary": "The Bureau of Land Management (BLM) is proposing to amend its existing right-of-way (ROW) regulations, issued under authority of the Federal Land Policy and Management Act (FLPMA). The principal purpose of these amendments would be to facilitate responsible solar and wind energy ",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2023-06-16",
+    "url": "https://www.federalregister.gov/documents/2023/06/16/2023-12178/rights-of-way-leasing-and-operations-for-renewable-energy",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Interior Department, Land Management Bureau",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "polysilicon UFLPA"
+    ]
+  },
+  {
+    "id": "fr::2022-05738",
+    "source": "federal_register",
+    "title": "Notice of Public Hearing on the Use of Forced Labor in the People's Republic of China and Measures To Prevent the Importation of Goods Produced, Mined, or Manufactured, Wholly or in Part, With Forced Labor in the People's Republic of China Into the United States",
+    "summary": "The Forced Labor Enforcement Task Force (FLETF) will hold a public hearing, as required by the Uyghur Forced Labor Prevention Act, on the use of forced labor in the People's Republic of China and potential measures to prevent the importation of goods mined, produced, or manufactu",
+    "latest_action": "Notice",
+    "latest_action_date": "2022-03-18",
+    "url": "https://www.federalregister.gov/documents/2022/03/18/2022-05738/notice-of-public-hearing-on-the-use-of-forced-labor-in-the-peoples-republic-of-china-and-measures-to",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Homeland Security Department",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "polysilicon UFLPA"
+    ]
+  },
+  {
+    "id": "fr::2022-01444",
+    "source": "federal_register",
+    "title": "Notice Seeking Public Comments on Methods To Prevent the Importation of Goods Mined, Produced, or Manufactured With Forced Labor in the People's Republic of China, Especially in the Xinjiang Uyghur Autonomous Region, Into the United States",
+    "summary": "The U.S. Department of Homeland Security, on behalf of the Forced Labor Enforcement Task Force (FLETF), is seeking comments from the public, as required by the Uyghur Forced Labor Prevention Act, on how best to ensure that goods, wares, articles, and merchandise mined, produced, ",
+    "latest_action": "Notice",
+    "latest_action_date": "2022-01-24",
+    "url": "https://www.federalregister.gov/documents/2022/01/24/2022-01444/notice-seeking-public-comments-on-methods-to-prevent-the-importation-of-goods-mined-produced-or",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Homeland Security Department",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "polysilicon UFLPA"
+    ]
+  },
+  {
+    "id": "fr::2026-08095",
+    "source": "federal_register",
+    "title": "United States et al. v. Constellation Energy Corporation, Inc. et al. Response of Plaintiff United States to Public Comments on the Proposed Final Judgment",
+    "summary": "",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-04-24",
+    "url": "https://www.federalregister.gov/documents/2026/04/24/2026-08095/united-states-et-al-v-constellation-energy-corporation-inc-et-al-response-of-plaintiff-united-states",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Justice Department, Antitrust Division",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "ERCOT interconnection"
+    ]
+  },
+  {
+    "id": "fr::2026-04270",
+    "source": "federal_register",
+    "title": "Commission Information Collection Activities (FERC-725T); Comment Request; Extension",
+    "summary": "In compliance with the requirements of the Paperwork Reduction Act of 1995, the Federal Energy Regulatory Commission (Commission or FERC) is soliciting public comment on the currently approved information collection, FERC-725T, Mandatory Reliability Standards for the Bulk-Power S",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-03-04",
+    "url": "https://www.federalregister.gov/documents/2026/03/04/2026-04270/commission-information-collection-activities-ferc-725t-comment-request-extension",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Energy Department, Federal Energy Regulatory Commission",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "ERCOT interconnection"
+    ]
+  },
+  {
+    "id": "fr::2026-04190",
+    "source": "federal_register",
+    "title": "Commission Information Collection Activities (FERC-725T, 725Z, 725L, 725G, 725A and 725X); Comment Request; Revision",
+    "summary": "In compliance with the requirements of the Paperwork Reduction Act of 1995, the Federal Energy Regulatory Commission (Commission or FERC) is soliciting public comment on the currently approved information collection, FERC-725T_BAL-001-TRE (Primary Frequency Response in the ERCOT ",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-03-03",
+    "url": "https://www.federalregister.gov/documents/2026/03/03/2026-04190/commission-information-collection-activities-ferc-725t-725z-725l-725g-725a-and-725x-comment-request",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Energy Department, Federal Energy Regulatory Commission",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "ERCOT interconnection"
+    ]
+  },
+  {
+    "id": "fr::2025-24102",
+    "source": "federal_register",
+    "title": "Effluent Limitations Guidelines and Standards for the Steam Electric Power Generating Point Source Category-Deadline Extensions",
+    "summary": "The U.S. Environmental Protection Agency (the EPA or Agency) is finalizing a Clean Water Act (CWA) rule to extend deadlines promulgated in the 2024 \"Supplemental Effluent Limitations Guidelines and Standards for the Steam Electric Power Generating Point Source Category\" (2024 rul",
+    "latest_action": "Rule",
+    "latest_action_date": "2025-12-31",
+    "url": "https://www.federalregister.gov/documents/2025/12/31/2025-24102/effluent-limitations-guidelines-and-standards-for-the-steam-electric-power-generating-point-source",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Environmental Protection Agency",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "ERCOT interconnection"
+    ]
+  },
+  {
+    "id": "fr::2026-08194",
+    "source": "federal_register",
+    "title": "Crystalline Silicon Photovoltaic Cells, Whether or Not Assembled Into Modules From India: Preliminary Affirmative Determination of Sales at Less Than Fair Value, and Preliminary Affirmative Determination of Critical Circumstances, in Part",
+    "summary": "The U.S. Department of Commerce (Commerce) preliminarily determines that crystalline silicon photovoltaic cells, whether or not assembled into modules (solar cells) from India are being, or are likely to be, sold in the United States at less than fair value (LTFV). The period of ",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-04-28",
+    "url": "https://www.federalregister.gov/documents/2026/04/28/2026-08194/crystalline-silicon-photovoltaic-cells-whether-or-not-assembled-into-modules-from-india-preliminary",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, International Trade Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i",
+      "mojave-bess"
+    ],
+    "keywords": [
+      "AD CVD solar Cambodia",
+      "battery storage tariff"
+    ]
+  },
+  {
+    "id": "fr::2026-08193",
+    "source": "federal_register",
+    "title": "Crystalline Silicon Photovoltaic Cells, Whether or Not Assembled Into Modules, From Indonesia: Preliminary Affirmative Determination of Sales at Less Than Fair Value, Preliminary Affirmative Determination of Critical Circumstances, in Part",
+    "summary": "The U.S. Department of Commerce (Commerce) preliminarily determines that crystalline silicon photovoltaic cells, whether or not assembled into modules (solar cells) from Indonesia are being, or are likely to be, sold in the United States at less than fair value (LTFV). The period",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-04-28",
+    "url": "https://www.federalregister.gov/documents/2026/04/28/2026-08193/crystalline-silicon-photovoltaic-cells-whether-or-not-assembled-into-modules-from-indonesia",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, International Trade Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "AD CVD solar Cambodia"
+    ]
+  },
+  {
+    "id": "fr::2026-08192",
+    "source": "federal_register",
+    "title": "Crystalline Silicon Photovoltaic Cells, Whether or Not Assembled Into Modules, From the Lao People's Democratic Republic: Preliminary Affirmative Determination of Sales at Less Than Fair Value, Preliminary Affirmative Determination of Critical Circumstances, in Part, and Postponement of Final Determination and Extension of Provisional Measures",
+    "summary": "The U.S. Department of Commerce (Commerce) preliminarily determines that crystalline silicon photovoltaic cells, whether or not assembled into modules (solar cells), from the Lao People's Democratic Republic (Laos) are being, or are likely to be, sold in the United States at less",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-04-28",
+    "url": "https://www.federalregister.gov/documents/2026/04/28/2026-08192/crystalline-silicon-photovoltaic-cells-whether-or-not-assembled-into-modules-from-the-lao-peoples",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, International Trade Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "AD CVD solar Cambodia"
+    ]
+  },
+  {
+    "id": "fr::2026-03897",
+    "source": "federal_register",
+    "title": "Crystalline Silicon Photovoltaic Cells, Whether or Not Assembled Into Modules From the Lao People's Democratic Republic: Preliminary Affirmative Countervailing Duty Determination, Preliminary Negative Critical Circumstances Determination, and Alignment of Final Determination With Final Antidumping Duty Determination",
+    "summary": "The U.S. Department of Commerce (Commerce) preliminarily determines that countervailable subsidies are being provided to producers and exporters of crystalline silicon photovoltaic cells, whether or not assembled into modules (solar cells) from the Lao People's Democratic Republi",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-02-26",
+    "url": "https://www.federalregister.gov/documents/2026/02/26/2026-03897/crystalline-silicon-photovoltaic-cells-whether-or-not-assembled-into-modules-from-the-lao-peoples",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, International Trade Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "lone-star-solar-i"
+    ],
+    "keywords": [
+      "AD CVD solar Cambodia"
+    ]
+  },
+  {
+    "id": "fr::2026-07536",
+    "source": "federal_register",
+    "title": "Taking and Importing Marine Mammals; Taking Marine Mammals Incidental to Geophysical Surveys in the Gulf of America",
+    "summary": "In accordance with the regulations implementing the Marine Mammal Protection Act (MMPA), as amended, notification is hereby given that NMFS promulgates regulations to govern the incidental taking of marine mammals during geophysical survey activity conducted in the Gulf of Americ",
+    "latest_action": "Rule",
+    "latest_action_date": "2026-04-17",
+    "url": "https://www.federalregister.gov/documents/2026/04/17/2026-07536/taking-and-importing-marine-mammals-taking-marine-mammals-incidental-to-geophysical-surveys-in-the",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, National Oceanic and Atmospheric Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "offshore wind moratorium"
+    ]
+  },
+  {
+    "id": "fr::2026-07294",
+    "source": "federal_register",
+    "title": "Endangered and Threatened Species; Notice of 12-Month Findings on a Petition To List the Tope Shark as Threatened or Endangered Under the Endangered Species Act and Proposed Listing of Two Distinct Population Segments of Tope Shark as Threatened",
+    "summary": "We, NMFS, have completed a comprehensive status review of the tope shark (Galeorhinus galeus) in response to a petition to list the species as threatened or endangered under the Endangered Species Act (ESA) of 1973. After reviewing the best scientific and commercial data availabl",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2026-04-15",
+    "url": "https://www.federalregister.gov/documents/2026/04/15/2026-07294/endangered-and-threatened-species-notice-of-12-month-findings-on-a-petition-to-list-the-tope-shark",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, National Oceanic and Atmospheric Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "Jones Act offshore wind",
+      "offshore wind moratorium"
+    ]
+  },
+  {
+    "id": "fr::2026-04256",
+    "source": "federal_register",
+    "title": "Atlantic Highly Migratory Species; Spatial Fisheries Management; Amendment 15 to the 2006 Consolidated Atlantic Highly Migratory Species Fishery Management Plan",
+    "summary": "This final rule implements Amendment 15 to the 2006 Consolidated Atlantic Highly Migratory Species Fishery Management Plan (HMS FMP) (Amendment 15). This final action modifies the timing of the Mid-Atlantic shark closed area, modifies the boundaries of the Charleston Bump and Eas",
+    "latest_action": "Rule",
+    "latest_action_date": "2026-03-04",
+    "url": "https://www.federalregister.gov/documents/2026/03/04/2026-04256/atlantic-highly-migratory-species-spatial-fisheries-management-amendment-15-to-the-2006-consolidated",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, National Oceanic and Atmospheric Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "offshore wind moratorium"
+    ]
+  },
+  {
+    "id": "fr::2026-03691",
+    "source": "federal_register",
+    "title": "Taking and Importing Marine Mammals; Taking Marine Mammals Incidental to Geophysical Surveys in the Gulf of America",
+    "summary": "NMFS has received a request for the reimplementation of incidental take regulations (ITR) governing the incidental taking of marine mammals during geophysical survey activity conducted in the Gulf of America (GOA). Pursuant to the Marine Mammal Protection Act (MMPA), NMFS is requ",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2026-02-24",
+    "url": "https://www.federalregister.gov/documents/2026/02/24/2026-03691/taking-and-importing-marine-mammals-taking-marine-mammals-incidental-to-geophysical-surveys-in-the",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, National Oceanic and Atmospheric Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "Jones Act offshore wind",
+      "offshore wind moratorium"
+    ]
+  },
+  {
+    "id": "fr::2026-03690",
+    "source": "federal_register",
+    "title": "Administrative Revisions to Regulations Related to Outer Continental Shelf Minerals Other Than Oil, Gas, and Sulphur",
+    "summary": "Consistent with Executive Order (E.O.) 14285, \"Unleashing America's Offshore Critical Minerals and Resources\" (April 24, 2025), E.O. 14154 \"Unleashing American Energy\" (January 20, 2025), E.O. 14192 \"Unleashing Prosperity through Deregulation\" (January 31, 2025), and consistent w",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2026-02-24",
+    "url": "https://www.federalregister.gov/documents/2026/02/24/2026-03690/administrative-revisions-to-regulations-related-to-outer-continental-shelf-minerals-other-than-oil",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Interior Department, Ocean Energy Management Bureau",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "BOEM permitting reform"
+    ]
+  },
+  {
+    "id": "fr::2025-17775",
+    "source": "federal_register",
+    "title": "Restoration of Names That Honor American Greatness; Gulf of America",
+    "summary": "This final rule will, throughout the Bureau of Safety and Environmental Enforcement's regulations, rename the area formerly known as the Gulf of Mexico (GOM) as the Gulf of America (GOA). The Gulf of America is the U.S. Continental Shelf area bounded on the northeast, north, and ",
+    "latest_action": "Rule",
+    "latest_action_date": "2025-09-15",
+    "url": "https://www.federalregister.gov/documents/2025/09/15/2025-17775/restoration-of-names-that-honor-american-greatness-gulf-of-america",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Interior Department, Safety and Environmental Enforcement Bureau",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "BOEM permitting reform"
+    ]
+  },
+  {
+    "id": "fr::2025-15325",
+    "source": "federal_register",
+    "title": "Rescission of Expired 1-Year Grace Period for Data Extensions",
+    "summary": "The Department of the Interior (the Department or DOI), acting through the Bureau of Ocean Energy Management (BOEM), is amending the Department's regulations to rescind the portion of a section, describing a grace period for release of geophysical data, that expired in 2010. This",
+    "latest_action": "Rule",
+    "latest_action_date": "2025-08-12",
+    "url": "https://www.federalregister.gov/documents/2025/08/12/2025-15325/rescission-of-expired-1-year-grace-period-for-data-extensions",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Interior Department, Ocean Energy Management Bureau",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "BOEM permitting reform"
+    ]
+  },
+  {
+    "id": "fr::2025-14618",
+    "source": "federal_register",
+    "title": "Remove Regulations for Sulphur Operations",
+    "summary": "The Department of the Interior (DOI or Department), through the Bureau of Safety and Environmental Enforcement (BSEE), is rescinding the majority of the provisions in its sulphur operations subpart and revising the subpart by applying other available regulatory requirements for s",
+    "latest_action": "Rule",
+    "latest_action_date": "2025-08-01",
+    "url": "https://www.federalregister.gov/documents/2025/08/01/2025-14618/remove-regulations-for-sulphur-operations",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Interior Department, Safety and Environmental Enforcement Bureau",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "BOEM permitting reform"
+    ]
+  },
+  {
+    "id": "fr::2026-09757",
+    "source": "federal_register",
+    "title": "Foreign-Trade Zone (FTZ) 116, Notification of Proposed Production Activity; Golden Pass LNG Terminal LLC; (Natural Gas Terminal); Port Arthur, Texas",
+    "summary": "",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-05-15",
+    "url": "https://www.federalregister.gov/documents/2026/05/15/2026-09757/foreign-trade-zone-ftz-116-notification-of-proposed-production-activity-golden-pass-lng-terminal-llc",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, Foreign-Trade Zones Board",
+    "severity": "medium",
+    "affected_project_ids": [
+      "mojave-bess",
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "Section 232 steel",
+      "Section 301 lithium battery"
+    ]
+  },
+  {
+    "id": "fr::2026-09222",
+    "source": "federal_register",
+    "title": "Foreign-Trade Zone (FTZ) 81, Notification of Proposed Production Activity; Turbocam Inc.; (Turbocharger and Aircraft Engine Compressor Components); Barrington, Dover, and Rochester, New Hampshire",
+    "summary": "",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-05-08",
+    "url": "https://www.federalregister.gov/documents/2026/05/08/2026-09222/foreign-trade-zone-ftz-81-notification-of-proposed-production-activity-turbocam-inc-turbocharger-and",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, Foreign-Trade Zones Board",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "Section 232 steel"
+    ]
+  },
+  {
+    "id": "fr::2026-08297",
+    "source": "federal_register",
+    "title": "Notice of Technical Corrections to the Harmonized Tariff Schedule of the United States for Duties Imposed by Presidential Proclamation 11021",
+    "summary": "The President issued Proclamation 11021 \"Strengthening Actions Taken to Adjust Imports of Aluminum, Steel, and Copper Into the United States,\" (Presidential Proclamation) on April 2, 2026, to adjust imports of metal products to address more effectively threats to the national sec",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-04-29",
+    "url": "https://www.federalregister.gov/documents/2026/04/29/2026-08297/notice-of-technical-corrections-to-the-harmonized-tariff-schedule-of-the-united-states-for-duties",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, Industry and Security Bureau",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "Section 232 steel"
+    ]
+  },
+  {
+    "id": "fr::2026-07987",
+    "source": "federal_register",
+    "title": "Procedures for Submissions by Certain Steel and Aluminum Producers Committing to New U.S. Steel or Aluminum Production To Obtain Tariff Adjustments Under Proclamation 10984",
+    "summary": "In Presidential Proclamation 10984 of October 17, 2025 (Adjusting Imports of Medium- and Heavy-Duty Vehicles, Medium- and Heavy-Duty Vehicle Parts, and Buses Into the United States), the President imposed additional tariffs on imports of specified medium- and heavy-duty vehicles ",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-04-23",
+    "url": "https://www.federalregister.gov/documents/2026/04/23/2026-07987/procedures-for-submissions-by-certain-steel-and-aluminum-producers-committing-to-new-us-steel-or",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, International Trade Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "Section 232 steel"
+    ]
+  },
+  {
+    "id": "fr::2026-06854",
+    "source": "federal_register",
+    "title": "Takes of Marine Mammals Incidental to Specified Activities; Taking Marine Mammals Incidental to a Marine Geophysical Survey in the Western Central Atlantic Ocean",
+    "summary": "NMFS has received a request from the Lamont-Doherty Earth Observatory of Columbia University (L-DEO) for authorization to take marine mammals incidental to a marine geophysical survey off the Eastern North American Margin in the Western Central Atlantic Ocean. Pursuant to the Mar",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-04-09",
+    "url": "https://www.federalregister.gov/documents/2026/04/09/2026-06854/takes-of-marine-mammals-incidental-to-specified-activities-taking-marine-mammals-incidental-to-a",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, National Oceanic and Atmospheric Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "Jones Act offshore wind"
+    ]
+  },
+  {
+    "id": "fr::2026-04668",
+    "source": "federal_register",
+    "title": "Takes of Marine Mammals Incidental to Specified Activities; Taking Marine Mammals Incidental to U.S. Navy Operations of Surveillance Towed Array Sensor System Low Frequency Active Sonar in the Western and Central North Pacific Ocean and Eastern Indian Ocean",
+    "summary": "NMFS has received a request from the U.S. Department of the Navy (Navy) for Incidental Take Regulations (ITR) and an associated Letter of Authorization (LOA) pursuant to the Marine Mammal Protection Act (MMPA). The requested regulations would govern the authorization of take of m",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2026-03-10",
+    "url": "https://www.federalregister.gov/documents/2026/03/10/2026-04668/takes-of-marine-mammals-incidental-to-specified-activities-taking-marine-mammals-incidental-to-us",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, National Oceanic and Atmospheric Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "Jones Act offshore wind"
+    ]
+  },
+  {
+    "id": "fr::2024-04604",
+    "source": "federal_register",
+    "title": "Elective Payment of Applicable Credits; Elective Payment of Advanced Manufacturing Investment Credit; Final Rules; Election To Exclude Certain Unincorporated Organizations Owned by Applicable Entities From Application of the Rules on Partners and Partnerships; Proposed Rule",
+    "summary": "This document contains final regulations concerning the election under the Inflation Reduction Act of 2022 to treat the amount of certain tax credits as a payment of Federal income tax. The regulations describe rules for the elective payment of these credit amounts in a taxable y",
+    "latest_action": "Rule",
+    "latest_action_date": "2024-03-11",
+    "url": "https://www.federalregister.gov/documents/2024/03/11/2024-04604/elective-payment-of-applicable-credits-elective-payment-of-advanced-manufacturing-investment-credit",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Treasury Department, Internal Revenue Service",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "Section 45Y PTC"
+    ]
+  },
+  {
+    "id": "fr::2026-09712",
+    "source": "federal_register",
+    "title": "Certain Quartz Surface Products From the People's Republic of China: Rescission of Antidumping Duty Administrative Review; 2024-2025",
+    "summary": "The U.S. Department of Commerce (Commerce) is rescinding the administrative review of the antidumping duty (AD) order on certain quartz surface products from the People's Republic of China (China). The period of review (POR) is July 1, 2024, through June 30, 2025.",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-05-14",
+    "url": "https://www.federalregister.gov/documents/2026/05/14/2026-09712/certain-quartz-surface-products-from-the-peoples-republic-of-china-rescission-of-antidumping-duty",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, International Trade Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "Korean steel plate tariff"
+    ]
+  },
+  {
+    "id": "fr::2026-09692",
+    "source": "federal_register",
+    "title": "Certain Carbon and Alloy Steel Cut-to-Length Plate From the Republic of Korea: Final Results of Countervailing Duty Administrative Review; 2023",
+    "summary": "The U.S. Department of Commerce (Commerce) determines that POSCO Co., Ltd. (POSCO), a producer and exporter of certain carbon and alloy steel cut-to-length plate (CTL plate) from the Republic of Korea (Korea), received countervailable subsidies during the period of review (POR) f",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-05-14",
+    "url": "https://www.federalregister.gov/documents/2026/05/14/2026-09692/certain-carbon-and-alloy-steel-cut-to-length-plate-from-the-republic-of-korea-final-results-of",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, International Trade Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "Korean steel plate tariff"
+    ]
+  },
+  {
+    "id": "fr::2026-09691",
+    "source": "federal_register",
+    "title": "Certain Corrosion-Resistant Steel Products From the Republic of Korea: Final Results and Rescission, in Part, of Antidumping Duty Administrative Review; 2023-2024",
+    "summary": "The U.S. Department of Commerce (Commerce) determines that certain corrosion-resistant steel products (CORE) from the Republic of Korea (Korea) were not sold in the United States at less than normal value (NV) during the July 1, 2023, through June 30, 2024, period of review (POR)",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-05-14",
+    "url": "https://www.federalregister.gov/documents/2026/05/14/2026-09691/certain-corrosion-resistant-steel-products-from-the-republic-of-korea-final-results-and-rescission",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, International Trade Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "Korean steel plate tariff"
+    ]
+  },
+  {
+    "id": "fr::2026-09467",
+    "source": "federal_register",
+    "title": "Circular Welded Non-Alloy Steel Pipe From the Republic of Korea: Preliminary Results and Rescission, in Part, of Antidumping Duty Administrative Review; 2023-2024",
+    "summary": "The U.S. Department of Commerce (Commerce) preliminarily determines that Hyundai Steel Company (Hyundai Steel) and Hyundai Steel Pipe Co., Ltd. (HSP) made sales of subject merchandise at less than normal value (NV) during the period of review (POR), November 1, 2023, through Octo",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-05-13",
+    "url": "https://www.federalregister.gov/documents/2026/05/13/2026-09467/circular-welded-non-alloy-steel-pipe-from-the-republic-of-korea-preliminary-results-and-rescission",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, International Trade Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "vineyard-wind-ii"
+    ],
+    "keywords": [
+      "Korean steel plate tariff"
+    ]
+  },
+  {
+    "id": "fr::2026-05214",
+    "source": "federal_register",
+    "title": "Initiation of Section 301 Investigations: Acts, Policies, and Practices of Certain Economies Relating to Structural Excess Capacity and Production in Manufacturing Sectors",
+    "summary": "The United States Trade Representative (Trade Representative) has initiated investigations under Section 301 of the Trade Act of 1974 regarding the acts, policies, and practices of certain economies relating to structural excess capacity and production in certain manufacturing se",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-03-17",
+    "url": "https://www.federalregister.gov/documents/2026/03/17/2026-05214/initiation-of-section-301-investigations-acts-policies-and-practices-of-certain-economies-relating",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Trade Representative, Office of United States",
+    "severity": "medium",
+    "affected_project_ids": [
+      "mojave-bess"
+    ],
+    "keywords": [
+      "Section 301 lithium battery"
+    ]
+  },
+  {
+    "id": "fr::2026-04415",
+    "source": "federal_register",
+    "title": "Foreign-Trade Zone (FTZ) 53, Notification of Proposed Production Activity; Baker Hughes Oilfield Operations, LLC; (Components for Electrical Submersible Pumping Systems); Claremore, Oklahoma",
+    "summary": "",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-03-06",
+    "url": "https://www.federalregister.gov/documents/2026/03/06/2026-04415/foreign-trade-zone-ftz-53-notification-of-proposed-production-activity-baker-hughes-oilfield",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, Foreign-Trade Zones Board",
+    "severity": "medium",
+    "affected_project_ids": [
+      "mojave-bess"
+    ],
+    "keywords": [
+      "Section 301 lithium battery"
+    ]
+  },
+  {
+    "id": "fr::2026-04189",
+    "source": "federal_register",
+    "title": "Foreign-Trade Zone (FTZ) 18, Notification of Proposed Production Activity; Tesla Inc; (Battery Storage Products and Components); Fremont, Livermore, and Lathrop, California",
+    "summary": "",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-03-03",
+    "url": "https://www.federalregister.gov/documents/2026/03/03/2026-04189/foreign-trade-zone-ftz-18-notification-of-proposed-production-activity-tesla-inc-battery-storage",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, Foreign-Trade Zones Board",
+    "severity": "medium",
+    "affected_project_ids": [
+      "mojave-bess"
+    ],
+    "keywords": [
+      "Section 301 lithium battery"
+    ]
+  },
+  {
+    "id": "fr::2026-09994",
+    "source": "federal_register",
+    "title": "Combined Notice of Filings #1",
+    "summary": "",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-05-19",
+    "url": "https://www.federalregister.gov/documents/2026/05/19/2026-09994/combined-notice-of-filings-1",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Energy Department, Federal Energy Regulatory Commission",
+    "severity": "medium",
+    "affected_project_ids": [
+      "mojave-bess"
+    ],
+    "keywords": [
+      "battery storage tariff"
+    ]
+  },
+  {
+    "id": "fr::2026-09531",
+    "source": "federal_register",
+    "title": "Crystalline Silicon Photovoltaic Cells, Whether or Not Assembled Into Modules, From India, Indonesia, and Laos; Scheduling of the Final Phase of Antidumping and Countervailing Duty Investigations",
+    "summary": "The Commission hereby gives notice of the scheduling of the final phase of antidumping and countervailing duty investigation Nos. 701-TA-772-774 and 731-TA-1756-1758 (Final) pursuant to the Tariff Act of 1930 to determine whether an industry in the United States is materially inj",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-05-13",
+    "url": "https://www.federalregister.gov/documents/2026/05/13/2026-09531/crystalline-silicon-photovoltaic-cells-whether-or-not-assembled-into-modules-from-india-indonesia",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "International Trade Commission",
+    "severity": "medium",
+    "affected_project_ids": [
+      "mojave-bess"
+    ],
+    "keywords": [
+      "battery storage tariff"
+    ]
+  },
+  {
+    "id": "fr::2026-09378",
+    "source": "federal_register",
+    "title": "Combined Notice of Filings #1",
+    "summary": "",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-05-12",
+    "url": "https://www.federalregister.gov/documents/2026/05/12/2026-09378/combined-notice-of-filings-1",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Energy Department, Federal Energy Regulatory Commission",
+    "severity": "medium",
+    "affected_project_ids": [
+      "mojave-bess"
+    ],
+    "keywords": [
+      "battery storage tariff"
+    ]
+  },
+  {
+    "id": "fr::2026-02246",
+    "source": "federal_register",
+    "title": "Section 45Z Clean Fuel Production Credit",
+    "summary": "This document contains proposed regulations regarding the clean fuel production credit enacted by the Inflation Reduction Act of 2022 and amended by the One, Big, Beautiful Bill Act (OBBBA). These proposed regulations would provide rules for determining clean fuel production cred",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2026-02-04",
+    "url": "https://www.federalregister.gov/documents/2026/02/04/2026-02246/section-45z-clean-fuel-production-credit",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Treasury Department, Internal Revenue Service",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging",
+      "mojave-bess",
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "EV charging tax credit",
+      "Section 45V hydrogen",
+      "Section 45X manufacturing"
+    ]
+  },
+  {
+    "id": "fr::2026-07713",
+    "source": "federal_register",
+    "title": "Participation of Aggregators of Retail Demand Response Customers in Markets Operated by Regional Transmission Organizations and Independent System Operators",
+    "summary": "The Commission withdraws a notice of inquiry, which sought comment on whether to revise the Commission's regulations that require a Regional Transmission Organization or Independent System Operator not to accept bids from an aggregator of retail customers that aggregates the dema",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-04-21",
+    "url": "https://www.federalregister.gov/documents/2026/04/21/2026-07713/participation-of-aggregators-of-retail-demand-response-customers-in-markets-operated-by-regional",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Energy Department, Federal Energy Regulatory Commission",
+    "severity": "medium",
+    "affected_project_ids": [
+      "mojave-bess"
+    ],
+    "keywords": [
+      "FERC Order 2222"
+    ]
+  },
+  {
+    "id": "fr::2026-07712",
+    "source": "federal_register",
+    "title": "Combined Notice of Filings #1",
+    "summary": "",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-04-21",
+    "url": "https://www.federalregister.gov/documents/2026/04/21/2026-07712/combined-notice-of-filings-1",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Energy Department, Federal Energy Regulatory Commission",
+    "severity": "medium",
+    "affected_project_ids": [
+      "mojave-bess"
+    ],
+    "keywords": [
+      "FERC Order 2222"
+    ]
+  },
+  {
+    "id": "fr::2025-08061",
+    "source": "federal_register",
+    "title": "Combined Notice of Filings #1",
+    "summary": "",
+    "latest_action": "Notice",
+    "latest_action_date": "2025-05-08",
+    "url": "https://www.federalregister.gov/documents/2025/05/08/2025-08061/combined-notice-of-filings-1",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Energy Department, Federal Energy Regulatory Commission",
+    "severity": "medium",
+    "affected_project_ids": [
+      "mojave-bess"
+    ],
+    "keywords": [
+      "FERC Order 2222"
+    ]
+  },
+  {
+    "id": "fr::2025-06941",
+    "source": "federal_register",
+    "title": "Building for the Future Through Electric Regional Transmission Planning and Cost Allocation",
+    "summary": "In this order, the Federal Energy Regulatory Commission addresses arguments raised on rehearing, grants clarification, in part, and denies clarification, in part, of Order No. 1920-A, which addressed arguments raised on rehearing of, set aside, in part, and clarified Order No. 19",
+    "latest_action": "Rule",
+    "latest_action_date": "2025-04-28",
+    "url": "https://www.federalregister.gov/documents/2025/04/28/2025-06941/building-for-the-future-through-electric-regional-transmission-planning-and-cost-allocation",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Energy Department, Federal Energy Regulatory Commission",
+    "severity": "medium",
+    "affected_project_ids": [
+      "mojave-bess"
+    ],
+    "keywords": [
+      "FERC Order 2222"
+    ]
+  },
+  {
+    "id": "fr::2026-02998",
+    "source": "federal_register",
+    "title": "Active Anode Material From the People's Republic of China: Final Affirmative Determination of Sales at Less Than Fair Value",
+    "summary": "The U.S. Department of Commerce (Commerce) determines that active anode material from the People's Republic of China (China) is being, or likely to be, sold in the United States at less than fair value (LTFV). The period of investigation (POI) is April 1, 2024, through September ",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-02-17",
+    "url": "https://www.federalregister.gov/documents/2026/02/17/2026-02998/active-anode-material-from-the-peoples-republic-of-china-final-affirmative-determination-of-sales-at",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, International Trade Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "mojave-bess"
+    ],
+    "keywords": [
+      "CATL tariff"
+    ]
+  },
+  {
+    "id": "fr::2025-13692",
+    "source": "federal_register",
+    "title": "Active Anode Material From the People's Republic of China: Preliminary Affirmative Determination of Sales at Less Than Fair Value, Postponement of Final Determination and Extension of Provisional Measures",
+    "summary": "The U.S. Department of Commerce (Commerce) preliminarily determines that active anode material from the People's Republic of China (China) is being, or is likely to be, sold in the United States at less than fair value (LTFV). The period of investigation (POI) is April 1, 2024, t",
+    "latest_action": "Notice",
+    "latest_action_date": "2025-07-22",
+    "url": "https://www.federalregister.gov/documents/2025/07/22/2025-13692/active-anode-material-from-the-peoples-republic-of-china-preliminary-affirmative-determination-of",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Commerce Department, International Trade Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "mojave-bess"
+    ],
+    "keywords": [
+      "CATL tariff"
+    ]
+  },
+  {
+    "id": "fr::2023-07974",
+    "source": "federal_register",
+    "title": "Multi-Pollutant Emissions Standards for Model Years 2027 and Later Light-Duty and Medium-Duty Vehicles",
+    "summary": "Under its Clean Air Act authority, the Environmental Protection Agency (EPA) is proposing new, more stringent emissions standards for criteria pollutants and greenhouse gases (GHG) for light- duty vehicles and Class 2b and 3 (\"medium-duty\") vehicles that would phase-in over model",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2023-05-05",
+    "url": "https://www.federalregister.gov/documents/2023/05/05/2023-07974/multi-pollutant-emissions-standards-for-model-years-2027-and-later-light-duty-and-medium-duty",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Environmental Protection Agency",
+    "severity": "medium",
+    "affected_project_ids": [
+      "mojave-bess"
+    ],
+    "keywords": [
+      "CATL tariff"
+    ]
+  },
+  {
+    "id": "fr::2024-12864",
+    "source": "federal_register",
+    "title": "Corporate Average Fuel Economy Standards for Passenger Cars and Light Trucks for Model Years 2027 and Beyond and Fuel Efficiency Standards for Heavy-Duty Pickup Trucks and Vans for Model Years 2030 and Beyond",
+    "summary": "NHTSA, on behalf of the Department of Transportation (DOT), is finalizing Corporate Average Fuel Economy (CAFE) standards for passenger cars and light trucks that increase at a rate of 2 percent per year for passenger cars in model years (MYs) 2027-31, 0 percent per year for ligh",
+    "latest_action": "Rule",
+    "latest_action_date": "2024-06-24",
+    "url": "https://www.federalregister.gov/documents/2024/06/24/2024-12864/corporate-average-fuel-economy-standards-for-passenger-cars-and-light-trucks-for-model-years-2027",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Transportation Department, National Highway Traffic Safety Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging",
+      "mojave-bess"
+    ],
+    "keywords": [
+      "LFP cell import",
+      "NEVI program"
+    ]
+  },
+  {
+    "id": "fr::2024-06809",
+    "source": "federal_register",
+    "title": "Greenhouse Gas Emissions Standards for Heavy-Duty Vehicles-Phase 3",
+    "summary": "The Environmental Protection Agency (EPA) is promulgating new greenhouse gas (GHG) emissions standards for model year (MY) 2032 and later heavy-duty highway vehicles that phase in starting as early MY 2027 for certain vehicle categories. The phase in revises certain MY 2027 GHG s",
+    "latest_action": "Rule",
+    "latest_action_date": "2024-04-22",
+    "url": "https://www.federalregister.gov/documents/2024/04/22/2024-06809/greenhouse-gas-emissions-standards-for-heavy-duty-vehicles-phase-3",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Environmental Protection Agency",
+    "severity": "medium",
+    "affected_project_ids": [
+      "mojave-bess",
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "LFP cell import",
+      "Treasury 45V three pillars"
+    ]
+  },
+  {
+    "id": "fr::2024-06214",
+    "source": "federal_register",
+    "title": "Multi-Pollutant Emissions Standards for Model Years 2027 and Later Light-Duty and Medium-Duty Vehicles",
+    "summary": "Under the Clean Air Act, the Environmental Protection Agency (EPA) is establishing new, more protective emissions standards for criteria pollutants and greenhouse gases (GHG) for light-duty vehicles and Class 2b and 3 (\"medium-duty\") vehicles that will phase-in over model years 2",
+    "latest_action": "Rule",
+    "latest_action_date": "2024-04-18",
+    "url": "https://www.federalregister.gov/documents/2024/04/18/2024-06214/multi-pollutant-emissions-standards-for-model-years-2027-and-later-light-duty-and-medium-duty",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Environmental Protection Agency",
+    "severity": "medium",
+    "affected_project_ids": [
+      "mojave-bess"
+    ],
+    "keywords": [
+      "LFP cell import"
+    ]
+  },
+  {
+    "id": "fr::2025-18332",
+    "source": "federal_register",
+    "title": "Semiannual Agenda",
+    "summary": "This notice is given pursuant to the requirements of the Regulatory Flexibility Act and Executive Order 12866 (\"Regulatory Planning and Review\"), as amended, which require the publication by the Department of a semiannual agenda of regulations.",
+    "latest_action": "Notice",
+    "latest_action_date": "2025-09-22",
+    "url": "https://www.federalregister.gov/documents/2025/09/22/2025-18332/semiannual-agenda",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Treasury Department",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "Section 45V hydrogen"
+    ]
+  },
+  {
+    "id": "fr::2025-17923",
+    "source": "federal_register",
+    "title": "Reconsideration of the Greenhouse Gas Reporting Program",
+    "summary": "The U.S. Environmental Protection Agency (EPA) is proposing to amend the Greenhouse Gas Reporting Program (GHGRP) to remove program obligations for most source categories, including the distribution segment of the petroleum and natural gas systems source category (subpart W--Petr",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2025-09-16",
+    "url": "https://www.federalregister.gov/documents/2025/09/16/2025-17923/reconsideration-of-the-greenhouse-gas-reporting-program",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Environmental Protection Agency",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "Section 45V hydrogen"
+    ]
+  },
+  {
+    "id": "fr::2025-13912",
+    "source": "federal_register",
+    "title": "Notice of Intent To Publish the 45Z Emissions Value Request Process",
+    "summary": "The U.S. Department of Energy (DOE) provides notice of intent to publish the Emissions Value Request Process in support of the U.S. Department of the Treasury's (Treasury) and Internal Revenue Service's (IRS) administration of the clean fuel production credit. Additionally, DOE i",
+    "latest_action": "Notice",
+    "latest_action_date": "2025-07-24",
+    "url": "https://www.federalregister.gov/documents/2025/07/24/2025-13912/notice-of-intent-to-publish-the-45z-emissions-value-request-process",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Energy Department",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "Section 45V hydrogen"
+    ]
+  },
+  {
+    "id": "fr::2024-31513",
+    "source": "federal_register",
+    "title": "Credit for Production of Clean Hydrogen and Energy Credit",
+    "summary": "This document contains final regulations implementing the credit for production of clean hydrogen and certain provisions of the energy credit as enacted by the Inflation Reduction Act of 2022. The regulations provide rules for: determining lifecycle greenhouse gas emissions rates",
+    "latest_action": "Rule",
+    "latest_action_date": "2025-01-10",
+    "url": "https://www.federalregister.gov/documents/2025/01/10/2024-31513/credit-for-production-of-clean-hydrogen-and-energy-credit",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Treasury Department, Internal Revenue Service",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "Treasury 45V three pillars",
+      "green hydrogen tax credit",
+      "hourly matching hydrogen"
+    ]
+  },
+  {
+    "id": "fr::2024-00476",
+    "source": "federal_register",
+    "title": "Introduction to the Unified Agenda of Federal Regulatory and Deregulatory Actions-Fall 2023",
+    "summary": "Publication of the Fall 2023 Unified Agenda of Federal Regulatory and Deregulatory Actions represents a key component of the regulatory planning mechanism prescribed in Executive Order (\"E.O.\") 12866, \"Regulatory Planning and Review,\" (58 FR 51735, as amended) and reaffirmed in E",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2024-02-09",
+    "url": "https://www.federalregister.gov/documents/2024/02/09/2024-00476/introduction-to-the-unified-agenda-of-federal-regulatory-and-deregulatory-actions-fall-2023",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Regulatory Information Service Center",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "Treasury 45V three pillars"
+    ]
+  },
+  {
+    "id": "fr::2023-10141",
+    "source": "federal_register",
+    "title": "New Source Performance Standards for Greenhouse Gas Emissions From New, Modified, and Reconstructed Fossil Fuel-Fired Electric Generating Units; Emission Guidelines for Greenhouse Gas Emissions From Existing Fossil Fuel-Fired Electric Generating Units; and Repeal of the Affordable Clean Energy Rule",
+    "summary": "In this document, the Environmental Protection Agency (EPA) is proposing five separate actions under section 111 of the Clean Air Act (CAA) addressing greenhouse gas (GHG) emissions from fossil fuel-fired electric generating units (EGUs). The EPA is proposing revised new source p",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2023-05-23",
+    "url": "https://www.federalregister.gov/documents/2023/05/23/2023-10141/new-source-performance-standards-for-greenhouse-gas-emissions-from-new-modified-and-reconstructed",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Environmental Protection Agency",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "Treasury 45V three pillars"
+    ]
+  },
+  {
+    "id": "fr::2024-30020",
+    "source": "federal_register",
+    "title": "Notice of Intent To Prepare an Environmental Impact Statement for the California Hydrogen Hub (ARCHES), (DOE/EIS-0570)",
+    "summary": "The U.S. Department of Energy (DOE) announces its intent to prepare an Environmental Impact Statement (EIS) pursuant to the National Environmental Policy Act (NEPA) and applicable NEPA implementing regulations to assess the potential environmental impacts of the proposed action o",
+    "latest_action": "Notice",
+    "latest_action_date": "2024-12-18",
+    "url": "https://www.federalregister.gov/documents/2024/12/18/2024-30020/notice-of-intent-to-prepare-an-environmental-impact-statement-for-the-california-hydrogen-hub-arches",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Energy Department",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "DOE H2Hubs"
+    ]
+  },
+  {
+    "id": "fr::2024-29994",
+    "source": "federal_register",
+    "title": "Notice of Intent To Prepare an Environmental Impact Statement for the Pacific Northwest Hydrogen Hub (PNWH2), (DOE/EIS-0571)",
+    "summary": "The U.S. Department of Energy (DOE) announces its intent to prepare an Environmental Impact Statement (EIS) pursuant to the National Environmental Policy Act (NEPA) and applicable NEPA implementing regulations to assess the potential environmental impacts of the proposed action o",
+    "latest_action": "Notice",
+    "latest_action_date": "2024-12-18",
+    "url": "https://www.federalregister.gov/documents/2024/12/18/2024-29994/notice-of-intent-to-prepare-an-environmental-impact-statement-for-the-pacific-northwest-hydrogen-hub",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Energy Department",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "DOE H2Hubs"
+    ]
+  },
+  {
+    "id": "fr::2024-29976",
+    "source": "federal_register",
+    "title": "Notice of Intent to Prepare an Environmental Impact Statement for the Appalachian Hydrogen Hub (ARCH2), (DOE/EIS-0569)",
+    "summary": "The U.S. Department of Energy (DOE) announces its intent to prepare an Environmental Impact Statement (EIS) pursuant to the National Environmental Policy Act (NEPA) and applicable NEPA implementing regulations to assess the potential environmental impacts of the proposed action o",
+    "latest_action": "Notice",
+    "latest_action_date": "2024-12-18",
+    "url": "https://www.federalregister.gov/documents/2024/12/18/2024-29976/notice-of-intent-to-prepare-an-environmental-impact-statement-for-the-appalachian-hydrogen-hub-arch2",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Energy Department",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "DOE H2Hubs"
+    ]
+  },
+  {
+    "id": "fr::2024-29463",
+    "source": "federal_register",
+    "title": "Review of the Secondary National Ambient Air Quality Standards for Oxides of Nitrogen, Oxides of Sulfur, and Particulate Matter",
+    "summary": "Based on the Environmental Protection Agency's (EPA's) review of the air quality criteria for ecological effects and secondary national ambient air quality standards (NAAQS) for oxides of nitrogen (N oxides), oxides of sulfur (SO<INF>X</INF>), and particulate matter (PM), the EPA",
+    "latest_action": "Rule",
+    "latest_action_date": "2024-12-27",
+    "url": "https://www.federalregister.gov/documents/2024/12/27/2024-29463/review-of-the-secondary-national-ambient-air-quality-standards-for-oxides-of-nitrogen-oxides-of",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Environmental Protection Agency",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "hourly matching hydrogen"
+    ]
+  },
+  {
+    "id": "fr::2024-23421",
+    "source": "federal_register",
+    "title": "Hazardous Materials: Advancing Safety of Highway, Rail, and Vessel Transportation",
+    "summary": "PHMSA proposes to revise the Hazardous Materials Regulations to adopt several modal-specific amendments that would enhance the safe transportation of hazardous materials in commerce. PHMSA, in consultation with the Federal Motor Carrier Safety Administration, the Federal Railroad",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2024-10-28",
+    "url": "https://www.federalregister.gov/documents/2024/10/28/2024-23421/hazardous-materials-advancing-safety-of-highway-rail-and-vessel-transportation",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Transportation Department, Pipeline and Hazardous Materials Safety Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "hourly matching hydrogen"
+    ]
+  },
+  {
+    "id": "fr::2026-07800",
+    "source": "federal_register",
+    "title": "National Emission Standards for Hazardous Air Pollutants: Crude Oil and Natural Gas Production Facilities and Natural Gas Transmission and Storage Facilities; Technology Review and Reconsideration",
+    "summary": "The U.S. Environmental Protection Agency (EPA) is proposing an action related to the National Emission Standards for Hazardous Air Pollutants (NESHAP) from Crude Oil and Natural Gas Production Facilities and from Natural Gas Transmission and Storage Facilities (Oil and Gas NESHAP",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2026-04-22",
+    "url": "https://www.federalregister.gov/documents/2026/04/22/2026-07800/national-emission-standards-for-hazardous-air-pollutants-crude-oil-and-natural-gas-production",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Environmental Protection Agency",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "incrementality hydrogen"
+    ]
+  },
+  {
+    "id": "fr::2026-06808",
+    "source": "federal_register",
+    "title": "Reconsideration of Standards of Performance for New, Reconstructed, and Modified Sources and Emissions Guidelines for Existing Sources: Oil and Natural Gas Sector Climate Review",
+    "summary": "The U.S. Environmental Protection Agency (EPA) is finalizing amendments to the New Source Performance Standards (NSPS) and Emission Guidelines (EG) for Existing Sources for the Crude Oil and Natural Gas Source Category in response to petitions for reconsideration of the March 8, ",
+    "latest_action": "Rule",
+    "latest_action_date": "2026-04-09",
+    "url": "https://www.federalregister.gov/documents/2026/04/09/2026-06808/reconsideration-of-standards-of-performance-for-new-reconstructed-and-modified-sources-and-emissions",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Environmental Protection Agency",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "incrementality hydrogen"
+    ]
+  },
+  {
+    "id": "fr::2026-06304",
+    "source": "federal_register",
+    "title": "National Emission Standards for Hazardous Air Pollutants: Chemical Manufacturing Area Sources Technology Review",
+    "summary": "The Environmental Protection Agency (EPA) is finalizing amendments to the National Emission Standards for Hazardous Air Pollutants (NESHAP) for the Chemical Manufacturing Area Source (CMAS) categories pursuant to a technology review under Clean Air Act (CAA) section 112(d)(6). Sp",
+    "latest_action": "Rule",
+    "latest_action_date": "2026-04-01",
+    "url": "https://www.federalregister.gov/documents/2026/04/01/2026-06304/national-emission-standards-for-hazardous-air-pollutants-chemical-manufacturing-area-sources",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Environmental Protection Agency",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "incrementality hydrogen"
+    ]
+  },
+  {
+    "id": "fr::2026-06275",
+    "source": "federal_register",
+    "title": "Renewable Fuel Standard (RFS) Program: Standards for 2026 and 2027, Partial Waiver of 2025 Cellulosic Biofuel Volume Requirement, and Other Changes",
+    "summary": "Under the Clean Air Act (CAA), the U.S. Environmental Protection Agency (EPA) is required to determine the applicable volume requirements for the Renewable Fuel Standard (RFS) for years after those specified in the statute. The EPA is establishing the applicable volumes and perce",
+    "latest_action": "Rule",
+    "latest_action_date": "2026-04-01",
+    "url": "https://www.federalregister.gov/documents/2026/04/01/2026-06275/renewable-fuel-standard-rfs-program-standards-for-2026-and-2027-partial-waiver-of-2025-cellulosic",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Environmental Protection Agency",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "incrementality hydrogen"
+    ]
+  },
+  {
+    "id": "fr::2025-08853",
+    "source": "federal_register",
+    "title": "Senior Executive Service Positions That Were Career Reserved During Calendar Year 2024",
+    "summary": "This gives notice of all positions in the Senior Executive Service (SES) that were career reserved during calendar year 2024.",
+    "latest_action": "Notice",
+    "latest_action_date": "2025-05-20",
+    "url": "https://www.federalregister.gov/documents/2025/05/20/2025-08853/senior-executive-service-positions-that-were-career-reserved-during-calendar-year-2024",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Personnel Management Office",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "green hydrogen tax credit"
+    ]
+  },
+  {
+    "id": "fr::2024-28190",
+    "source": "federal_register",
+    "title": "Definition of Energy Property and Rules Applicable to the Energy Credit",
+    "summary": "This document sets forth final rules relating to the energy credit, including rules for determining whether investments in energy property are eligible for the energy credit and for implementing certain amendments made by the Inflation Reduction Act of 2022. The final regulations",
+    "latest_action": "Rule",
+    "latest_action_date": "2024-12-12",
+    "url": "https://www.federalregister.gov/documents/2024/12/12/2024-28190/definition-of-energy-property-and-rules-applicable-to-the-energy-credit",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Treasury Department, Internal Revenue Service",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "green hydrogen tax credit"
+    ]
+  },
+  {
+    "id": "fr::2024-21920",
+    "source": "federal_register",
+    "title": "OneRD Guarantee Loan",
+    "summary": "Rural Development's Rural Business-Cooperative Service, Rural Housing Service, and Rural Utilities Service, agencies of the United States Department of Agriculture (USDA), collectively referred to as the Agency in this document, are publishing this final rule for the OneRD Guaran",
+    "latest_action": "Rule",
+    "latest_action_date": "2024-09-30",
+    "url": "https://www.federalregister.gov/documents/2024/09/30/2024-21920/onerd-guarantee-loan",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Agriculture Department, Rural Utilities Service",
+    "severity": "medium",
+    "affected_project_ids": [
+      "permian-h2-hub"
+    ],
+    "keywords": [
+      "green hydrogen tax credit"
+    ]
+  },
+  {
+    "id": "fr::2025-15370",
+    "source": "federal_register",
+    "title": "National Electric Vehicle Infrastructure Formula Program Guidance",
+    "summary": "This notice announces the availability of FHWA's revised National Electric Vehicle Infrastructure (NEVI) Formula Program Interim Final Guidance. This Interim Final Guidance updates the existing NEVI Formula Program Guidance to align with clear and express statutory language in or",
+    "latest_action": "Notice",
+    "latest_action_date": "2025-08-13",
+    "url": "https://www.federalregister.gov/documents/2025/08/13/2025-15370/national-electric-vehicle-infrastructure-formula-program-guidance",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Transportation Department, Federal Highway Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging"
+    ],
+    "keywords": [
+      "FHWA EV charging",
+      "NEVI program"
+    ]
+  },
+  {
+    "id": "fr::2024-18820",
+    "source": "federal_register",
+    "title": "Americans With Disabilities Act and Architectural Barriers Act Accessibility Guidelines; EV Charging Stations",
+    "summary": "The Architectural and Transportation Barriers Compliance Board (hereafter, \"Access Board\" or \"Board\"), is issuing this notice of proposed rulemaking to amend the accessibility guidelines for buildings and facilities covered by the Americans with Disabilities Act of 1990 (ADA) and",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2024-09-03",
+    "url": "https://www.federalregister.gov/documents/2024/09/03/2024-18820/americans-with-disabilities-act-and-architectural-barriers-act-accessibility-guidelines-ev-charging",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Architectural and Transportation Barriers Compliance Board",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging"
+    ],
+    "keywords": [
+      "NEVI program"
+    ]
+  },
+  {
+    "id": "fr::2026-09905",
+    "source": "federal_register",
+    "title": "Revision of Tier 4 Criteria Pollutant Standards, Part 1: Amendments to Phase-In Schedule for Light-Duty and Medium-Duty Vehicles",
+    "summary": "The U.S. Environmental Protection Agency (EPA) is reconsidering the Tier 4 criteria pollutant standards for new motor vehicles promulgated within the final rule entitled \"Multi-Pollutant Emissions Standards for Model Years 2027 and Later Light-Duty and Medium-Duty Vehicles.\" This",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2026-05-18",
+    "url": "https://www.federalregister.gov/documents/2026/05/18/2026-09905/revision-of-tier-4-criteria-pollutant-standards-part-1-amendments-to-phase-in-schedule-for",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Environmental Protection Agency",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging"
+    ],
+    "keywords": [
+      "EV charging tax credit",
+      "Section 45W commercial EV"
+    ]
+  },
+  {
+    "id": "fr::2025-23273",
+    "source": "federal_register",
+    "title": "Amendment of Class D and Establishment of Class E Airspace; Chandler and Phoenix, AZ",
+    "summary": "This action proposes to amend the Class D airspace and establish Class E airspace at Chandler and Phoenix, AZ. The name and geographic coordinates of the Mesa Gateway Airport, Phoenix, AZ, would also be updated to coincide with the FAA's aeronautical database. The FAA is proposin",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2025-12-18",
+    "url": "https://www.federalregister.gov/documents/2025/12/18/2025-23273/amendment-of-class-d-and-establishment-of-class-e-airspace-chandler-and-phoenix-az",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Transportation Department, Federal Aviation Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging"
+    ],
+    "keywords": [
+      "Section 30C"
+    ]
+  },
+  {
+    "id": "fr::2025-12326",
+    "source": "federal_register",
+    "title": "National Environmental Policy Act",
+    "summary": "This interim final rule modifies the U.S. Department of Agriculture (USDA) regulations implementing the National Environmental Policy Act (NEPA) and removes various USDA agency regulations for implementing NEPA. USDA is taking this action in response to the Council on Environment",
+    "latest_action": "Rule",
+    "latest_action_date": "2025-07-03",
+    "url": "https://www.federalregister.gov/documents/2025/07/03/2025-12326/national-environmental-policy-act",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Agriculture Department",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging"
+    ],
+    "keywords": [
+      "Section 30C"
+    ]
+  },
+  {
+    "id": "fr::2026-09855",
+    "source": "federal_register",
+    "title": "Self-Regulatory Organizations; Nasdaq MRX, LLC; Notice of Filing and Immediate Effectiveness of Proposed Rule Change To Establish Fees Related to Certain Historical Costs of the National Market System Plan Governing the Consolidated Audit Trail",
+    "summary": "",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-05-18",
+    "url": "https://www.federalregister.gov/documents/2026/05/18/2026-09855/self-regulatory-organizations-nasdaq-mrx-llc-notice-of-filing-and-immediate-effectiveness-of",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Securities and Exchange Commission",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging"
+    ],
+    "keywords": [
+      "Build America Buy America"
+    ]
+  },
+  {
+    "id": "fr::2026-09854",
+    "source": "federal_register",
+    "title": "Self-Regulatory Organizations; Financial Industry Regulatory Authority, Inc.; Notice of Filing and Immediate Effectiveness of a Proposed Rule Change To Amend FINRA Rule 6897 (Consolidated Audit Trail Funding Fees) To Establish Fees for Industry Members Related to Historical Costs of the National Market System Plan Governing the Consolidated Audit Trail",
+    "summary": "",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-05-18",
+    "url": "https://www.federalregister.gov/documents/2026/05/18/2026-09854/self-regulatory-organizations-financial-industry-regulatory-authority-inc-notice-of-filing-and",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Securities and Exchange Commission",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging"
+    ],
+    "keywords": [
+      "Build America Buy America"
+    ]
+  },
+  {
+    "id": "fr::2026-09853",
+    "source": "federal_register",
+    "title": "Self-Regulatory Organizations; 24X National Exchange LLC; Notice of Filing and Immediate Effectiveness of Proposed Rule Change To Establish Fees for Industry Members Related to Certain Historical Costs of the National Market System Plan Governing the Consolidated Audit Trail",
+    "summary": "",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-05-18",
+    "url": "https://www.federalregister.gov/documents/2026/05/18/2026-09853/self-regulatory-organizations-24x-national-exchange-llc-notice-of-filing-and-immediate-effectiveness",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Securities and Exchange Commission",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging"
+    ],
+    "keywords": [
+      "Build America Buy America"
+    ]
+  },
+  {
+    "id": "fr::2026-09741",
+    "source": "federal_register",
+    "title": "Self-Regulatory Organizations; Nasdaq ISE, LLC; Notice of Filing and Immediate Effectiveness of Proposed Rule Change To Establish Fees Related to Certain Historical Costs of the National Market System Plan Governing the Consolidated Audit Trail",
+    "summary": "",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-05-15",
+    "url": "https://www.federalregister.gov/documents/2026/05/15/2026-09741/self-regulatory-organizations-nasdaq-ise-llc-notice-of-filing-and-immediate-effectiveness-of",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Securities and Exchange Commission",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging"
+    ],
+    "keywords": [
+      "Build America Buy America"
+    ]
+  },
+  {
+    "id": "fr::2026-02825",
+    "source": "federal_register",
+    "title": "Notice of Proposed Modification of the Waiver of Buy America Requirements for Electric Vehicle Chargers",
+    "summary": "The Federal Highway Administration (FHWA) is seeking comments on its February 21, 2023 Waiver of Buy America Requirements for Electric Vehicle (EV) Chargers. FHWA is specifically seeking comment on whether it should modify the waiver to increase the cost threshold of components m",
+    "latest_action": "Notice",
+    "latest_action_date": "2026-02-12",
+    "url": "https://www.federalregister.gov/documents/2026/02/12/2026-02825/notice-of-proposed-modification-of-the-waiver-of-buy-america-requirements-for-electric-vehicle",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Transportation Department, Federal Highway Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging"
+    ],
+    "keywords": [
+      "FHWA EV charging"
+    ]
+  },
+  {
+    "id": "fr::2024-31350",
+    "source": "federal_register",
+    "title": "Buy America Requirements for Manufactured Products",
+    "summary": "This final rule amends FHWA's Buy America regulation to terminate FHWA's general waiver for manufactured products and establish Buy America requirements for manufactured products with respect to Federal-aid highway projects. The standards for applying Buy America to manufactured ",
+    "latest_action": "Rule",
+    "latest_action_date": "2025-01-14",
+    "url": "https://www.federalregister.gov/documents/2025/01/14/2024-31350/buy-america-requirements-for-manufactured-products",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Transportation Department, Federal Highway Administration",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging"
+    ],
+    "keywords": [
+      "FHWA EV charging"
+    ]
+  },
+  {
+    "id": "fr::2025-00256",
+    "source": "federal_register",
+    "title": "Section 45W Credit for Qualified Commercial Clean Vehicles",
+    "summary": "This document contains proposed regulations that would provide guidance on the qualified commercial clean vehicle credit enacted by the Inflation Reduction Act of 2022. These proposed regulations would affect eligible taxpayers that place a qualified commercial clean vehicle in s",
+    "latest_action": "Proposed Rule",
+    "latest_action_date": "2025-01-14",
+    "url": "https://www.federalregister.gov/documents/2025/01/14/2025-00256/section-45w-credit-for-qualified-commercial-clean-vehicles",
+    "sponsors_d": 0,
+    "sponsors_r": 0,
+    "cosponsors_d": 0,
+    "cosponsors_r": 0,
+    "agency": "Treasury Department, Internal Revenue Service",
+    "severity": "medium",
+    "affected_project_ids": [
+      "i95-evcharging"
+    ],
+    "keywords": [
+      "Section 45W commercial EV"
+    ]
+  }
+]
