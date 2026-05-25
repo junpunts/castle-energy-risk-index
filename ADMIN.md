@@ -127,6 +127,49 @@ This three-way split keeps automation, suggestion, and human authority cleanly s
 
 All in Supabase Postgres. One migration per logical group.
 
+### 3.0 Research scaffolds (`supabase/migrations/000-research.sql`)
+
+The long-form scenario brief, hedges library, and analyst notes that ground every LLM call live in Supabase too. Same audit pattern as canonical state.
+
+```sql
+create table archetype_research (
+  archetype_id text primary key references archetypes(id) on delete cascade,
+  scaffold_md text not null,                  -- long-form scenario brief, markdown
+  contracts_library jsonb not null default '[]'::jsonb,  -- per-archetype synthetic + real contract universe
+  notes_md text,                              -- freeform analyst notes
+  updated_at timestamptz not null default now()
+);
+
+create table archetype_research_revisions (
+  id bigserial primary key,
+  archetype_id text not null references archetypes(id) on delete cascade,
+  scaffold_md text not null,
+  contracts_library jsonb not null,
+  notes_md text,
+  updated_by text not null,
+  updated_at timestamptz not null default now()
+);
+create index idx_research_rev on archetype_research_revisions(archetype_id, updated_at desc);
+```
+
+Trigger writes a revision on every update to `archetype_research`:
+
+```sql
+create function snapshot_research_revision() returns trigger language plpgsql as $$
+begin
+  insert into archetype_research_revisions
+    (archetype_id, scaffold_md, contracts_library, notes_md, updated_by)
+    values (old.archetype_id, old.scaffold_md, old.contracts_library, old.notes_md,
+            coalesce(current_setting('app.updated_by', true), 'unknown'));
+  return new;
+end $$;
+
+create trigger trg_research_revision before update on archetype_research
+  for each row execute function snapshot_research_revision();
+```
+
+The agent's `read_research_scaffold` tool reads from this table. The admin can edit scaffold/contracts_library/notes in a Markdown editor on the archetype page. The `data/research/offshore-wind-*` files in git become the **initial seed payload only** — loaded once by `supabase/seed.sql`, then they live in the DB and the git copies are static reference.
+
 ### 3.1 Canonical state (`supabase/migrations/001-archetypes.sql`)
 
 ```sql
@@ -166,13 +209,16 @@ create table pipeline_runs (
   id uuid primary key default gen_random_uuid(),
   pipeline_name text not null,               -- 'daily_refresh', 'rebuild_archetype', …
   archetype_id text references archetypes(id),
-  status text not null,                      -- 'running' | 'completed' | 'failed' | 'aborted'
+  status text not null,                      -- 'queued' | 'claimed' | 'running' | 'completed' | 'failed' | 'aborted'
   started_at timestamptz not null default now(),
   completed_at timestamptz,
   current_stage text,
   error_message text,
   cost_usd numeric(10,4) default 0,
-  triggered_by text not null                 -- 'cron' | 'admin:<user>' | 'copilot:<session_id>'
+  triggered_by text not null,                -- 'cron' | 'admin:<user>' | 'copilot:<session_id>'
+  claimed_by text,                           -- worker id, set on claim_next_run
+  claimed_at timestamptz,
+  abort_requested boolean not null default false  -- web flips this; worker honors at stage boundaries
 );
 
 create index idx_runs_status on pipeline_runs(status);
@@ -516,16 +562,119 @@ Module-level `Map<string, AbortController>` in `lib/pipeline/run-registry.ts`. P
 
 ### 5.6 Cron
 
-```jsonc
-// vercel.json
-{
-  "crons": [
-    { "path": "/api/cron/daily-refresh?archetype=all", "schedule": "0 10 * * 1-5" }
-  ]
+Render Cron Job. Runs `0 10 * * 1-5` ET. One curl call into the web service, which validates `CRON_SECRET` and enqueues one `pipeline_runs` row per archetype with `status='queued'`. The worker picks them up.
+
+```bash
+# scripts/trigger-cron.mjs
+curl -fsS -X POST "$WEB_URL/api/cron/daily-refresh?archetype=all" \
+  -H "x-cron-secret: $CRON_SECRET"
+```
+
+Cron and worker never talk directly. The `pipeline_runs` table is the seam.
+
+### 5.7 Deployment topology
+
+Three Render services, one repo, one Docker build.
+
+**Service A — Web (`castle-energy-risk-index`).** Next.js. Public dashboard, admin UI, API routes. 24/7. No long-running work on the request thread — all it does for pipelines is insert `pipeline_runs` rows with `status='queued'` and tail trace logs over SSE for the admin run page.
+
+**Service B — Worker (`castle-energy-risk-index-worker`).** Long-lived Node process polling Supabase for queued runs. Holds the run-registry, fans out LLM calls (per §5.3 concurrency), writes traces + proposals + applies. No HTTP surface.
+
+**Service C — Cron.** Render Cron Job. Single curl to Service A.
+
+Same Docker image for A and B; different start commands.
+
+```yaml
+# render.yaml
+services:
+  - type: web
+    name: castle-energy-risk-index
+    runtime: node
+    plan: standard
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    envVars:
+      - fromGroup: castle-eri-shared
+    healthCheckPath: /api/health
+
+  - type: worker
+    name: castle-energy-risk-index-worker
+    runtime: node
+    plan: standard
+    buildCommand: npm ci && npm run build
+    startCommand: npm run worker
+    envVars:
+      - fromGroup: castle-eri-shared
+
+  - type: cron
+    name: castle-eri-daily-refresh
+    runtime: node
+    schedule: "0 10 * * 1-5"
+    buildCommand: npm ci
+    startCommand: node scripts/trigger-cron.mjs daily-refresh
+    envVars:
+      - key: WEB_URL
+        sync: false
+      - key: CRON_SECRET
+        sync: false
+
+envVarGroups:
+  - name: castle-eri-shared
+    envVars:
+      - { key: ANTHROPIC_API_KEY, sync: false }
+      - { key: NEXT_PUBLIC_SUPABASE_URL, sync: false }
+      - { key: NEXT_PUBLIC_SUPABASE_ANON_KEY, sync: false }
+      - { key: SUPABASE_SERVICE_ROLE_KEY, sync: false }
+      - { key: SCRAPER_SUPABASE_URL, sync: false }
+      - { key: SCRAPER_SUPABASE_SERVICE_ROLE_KEY, sync: false }
+      - { key: CRON_SECRET, sync: false }
+      - { key: REVALIDATE_TOKEN, sync: false }
+      - { key: ADMIN_EMAILS, sync: false }
+```
+
+**Queue mechanics.** `pipeline_runs.status` gains two values: `queued` and `claimed`. Worker loop:
+
+```ts
+// scripts/worker.ts
+const WORKER_ID = crypto.randomUUID()
+
+while (!shuttingDown) {
+  const { data: run } = await sb.rpc('claim_next_run', { worker_id: WORKER_ID })
+  if (!run) { await sleep(2000); continue }
+  try {
+    await executePipeline(run)
+  } catch (err) {
+    await markRunFailed(run.id, err)
+  }
 }
 ```
 
-`app/api/cron/daily-refresh/route.ts` validates `CRON_SECRET` header and kicks off the same pipeline registry the admin UI uses.
+The `claim_next_run` SQL function uses `for update skip locked` so concurrent workers each grab a distinct row without fighting:
+
+```sql
+create function claim_next_run(worker_id text) returns pipeline_runs language sql as $$
+  update pipeline_runs
+  set status = 'claimed', claimed_by = worker_id, claimed_at = now()
+  where id = (
+    select id from pipeline_runs
+    where status = 'queued'
+    order by started_at
+    limit 1
+    for update skip locked
+  )
+  returning *;
+$$;
+```
+
+Add `claimed_by text` and `claimed_at timestamptz` columns to the `pipeline_runs` migration.
+
+**Aborts across web ↔ worker.** Web can't call `.abort()` on a worker's `AbortController` directly because they're different processes. Instead: web flips `pipeline_runs.abort_requested = true`, and the worker checks this column at every stage boundary (it's already loading the run row to update `current_stage`, so it's a free read). On `true`, the worker raises `RunAborted` and the orchestrator marks the run aborted. Same UX as before — different mechanism.
+
+Add `abort_requested boolean not null default false` to `pipeline_runs`.
+
+**Worker restarts cleanly.** Render redeploys = worker SIGTERM, then restart. The shutdown handler sets `shuttingDown=true`, finishes the current stage if it can within Render's 30s grace, then exits. The half-finished run stays `claimed`; on next worker boot, a reclaimer job (runs every 60s) finds any runs `claimed > 5 minutes ago` with no recent trace activity and flips them back to `queued`. The next worker boot picks them up and resumes from the last completed checkpoint.
+
+**Scaling.** Start with 1 worker replica. Bump to 2–3 when you have 5+ archetypes and the daily refresh window stretches past acceptable. The queue + `skip locked` pattern means N workers distribute load automatically; the shared `p-limit(10)` lives per-process so total in-flight LLM calls is `N × 10`.
 
 ---
 
@@ -701,18 +850,120 @@ Three projects in Supabase: `local` (CLI), `dev` (preview deploys), `prod`. Migr
 
 ---
 
-## 10. Iteration order
+## 10. Build plan
 
-1. **Supabase project + migrations + seed.** Run all five migrations against a fresh dev project. Seed it with the offshore-wind blob (already authored).
-2. **Next.js scaffold + public dashboard.** Port `public/concepts/v2/*` to server components, read from Supabase via `readArchetype`. The public site should look pixel-identical to the static version today.
-3. **Admin shell.** Login (magic link, allowlist), read-only pipelines list, archetype list, empty proposals inbox. Live updates via Supabase Realtime.
-4. **Pipeline runner.** Port `run-registry`, `checkpoints`, stage runner from castle-dashboard. Wire up trigger / abort / resume / SSE telemetry.
-5. **Proposals + apply.** Manual proposal flow + the SQL function for atomic apply. Hand-edit a risk's view paragraph end-to-end.
-6. **Pass-B cron new-risk surfacing.** Emits proposals into the inbox.
-7. **Copilot.** Chat endpoint with `propose_*` tools. Reuses the same proposal apply path.
-8. **News monitor stream.** Periodic adapter polling, dumps to `news_cache`, emits proposals.
+Each milestone is a coherent shippable slice. The order is chosen so that after every milestone the system *runs end-to-end at some level of completeness* — no milestone leaves you with broken code on disk.
 
-Skip Slack, Langfuse, Sentry until the rest is solid.
+### M0 — Infrastructure bootstrap (½ day)
+Goal: empty repo, all three Render services deploying green.
+1. `npx create-next-app castle-energy-risk-index` (TS, app router, tailwind off — we use the existing `colors_and_type.css`).
+2. Drop in the existing assets: `public/assets/css/colors_and_type.css`, fonts, svgs.
+3. Add `render.yaml` from §5.7. Stub web (`app/page.tsx` returns "ok"), worker (`scripts/worker.ts` logs "alive" and sleeps), cron (curls a `/api/health` endpoint).
+4. Create Supabase project (dev). Add env vars to Render. Verify all three services deploy.
+5. **Done when:** web serves a placeholder, worker logs "alive" continuously, cron runs and gets a 200 from `/api/health`.
+
+### M1 — Schema + seed (½ day)
+Goal: offshore-wind data lives in Supabase.
+1. Write migrations 000–005 (research, archetypes, pipelines with the new queue columns, proposals, copilot, news_cache).
+2. Add the `apply_archetype_revision` and `claim_next_run` SQL functions.
+3. Write `supabase/seed.sql`: reads `data/research/offshore-wind-*` files + `public/data/offshore-wind.json`, INSERTs one `archetype_research` row + one `archetypes` row + the initial `archetype_revisions` row.
+4. Apply with `supabase db push` and `npm run db:seed`.
+5. **Done when:** `select state->'archetype'->>'composite' from archetypes` returns `71`.
+
+### M2 — Public dashboard reads from Supabase (1 day)
+Goal: the v2 dashboard renders, pixel-identical, off live DB data.
+1. Write `lib/supabase/server.ts` + `browser.ts`, `lib/archetypes/read.ts`.
+2. Port `public/concepts/v2/index.html` → `app/(public)/page.tsx`. Read with `readAllArchetypes()`. Use server components.
+3. Port `archetype.html` → `app/(public)/archetypes/[id]/page.tsx`. The waterfall SVG generator goes to `lib/charts/waterfall.ts` verbatim.
+4. Port `risk.html` → `app/(public)/archetypes/[id]/risks/[riskId]/page.tsx`. The attention bar generator + timeline component come along.
+5. Add `export const revalidate = 60` to public routes. Add `/api/revalidate` endpoint that bumps tags.
+6. Zod schemas in `lib/schemas.ts` for `ArchetypeBundle`, `Risk`, `RiskDetail`. Parse on read.
+7. **Done when:** `/` and `/archetypes/offshore-wind` and `/archetypes/offshore-wind/risks/ow1` render. The whole site looks identical to the static prototype.
+
+### M3 — Admin shell + auth (1 day)
+Goal: you can log in, browse the data, do nothing else.
+1. Supabase Auth magic-link flow. `ADMIN_EMAILS` allowlist middleware on `/admin/*`.
+2. `/admin/page.tsx` — placeholder dashboard (empty active-runs / open-proposals lists).
+3. `/admin/archetypes/[id]/page.tsx` — read-only mirror of the public archetype page.
+4. `/admin/proposals/page.tsx` — empty inbox.
+5. Supabase Realtime subscriptions for `pipeline_runs` and `proposals` tables (the lists are empty for now but the wiring is there).
+6. **Done when:** unauth user → magic-link page. Authed allowlisted user → admin pages.
+
+### M4 — Proposal flow end-to-end (1 day)
+Goal: you can manually edit a risk's probability via the admin UI.
+1. `lib/archetypes/derive.ts` + `lib/archetypes/validate.ts` (Zod + invariants from BACKEND.md §4).
+2. `POST /api/admin/proposals` — manual proposal creation.
+3. `POST /api/admin/proposals/[id]/apply` — calls `apply_archetype_revision`.
+4. Risk-editor UI (`/admin/archetypes/[id]/risks/[riskId]`) — editable form, "Save" creates auto-approved proposal + applies.
+5. Verify ISR revalidation: edit → public page reflects within 60s.
+6. **Done when:** you bump ow5 probability from 0.70 to 0.68 in the admin UI, hit save, see the change on the public dashboard, see the proposal in the inbox marked `applied`, see the new row in `archetype_revisions`.
+
+### M5 — Pipeline runner + first stage (1 day)
+Goal: queue a run from the admin UI, watch a single stage execute.
+1. Port `lib/pipeline/run-registry.ts` and `lib/pipeline/checkpoints.ts` from castle-dashboard (line-for-line; they target Supabase already).
+2. Write `lib/pipeline/index.ts` — stage abstraction, orchestrator, registry of pipeline definitions.
+3. Write `scripts/worker.ts` — claim loop, calls orchestrator, handles SIGTERM. Implement the reclaimer pass.
+4. Implement one trivial stage: `recompute_derived` (no LLM, no adapters — just reads `state`, runs `deriveFields`, queues an auto-apply proposal if anything changed).
+5. Pipeline `rebuild_archetype` registers this single stage.
+6. `POST /api/admin/pipelines/[name]/run` enqueues a row. `GET /api/admin/pipelines/runs/[id]/stream` SSE-tails `pipeline_traces` for that run.
+7. Admin run-detail page renders the SSE.
+8. **Done when:** click "Re-run rebuild on offshore-wind" → run appears in active-runs → completes → trace inspector shows the stage timing.
+
+### M6 — First LLM stage (1 day)
+Goal: a Sonnet call runs inside the pipeline and emits real proposals.
+1. Write the cost tracker (`lib/llm/cost.ts`) — token counting → USD from a rate table.
+2. Write `lib/llm/limiter.ts` — `p-limit(10)` global.
+3. Implement `update_existing_risks` stage (§5.2 stage 4) but with a synthetic input: a hand-crafted `changes` packet stub.
+4. Write the Pass A prompt + Anthropic tool definitions for `propose_risk_update`, `propose_news_item`, `propose_hedge_update`.
+5. Wire up `promise.allSettled` + tagged telemetry from §5.3.
+6. **Done when:** manually trigger the stage with a stub changes packet → it makes 1 Sonnet call → emits ≥1 proposal → proposal lands in inbox.
+
+### M7 — Adapters + diff (2 days)
+Goal: the daily refresh has real source data.
+1. Define the adapter contract (`lib/adapters/types.ts`): `{ fetch(since: Date): Promise<NewsItem[]> }` with retry/timeout decorators.
+2. Implement 3 adapters first (the highest-leverage feeds): Federal Register, Congress.gov, the castle-scraper Supabase mirror.
+3. Implement `pull_sources` stage — runs adapters in parallel, dedupes by URL, inserts into `news_cache`.
+4. Implement `snapshot_hedge_prices` stage — reads from castle-scraper.
+5. Implement `diff_against_prior` stage — the **single highest-stakes design choice still open** (see "Open design choices" below). Start with keyword matching (cheap, fast); add embeddings later if precision is bad.
+6. **Done when:** trigger daily refresh → news_cache fills up → changes packet is non-empty → Pass A runs against real evidence → proposals look reasonable.
+
+### M8 — Full daily refresh end-to-end (1 day)
+Goal: every stage from §5.2 runs, proposals queue or auto-apply correctly.
+1. Implement `surface_new_risks` (Pass B with Opus). Always queues for review.
+2. Implement `apply_auto_proposals` stage — sequential per archetype.
+3. Implement `notify` stage — Slack webhook or skip if unset.
+4. Hook up the Render Cron service to actually fire.
+5. Add abort-via-column polling at every stage boundary.
+6. **Done when:** the cron schedule fires Monday 6am ET → web enqueues 1 run → worker claims and processes it → public page updates → Slack notification arrives → trace inspector shows the full breakdown.
+
+### M9 — Copilot (1.5 days)
+Goal: chat with the agent and have it propose edits.
+1. Implement `lib/agent/tools.ts` — all `propose_*` tools + read/search tools.
+2. Implement the chat loop in `app/api/admin/copilot/sessions/[id]/chat/route.ts` (SSE, tool-call loop, message persistence).
+3. Chat panel UI — bubble transcript + proposal rail (`components/copilot/Panel.tsx`).
+4. Open-from-anywhere button on `/admin/archetypes/[id]` and `.../risks/[riskId]`.
+5. **Done when:** you say "lower ow5 to 0.62 and pin the Politico item" → copilot calls `propose_risk_update` + `propose_news_item` → both land in the rail → you approve both → public dashboard reflects.
+
+### M10 — Polish & deploy production (1 day)
+1. Production Supabase project; seed it.
+2. Render production services from the same `render.yaml`.
+3. Sentry drop-in (optional but recommended).
+4. `/api/health` includes a Supabase ping and a worker-last-seen check.
+5. README with operator runbook (how to seed an archetype, how to roll back a bad apply, how to interpret a failed run in the trace inspector).
+6. **Done when:** the app is live at `castle-eri.your-domain.com`, the daily refresh runs unattended for one week, and you've successfully used the copilot to make one real edit.
+
+**Total estimate: ~11–13 working days for a single engineer.** Each milestone is independently shippable; if priorities shift, you can stop after M5 and have a "manual editor with no agent" product, or stop after M8 and have a "fully-automated daily refresh with no chat."
+
+### Open design choices that should be locked before M7
+
+1. **Diff/matching algorithm (M7 step 5).** How do new news items match to existing risks?
+   - **Baseline:** TF-IDF / keyword match against risk title + citation + research-scaffold section. Fast, deterministic, easy to debug.
+   - **Better:** OpenAI embeddings on news_cache rows + risk descriptions, top-k nearest. More precision, more cost, harder to debug.
+   - **Recommended:** ship baseline in M7, instrument false-positive / false-negative rates against a hand-labeled set in week 2, upgrade to embeddings in M11 if needed. Don't pre-optimize.
+
+2. **Auto-apply policy.** Currently: probability moves ≤15pp auto-apply, view rewrites always queue. Worth pinning these as constants in `lib/policy.ts` so you can tune them in one place.
+
+3. **Synthetic-contract management.** A near-term gap (flagged earlier). My recommendation: do not build a full synthetic-contracts admin UI in this build cycle. Surface them through `archetype_research.contracts_library` jsonb (analyst-editable as part of the research scaffold), and let the daily refresh propose updates to their probabilities via the same proposal flow. Full library service can come later if needed.
 
 ---
 
