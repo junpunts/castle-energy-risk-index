@@ -1,0 +1,159 @@
+/* Admin styles — minimal, reuses public tokens. */
+
+.admin-nav { letter-spacing: 0.28em; }
+.admin-nav a { transition: color .12s; }
+.admin-nav a:hover { color: var(--fg); }
+.admin-user { color: var(--fg-2); }
+
+/* ── Login ──────────────────────────────────────────── */
+.admin-login {
+  max-width: 480px; margin: 120px auto 0;
+  padding: 0 48px;
+}
+.login-card { padding: 48px 0; }
+.login-card .display-2 { margin-top: 16px; }
+.login-card .lede { margin-top: 24px; max-width: 100%; }
+.login-form {
+  margin-top: 48px; display: flex; flex-direction: column; gap: 16px;
+}
+.login-form label { margin-bottom: -8px; }
+.login-form input {
+  font-family: var(--font-mono); font-size: 14px;
+  padding: 14px 16px; background: transparent;
+  border: 1px solid rgba(24,24,24,0.18);
+  color: var(--fg);
+}
+.login-form input:focus { outline: none; border-color: var(--fg); }
+.login-form button { align-self: flex-start; margin-top: 8px; }
+.login-error {
+  font-family: var(--font-mono); font-size: 11px; color: var(--neg);
+  letter-spacing: 0.04em; margin-top: 0;
+}
+.login-confirm {
+  margin-top: 48px; padding: 32px;
+  background: rgba(36,96,117,0.06);
+  border-left: 2px solid var(--accent);
+}
+.login-confirm .kind {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.32em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 12px;
+}
+
+/* ── Admin dashboard cards ──────────────────────────── */
+.admin-page { max-width: 1200px; margin: 0 auto; padding: 64px 48px 120px; }
+
+.kpi-row {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px;
+  margin-bottom: 80px;
+}
+.kpi-row .l {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--fg-3);
+}
+.kpi-row .v {
+  font-family: var(--font-display); font-size: 56px; line-height: 1;
+  letter-spacing: -0.03em; margin: 16px 0 4px;
+  font-variant-numeric: tabular-nums;
+}
+.kpi-row .help {
+  font-size: 13px; color: var(--fg-3); line-height: 1.5; margin-top: 8px;
+}
+
+/* ── Tables (runs, proposals) ───────────────────────── */
+.admin-table {
+  width: 100%; border-collapse: collapse;
+  font-family: var(--font-body); font-size: 14px;
+}
+.admin-table th, .admin-table td {
+  text-align: left; padding: 18px 16px;
+  border-bottom: var(--hair);
+}
+.admin-table th {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3);
+  border-bottom: var(--rule);
+}
+.admin-table tr:last-child td { border-bottom: none; }
+.admin-table tr:hover td { background: rgba(245,245,245,0.6); }
+.admin-table .mono {
+  font-family: var(--font-mono); font-size: 12px;
+  letter-spacing: 0.02em; color: var(--fg-2);
+}
+.admin-table .ago {
+  font-family: var(--font-mono); font-size: 11px; color: var(--fg-3);
+  letter-spacing: 0.02em;
+}
+.admin-table .empty {
+  padding: 80px 16px; text-align: center; color: var(--fg-3);
+  font-style: italic;
+}
+.admin-table a { text-decoration: underline; text-decoration-color: rgba(24,24,24,0.12); }
+.admin-table a:hover { text-decoration-color: var(--fg); }
+
+.status-pill {
+  display: inline-block; padding: 4px 10px;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  border: 1px solid currentColor;
+}
+.status-pill.queued, .status-pill.pending { color: var(--fg-3); }
+.status-pill.claimed, .status-pill.running { color: var(--accent); }
+.status-pill.completed, .status-pill.applied { color: var(--pos); }
+.status-pill.failed, .status-pill.aborted, .status-pill.rejected { color: var(--neg); }
+.status-pill.superseded { color: var(--fg-3); opacity: 0.6; }
+
+/* ── Editor (M4) ────────────────────────────────────── */
+.editor-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  margin-top: 48px;
+}
+.editor-grid .field { margin-bottom: 24px; }
+.editor-grid .field label {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3);
+  display: block; margin-bottom: 8px;
+}
+.editor-grid .field input,
+.editor-grid .field textarea,
+.editor-grid .field select {
+  width: 100%; box-sizing: border-box;
+  font-family: var(--font-body); font-size: 14px;
+  padding: 10px 12px; background: transparent;
+  border: 1px solid rgba(24,24,24,0.18); color: var(--fg);
+  line-height: 1.5;
+}
+.editor-grid .field textarea { min-height: 160px; resize: vertical; font-family: var(--font-display); font-size: 16px; line-height: 1.55; }
+.editor-grid .field input:focus,
+.editor-grid .field textarea:focus,
+.editor-grid .field select:focus { outline: none; border-color: var(--fg); }
+.editor-actions {
+  display: flex; gap: 12px; margin-top: 32px;
+  padding-top: 32px; border-top: var(--hair);
+}
+.editor-flash {
+  margin-top: 24px; padding: 16px;
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.editor-flash.ok { color: var(--pos); border-left: 2px solid var(--pos); }
+.editor-flash.err { color: var(--neg); border-left: 2px solid var(--neg); }
+
+/* ── Run-detail SSE stream (M5) ─────────────────────── */
+.run-trace {
+  font-family: var(--font-mono); font-size: 12px; line-height: 1.6;
+  background: rgba(24,24,24,0.03);
+  border: 1px solid rgba(24,24,24,0.1);
+  padding: 24px; margin-top: 32px;
+  max-height: 600px; overflow: auto;
+  white-space: pre-wrap;
+}
+.run-trace .line { padding: 2px 0; }
+.run-trace .line.stage { color: var(--accent); font-weight: 700; }
+.run-trace .line.error { color: var(--neg); }
+.run-trace .line.cost { color: var(--fg-3); }
+
+@media (max-width: 1024px) {
+  .kpi-row { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .editor-grid { grid-template-columns: 1fr; gap: 24px; }
+}
