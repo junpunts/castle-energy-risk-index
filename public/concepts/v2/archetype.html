@@ -84,51 +84,78 @@
   .news-row .arr { font-family: var(--font-mono); font-size: 16px; color: var(--fg-3); }
   .news-row:hover .arr { color: var(--fg); }
 
-  /* ── Risks list ───────────────────────────────────── */
-  .risks-list { }
-  .risk-row {
-    display: grid; grid-template-columns: 1fr 100px 100px 24px;
-    gap: 32px; padding: 24px 0; border-bottom: var(--hair);
+  /* ── Risks table ──────────────────────────────────── */
+  /* Cols: rank | category | name+cit | impact bar | IRR | prob | arrow */
+  .risks-table { }
+  .risks-grid {
+    --cols: 32px 96px 1fr 180px 84px 64px 16px;
+    --gap: 28px;
+  }
+  .risks-head {
+    display: grid; grid-template-columns: var(--cols); gap: var(--gap);
+    padding: 14px 0; border-bottom: var(--rule);
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3);
     align-items: baseline;
+  }
+  .risks-head .ir-col { text-align: right; }
+  .risks-head .ir-col .sub {
+    display: block; margin-top: 4px;
+    font-size: 9px; letter-spacing: 0.24em; color: var(--fg-3); opacity: 0.7; font-weight: 500;
+  }
+  .risk-row {
+    display: grid; grid-template-columns: var(--cols); gap: var(--gap);
+    padding: 22px 0; border-bottom: var(--hair);
+    align-items: center;
     text-decoration: none; color: inherit;
     transition: padding .12s, background .12s;
   }
   .risk-row:hover { padding-left: 16px; padding-right: 16px;
                     margin: 0 -16px; background: rgba(245,245,245,0.6); }
+  .risk-row .rank {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.05em; color: var(--fg-3); font-variant-numeric: tabular-nums;
+  }
+  .risk-row .cat {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3);
+  }
   .risk-row .body { min-width: 0; }
   .risk-row .name {
-    font-family: var(--font-display); font-size: 21px; line-height: 1.3;
+    font-family: var(--font-display); font-size: 20px; line-height: 1.25;
     letter-spacing: -0.005em; color: var(--fg); margin: 0;
   }
-  .risk-row .name .cat {
-    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
-    letter-spacing: 0.28em; text-transform: uppercase;
-    color: var(--accent); margin-right: 12px;
-  }
   .risk-row .cit {
-    font-family: var(--font-mono); font-size: 11px; color: var(--fg-3);
-    letter-spacing: 0.02em; margin-top: 8px;
+    font-family: var(--font-mono); font-size: 10px; color: var(--fg-3);
+    letter-spacing: 0.02em; margin-top: 6px; opacity: 0.7;
   }
-  .risk-row .impact, .risk-row .prob {
+  .risk-row .impact-bar { display: flex; align-items: center; }
+  .risk-row .impact-bar .bar {
+    width: 100%; height: 5px; background: rgba(24,24,24,0.06); position: relative;
+  }
+  .risk-row .impact-bar .bar i {
+    display: block; height: 100%; background: var(--accent);
+  }
+  .risk-row .num {
     font-family: var(--font-mono); font-size: 18px; font-weight: 700;
-    letter-spacing: -0.02em; text-align: right;
-    font-variant-numeric: tabular-nums; color: var(--fg);
+    letter-spacing: -0.02em; font-variant-numeric: tabular-nums; text-align: right;
+    color: var(--fg);
   }
-  .risk-row .impact small, .risk-row .prob small {
-    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
-    letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3);
-    display: block; margin-top: 6px;
-  }
-  .risk-row .arr { font-family: var(--font-mono); font-size: 16px; color: var(--fg-3); align-self: center; }
+  .risk-row .num.prob { font-weight: 600; color: var(--fg-2); font-size: 15px; }
+  .risk-row .arr { font-family: var(--font-mono); font-size: 14px; color: var(--fg-3); text-align: right; }
   .risk-row:hover .arr { color: var(--fg); }
 
   @media (max-width: 1024px) {
     .hero { grid-template-columns: 1fr; gap: 32px; }
     .hero .reading { text-align: left; }
     .hero .reading .meta-row { justify-content: flex-start; }
-    .news-row, .risk-row { grid-template-columns: 1fr; gap: 8px; }
+    .news-row { grid-template-columns: 1fr; gap: 8px; }
     .news-row .src, .news-row .ago { grid-row: 1; }
-    .news-row .arr, .risk-row .arr { display: none; }
+    .news-row .arr { display: none; }
+    /* Risks table collapses to: name | impact-bar | values */
+    .risks-grid { --cols: 1fr 120px 64px; --gap: 16px; }
+    .risks-head .h-rank, .risks-head .h-cat, .risks-head .h-prob, .risks-head .h-arr,
+    .risk-row .rank, .risk-row .cat, .risk-row .prob, .risk-row .arr { display: none; }
   }
 </style>
 </head>
@@ -178,7 +205,18 @@
     <span class="l">All tracked risks</span>
     <span class="r" id="risks-meta">Ranked by IRR impact</span>
   </div>
-  <section class="risks-list" id="risks"></section>
+  <section class="risks-table risks-grid">
+    <div class="risks-head">
+      <span class="h-rank">#</span>
+      <span class="h-cat">Category</span>
+      <span class="h-name">Risk</span>
+      <span class="ir-col">Impact magnitude<span class="sub">vs portfolio worst</span></span>
+      <span class="ir-col">IRR pp<span class="sub">probability-weighted</span></span>
+      <span class="h-prob ir-col">Prob</span>
+      <span class="h-arr"></span>
+    </div>
+    <div id="risks"></div>
+  </section>
 
 </main>
 
@@ -212,7 +250,10 @@ if (!A) {
 document.title = `${A.name} — Castle Risk Index`;
 document.getElementById('crumb-name').textContent = A.name;
 
-const risks = (RISKS[A.id] || []).slice().sort((x, y) => (y.impact_irr * y.probability) - (x.impact_irr * x.probability));
+// Sort by absolute probability-weighted IRR impact, largest first.
+const risks = (RISKS[A.id] || []).slice().sort(
+  (x, y) => Math.abs(y.impact_irr * y.probability) - Math.abs(x.impact_irr * x.probability)
+);
 const news = NEWS[A.id] || [];
 
 const totalImpact = risks.reduce((s, r) => s + Math.abs(r.impact_irr * r.probability), 0);
@@ -348,17 +389,22 @@ document.getElementById('news').innerHTML = news.slice(0, 5).map(n => `
   </a>
 `).join('');
 
-// RISKS — clean list
+// RISKS — proper ranked table with inline impact bar
 document.getElementById('risks-meta').textContent = `${risks.length} risks · ranked by IRR impact`;
-document.getElementById('risks').innerHTML = risks.map(r => {
+const maxImpact = Math.max(...risks.map(r => Math.abs(r.impact_irr * r.probability)));
+document.getElementById('risks').innerHTML = risks.map((r, i) => {
   const ei = Math.abs(r.impact_irr * r.probability);
+  const barPct = (ei / maxImpact) * 100;
   return `<a class="risk-row" href="risk.html?archetype=${encodeURIComponent(A.id)}&id=${encodeURIComponent(r.id)}">
+    <span class="rank">${String(i + 1).padStart(2, '0')}</span>
+    <span class="cat">${escape(r.category)}</span>
     <div class="body">
-      <h4 class="name"><span class="cat">${escape(r.category)}</span>${escape(r.title)}</h4>
+      <h4 class="name">${escape(r.title)}</h4>
       <div class="cit">${escape(r.citation)}</div>
     </div>
-    <div class="impact">−${ei.toFixed(1)}pp<small>IRR</small></div>
-    <div class="prob">${Math.round(r.probability * 100)}%<small>probability</small></div>
+    <div class="impact-bar"><div class="bar"><i style="width:${barPct.toFixed(0)}%"></i></div></div>
+    <div class="num">−${ei.toFixed(1)}</div>
+    <div class="num prob">${Math.round(r.probability * 100)}%</div>
     <span class="arr">→</span>
   </a>`;
 }).join('');
