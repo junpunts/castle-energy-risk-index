@@ -7,33 +7,53 @@
 <link rel="stylesheet" href="../../assets/css/colors_and_type.css">
 <link rel="stylesheet" href="_v2.css">
 <style>
-  /* ── Hero ─────────────────────────────────────────── */
+  /* ── Hero — top-aligned, tight ────────────────────── */
   .hero {
-    display: grid; grid-template-columns: 1.2fr 1fr; gap: 96px;
-    align-items: end; padding-bottom: 64px; border-bottom: var(--hair);
+    display: grid; grid-template-columns: 1.5fr 1fr; gap: 96px;
+    align-items: start; padding-bottom: 48px; border-bottom: var(--hair);
   }
-  .hero .display-1 { font-size: clamp(56px, 7vw, 88px); }
-  .hero .lede { margin-top: 32px; }
-  .hero .badges {
-    margin-top: 40px;
-    display: flex; flex-direction: column; gap: 12px;
-    font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  .hero .display-1 { font-size: clamp(56px, 7vw, 88px); margin-top: 16px; }
+  .hero .lede { margin-top: 24px; max-width: 540px; }
+  .hero .reading { text-align: right; }
+  .hero .reading .label { color: var(--fg-3); display: block; margin-bottom: 14px; }
+  .hero .reading .big-num { display: block; margin-top: 4px; }
+  .hero .reading .sub {
+    margin-top: 20px;
+    display: flex; gap: 14px; justify-content: flex-end; flex-wrap: wrap;
+    font-family: var(--font-mono); font-size: 11px; font-weight: 700;
     letter-spacing: 0.08em; color: var(--fg-2);
+    font-variant-numeric: tabular-nums;
   }
-  .hero .badges .row { display: grid; grid-template-columns: 180px 1fr; gap: 16px;
-                       padding: 8px 0; border-top: var(--hair); }
-  .hero .badges .row:first-child { border-top: none; }
-  .hero .badges .label { color: var(--fg-3); letter-spacing: 0.28em; text-transform: uppercase; font-size: 10px; }
-  .hero .reading { text-align: right; align-self: end; }
-  .hero .reading .label { color: var(--fg-3); display: block; margin-bottom: 12px; }
-  .hero .reading .meta-row { margin-top: 20px; display: flex; gap: 32px; justify-content: flex-end; }
-  .hero .reading .meta-row .stat .v {
-    font-family: var(--font-display); font-size: 28px; line-height: 1;
-    letter-spacing: -0.02em; margin-top: 6px; font-variant-numeric: tabular-nums;
+  .hero .reading .sub .item { display: inline-flex; align-items: baseline; gap: 6px; }
+  .hero .reading .sub .item .l {
+    font-size: 9px; font-weight: 600; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--fg-3);
   }
-  .hero .reading .meta-row .stat .l {
-    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+  .hero .reading .sub .item.is-up { color: var(--neg); }
+  .hero .reading .sub .item.is-down { color: var(--pos); }
+  .hero .reading .sub .item.is-flat { color: var(--fg-3); }
+  .hero .reading .sub .sep { color: var(--fg-3); opacity: 0.4; }
+
+  /* Metadata strip — typical economics, full width below the hero */
+  .meta-strip {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    border-bottom: var(--hair);
+  }
+  .meta-strip > div {
+    padding: 22px 24px 22px 0;
+    border-right: var(--hair);
+  }
+  .meta-strip > div:first-child { padding-left: 0; }
+  .meta-strip > div:not(:first-child) { padding-left: 24px; }
+  .meta-strip > div:last-child { border-right: none; padding-right: 0; }
+  .meta-strip .l {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
     letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .meta-strip .v {
+    font-family: var(--font-mono); font-size: 19px; font-weight: 700;
+    letter-spacing: -0.02em; margin-top: 10px;
+    font-variant-numeric: tabular-nums; color: var(--fg);
   }
 
   /* ── Waterfall chart — clean & big ─────────────────── */
@@ -228,7 +248,12 @@
   @media (max-width: 1024px) {
     .hero { grid-template-columns: 1fr; gap: 32px; }
     .hero .reading { text-align: left; }
-    .hero .reading .meta-row { justify-content: flex-start; }
+    .hero .reading .sub { justify-content: flex-start; }
+    .meta-strip { grid-template-columns: repeat(2, 1fr); }
+    .meta-strip > div { border-bottom: var(--hair); }
+    .meta-strip > div:nth-child(2n) { border-right: none; padding-right: 0; }
+    .meta-strip > div:nth-child(2n+1) { border-right: var(--hair); padding-right: 24px; }
+    .meta-strip > div:nth-last-child(-n+1) { border-bottom: none; }
     .news-row { grid-template-columns: 1fr; gap: 8px; }
     .news-row .src, .news-row .ago { grid-row: 1; }
     .news-row .arr { display: none; }
@@ -262,6 +287,7 @@
 <main class="page">
 
   <header class="hero" id="hero"></header>
+  <section class="meta-strip" id="meta-strip"></section>
 
   <!-- Waterfall chart -->
   <section class="chart-block">
@@ -343,39 +369,46 @@ const stressedIRR = baseIRR - totalImpact;
 const deltaClass = A.composite_delta === 0 ? 'is-flat' : A.composite_delta > 0 ? 'is-up' : 'is-down';
 const deltaTxt = A.composite_delta === 0 ? 'flat WoW' : (A.composite_delta > 0 ? '+' : '') + A.composite_delta + ' WoW';
 
-// HERO
+// HERO — top-aligned, three sub-pills under composite (delta, risks, high)
+const deltaArrow = A.composite_delta > 0 ? '↑' : A.composite_delta < 0 ? '↓' : '—';
+const deltaSign  = A.composite_delta > 0 ? '+' : '';
 document.getElementById('hero').innerHTML = `
   <div>
     <span class="eyebrow" style="color:var(--accent)">${escape(A.eyebrow)}</span>
     <h1 class="display-1">${escape(A.name)}.</h1>
     <p class="lede">${escape(A.blurb)}</p>
-    <div class="badges">
-      <div class="row"><span class="label">Typical capacity</span><span>${escape(A.typical.capacity)}</span></div>
-      <div class="row"><span class="label">Typical capex</span><span>${fmtUsd(A.typical.capex)}</span></div>
-      <div class="row"><span class="label">Target equity IRR</span><span>${fmtPct(A.typical.target_irr, 1)}</span></div>
-      <div class="row"><span class="label">COD timeline</span><span>~${A.typical.cod_months} months</span></div>
-      ${A.typical.ppa_price ? `<div class="row"><span class="label">Typical PPA</span><span>~$${A.typical.ppa_price}/MWh</span></div>` : ''}
-    </div>
   </div>
   <div class="reading">
     <span class="tiny-label label">Composite reading</span>
     <span class="big-num">${A.composite}<span class="of">/100</span></span>
-    <div class="meta-row">
-      <div class="stat">
-        <div class="l">Risks tracked</div>
-        <div class="v tabular">${A.risks_total}</div>
-      </div>
-      <div class="stat">
-        <div class="l">High likelihood</div>
-        <div class="v tabular">${A.risks_high}</div>
-      </div>
-      <div class="stat">
-        <div class="l">Composite ${deltaTxt.includes('WoW') && !deltaTxt.includes('flat') ? 'change' : 'trend'}</div>
-        <div class="v tabular" style="color:${deltaClass==='is-up'?'var(--neg)':deltaClass==='is-down'?'var(--pos)':'var(--fg)'}">${deltaTxt}</div>
-      </div>
+    <div class="sub">
+      <span class="item ${deltaClass}">${deltaArrow} ${deltaSign}${A.composite_delta} WoW</span>
+      <span class="sep">·</span>
+      <span class="item"><span class="l">Risks</span><span>${A.risks_total}</span></span>
+      <span class="sep">·</span>
+      <span class="item"><span class="l">High</span><span>${A.risks_high}</span></span>
     </div>
   </div>
 `;
+
+// META STRIP — typical economics, 5 columns below the hero
+const metaItems = [
+  { l: 'Typical capacity', v: A.typical.capacity },
+  { l: 'Typical capex', v: fmtUsd(A.typical.capex) },
+  { l: 'Target equity IRR', v: fmtPct(A.typical.target_irr, 1) },
+  { l: 'COD timeline', v: `~${A.typical.cod_months} mo` },
+];
+if (A.typical.ppa_price) {
+  metaItems.push({ l: 'Typical PPA', v: `~$${A.typical.ppa_price}/MWh` });
+} else {
+  metaItems.push({ l: 'Offtake', v: 'Capacity / RA contracts' });
+}
+document.getElementById('meta-strip').innerHTML = metaItems.map(m => `
+  <div>
+    <div class="l">${escape(m.l)}</div>
+    <div class="v">${escape(m.v)}</div>
+  </div>
+`).join('');
 
 // WATERFALL — numbered x-axis, hit areas for hover tooltips, legend below
 const wfRisks = risks.slice(0, 8);
