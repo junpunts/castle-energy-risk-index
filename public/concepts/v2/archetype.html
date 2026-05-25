@@ -37,7 +37,7 @@
   }
 
   /* ── Waterfall chart — clean & big ─────────────────── */
-  .chart-block { margin-top: 80px; }
+  .chart-block { margin-top: 80px; position: relative; }
   .chart-block .chart-head {
     display: flex; justify-content: space-between; align-items: baseline;
     padding-bottom: 16px; border-bottom: var(--hair); margin-bottom: 48px;
@@ -51,12 +51,92 @@
     letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3);
   }
   .chart-block svg { width: 100%; height: 440px; display: block; font-variant-numeric: tabular-nums; }
+  .chart-block svg .wf-hit { cursor: pointer; }
+  .chart-block svg .wf-bar { transition: fill .12s, fill-opacity .12s; }
+  .chart-block svg .wf-bar.is-active { fill: #1b4f63; }
   .chart-block .caption {
     margin: 32px 0 0; max-width: 720px;
     font-family: var(--font-display); font-style: italic;
     font-size: 17px; line-height: 1.55; color: var(--fg-2);
   }
   .chart-block .caption strong { font-weight: 400; font-style: normal; color: var(--fg); }
+
+  /* Legend table — number / risk name pairs, 2-column */
+  .wf-legend {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0 48px; margin-top: 32px; padding-top: 24px;
+    border-top: var(--hair);
+  }
+  .wf-legend .row {
+    display: grid; grid-template-columns: 32px 1fr auto;
+    gap: 16px; padding: 10px 0; border-bottom: var(--hair);
+    align-items: baseline;
+    font-family: var(--font-body); font-size: 13px; color: var(--fg);
+  }
+  .wf-legend .row .n {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em; color: var(--fg-3); font-variant-numeric: tabular-nums;
+  }
+  .wf-legend .row .v {
+    font-family: var(--font-mono); font-size: 12px; font-weight: 700;
+    letter-spacing: -0.01em; font-variant-numeric: tabular-nums;
+    color: var(--accent);
+  }
+
+  /* Tooltip popover */
+  .wf-tooltip {
+    position: absolute; z-index: 20;
+    background: var(--fg); color: var(--paper);
+    padding: 16px 18px 14px; max-width: 320px; min-width: 240px;
+    pointer-events: none;
+    transform: translate(-50%, calc(-100% - 14px));
+    opacity: 0; transition: opacity .15s;
+    font-variant-ligatures: none;
+  }
+  .wf-tooltip.is-visible { opacity: 1; }
+  .wf-tooltip::after {
+    content: ''; position: absolute; left: 50%; bottom: -8px;
+    transform: translateX(-50%);
+    width: 0; height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid var(--fg);
+  }
+  /* When tooltip flips below the bar, arrow flips up. */
+  .wf-tooltip.is-below { transform: translate(-50%, 14px); }
+  .wf-tooltip.is-below::after {
+    top: -8px; bottom: auto;
+    border-top: 0;
+    border-bottom: 8px solid var(--fg);
+  }
+  .wf-tooltip .cat {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(245,245,240,0.65);
+  }
+  .wf-tooltip .ttl {
+    font-family: var(--font-display); font-size: 17px; line-height: 1.3;
+    letter-spacing: -0.005em; color: var(--paper); margin: 6px 0 12px;
+  }
+  .wf-tooltip .cit {
+    font-family: var(--font-mono); font-size: 10px; color: rgba(245,245,240,0.55);
+    letter-spacing: 0.02em; margin-bottom: 12px;
+  }
+  .wf-tooltip .stats {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 0; border-top: 1px solid rgba(245,245,240,0.18); padding-top: 10px;
+  }
+  .wf-tooltip .stats .s { padding-right: 10px; }
+  .wf-tooltip .stats .l {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgba(245,245,240,0.55);
+  }
+  .wf-tooltip .stats .v {
+    font-family: var(--font-mono); font-size: 14px; font-weight: 700;
+    letter-spacing: -0.02em; margin-top: 4px;
+    font-variant-numeric: tabular-nums; color: var(--paper);
+  }
 
   /* ── News list ────────────────────────────────────── */
   .news-list { }
@@ -187,9 +267,10 @@
   <section class="chart-block">
     <div class="chart-head">
       <h3 id="wf-h3">Estimated impact on project IRR</h3>
-      <span class="meta">Probability-weighted &middot; 18-month horizon</span>
+      <span class="meta">Probability-weighted &middot; 18-month horizon &middot; hover for detail</span>
     </div>
     <svg id="waterfall" viewBox="0 0 1024 440" preserveAspectRatio="xMidYMid meet"></svg>
+    <div class="wf-legend" id="wf-legend"></div>
     <p class="caption" id="wf-caption"></p>
   </section>
 
@@ -296,15 +377,16 @@ document.getElementById('hero').innerHTML = `
   </div>
 `;
 
-// WATERFALL — clean version
+// WATERFALL — numbered x-axis, hit areas for hover tooltips, legend below
+const wfRisks = risks.slice(0, 8);
+
 function buildWaterfall() {
   const svg = document.getElementById('waterfall');
   const W = 1024, H = 440;
-  const padL = 80, padR = 80, padT = 40, padB = 100;
+  const padL = 80, padR = 80, padT = 50, padB = 70;
   const plotW = W - padL - padR;
   const plotH = H - padT - padB;
 
-  const wfRisks = risks.slice(0, 8);
   const yMax = Math.ceil(baseIRR + 1);
   const yMin = Math.min(0, Math.floor(stressedIRR - 1));
   const yRange = yMax - yMin;
@@ -316,7 +398,7 @@ function buildWaterfall() {
 
   let html = '';
 
-  // Horizontal grid every 2pp
+  // gridlines
   const gridStep = yRange > 8 ? 2 : 1;
   for (let v = Math.ceil(yMin / gridStep) * gridStep; v <= yMax; v += gridStep) {
     const y = sy(v);
@@ -325,15 +407,15 @@ function buildWaterfall() {
     html += `<text x="${padL - 12}" y="${y + 4}" font-family="Geist Mono" font-size="11" fill="#737373" text-anchor="end" font-variant-numeric="tabular-nums">${v.toFixed(0)}%</text>`;
   }
 
-  // Start bar — target IRR
+  // Target bar (endpoint)
   const x0 = padL + (colW - barW) / 2;
   const startTop = sy(baseIRR);
   const startBot = sy(Math.max(0, yMin));
   html += `<rect x="${x0}" y="${startTop}" width="${barW}" height="${Math.max(2, startBot - startTop)}" fill="#171717"/>`;
-  html += `<text x="${x0 + barW/2}" y="${startTop - 14}" text-anchor="middle" font-family="Hedvig Letters Serif" font-size="22" fill="#171717" font-variant-numeric="tabular-nums" letter-spacing="-0.02em">${baseIRR.toFixed(1)}%</text>`;
-  html += `<text x="${x0 + barW/2}" y="${H - padB + 26}" text-anchor="middle" font-family="Geist Mono" font-size="10" fill="#737373" letter-spacing="0.25em" font-weight="600">TARGET</text>`;
+  html += `<text x="${x0 + barW/2}" y="${startTop - 14}" text-anchor="middle" font-family="Hedvig Letters Serif" font-size="20" fill="#171717" font-variant-numeric="tabular-nums" letter-spacing="-0.02em">${baseIRR.toFixed(1)}%</text>`;
+  html += `<text x="${x0 + barW/2}" y="${H - padB + 24}" text-anchor="middle" font-family="Geist Mono" font-size="10" fill="#737373" letter-spacing="0.25em" font-weight="600">TARGET</text>`;
 
-  // Risk bars
+  // Risk bars — numbered, with hit-rect overlays for hover
   let running = baseIRR;
   let connectorPrev = startTop;
   wfRisks.forEach((r, i) => {
@@ -342,37 +424,112 @@ function buildWaterfall() {
     const x = padL + (i + 1) * colW + (colW - barW) / 2;
     const yTop = sy(running);
     const yBot = sy(newVal);
-    // dashed connector
     const prevX = padL + i * colW + (colW + barW) / 2;
+    const colX = padL + (i + 1) * colW;
+
+    // dashed connector to previous bar top
     html += `<line x1="${prevX}" y1="${connectorPrev}" x2="${x}" y2="${yTop}" stroke="rgba(24,24,24,0.28)" stroke-dasharray="2 4"/>`;
-    // bar
-    html += `<rect x="${x}" y="${yTop}" width="${barW}" height="${yBot - yTop}" fill="#246075"/>`;
-    // -delta label (above the bar)
-    html += `<text x="${x + barW/2}" y="${yTop - 8}" text-anchor="middle" font-family="Geist Mono" font-size="11" font-weight="700" fill="#246075" font-variant-numeric="tabular-nums" letter-spacing="-0.01em">−${reduction.toFixed(1)}</text>`;
-    // tilted x-axis label
-    const fullTitle = r.title;
-    const lbl = fullTitle.length > 22 ? fullTitle.slice(0, 20) + '…' : fullTitle;
-    html += `<g transform="translate(${x + barW/2}, ${H - padB + 18}) rotate(-32)">
-      <text font-family="Geist Mono" font-size="10" fill="#525252" font-weight="600" text-anchor="end" letter-spacing="0.03em">${escapeXml(lbl)}</text>
-    </g>`;
+    // the visible bar
+    html += `<rect x="${x}" y="${yTop}" width="${barW}" height="${yBot - yTop}" fill="#246075" data-idx="${i}" class="wf-bar"/>`;
+    // value label above bar
+    html += `<text x="${x + barW/2}" y="${yTop - 10}" text-anchor="middle" font-family="Geist Mono" font-size="11" font-weight="700" fill="#246075" font-variant-numeric="tabular-nums" letter-spacing="-0.01em">−${reduction.toFixed(1)}</text>`;
+    // numbered x-axis label — horizontal, readable
+    const numLabel = String(i + 1).padStart(2, '0');
+    html += `<text x="${x + barW/2}" y="${H - padB + 24}" text-anchor="middle" font-family="Geist Mono" font-size="11" fill="#525252" font-weight="700" letter-spacing="0.06em">${numLabel}</text>`;
+    // wide invisible hit area covering the full column for friendlier hovering
+    html += `<rect x="${colX}" y="${padT}" width="${colW}" height="${plotH}" fill="transparent" data-idx="${i}" class="wf-hit"/>`;
+
     connectorPrev = yBot;
     running = newVal;
   });
 
-  // Final bar
+  // Stressed bar (endpoint)
   const xN = padL + (cols - 1) * colW + (colW - barW) / 2;
   const finalTop = sy(running);
   const finalBot = sy(Math.max(0, yMin));
   const prevX = padL + (wfRisks.length) * colW + (colW + barW) / 2;
   html += `<line x1="${prevX}" y1="${connectorPrev}" x2="${xN}" y2="${finalTop}" stroke="rgba(24,24,24,0.28)" stroke-dasharray="2 4"/>`;
   html += `<rect x="${xN}" y="${finalTop}" width="${barW}" height="${Math.max(2, finalBot - finalTop)}" fill="#8B2A1C"/>`;
-  html += `<text x="${xN + barW/2}" y="${finalTop - 14}" text-anchor="middle" font-family="Hedvig Letters Serif" font-size="22" fill="#8B2A1C" font-variant-numeric="tabular-nums" letter-spacing="-0.02em">${running.toFixed(1)}%</text>`;
-  html += `<text x="${xN + barW/2}" y="${H - padB + 26}" text-anchor="middle" font-family="Geist Mono" font-size="10" fill="#737373" letter-spacing="0.25em" font-weight="600">STRESSED</text>`;
+  html += `<text x="${xN + barW/2}" y="${finalTop - 14}" text-anchor="middle" font-family="Hedvig Letters Serif" font-size="20" fill="#8B2A1C" font-variant-numeric="tabular-nums" letter-spacing="-0.02em">${running.toFixed(1)}%</text>`;
+  html += `<text x="${xN + barW/2}" y="${H - padB + 24}" text-anchor="middle" font-family="Geist Mono" font-size="10" fill="#737373" letter-spacing="0.25em" font-weight="600">STRESSED</text>`;
 
   svg.innerHTML = html;
 }
 function escapeXml(s) { return String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
 buildWaterfall();
+
+// LEGEND — number -> name -> value
+document.getElementById('wf-legend').innerHTML = wfRisks.map((r, i) => {
+  const ei = Math.abs(r.impact_irr * r.probability);
+  return `<a class="row" href="risk.html?archetype=${encodeURIComponent(A.id)}&id=${encodeURIComponent(r.id)}" style="text-decoration:none;color:inherit">
+    <span class="n">${String(i + 1).padStart(2, '0')}</span>
+    <span>${escape(r.title)}</span>
+    <span class="v">−${ei.toFixed(1)}pp</span>
+  </a>`;
+}).join('');
+
+// HOVER TOOLTIP — appears above bar with full context
+(function () {
+  const wrap = document.querySelector('.chart-block');
+  const tooltip = document.createElement('div');
+  tooltip.className = 'wf-tooltip';
+  tooltip.hidden = true;
+  wrap.appendChild(tooltip);
+
+  function show(idx, anchorEl) {
+    const r = wfRisks[idx];
+    if (!r) return;
+    const raw = Math.abs(r.impact_irr);
+    const weighted = Math.abs(r.impact_irr * r.probability);
+    tooltip.innerHTML = `
+      <div class="cat">${String(idx + 1).padStart(2, '0')} &middot; ${escape(r.category.toUpperCase())} &middot; ${escape(r.likelihood)} likelihood</div>
+      <div class="ttl">${escape(r.title)}</div>
+      <div class="cit">${escape(r.citation)}</div>
+      <div class="stats">
+        <div class="s"><div class="l">IRR if realized</div><div class="v">−${raw.toFixed(1)}pp</div></div>
+        <div class="s"><div class="l">Probability</div><div class="v">${Math.round(r.probability * 100)}%</div></div>
+        <div class="s"><div class="l">Weighted</div><div class="v">−${weighted.toFixed(1)}pp</div></div>
+      </div>
+    `;
+    // Position horizontally over the bar center; flip the tooltip above or below
+    // based on whether there is room above the bar within the chart-block.
+    const wrapBox = wrap.getBoundingClientRect();
+    const aBox = anchorEl.getBoundingClientRect();
+    const cx = aBox.left + aBox.width / 2 - wrapBox.left;
+    const barTopInWrap = aBox.top - wrapBox.top;
+    const placeBelow = barTopInWrap < 200;
+    tooltip.hidden = false;
+    tooltip.style.left = `${cx}px`;
+    if (placeBelow) {
+      tooltip.style.top = `${aBox.bottom - wrapBox.top}px`;
+      tooltip.classList.add('is-below');
+    } else {
+      tooltip.style.top = `${barTopInWrap}px`;
+      tooltip.classList.remove('is-below');
+    }
+    // active-state on the bar itself
+    document.querySelectorAll('.wf-bar.is-active').forEach(b => b.classList.remove('is-active'));
+    const bar = document.querySelector(`.wf-bar[data-idx="${idx}"]`);
+    if (bar) bar.classList.add('is-active');
+    requestAnimationFrame(() => tooltip.classList.add('is-visible'));
+  }
+  function hide() {
+    tooltip.classList.remove('is-visible');
+    document.querySelectorAll('.wf-bar.is-active').forEach(b => b.classList.remove('is-active'));
+    setTimeout(() => { tooltip.hidden = true; }, 150);
+  }
+  // Bind to both the bar and the wider invisible hit-rect.
+  // Use mouseover/mouseout so re-entering a sibling hit-rect doesn't cause flicker.
+  document.querySelectorAll('.wf-bar, .wf-hit').forEach(el => {
+    el.addEventListener('mouseenter', () => show(parseInt(el.dataset.idx, 10), el));
+    el.addEventListener('mouseleave', (ev) => {
+      // Don't hide if we're moving onto a sibling bar/hit of the same idx
+      const next = ev.relatedTarget;
+      if (next && next.dataset && next.dataset.idx === el.dataset.idx) return;
+      hide();
+    });
+  });
+})();
 
 const topRisk = risks[0];
 document.getElementById('wf-caption').innerHTML =
