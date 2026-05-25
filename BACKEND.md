@@ -320,9 +320,11 @@ For the offshore-wind seed: Σ(p × |Δirr|) ≈ 9.5pp / (8 × 9 risks) = 0.13 �
 | §45Y/§48E (ow5, ow6)       | irs.gov clean-energy hub; congress.gov reconciliation text; JCT.gov scoring | daily |
 | NEPA / right whale (ow7)   | fisheries.noaa.gov ITA notices; PACER docket alerts; epa.gov/eab | daily |
 | OREC (ow9)                 | nyserda.ny.gov; nj.gov/bpu; mass.gov/doer | weekly |
-| Hedges                     | Kalshi public API by ticker; Polymarket subgraph; Castle internal library | hourly during US market hours; snapshot at run-time |
+| Hedge prices               | **castle-scraper Supabase** — separate project at `scraper.castle.tech`, runs its own daily cron pulling Polymarket + Kalshi events + hourly candles. We read from its DB; we do not call Kalshi/Polymarket APIs directly. | per daily refresh (snapshot, not live) |
 
 Each feed has a tiny adapter under `data/adapters/<source>.py` that returns a uniform `{timestamp, source, title, url, body, matched_keywords}` shape. The daily agent only sees these uniform records.
+
+> **Note on live prices:** we are intentionally not running our own hourly hedge-price refresh. Hedge `yes` / `change` fields are populated once at seed time and once per daily refresh from castle-scraper, then shown on the dashboard as a static snapshot. The schema keeps the fields so live prices can be turned on later by swapping the adapter to a polling job — no migration needed.
 
 ---
 

@@ -454,11 +454,12 @@ type PipelineContext = {
 | # | Stage                       | Output                                                 |
 |---|-----------------------------|--------------------------------------------------------|
 | 1 | `pull_sources`              | New rows in `news_cache`.                              |
-| 2 | `diff_against_prior`        | `changes` packet keyed by risk_id (vs `priorState`).   |
-| 3 | `update_existing_risks`     | One LLM call per affected risk → proposals (auto-applied for high-confidence updates, queued for review otherwise). |
-| 4 | `surface_new_risks`         | Pass B → proposals (always queued for review).         |
-| 5 | `apply_auto_proposals`      | Calls `applyProposalToArchetype` for each auto-approved proposal. Each call recomputes derived fields and writes a revision. |
-| 6 | `notify`                    | Slack/email summary if configured.                     |
+| 2 | `snapshot_hedge_prices`     | For every ticker referenced in any archetype's hedges, read the latest price + 7d change from the castle-scraper Supabase. Held in memory for the next stages. |
+| 3 | `diff_against_prior`        | `changes` packet keyed by risk_id (vs `priorState`). Includes hedge-price moves above the 5pp threshold. |
+| 4 | `update_existing_risks`     | One LLM call per affected risk → proposals (auto-applied for high-confidence updates, queued for review otherwise). Hedge price refreshes auto-apply by default. |
+| 5 | `surface_new_risks`         | Pass B → proposals (always queued for review).         |
+| 6 | `apply_auto_proposals`      | Calls `applyProposalToArchetype` for each auto-approved proposal. Each call recomputes derived fields and writes a revision. |
+| 7 | `notify`                    | Slack/email summary if configured.                     |
 
 Note: stages 5–7 from BACKEND.md (`recompute_derived`, `validate`, `write_and_commit`) are now internal to `applyProposalToArchetype` and run *per proposal*, not as separate pipeline stages. This is cleaner because every state change — whether from cron, copilot, or manual edit — flows through the same write path.
 
@@ -528,7 +529,7 @@ Same tools as before; only the storage backend changed.
 | `read_archetype`          | Get the current archetype JSON via `readArchetype(id)`.                  |
 | `read_risk`               | Get one risk's `risk_detail`.                                            |
 | `read_research_scaffold`  | Get the research-scaffold markdown section.                              |
-| `search_hedges_universe`  | Search the contract library + filtered Kalshi/Polymarket universe.       |
+| `search_hedges_universe`  | Search the contract library + the castle-scraper Kalshi/Polymarket mirror. |
 | `search_news_cache`       | Postgres full-text search against `news_cache`.                          |
 | `propose_risk_update`     | Insert a `proposals` row. Required: `risk_id`, `field`, `new_value`, `reasoning`. |
 | `propose_add_risk`        | Same.                                                                    |
@@ -635,6 +636,11 @@ ANTHROPIC_API_KEY=
 NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 SUPABASE_SERVICE_ROLE_KEY=
+
+# castle-scraper — hedge prices read from its Supabase, populated by its own
+# daily cron. We are a read-only consumer. Read https://github.com/castle-main/castle-scraper.
+SCRAPER_SUPABASE_URL=
+SCRAPER_SUPABASE_SERVICE_ROLE_KEY=
 
 # Cron / internal
 CRON_SECRET=                                   # validates the daily-refresh cron call
