@@ -14,6 +14,8 @@ export function createServiceRoleClient() {
   }
   return createClient(url, key, {
     auth: { persistSession: false, autoRefreshToken: false },
+    realtime: { params: { eventsPerSecond: 0 } },
+    global: { headers: { 'x-application-name': 'castle-eri-server' } },
   })
 }
 
@@ -32,5 +34,7 @@ export function createAnonServerClient() {
   }
   return createClient(url, key, {
     auth: { persistSession: false, autoRefreshToken: false },
+    realtime: { params: { eventsPerSecond: 0 } },
+    global: { headers: { 'x-application-name': 'castle-eri-anon-server' } },
   })
 }
