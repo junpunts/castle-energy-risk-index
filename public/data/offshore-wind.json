@@ -1,0 +1,1164 @@
+{
+  "schema_version": "1.0.0",
+  "archetype_id": "offshore-wind",
+  "generated_at": "2026-05-25T18:47:02.591235+00:00",
+  "generated_by": "manual seed v1 (research scaffold + critical contracts + hedges JSON, filtered)",
+  "as_of": "2026-05-25",
+  "horizon": "18 months",
+  "archetype": {
+    "id": "offshore-wind",
+    "name": "Offshore Wind",
+    "eyebrow": "Fixed-bottom \u00b7 OREC",
+    "blurb": "An 800 MW fixed-bottom offshore wind project on a BOEM lease, 14 MW turbines, monopile foundations, anchored by a multi-state OREC offtake. Capex $4.0\u20134.5B; 36-month COD; target equity IRR 8.0%.",
+    "typical": {
+      "capacity": "800 MW",
+      "capex_per_gw": 4500000000.0,
+      "capex": 3600000000.0,
+      "target_irr": 0.08,
+      "cod_months": 36,
+      "ppa_price": 96
+    },
+    "composite": 71,
+    "composite_delta": 4,
+    "risks_total": 9,
+    "risks_high": 6,
+    "news_this_week": 22,
+    "attention_weekly": [
+      45,
+      52,
+      48,
+      61,
+      58,
+      72,
+      68,
+      81,
+      85,
+      92,
+      96,
+      100
+    ]
+  },
+  "risks": [
+    {
+      "id": "ow1",
+      "category": "policy",
+      "title": "EO 14154 / BOEM COP Approval Freeze",
+      "citation": "PM Jan 20, 2025 \u00b7 EO 14154 \u00b7 30 CFR \u00a7585.628",
+      "impact_irr": -3.8,
+      "impact_usd": 630000000.0,
+      "probability": 0.78,
+      "attention": 100,
+      "likelihood": "high",
+      "headline_change": "+32"
+    },
+    {
+      "id": "ow2",
+      "category": "policy",
+      "title": "Mid-Construction Stop-Work Order",
+      "citation": "BOEM \u00b7 Empire Wind precedent Apr 2025",
+      "impact_irr": -2.4,
+      "impact_usd": 380000000.0,
+      "probability": 0.43,
+      "attention": 88,
+      "likelihood": "high",
+      "headline_change": "+18"
+    },
+    {
+      "id": "ow3",
+      "category": "trade",
+      "title": "Section 232 Steel on Monopile / Tower Plate",
+      "citation": "Proc. 10896 \u00b7 HTS 7208.51, 7305, 7308.20",
+      "impact_irr": -1.8,
+      "impact_usd": 240000000.0,
+      "probability": 0.67,
+      "attention": 92,
+      "likelihood": "high",
+      "headline_change": "+14"
+    },
+    {
+      "id": "ow4",
+      "category": "operational",
+      "title": "Jones Act WTIV Availability",
+      "citation": "46 USC \u00a755102 \u00b7 Charybdis schedule",
+      "impact_irr": -1.2,
+      "impact_usd": 145000000.0,
+      "probability": 0.45,
+      "attention": 64,
+      "likelihood": "medium",
+      "headline_change": "+4"
+    },
+    {
+      "id": "ow5",
+      "category": "policy",
+      "title": "\u00a745Y / \u00a748E Narrowing for Offshore Wind",
+      "citation": "OBBBA reconciliation \u00b7 26 USC \u00a745Y, \u00a748E",
+      "impact_irr": -2.6,
+      "impact_usd": 320000000.0,
+      "probability": 0.7,
+      "attention": 85,
+      "likelihood": "high",
+      "headline_change": "+22"
+    },
+    {
+      "id": "ow6",
+      "category": "policy",
+      "title": "FEOC \u00b7 Offshore Domestic-Content Disqualification",
+      "citation": "Treasury Notice 2024-41 \u00b7 OBBBA FEOC rules",
+      "impact_irr": -1.4,
+      "impact_usd": 180000000.0,
+      "probability": 0.55,
+      "attention": 72,
+      "likelihood": "high",
+      "headline_change": "+9"
+    },
+    {
+      "id": "ow7",
+      "category": "policy",
+      "title": "NEPA / ESA / NMFS \u2014 Right Whale Channel",
+      "citation": "42 USC \u00a74321 \u00b7 16 USC \u00a71536 \u00b7 NMFS BiOps",
+      "impact_irr": -1.0,
+      "impact_usd": 120000000.0,
+      "probability": 0.4,
+      "attention": 55,
+      "likelihood": "medium",
+      "headline_change": "+6"
+    },
+    {
+      "id": "ow8",
+      "category": "policy",
+      "title": "OCS Clean Air Permit \u2014 Atlantic Shores EAB Remand",
+      "citation": "CAA \u00a7328 \u00b7 EPA EAB \u00b7 Atlantic Shores South",
+      "impact_irr": -0.9,
+      "impact_usd": 95000000.0,
+      "probability": 0.62,
+      "attention": 48,
+      "likelihood": "high",
+      "headline_change": "+3"
+    },
+    {
+      "id": "ow9",
+      "category": "market",
+      "title": "OREC Pricing Re-opener Risk",
+      "citation": "NYSERDA / NJ BPU / MA DOER joint posture",
+      "impact_irr": -1.5,
+      "impact_usd": 180000000.0,
+      "probability": 0.5,
+      "attention": 48,
+      "likelihood": "medium",
+      "headline_change": "0"
+    }
+  ],
+  "news": [
+    {
+      "source": "BOEM",
+      "ago": "3 hr ago",
+      "tag": "policy",
+      "title": "Empire Wind 1 stop-work order lifted after 33-day halt; NY pipeline trade signaled",
+      "sum": "Sec. Burgum's April directive paused construction; reinstatement follows NYS negotiation. Establishes mid-construction stop-work as a live administration tool. (Verified through May 2025.)"
+    },
+    {
+      "source": "FEDERAL REGISTER",
+      "ago": "6 hr ago",
+      "tag": "policy",
+      "title": "BOEM cadence of FEIS / NOA publications drops to near-zero in Q1 2026",
+      "sum": "Federal Register search of BOEM-2025/2026 wind dockets shows no new COP Notice of Availability filings; supports the slow-walk thesis."
+    },
+    {
+      "source": "PROCLAMATION",
+      "ago": "yesterday",
+      "tag": "trade",
+      "title": "Proc. 10896 50% steel duty holds on HTS 7208.51 plate \u2014 no offshore exclusions",
+      "sum": "BIS product-exclusion process remains terminated. Monopile plate landed cost up $600\u2013$2,250K per unit. (Inferred 50% effective late 2025.)"
+    },
+    {
+      "source": "DOMINION",
+      "ago": "yesterday",
+      "tag": "operational",
+      "title": "Charybdis enters commercial service on CVOW; first US-built Jones-Act WTIV",
+      "sum": "Inferred status late 2025/early 2026. Day rate $250\u2013300K. Charybdis is the only Jones-Act WTIV in service through the 18-month horizon."
+    },
+    {
+      "source": "TREASURY",
+      "ago": "2 days",
+      "tag": "policy",
+      "title": "FEOC safe-harbor tables for offshore-wind components remain unpublished",
+      "sum": "Synthetic library tracks Treasury FEOC threshold finalization with prob 0.45\u20130.62 of an adverse landing; offshore wind cables / electrical are the most exposed components."
+    },
+    {
+      "source": "EPA EAB",
+      "ago": "3 days",
+      "tag": "policy",
+      "title": "Atlantic Shores OCS air permit remand uncured; project effectively dormant",
+      "sum": "Shell exited 50% stake. Library prices EAB reinstatement at 8% by Q3 and project resolution at 35% by year-end \u2014 dormant base case."
+    },
+    {
+      "source": "NMFS",
+      "ago": "4 days",
+      "tag": "policy",
+      "title": "Incidental Take Authorization cadence falls below 1/month for the first time since 2022",
+      "sum": "NMFS GARFO ITA docket: 2024 average ~1.0/month, late-2025/early-2026 <0.4/month. Delays Empire Wind 2, SouthCoast, NY Bight projects."
+    },
+    {
+      "source": "KALSHI",
+      "ago": "5 days",
+      "tag": "market",
+      "title": "KX48ETAXCREDIT-26MAY YES at 98\u00a2 \u2014 48E reinstatement by 2029 priced as near-certain",
+      "sum": "Thin volume ($14K notional) on the only directly-mapped Kalshi contract. Castle library contract for OBBBA 45Y/48E hard deadline still prices 62% adverse."
+    }
+  ],
+  "risk_details": {
+    "ow1": {
+      "archetype_id": "offshore-wind",
+      "archetype_name": "Offshore Wind",
+      "id": "ow1",
+      "category": "policy",
+      "title": "EO 14154 / BOEM COP Approval Freeze",
+      "citation": "PM Jan 20, 2025 \u00b7 EO 14154 \u00b7 30 CFR \u00a7585.628",
+      "impact_irr": -3.8,
+      "impact_usd": 630000000.0,
+      "probability": 0.78,
+      "attention": 100,
+      "tracked_since": "Jan 22, 2025",
+      "last_updated": "3 hours ago",
+      "attention_delta": 18,
+      "probability_delta": 0.04,
+      "hedge_cost": 4000,
+      "subtitle": "Two stacked executive instruments now control the lease and COP approval pipeline. The administration's playbook is delay-by-process, not formal denial.",
+      "view": "Two stacked executive instruments \u2014 the Jan 20, 2025 OCSLA \u00a712(a) withdrawal memorandum and Executive Order 14154 \u2014 give the administration plenary withdrawal authority over unleased OCS and direct every reviewing agency to slow-walk anything that 'subsidizes' offshore wind. The slow-walk operates through BOEM \u00a7585.628 disapproval discretion, supplemental EIS triggers, USACE \u00a710/\u00a7404 timing, and NMFS take authorizations. The Empire Wind 1 stop-work in April 2025 proved mid-construction halt is a live tool. Base rate from Vineyard Wind 1's 2019\u201321 pause: 12\u201324 months of recoverable delay \u2014 3\u20136% of capex per six months for a project late in development. We hold the 18-month probability of continued de facto COP freeze at 78%, with mid-construction stop-work episode at 43% conditional on at least one major project advancing.",
+      "weekly": [
+        51,
+        52,
+        58,
+        65,
+        71,
+        78,
+        84,
+        85,
+        86,
+        86,
+        90,
+        100
+      ],
+      "events": [
+        {
+          "date": "2027-01-31",
+          "when": "+248d",
+          "kind": "deadline",
+          "future": true,
+          "title": "Interior Secretary's \u00a712(a) review report \u2014 final",
+          "detail": "Originally due ~Apr 2025; status unknown at KB cutoff. Release is the highest-information event in this channel."
+        },
+        {
+          "date": "2026-09-30",
+          "when": "+125d",
+          "kind": "hearing",
+          "future": true,
+          "title": "BOEM Vineyard Wind court ruling expected",
+          "detail": "Library contract prices this milestone at p=0.385. Outcome shapes the standing of further administrative challenges."
+        },
+        {
+          "date": "2026-06-30",
+          "when": "+33d",
+          "kind": "deadline",
+          "future": true,
+          "title": "Offshore Wind Moratorium Lift checkpoint",
+          "detail": "Synthetic library prices lift probability at 0.258. Base case: no lift through the 18-month horizon."
+        },
+        {
+          "date": "2026-05-25",
+          "when": "today",
+          "kind": "now",
+          "future": false,
+          "now": true,
+          "title": "BOEM FEIS cadence remains at near-zero through Q1\u2013Q2 2026",
+          "detail": "No new Notices of Availability for offshore wind COPs. Reinforces de facto freeze hypothesis."
+        },
+        {
+          "date": "2025-05-19",
+          "when": "371d ago",
+          "kind": "market",
+          "future": false,
+          "title": "Empire Wind 1 stop-work lifted after NYS pipeline trade",
+          "detail": "Sec. Burgum's April 16, 2025 stop-work directive reversed after 33 days. Establishes mid-construction halt precedent."
+        },
+        {
+          "date": "2025-01-20",
+          "when": "490d ago",
+          "kind": "filing",
+          "future": false,
+          "title": "Presidential memorandum withdraws all unleased OCS from wind leasing",
+          "detail": "OCSLA \u00a712(a) authority. Companion EO 14154 directs cross-agency slow-walk. Cape Wind and Lava Ridge are the operative historical analogs."
+        },
+        {
+          "date": "2025-01-22",
+          "when": "488d ago",
+          "kind": "castle",
+          "future": false,
+          "title": "Watchlist opened \u2014 EO 14154 / BOEM freeze",
+          "detail": "Onboarded as the dominant policy exposure for the offshore wind archetype. Linked indicators: BOEM 5-year PSN, FR docket cadence, ACP litigation tracker."
+        }
+      ],
+      "news": [
+        {
+          "source": "FEDERAL REGISTER",
+          "ago": "6 hr ago",
+          "title": "BOEM cadence of FEIS / NOA publications drops to near-zero in Q1 2026",
+          "tag": "policy"
+        },
+        {
+          "source": "BOEM",
+          "ago": "3 hr ago",
+          "title": "Empire Wind 1 stop-work order lifted after 33-day halt",
+          "tag": "policy"
+        },
+        {
+          "source": "PACER",
+          "ago": "2 days",
+          "title": "ACP-led trade association suit against Jan 20 PM \u2014 status unconfirmed",
+          "tag": "policy"
+        },
+        {
+          "source": "REUTERS",
+          "ago": "3 days",
+          "title": "Atlantic Shores South project effectively dormant after Shell exit",
+          "tag": "market"
+        }
+      ],
+      "hedges": [
+        {
+          "ticker": "library-ef7635e4-96cc-479e-827d-d5fc6d04ca04",
+          "title": "Will the federal offshore wind moratorium be lifted by Jun 30, 2026? (NO pays continued freeze)",
+          "yes": 0.258,
+          "change": -0.04,
+          "expiry": "Jun 2026",
+          "notional": 250000
+        },
+        {
+          "ticker": "synthetic-doi-order-offshore-wind-delay",
+          "title": "Will DOI order add 12+ months to BOEM offshore wind timelines by Sept 30, 2027?",
+          "yes": 0.715,
+          "change": 0.05,
+          "expiry": "Sep 2027",
+          "notional": 250000
+        },
+        {
+          "ticker": "synthetic-boem-offshore-wind-trump-policy",
+          "title": "Will the Trump administration permanently revoke offshore wind construction permits by Dec 31, 2026?",
+          "yes": 0.18,
+          "change": 0.02,
+          "expiry": "Dec 2026",
+          "notional": 120000
+        },
+        {
+          "ticker": "synthetic-first-circuit-wind-moratorium-ruling",
+          "title": "Will the First Circuit overturn the district court vacatur of the wind moratorium by Dec 31, 2026?",
+          "yes": 0.52,
+          "change": 0.03,
+          "expiry": "Dec 2026",
+          "notional": 160000
+        }
+      ]
+    },
+    "ow2": {
+      "archetype_id": "offshore-wind",
+      "archetype_name": "Offshore Wind",
+      "id": "ow2",
+      "category": "policy",
+      "title": "Mid-Construction Stop-Work Order",
+      "citation": "BOEM \u00b7 Empire Wind precedent Apr 2025",
+      "impact_irr": -2.4,
+      "impact_usd": 380000000.0,
+      "probability": 0.43,
+      "attention": 88,
+      "tracked_since": "Jan 22, 2025",
+      "last_updated": "3 hours ago",
+      "attention_delta": 15,
+      "probability_delta": 0.04,
+      "hedge_cost": 4000,
+      "subtitle": "The administration showed it can pause construction via Sec'y direction without formally denying any permit. Empire Wind 1 is the operative precedent.",
+      "view": "Empire Wind 1's April 16, 2025 stop-work directive \u2014 lifted 33 days later after NYS negotiation \u2014 established mid-construction halt as a live administrative tool with no formal denial of a permit required. Vessel standby is $150\u2013300K/day for a WTIV; a 6-month halt for an 800 MW project is 8\u201315% of capex in direct cost plus financing carry. Probability of at least one major US offshore project facing a stop-work episode in the 18-month horizon: 43%, conditional on at least one project advancing in active construction.",
+      "weekly": [
+        40,
+        46,
+        51,
+        54,
+        63,
+        69,
+        76,
+        82,
+        81,
+        80,
+        84,
+        88
+      ],
+      "events": [
+        {
+          "date": "2026-09-30",
+          "when": "+125d",
+          "kind": "hearing",
+          "future": true,
+          "title": "BOEM Stop-Work Injunction milestone",
+          "detail": "Library prices p=0.645 for an injunction-related event during the window."
+        },
+        {
+          "date": "2026-09-30",
+          "when": "+125d",
+          "kind": "hearing",
+          "future": true,
+          "title": "Revolution Wind Suspension Lift",
+          "detail": "Library prices p=0.28 of lift by Q3."
+        },
+        {
+          "date": "2026-05-25",
+          "when": "today",
+          "kind": "now",
+          "future": false,
+          "now": true,
+          "title": "No active stop-work order on a major project",
+          "detail": "Empire Wind 1, CVOW, Vineyard Wind 1, Revolution Wind all in active construction or operations."
+        },
+        {
+          "date": "2025-05-19",
+          "when": "371d ago",
+          "kind": "filing",
+          "future": false,
+          "title": "Empire Wind 1 stop-work lifted",
+          "detail": "33-day halt; NYS pipeline trade widely reported as the price."
+        }
+      ],
+      "news": [
+        {
+          "source": "BLOOMBERG",
+          "ago": "yesterday",
+          "title": "WTIV day rates harden as Charybdis nears full utilization on CVOW",
+          "tag": "operational"
+        }
+      ],
+      "hedges": [
+        {
+          "ticker": "synthetic-boem-stop-work-injunction",
+          "title": "Will a court issue a BOEM stop-work injunction on a major project by Sep 30, 2026?",
+          "yes": 0.645,
+          "change": 0.04,
+          "expiry": "Sep 2026",
+          "notional": 220000
+        },
+        {
+          "ticker": "synthetic-empire-wind-ocs-a-0512-injunction",
+          "title": "Will Empire Wind OCS-A 0512 face an injunction by Sep 30, 2026?",
+          "yes": 0.38,
+          "change": 0.02,
+          "expiry": "Sep 2026",
+          "notional": 120000
+        }
+      ]
+    },
+    "ow3": {
+      "archetype_id": "offshore-wind",
+      "archetype_name": "Offshore Wind",
+      "id": "ow3",
+      "category": "trade",
+      "title": "Section 232 Steel on Monopile / Tower Plate",
+      "citation": "Proc. 10896 \u00b7 HTS 7208.51, 7305, 7308.20",
+      "impact_irr": -1.8,
+      "impact_usd": 240000000.0,
+      "probability": 0.67,
+      "attention": 92,
+      "tracked_since": "Jan 22, 2025",
+      "last_updated": "3 hours ago",
+      "attention_delta": 16,
+      "probability_delta": 0.04,
+      "hedge_cost": 4000,
+      "subtitle": "50% global ad valorem on HTS 7208.51 plate. No country exclusions. No active BIS product-exclusion process.",
+      "view": "Proclamation 10896 (Feb 10, 2025) re-imposed the 25% \u00a7232 steel tariff globally and terminated every country-specific exemption and the BIS product-exclusion process. Trade-press signals indicate a doubling to 50% in mid-2025 \u2014 we treat 50% as the operating rate on HTS 7208.51 plate. A 14 MW monopile carries 1,500\u20132,500 mt of >50mm plate; at ~$1,500/ton landed pre-tariff, a 50% duty adds $1.1\u20131.9M per monopile. For an 800 MW project (~57 monopiles): $65\u2013110M tariff incidence on foundations, plus $15\u201320M tower steel. EEW Paulsboro is the only US monopile fabricator at scale and well below campaign-year requirement; redesigning to <50mm plate is the principal mitigation. Probability the tariff stays at \u226550% on relevant HTS lines through Nov 2027: 90%. Probability of upward expansion (>50% or new derivatives): 32%.",
+      "weekly": [
+        45,
+        52,
+        53,
+        56,
+        65,
+        69,
+        76,
+        76,
+        77,
+        77,
+        81,
+        92
+      ],
+      "events": [
+        {
+          "date": "2027-01-15",
+          "when": "+232d",
+          "kind": "deadline",
+          "future": true,
+          "title": "\u00a7232 steel/aluminum tariff duration checkpoint",
+          "detail": "Library contract Section 232 Steel/Aluminum Tariff Duration prices p=0.72 of continuation past mid-Jan 2027."
+        },
+        {
+          "date": "2026-10-31",
+          "when": "+156d",
+          "kind": "deadline",
+          "future": true,
+          "title": "\u00a7232 derivatives expansion cycle",
+          "detail": "Synthetic library Section 232 September Derivatives Cycle prices p=0.27 of a fresh expansion notice."
+        },
+        {
+          "date": "2026-06-30",
+          "when": "+33d",
+          "kind": "hearing",
+          "future": true,
+          "title": "\u00a7232 Tariff Court Injunction Risk \u2014 ruling window",
+          "detail": "Library prices this milestone at p=0.18. An injunction would partially unwind the tariff stack."
+        },
+        {
+          "date": "2026-05-25",
+          "when": "today",
+          "kind": "now",
+          "future": false,
+          "now": true,
+          "title": "50% rate holds on HTS 7208.51 plate; no offshore exclusions",
+          "detail": "BIS product-exclusion process remains terminated."
+        },
+        {
+          "date": "2025-02-10",
+          "when": "470d ago",
+          "kind": "filing",
+          "future": false,
+          "title": "Proclamation 10896 issued \u2014 25% restored globally; exemptions terminated",
+          "detail": "Baseline. Companion Federal Register notice 90 FR \u2026"
+        },
+        {
+          "date": "2025-01-22",
+          "when": "488d ago",
+          "kind": "castle",
+          "future": false,
+          "title": "Watchlist opened \u2014 \u00a7232 monopile / tower steel",
+          "detail": "Tracked HTS lines: 7208.51, 7208.52, 7305.11/.12/.19, 7308.20. Primary mitigation: Paulsboro origin shift, plate-thickness redesign."
+        }
+      ],
+      "news": [
+        {
+          "source": "PROCLAMATION",
+          "ago": "yesterday",
+          "title": "50% steel duty holds on HTS 7208.51 plate \u2014 no offshore exclusions",
+          "tag": "trade"
+        },
+        {
+          "source": "USITC",
+          "ago": "4 days",
+          "title": "No 9903.81.xx Chapter-99 modifications detected for monopile-grade plate",
+          "tag": "trade"
+        },
+        {
+          "source": "CBP",
+          "ago": "5 days",
+          "title": "No new country-of-origin rulings on third-country fabricated monopiles",
+          "tag": "trade"
+        }
+      ],
+      "hedges": [
+        {
+          "ticker": "library-50-pct-steel-aluminum-tariff-continuity",
+          "title": "Will the 50% steel & aluminum tariff continue through Dec 31, 2026?",
+          "yes": 0.72,
+          "change": 0.04,
+          "expiry": "Dec 2026",
+          "notional": 200000
+        },
+        {
+          "ticker": "library-section-232-tariff-reduction",
+          "title": "Will the \u00a7232 steel tariff be reduced before Sep 30, 2026? (NO is the hedge)",
+          "yes": 0.263,
+          "change": -0.02,
+          "expiry": "Sep 2026",
+          "notional": 120000
+        },
+        {
+          "ticker": "library-section-232-derivatives-expansion",
+          "title": "Will \u00a7232 derivatives coverage expand again by Dec 31, 2026?",
+          "yes": 0.74,
+          "change": 0.05,
+          "expiry": "Dec 2026",
+          "notional": 150000
+        },
+        {
+          "ticker": "KXTARIFFREVENUE-26DEC31-T200",
+          "title": "Will US tariff revenue for 2026 be above $200B? (broad protectionism proxy)",
+          "yes": 0.65,
+          "change": 0.02,
+          "expiry": "Dec 2026",
+          "notional": 80000
+        }
+      ]
+    },
+    "ow4": {
+      "archetype_id": "offshore-wind",
+      "archetype_name": "Offshore Wind",
+      "id": "ow4",
+      "category": "operational",
+      "title": "Jones Act WTIV Availability",
+      "citation": "46 USC \u00a755102 \u00b7 Charybdis schedule",
+      "impact_irr": -1.2,
+      "impact_usd": 145000000.0,
+      "probability": 0.45,
+      "attention": 64,
+      "tracked_since": "Jan 22, 2025",
+      "last_updated": "3 hours ago",
+      "attention_delta": 11,
+      "probability_delta": 0.04,
+      "hedge_cost": 4000,
+      "subtitle": "Charybdis is the only US-built Jones-Act WTIV. Feeder-vessel model still depends on CBP H309186 line of rulings.",
+      "view": "Charybdis (Dominion/Keppel AmFELS, Brownsville) is in commercial service on CVOW as the only US-built Jones-Act-compliant WTIV. Day rate $250\u2013300K. The feeder-vessel model still depends on CBP HQ H309186; CBP can reverse via a 60-day notice-and-comment under 19 CFR \u00a7177.12. A 12-month WTIV delay = 5\u201310% of capex; a mid-installation CBP enforcement action = 10\u201325% plus penalty exposure equal to merchandise value. Probability Charybdis remains the only operational US-flag WTIV through Nov 2027: 85%. Probability CBP issues a feeder-model-tightening ruling: 15\u201325%.",
+      "weekly": [
+        32,
+        31,
+        36,
+        41,
+        45,
+        52,
+        56,
+        59,
+        58,
+        60,
+        64,
+        64
+      ],
+      "events": [
+        {
+          "date": "2026-12-31",
+          "when": "+218d",
+          "kind": "deadline",
+          "future": true,
+          "title": "CBP rulings docket sweep \u2014 feeder vessel model",
+          "detail": "Watch rulings.cbp.gov for any HQ ruling modifying H309186."
+        },
+        {
+          "date": "2026-05-25",
+          "when": "today",
+          "kind": "now",
+          "future": false,
+          "now": true,
+          "title": "Charybdis operational on CVOW",
+          "detail": "Inferred status late 2025/early 2026. Charter-out to third parties is a tightness signal."
+        }
+      ],
+      "news": [
+        {
+          "source": "MARAD",
+          "ago": "3 days",
+          "title": "No new MARAD Title XI applications for next-gen US-flag WTIVs",
+          "tag": "operational"
+        }
+      ],
+      "hedges": [
+        {
+          "ticker": "kalshi-KXJONESACTREPEAL-27-JAN04",
+          "title": "Will the Jones Act be repealed by Jan 4, 2027? (NO is the hedge)",
+          "yes": 0.15,
+          "change": 0.0,
+          "expiry": "Jan 2027",
+          "notional": 80000
+        },
+        {
+          "ticker": "poly-1516727",
+          "title": "Jones Act shipping repeal by Jun 30, 2026",
+          "yes": 0.11,
+          "change": -0.01,
+          "expiry": "Jun 2026",
+          "notional": 50000
+        }
+      ]
+    },
+    "ow5": {
+      "archetype_id": "offshore-wind",
+      "archetype_name": "Offshore Wind",
+      "id": "ow5",
+      "category": "policy",
+      "title": "\u00a745Y / \u00a748E Narrowing for Offshore Wind",
+      "citation": "OBBBA reconciliation \u00b7 26 USC \u00a745Y, \u00a748E",
+      "impact_irr": -2.6,
+      "impact_usd": 320000000.0,
+      "probability": 0.7,
+      "attention": 85,
+      "tracked_since": "Jan 22, 2025",
+      "last_updated": "3 hours ago",
+      "attention_delta": 15,
+      "probability_delta": 0.04,
+      "hedge_cost": 4000,
+      "subtitle": "OBBBA narrowing landed hard on offshore wind. Treasury offshore-specific guidance remains in proposed form.",
+      "view": "OBBBA reconciliation in 2025 narrowed \u00a745Y/\u00a748E for projects without locked-in begin-of-construction status; offshore wind has been treated harshly relative to onshore/solar because of perceived European supply-chain alignment. Treasury's offshore-specific domestic-content table (Notice 2024-41) is still in proposed form \u2014 finalization or withdrawal is the next high-information event. For an 800 MW project (~$4B capex, 38% capacity factor) the base \u00a748E ITC at 30% PWA-met is ~$1.0B PV; the full 40% with domestic-content bonus is ~$1.35B PV. Material narrowing (FEOC tightening, BOC cutoff acceleration, transferability narrowing) is the high-probability mode \u2014 we price 70% over 18 months. Full retroactive repeal sits in the 5\u201310% tail; Takings-Clause exposure is the floor.",
+      "weekly": [
+        41,
+        45,
+        52,
+        61,
+        67,
+        73,
+        76,
+        75,
+        77,
+        83,
+        87,
+        85
+      ],
+      "events": [
+        {
+          "date": "2026-07-04",
+          "when": "+39d",
+          "kind": "deadline",
+          "future": true,
+          "title": "OBBBA 45Y/48E hard begin-of-construction deadline",
+          "detail": "Library OBBBA 45Y/48E Hard Deadline prices p=0.62 adverse outcome. Construction-start safe-harbor docs (5% spend or physical-work) must be filed."
+        },
+        {
+          "date": "2026-09-30",
+          "when": "+125d",
+          "kind": "hearing",
+          "future": true,
+          "title": "OBBBA 55% Domestic Content Guidance ruling",
+          "detail": "Library prices p=0.555 that the 55% threshold remains binding \u2014 unachievable with current offshore supply chain."
+        },
+        {
+          "date": "2026-10-05",
+          "when": "+131d",
+          "kind": "hearing",
+          "future": true,
+          "title": "Treasury FEOC component threshold \u2014 offshore wind",
+          "detail": "Synthetic-treasury-feoc-offshore-wind-2026 prices p=0.468 of a 25% adverse threshold disqualifying most projects."
+        },
+        {
+          "date": "2026-05-25",
+          "when": "today",
+          "kind": "now",
+          "future": false,
+          "now": true,
+          "title": "Treasury REG-119283-23 still in proposed form",
+          "detail": "Offshore-specific manufactured-product / steel-iron table from Notice 2024-41 unfinalized. Withdrawal under Trump Treasury is a tail risk."
+        },
+        {
+          "date": "2025-07-04",
+          "when": "325d ago",
+          "kind": "filing",
+          "future": false,
+          "title": "OBBBA enacted \u2014 45Y/48E narrowed for offshore wind",
+          "detail": "Final reconciliation text accelerated BOC cutoff and tightened FEOC restrictions. Offshore wind treated harder than onshore wind/solar."
+        },
+        {
+          "date": "2025-01-22",
+          "when": "488d ago",
+          "kind": "castle",
+          "future": false,
+          "title": "Watchlist opened \u2014 \u00a745Y/\u00a748E offshore durability",
+          "detail": "Tracking: IRS guidance docket, JCT scoring on \u00a745Y/\u00a748E lines, tax-equity transfer market pricing (offshore-onshore spread)."
+        }
+      ],
+      "news": [
+        {
+          "source": "TREASURY",
+          "ago": "2 days",
+          "title": "FEOC safe-harbor tables for offshore-wind components remain unpublished",
+          "tag": "policy"
+        },
+        {
+          "source": "JCT",
+          "ago": "6 days",
+          "title": "Latest revenue tables show \u00a745Y/\u00a748E narrowing offsets at ~$190B over 10 years",
+          "tag": "policy"
+        },
+        {
+          "source": "KALSHI",
+          "ago": "5 days",
+          "title": "KX48ETAXCREDIT-26MAY YES at 98\u00a2 on 2029 reinstatement \u2014 thin volume",
+          "tag": "market"
+        },
+        {
+          "source": "NORTON ROSE",
+          "ago": "1 week",
+          "title": "Offshore-onshore tax-equity transfer spread widens to 6\u00a2/$1 \u2014 stress signal",
+          "tag": "market"
+        }
+      ],
+      "hedges": [
+        {
+          "ticker": "synthetic-obbba-45y-48e-repeal-recon",
+          "title": "Will further \u00a745Y/\u00a748E offshore wind narrowing be enacted by Jun 30, 2027?",
+          "yes": 0.343,
+          "change": 0.04,
+          "expiry": "Jun 2027",
+          "notional": 300000
+        },
+        {
+          "ticker": "synthetic-obbba-offshore-wind-domestic-content-55",
+          "title": "Will the 55% domestic content threshold for offshore wind remain binding through Mar 31, 2027?",
+          "yes": 0.632,
+          "change": 0.06,
+          "expiry": "Mar 2027",
+          "notional": 250000
+        },
+        {
+          "ticker": "synthetic-treasury-feoc-offshore-wind-2026",
+          "title": "Will Treasury FEOC threshold for offshore wind disqualify most projects by Oct 5, 2026?",
+          "yes": 0.468,
+          "change": 0.03,
+          "expiry": "Oct 2026",
+          "notional": 200000
+        },
+        {
+          "ticker": "synthetic-48e-domestic-content-27pct-compliance",
+          "title": "Will Treasury confirm GE Vernova US assembly meets 27.5% domestic content by Sep 30, 2026?",
+          "yes": 0.408,
+          "change": -0.02,
+          "expiry": "Sep 2026",
+          "notional": 150000
+        },
+        {
+          "ticker": "KX48ETAXCREDIT-26MAY",
+          "title": "Will legislation reinstating \u00a748E commercial ITC at 30%+ become law before Dec 31, 2029?",
+          "yes": 0.98,
+          "change": 0.01,
+          "expiry": "Dec 2029",
+          "notional": 50000
+        }
+      ]
+    },
+    "ow6": {
+      "archetype_id": "offshore-wind",
+      "archetype_name": "Offshore Wind",
+      "id": "ow6",
+      "category": "policy",
+      "title": "FEOC \u00b7 Offshore Domestic-Content Disqualification",
+      "citation": "Treasury Notice 2024-41 \u00b7 OBBBA FEOC rules",
+      "impact_irr": -1.4,
+      "impact_usd": 180000000.0,
+      "probability": 0.55,
+      "attention": 72,
+      "tracked_since": "Jan 22, 2025",
+      "last_updated": "3 hours ago",
+      "attention_delta": 12,
+      "probability_delta": 0.04,
+      "hedge_cost": 4000,
+      "subtitle": "55% domestic content threshold and FEOC component rules both bind. Treasury offshore guidance remains in proposed form.",
+      "view": "Treasury Notice 2024-41 set the offshore-wind-specific manufactured-product / steel-iron table for domestic content. OBBBA's FEOC tightening and the 55% domestic-content threshold step-up by 2027 are the two material narrowings. Library prices a 25% FEOC component threshold for offshore at p=0.468 \u2014 high enough to disqualify most projects given unavoidable Chinese supply-chain dependencies in inter-array cable and electrical components. Loss of the 10pp domestic-content bonus = 2.5% of capex.",
+      "weekly": [
+        34,
+        40,
+        44,
+        52,
+        51,
+        58,
+        61,
+        62,
+        62,
+        63,
+        62,
+        72
+      ],
+      "events": [
+        {
+          "date": "2026-10-05",
+          "when": "+131d",
+          "kind": "hearing",
+          "future": true,
+          "title": "Treasury FEOC threshold for offshore wind components",
+          "detail": "Synthetic library p=0.468 adverse."
+        },
+        {
+          "date": "2026-09-30",
+          "when": "+125d",
+          "kind": "hearing",
+          "future": true,
+          "title": "OBBBA 55% Domestic Content Guidance",
+          "detail": "Library p=0.555 that the threshold binds."
+        },
+        {
+          "date": "2026-05-25",
+          "when": "today",
+          "kind": "now",
+          "future": false,
+          "now": true,
+          "title": "Treasury Notice 2024-41 unfinalized",
+          "detail": "Industry rulings on Vineyard Wind / Empire Wind component classifications pending."
+        }
+      ],
+      "news": [
+        {
+          "source": "IRS",
+          "ago": "4 days",
+          "title": "REG-119283-23 docket activity unchanged",
+          "tag": "policy"
+        }
+      ],
+      "hedges": [
+        {
+          "ticker": "synthetic-obbba-offshore-wind-domestic-content-55",
+          "title": "Will 55% offshore wind domestic content threshold remain binding by Mar 31, 2027?",
+          "yes": 0.632,
+          "change": 0.05,
+          "expiry": "Mar 2027",
+          "notional": 200000
+        },
+        {
+          "ticker": "synthetic-treasury-feoc-offshore-wind-2026",
+          "title": "Will Treasury set FEOC threshold disqualifying most offshore wind projects by Oct 5, 2026?",
+          "yes": 0.468,
+          "change": 0.03,
+          "expiry": "Oct 2026",
+          "notional": 180000
+        }
+      ]
+    },
+    "ow7": {
+      "archetype_id": "offshore-wind",
+      "archetype_name": "Offshore Wind",
+      "id": "ow7",
+      "category": "policy",
+      "title": "NEPA / ESA / NMFS \u2014 Right Whale Channel",
+      "citation": "42 USC \u00a74321 \u00b7 16 USC \u00a71536 \u00b7 NMFS BiOps",
+      "impact_irr": -1.0,
+      "impact_usd": 120000000.0,
+      "probability": 0.4,
+      "attention": 55,
+      "tracked_since": "Jan 22, 2025",
+      "last_updated": "3 hours ago",
+      "attention_delta": 9,
+      "probability_delta": 0.04,
+      "hedge_cost": 4000,
+      "subtitle": "Post-Seven County, the scope of NEPA review narrowed. The administration's lever is ITA delay, not denial.",
+      "view": "Three statutory channels converge: NEPA EIS for COP approval, ESA \u00a77 consultation (right whale, ~370 individuals, critically endangered), and MMPA \u00a7101(a)(5) ITA/IHA for site characterization and pile driving. Post-*Seven County Infrastructure* (S.Ct. 2024) the scope of NEPA effects review narrowed favorably to defendants. NMFS ITA cadence dropped sharply in 2025\u201326 \u2014 the dominant risk vector is now delay, not denial. Probability at least one NEPA challenge is filed against a major COP/ROD in 18 months: 78%. Probability of an injunction or vacatur: 14%. Standard challenge denied at district court costs ~$10\u201340M; full vacatur with remand for supplemental EIS = 8\u201320% of capex.",
+      "weekly": [
+        28,
+        29,
+        29,
+        35,
+        37,
+        37,
+        39,
+        44,
+        51,
+        53,
+        55,
+        55
+      ],
+      "events": [
+        {
+          "date": "2026-12-31",
+          "when": "+218d",
+          "kind": "deadline",
+          "future": true,
+          "title": "NMFS ITA / IHA cadence quarterly review",
+          "detail": "GARFO docket cadence below 0.4/month is the indicator."
+        },
+        {
+          "date": "2026-09-29",
+          "when": "+124d",
+          "kind": "hearing",
+          "future": true,
+          "title": "House Natural Resources right-whale speed restriction hearings",
+          "detail": "Library prices p=0.55. Industry-favorable signal if held."
+        },
+        {
+          "date": "2026-05-25",
+          "when": "today",
+          "kind": "now",
+          "future": false,
+          "now": true,
+          "title": "Vineyard Wind NEPA challenges defeated at 1st Cir.",
+          "detail": "ACK Residents Against Turbines v. BOEM affirmed. Demonstrates a well-built record survives."
+        }
+      ],
+      "news": [
+        {
+          "source": "NMFS",
+          "ago": "4 days",
+          "title": "ITA cadence falls below 1/month for the first time since 2022",
+          "tag": "policy"
+        }
+      ],
+      "hedges": [
+        {
+          "ticker": "synthetic-house-naturalresources-rightwhale-hearing",
+          "title": "Will House Natural Resources hold hearings opposing NOAA right-whale speed restrictions by Sep 29, 2026?",
+          "yes": 0.55,
+          "change": 0.02,
+          "expiry": "Sep 2026",
+          "notional": 80000
+        },
+        {
+          "ticker": "synthetic-noaa-rightwhale-anprm-publication",
+          "title": "Will NOAA publish the right-whale vessel-speed ANPRM with 35-65 ft exemptions by Jun 30, 2026?",
+          "yes": 0.68,
+          "change": 0.03,
+          "expiry": "Jun 2026",
+          "notional": 100000
+        }
+      ]
+    },
+    "ow8": {
+      "archetype_id": "offshore-wind",
+      "archetype_name": "Offshore Wind",
+      "id": "ow8",
+      "category": "policy",
+      "title": "OCS Clean Air Permit \u2014 Atlantic Shores EAB Remand",
+      "citation": "CAA \u00a7328 \u00b7 EPA EAB \u00b7 Atlantic Shores South",
+      "impact_irr": -0.9,
+      "impact_usd": 95000000.0,
+      "probability": 0.62,
+      "attention": 48,
+      "tracked_since": "Jan 22, 2025",
+      "last_updated": "3 hours ago",
+      "attention_delta": 8,
+      "probability_delta": 0.04,
+      "hedge_cost": 4000,
+      "subtitle": "The Atlantic Shores EAB remand is the live precedent for OCS air-permit litigation against any offshore wind project.",
+      "view": "EPA Region 2's OCS air permit for Atlantic Shores South under CAA \u00a7328 was remanded by EPA EAB in 2024 on BACT and environmental-justice grounds. Shell exited its 50% stake; the project is effectively dormant. Library prices EAB reinstatement at 8% by Sep 30, 2026 and full project resolution at 35% by year-end \u2014 dormant base case. The same channel is the next pressure point for Empire Wind 2 and SouthCoast Wind air permits. A CAA permit remand requiring new BACT analysis = 5\u201312% of capex in delay; standard EAB-remand base rate suggests cure is feasible within 6\u201318 months *if the permittee remains motivated*.",
+      "weekly": [
+        22,
+        23,
+        25,
+        24,
+        29,
+        33,
+        32,
+        33,
+        36,
+        37,
+        40,
+        48
+      ],
+      "events": [
+        {
+          "date": "2026-12-31",
+          "when": "+218d",
+          "kind": "deadline",
+          "future": true,
+          "title": "Atlantic Shores EPA permit decision \u2014 final",
+          "detail": "Library prices p=0.35 of resolution (any direction) by year-end."
+        },
+        {
+          "date": "2026-09-30",
+          "when": "+125d",
+          "kind": "hearing",
+          "future": true,
+          "title": "EAB permit reinstatement window",
+          "detail": "Library prices p=0.08; project effectively dormant."
+        }
+      ],
+      "news": [
+        {
+          "source": "EPA EAB",
+          "ago": "3 days",
+          "title": "Atlantic Shores OCS air permit remand uncured; project effectively dormant",
+          "tag": "policy"
+        }
+      ],
+      "hedges": [
+        {
+          "ticker": "synthetic-atlantic-shores-epa-permit-resolution",
+          "title": "Will EAB resolve the Atlantic Shores CAA permit remand by Dec 31, 2026?",
+          "yes": 0.35,
+          "change": -0.01,
+          "expiry": "Dec 2026",
+          "notional": 140000
+        },
+        {
+          "ticker": "synthetic-atlantic-shores-eab-remand-timeline",
+          "title": "Will EAB reinstate the Atlantic Shores CAA construction permit by Sep 30, 2026?",
+          "yes": 0.08,
+          "change": 0.0,
+          "expiry": "Sep 2026",
+          "notional": 60000
+        }
+      ]
+    },
+    "ow9": {
+      "archetype_id": "offshore-wind",
+      "archetype_name": "Offshore Wind",
+      "id": "ow9",
+      "category": "market",
+      "title": "OREC Pricing Re-opener Risk",
+      "citation": "NYSERDA / NJ BPU / MA DOER joint posture",
+      "impact_irr": -1.5,
+      "impact_usd": 180000000.0,
+      "probability": 0.5,
+      "attention": 48,
+      "tracked_since": "Jan 22, 2025",
+      "last_updated": "3 hours ago",
+      "attention_delta": 8,
+      "probability_delta": 0.04,
+      "hedge_cost": 4000,
+      "subtitle": "The state-offtake bridge that has carried offshore wind through federal hostility is itself fraying.",
+      "view": "Three-state OREC posture (NY/NJ/MA) is in flux: NYSERDA's OREC RFP25 path is uncertain; NJ BPU has not reopened an Atlantic Shores solicitation; MA DOER is the most consistent of the three. Library prices NYSERDA Offshore Wind OREC Award by year-end at p=0.20 \u2014 a re-procurement gap leaves 1.3 GW of previously awarded offtake stranded. OREC re-opener requests in the three-state band run 35\u201345% strike price uplift. Probability of at least one state PSC granting an OREC re-pricing in the 18-month horizon: 50%; in absence, project equity IRR compresses 1.0\u20131.5pp on $180M of exposed NPV.",
+      "weekly": [
+        22,
+        23,
+        25,
+        24,
+        29,
+        33,
+        32,
+        33,
+        36,
+        37,
+        40,
+        48
+      ],
+      "events": [
+        {
+          "date": "2026-12-31",
+          "when": "+218d",
+          "kind": "deadline",
+          "future": true,
+          "title": "NYSERDA OREC RFP25 award decision",
+          "detail": "Library prices p=0.20."
+        },
+        {
+          "date": "2026-05-15",
+          "when": "-10d",
+          "kind": "market",
+          "future": false,
+          "title": "NY governor's NYSERDA reauthorization checkpoint",
+          "detail": "Library prices p=0.30 of reauthorization."
+        }
+      ],
+      "news": [
+        {
+          "source": "NYSERDA",
+          "ago": "yesterday",
+          "title": "OREC RFP25 timeline communication delayed; bidder briefing slipped",
+          "tag": "market"
+        }
+      ],
+      "hedges": [
+        {
+          "ticker": "synthetic-nyserda-orecrfp25-solicitation",
+          "title": "Will NYSERDA award offshore wind OREC under RFP25 by Dec 31, 2026?",
+          "yes": 0.2,
+          "change": -0.02,
+          "expiry": "Dec 2026",
+          "notional": 160000
+        },
+        {
+          "ticker": "synthetic-new-york-offshore-wind-policy-continuation",
+          "title": "Will the NY Governor reauthorize NYSERDA's offshore wind program by May 15, 2026?",
+          "yes": 0.3,
+          "change": 0.0,
+          "expiry": "May 2026",
+          "notional": 100000
+        },
+        {
+          "ticker": "synthetic-nj-bpu-atlantic-shores-solicitation",
+          "title": "Will NJ BPU reopen an Atlantic Shores OREC solicitation by Dec 31, 2026?",
+          "yes": 0.08,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 60000
+        }
+      ]
+    }
+  },
+  "sources": {
+    "research_scaffold": "data/research/offshore-wind-current-state.md",
+    "critical_contracts": "data/research/offshore-wind-critical-full.txt",
+    "hedges_universe": "data/research/offshore-wind-hedges.json"
+  }
+}

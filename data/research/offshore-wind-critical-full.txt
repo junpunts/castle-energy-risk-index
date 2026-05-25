@@ -1,0 +1,715 @@
+-[ RECORD 1 ]+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Jones Act / WTIV
+contract_key | kalshi-KXJONESACTREPEAL-27-JAN04
+label        | Jones Act Repeal January 2027
+probability  | 0.15
+resolution   | Jan 4, 2027
+rationale    | Full Jones Act repeal would undermine the entire domestic commercial shipbuilding rationale for Philly Shipyard; too low probability (15%) and long-dated for core allocation.
+-[ RECORD 2 ]+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | library-62329e93-5323-4a7e-92ea-6d69b4aaecdd
+label        | Wind Permit Pause Court Vacatur
+probability  | 0.1
+resolution   | Dec 31, 2026
+rationale    | Failure to vacate the wind permit moratorium (NO) keeps Linea's onshore wind development pipeline blocked, this contract pays when the bad outcome persists.
+-[ RECORD 3 ]+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | library-ef7635e4-96cc-479e-827d-d5fc6d04ca04
+label        | Offshore Wind Moratorium Lift
+probability  | 0.258
+resolution   | Jun 30, 2026
+rationale    | Continued offshore wind moratorium (NO resolution) traps Avangrid's Vineyard Wind 1 investment in regulatory limbo and eliminates any new offshore development optionality.
+-[ RECORD 4 ]+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Jones Act / WTIV
+contract_key | poly-1516727
+label        | Jones Act Shipping Repeal
+probability  | 0.11
+resolution   | Jun 30, 2026
+rationale    | Jones Act repeal would benefit Yusen's domestic intermodal competitiveness; this is a potential upside contract for Yusen, not a downside hedge.
+-[ RECORD 5 ]+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-48e-domestic-content-27pct-compliance
+label        | Sec 48E Offshore Content Ruling
+probability  | 0.408
+resolution   | Sep 30, 2026
+rationale    | Treasury failing to confirm GE Vernova U.S. assembly satisfies the 27.5% domestic content threshold (NO) could strip the domestic content bonus credit from Vineyard Wind 1, reducing total ITC value by ~5-10 percentage points.
+-[ RECORD 6 ]+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-atlantic-shores-eab-remand-timeline
+label        | Atlantic Shores EAB Permit Reinstatement
+probability  | 0.08
+resolution   | Sep 30, 2026
+rationale    | EAB NOT reinstating the CAA construction permit (prob 0.92 NO) keeps the air-quality permitting obstacle firmly in place for Atlantic Shores, blocking construction independent of the moratorium.
+-[ RECORD 7 ]+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-atlantic-shores-epa-permit-resolution
+label        | Atlantic Shores EPA Permit Decision
+probability  | 0.35
+resolution   | Dec 31, 2026
+rationale    | EAB NOT resolving the Atlantic Shores Clean Air Act permit remand (prob 0.65 NO) blocks a key construction prerequisite, keeping the project in regulatory limbo through 2026.
+-[ RECORD 8 ]+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-aus-offshore-cost-recovery
+label        | Australian Offshore Wind Investment Recovery
+probability  | 0.458
+resolution   | Dec 31, 2026
+rationale    | NO pays when Australian offshore wind fails to attract AUD 3B+ investment by end-2026, reflecting sustained cost uncertainty and low investor confidence.
+-[ RECORD 9 ]+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-aus-vic-offshore-q3-2026
+label        | Victoria Offshore Wind Auction
+probability  | 0.517
+resolution   | Sep 30, 2026
+rationale    | NO pays when Victoria fails to award 1.5+ GW offshore wind capacity by Sept 2026, signaling continued Australian offshore wind market stagnation post-2025 cancellations.
+-[ RECORD 10 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-blm-wind-memo-court-vacatur
+label        | BLM Wind Memo Court Vacatur
+probability  | 0.367
+resolution   | Dec 31, 2026
+rationale    | Court failure to vacate the BLM wind memo (NO) locks the onshore federal land permitting freeze in place, blocking Avangrid's access to federal lease acreage across its 24-state operating footprint.
+-[ RECORD 11 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-boem-california-peis-canopy
+label        | California Offshore Wind PEIS
+probability  | 0.08
+resolution   | Dec 31, 2026
+rationale    | BOEM failing to complete the California PEIS (NO) permanently stalls RWE's Canopy OCS-P 0561 lease, destroying sunk investment and blocking a major offshore development asset.
+-[ RECORD 12 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-boem-offshore-wind-leases-restored
+label        | BOEM Atlantic Permitting Pause Lift
+probability  | 0.18
+resolution   | Dec 31, 2026
+rationale    | If BOEM fails to lift the permitting pause (NO), RWE's Community Offshore Wind JV Atlantic COP applications remain frozen, compounding New York market failure risk.
+-[ RECORD 13 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-boem-offshore-wind-moratorium-lift
+label        | Federal Offshore Wind Moratorium Lift
+probability  | 0.15
+resolution   | Dec 31, 2026
+rationale    | Continuation of the federal offshore wind permitting freeze (NO) eliminates new project certification demand from ABS's offshore wind pipeline through 2026 and into 2027.
+-[ RECORD 14 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-boem-offshore-wind-trump-policy
+label        | Offshore Wind Permit Revocation
+probability  | 0.18
+resolution   | Dec 31, 2026
+rationale    | A permanent Trump administration revocation of offshore wind construction permits would terminate Riggs Distler's active offshore wind onshore civil/electrical scope and eliminate a high-margin growth vertical for Centuri.
+-[ RECORD 15 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-boem-wea-rescission-reinstatement
+label        | California WEA Rescission Reversal
+probability  | 0.07
+resolution   | Dec 31, 2026
+rationale    | If BOEM does not reinstate California WEAs (NO), RWE's Canopy lease is permanently blocked; this contract directly hedges the California offshore wind option value.
+-[ RECORD 16 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-brazil-selic-easing-depth
+label        | Brazil Selic Easing Target
+probability  | 0.38
+resolution   | Jan 10, 2027
+rationale    | Failure to reach the 11.75% easing target (NO) means monetary stimulus falls short, leaving domestic air travel demand subdued in LATAM's core Brazil market.
+-[ RECORD 17 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-brent-115-q2-peak
+label        | Brent Crude $115 Q2 2026 Peak
+probability  | 0.03
+resolution   | Jun 30, 2026
+rationale    | Brent above $115 represents maximum input cost pressure; however the Hormuz normalization (poly-1809560) and asphalt cement price contracts in the major portfolio already capture this scenario.
+-[ RECORD 18 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-brl-yearend-rate-focus-survey
+label        | BRL Year-End Depreciation Level
+probability  | 0.45
+resolution   | Jan 7, 2027
+rationale    | BRL closing at or above R$5.80/USD confirms the election-year macro deterioration scenario, reducing Inter's USD-equivalent earnings and compressing its NASDAQ valuation.
+-[ RECORD 19 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-cfpb-reg-x-withdrawal-2026
+label        | CFPB Reg X Withdrawal Risk
+probability  | 0.48
+resolution   | Dec 31, 2026
+rationale    | CFPB withdrawal of Reg X eliminates enhanced foreclosure safeguards that protect Fannie Mae's MBS collateral quality, increasing long-run credit risk on Fannie-backed delinquent loans.
+-[ RECORD 20 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-chesterfield-fy2027-tot-shortfall
+label        | Chesterfield TOT Revenue Shortfall
+probability  | 0.22
+resolution   | Jan 31, 2027
+rationale    | TOT revenue falling more than 10% below forecast signals that Chesterfield hotel occupancy is suppressed, weakening the tax-equivalent grant stream that subsidizes Shamin's Chesterfield property portfolio.
+-[ RECORD 21 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-china-soy-retaliatory-tariff-impact
+label        | USDA Soybean Price Forecast Decline
+probability  | 0.33
+resolution   | Dec 31, 2026
+rationale    | A USDA ERS soybean price forecast below $9.00/bu would formalize the income threat to AFC's soybean-growing farmer-members and reduce GreenPoint Ag's agronomy product demand.
+-[ RECORD 22 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-cisa-food-ag-cyber-directive
+label        | CISA Food Sector Cyber Directive
+probability  | 0.11
+resolution   | Dec 31, 2026
+rationale    | A CISA binding operational directive requiring food-sector NIST CSF 2.0 vendor-risk assessments would create near-term compliance costs for Albertsons' demand forecasting, WMS, and AI replenishment technology vendors.
+-[ RECORD 23 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-colombia-cop-depreciation-2026
+label        | Colombian Peso Depreciation Trigger
+probability  | 0.62
+resolution   | Oct 1, 2026
+rationale    | Sustained COP depreciation past 4,200/USD would compress Colombian paper buyers' purchasing power, directly reducing order volumes from Kobax's 1,500+ shipment Colombian customer base.
+-[ RECORD 24 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-colombia-fiscal-downgrade
+label        | Colombia Sovereign Credit Downgrade
+probability  | 0.05
+resolution   | Sep 30, 2026
+rationale    | A fourth Colombian sovereign downgrade would compress buyer purchasing power in Kobax's largest single-country customer market, reducing demand for paper products among Colombian converters and distributors.
+-[ RECORD 25 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-costa-rica-corbana-118m-boxes
+label        | Costa Rica Banana Output Shortfall
+probability  | 0.62
+resolution   | Jan 31, 2027
+rationale    | Confirmed below-normal Costa Rican output from CORBANA would tighten supply from Fyffes' long-term contract grower network, raising contract renegotiation costs and spot market dependency.
+-[ RECORD 26 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-crb-phonorecords-v-milestone
+label        | CRB Phonorecords V Rate Order
+probability  | 0.6
+resolution   | Dec 31, 2027
+rationale    | Failure to reach a Phonorecords V determination (NO) leaves Sony Music Publishing without updated streaming mechanical rates through 2032, sustaining revenue uncertainty from the current 15.1% all-in rate.
+-[ RECORD 27 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-crb-phonorecords-v-rate-increase
+label        | CRB Phonorecords V Rate Decision
+probability  | 0.55
+resolution   | Dec 31, 2027
+rationale    | A CRB ruling setting mechanical royalty rates above 15.1% for 2028–2032 directly inflates Spotify's single largest cost line — royalties already exceed $11B annually — compressing gross margins across the entire streaming catalog.
+-[ RECORD 28 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-crb-phonorecords-v-settlement
+label        | CRB Phonorecords V Settlement
+probability  | 0.28
+resolution   | Dec 31, 2026
+rationale    | A failed settlement (NO resolves) means a contested CRB proceeding with major labels — which historically produces higher rates — increases Spotify's royalty cost exposure, making Buy NO a partial directional hedge.
+-[ RECORD 29 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-desnz-cfd-20yr-tenure-confirmed
+label        | DESNZ 20-Year CfD Tenure Confirmation
+probability  | 0.72
+resolution   | Aug 31, 2026
+rationale    | Failure to confirm 20-year CfD tenure without modification (NO) creates uncertainty around revenue contract terms for PEP's future UK solar projects bidding into AR8.
+-[ RECORD 30 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-doi-order-offshore-wind-delay
+label        | DOI Secretary Review Permit Delays
+probability  | 0.715
+resolution   | Sep 30, 2027
+rationale    | YES pays when DOI order adds 12+ months to BOEM offshore wind timelines by Sept 2027, materially increasing holding costs and financial risk.
+-[ RECORD 31 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-doi-totalenergies-judgment-fund-clawback
+label        | DOI Wind Lease Payout Reversal
+probability  | 0.04
+resolution   | Dec 31, 2026
+rationale    | Judicial reversal or escrow of the $928M Judgment Fund payment would directly impair TotalEnergies' received capital and void its reinvestment commitment, triggering balance sheet restatement.
+-[ RECORD 32 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-doi-wind-settlement-legal-challenge
+label        | DOI Wind Lease Settlement Challenge
+probability  | 0.62
+resolution   | Dec 31, 2026
+rationale    | A formal legal or oversight challenge to the $928M DOI settlement (YES) creates regulatory uncertainty and potential clawback risk that would require TotalEnergies to provision against the received payment.
+-[ RECORD 33 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-doi-wind-settlement-reversal
+label        | DOI Wind Settlement Repayment Risk
+probability  | 0.03
+resolution   | Dec 31, 2026
+rationale    | Forced repayment of the $928M settlement (YES) is the most severe but near-zero probability wind settlement scenario; tail hedge with thin liquidity.
+-[ RECORD 34 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-eo14315-boem-wind-permitting-enforcement
+label        | Offshore Wind Prefab Physical Work Exclusion
+probability  | 0.353
+resolution   | Jan 1, 2027
+rationale    | Excluding offshore wind pre-fabrication from the physical work test would jeopardize BOC qualification for RWE's offshore projects, but offshore wind US exposure is currently smaller than onshore/solar for RWE Clean Energy.
+-[ RECORD 35 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-epw-document-subpoena
+label        | Senate EPW TotalEnergies Subpoena
+probability  | 0.08
+resolution   | Jul 31, 2026
+rationale    | A formal Senate EPW subpoena escalating the $928M wind lease investigation would create reputational and legal costs for TotalEnergies and expose internal deal communications, complicating its U.S. regulatory posture.
+-[ RECORD 36 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-epw-investigation-referral
+label        | EPW Wind Deal Referral
+probability  | 0.12
+resolution   | Dec 31, 2026
+rationale    | A formal GAO/DOJ referral from Senate EPW would create a credible pathway to clawback of the $928M payment, generating legal uncertainty that complicates TotalEnergies' U.S. capital deployment plans.
+-[ RECORD 37 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-ercot-summer-reliability-2026
+label        | ERCOT 2026 Reserve Margin Forecast
+probability  | 0.28
+resolution   | Jul 31, 2026
+rationale    | ERCOT reserve margin risk is real for Parkland's campus continuity, but below-threshold reserve forecasts alone do not directly trigger financial losses without an actual grid event; allocated zero.
+-[ RECORD 38 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-fhfa-2026-cap-mission
+label        | FHFA GSE Multifamily Cap Stability
+probability  | 0.72
+resolution   | Dec 31, 2026
+rationale    | A mid-year cap revision reducing mission-driven affordable volume below 50% would tighten GSE financing availability for GID's core multifamily acquisition pipeline, raising refinancing costs.
+-[ RECORD 39 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-fhfa-2026-mf-cap-revision
+label        | FHFA Multifamily Cap Revision
+probability  | 0.22
+resolution   | Dec 31, 2026
+rationale    | FHFA revision of multifamily purchase caps below current levels directly reduces the eligible GSE loan pool, compressing CW's agency servicing origination volume and fee income.
+-[ RECORD 40 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-fhfa-2026-multifamily-cap-mission
+label        | FHFA GSE Mission Housing Mandate
+probability  | 0.22
+resolution   | Dec 31, 2026
+rationale    | FHFA tightening the affordable housing volume threshold or adding tenant-protection loan conditions would reduce Fannie Mae/Freddie Mac financing availability for Willow Bridge's market-rate portfolio, increasing borrowing costs.
+-[ RECORD 41 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-fhfa-cap-tightening-2027
+label        | FHFA 2027 Cap Tightening
+probability  | 0.28
+resolution   | Dec 31, 2026
+rationale    | FHFA signaling a tighter 2027 multifamily lending environment would reduce Greystar's GSE financing capacity for refinancings and acquisitions, directly impacting fund-level leverage and returns.
+-[ RECORD 42 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-fhfa-green-affordability-caps-2026
+label        | FHFA Green Exclusion Guidance
+probability  | 0.35
+resolution   | Jun 30, 2026
+rationale    | FHFA confirming that non-certified Florida garden-style assets are ineligible for the green cap exclusion forces Mahaffey into the capped lending pool, constraining agency takeout financing for its value-add pipeline.
+-[ RECORD 43 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-fhfa-mission-driven-cap-2026
+label        | FHFA Multifamily Cap Stability
+probability  | 0.78
+resolution   | Dec 31, 2026
+rationale    | FHFA caps remaining stable is neutral to mildly favorable for Greystar; Buy NO hedges any mid-year administrative tightening of GSE multifamily lending, though the probability is low.
+-[ RECORD 44 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-fhfa-multifamily-cap-mission-driven-2026
+label        | FHFA Mission-Driven Cap Eligibility
+probability  | 0.7
+resolution   | Dec 31, 2026
+rationale    | If FHFA does not classify Mahaffey's workforce housing as mission-driven under the 2026 $88B cap, the company competes in a constrained pool for agency financing — a NO hedge pays on that adverse eligibility outcome.
+-[ RECORD 45 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-first-circuit-wind-moratorium-ruling
+label        | First Circuit Wind Moratorium Ruling
+probability  | 0.52
+resolution   | Dec 31, 2026
+rationale    | First Circuit overturning the district court vacatur (prob 0.48 NO on uphold) would restore Trump's offshore wind moratorium, indefinitely blocking Atlantic Shores' path to construction.
+-[ RECORD 46 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-fl-restaurant-tenant-cost-pressure
+label        | FL Restaurant Margin Pressure
+probability  | 0.55
+resolution   | Dec 31, 2026
+rationale    | Formal industry guidance revising Florida restaurant margin forecasts downward due to the $15 minimum wage would signal near-term rent-payment stress for PECO's Florida inline tenant base.
+-[ RECORD 47 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-global-container-volume-growth-2026
+label        | Global Container Volume 2026
+probability  | 0.55
+resolution   | Feb 28, 2027
+rationale    | Full-year global container volume growth at or below 1% confirms broad tug-demand contraction across Svitzer's global 141-port network, amplifying revenue guidance risk for the year.
+-[ RECORD 48 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-globaldata-saudi-130gw-2030
+label        | Saudi 2030 Solar Forecast Downgrade
+probability  | 0.268
+resolution   | Dec 31, 2027
+rationale    | Analyst failure to upgrade Saudi solar capacity forecasts above 90 GW signals persistent Vision 2030 execution shortfall, reducing the long-term addressable market for Nextpower Arabia.
+-[ RECORD 49 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-house-judiciary-escrow-order
+label        | TotalEnergies Settlement Escrow Order
+probability  | 0.04
+resolution   | Oct 31, 2026
+rationale    | A federal court-ordered escrow or freeze on the $928M Judgment Fund payment would directly impair TotalEnergies' ability to redeploy capital into Rio Grande LNG and Gulf of Mexico oil/gas as committed.
+-[ RECORD 50 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Environmental / NEPA
+contract_key | synthetic-house-naturalresources-rightwhale-hearing
+label        | Will the House Natural Resources Committee hold hearings opposing NOAA right whale speed restrictions by September 30, 2026?
+probability  | 0.55
+resolution   | Sep 29, 2026
+rationale    | Hearings opposing speed restrictions are favorable to the industry; this is more of a monitoring signal than a direct hedge.
+-[ RECORD 51 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-house-nrc-wind-deal-probe
+label        | House NRC Wind Deal Subpoena
+probability  | 0.04
+resolution   | Sep 30, 2026
+rationale    | A House NRC subpoena compelling CEO Pouyanné testimony would create reputational damage and legal cost exposure for TotalEnergies' U.S. operations and investor relations.
+-[ RECORD 52 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-hr1462-passage
+label        | Offshore Wind Tax Credit Ban
+probability  | 0.08
+resolution   | Jan 3, 2027
+rationale    | H.R.1462 enactment would eliminate all PTCs and ITCs for RWE's US offshore wind portfolio; a meaningful downside hedge but lower probability (8%) than the major IRA credit risk contracts.
+-[ RECORD 53 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Jones Act / WTIV
+contract_key | synthetic-hr4813-enacted-law
+label        | Jones Act Disaster Waiver Enactment
+probability  | 0.06
+resolution   | Dec 31, 2026
+rationale    | Full enactment of H.R.4813 would permanently expose Brice Marine's disaster-response shipping business to foreign-flag competition, reducing rates and utilization on Jones Act-protected Alaska routes.
+-[ RECORD 54 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Jones Act / WTIV
+contract_key | synthetic-hr4813-jones-act-disaster-waiver
+label        | Alaska Jones Act Disaster Waiver Bill
+probability  | 0.12
+resolution   | Dec 31, 2026
+rationale    | Statutory disaster waiver authority for Alaska could allow foreign-flag vessels to undercut Brice Marine's rates during disaster-response mobilizations, the highest-margin marine operations segment.
+-[ RECORD 55 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Jones Act / WTIV
+contract_key | synthetic-hr4839-committee-vote
+label        | HR-4839 Jones Act Reform Vote
+probability  | 0.12
+resolution   | Dec 31, 2026
+rationale    | A committee markup vote on H.R. 4839 Jones Act reform would signal potential freight cost relief for Hawaii-bound construction materials — its absence (NO) locks in the current high-cost shipping regime hurting Castle & Cooke.
+-[ RECORD 56 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Jones Act / WTIV
+contract_key | synthetic-hr4839-passage-jones-act-allied-exemption
+label        | HR-4839 Allied Vessel Jones Act Exemption
+probability  | 0.05
+resolution   | Dec 31, 2026
+rationale    | HR-4839 passage enabling Korean-built vessels in U.S. domestic shipping would paradoxically undermine Philly Shipyard's Jones Act domestic market rationale while benefiting Korean parent capacity; small allocation on this complex bilateral risk.
+-[ RECORD 57 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-hud-smart-recompete-award-2027
+label        | HUD SMART Recompete Award Risk
+probability  | 0.62
+resolution   | Mar 31, 2027
+rationale    | If HUD awards the SMART contract to a competitor citing Sutherland's June 2024 CFPB consent order, Sutherland permanently loses a core government contracting revenue stream and suffers lasting reputational damage in the public sector vertical.
+-[ RECORD 58 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-hud-smart-solicitation-issued-2026
+label        | HUD SMART Solicitation Issuance
+probability  | 0.45
+resolution   | Sep 30, 2026
+rationale    | If HUD releases the solicitation with explicit consent-order exclusion language (YES), Sutherland is formally closed out of bidding before the award stage, enabling earlier hedging of lost government revenue.
+-[ RECORD 59 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-italy-construction-index-2026
+label        | Italy Construction Output Contraction 2026
+probability  | 0.467
+resolution   | Feb 28, 2027
+rationale    | A confirmed 3%+ Italian construction output contraction (YES) directly validates CGT's core market demand deterioration, providing a real hedge against TESYA's equipment sales and rental revenue decline.
+-[ RECORD 60 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Jones Act / WTIV
+contract_key | synthetic-jones-act-hawaii-freight-rates
+label        | Matson Hawaii Freight Rate Increase
+probability  | 0.42
+resolution   | Dec 31, 2026
+rationale    | A Matson general rate increase exceeding 5% on Hawaii construction-material cargo directly inflates the delivered cost of lumber, steel, and concrete at Koa Ridge, compressing already-thin affordable unit margins.
+-[ RECORD 61 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Jones Act / WTIV
+contract_key | synthetic-jones-act-hr665-guam
+label        | Guam Jones Act Exemption
+probability  | 0.12
+resolution   | Dec 31, 2026
+rationale    | Failure to enact H.R.665 keeps Guam shipping costs elevated, harming CGS Pacific construction economics; but low probability of passage (12%) makes NO position a poor hedge.
+-[ RECORD 62 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Jones Act / WTIV
+contract_key | synthetic-jones-act-waiver-executive-shipbuilding-2026
+label        | Jones Act LNG Carrier Waiver
+probability  | 0.03
+resolution   | Dec 31, 2026
+rationale    | An executive LNG carrier waiver would affect competitive dynamics for Philly Shipyard's July 2025 LNG carrier order but at 3% probability is essentially a tail risk; not allocated.
+-[ RECORD 63 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Jones Act / WTIV
+contract_key | synthetic-jones-act-waiver-extension-may2026
+label        | Jones Act Waiver Extension
+probability  | 0.38
+resolution   | Jul 31, 2026
+rationale    | Waiver expiration without extension immediately raises Guam and Pacific construction supply chain costs, compressing CGS margins on the $600M Pacific IDIQ design-build program.
+-[ RECORD 64 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Jones Act / WTIV
+contract_key | synthetic-jones-act-waiver-extension-q3
+label        | Jones Act Waiver Extension
+probability  | 0.55
+resolution   | Sep 30, 2026
+rationale    | Continued Jones Act waivers depress the domestic shipping market that underpins Philly Shipyard's commercial vessel order pipeline; YES payout hedges prolonged competitive disadvantage for U.S.-built vessels.
+-[ RECORD 65 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Jones Act / WTIV
+contract_key | synthetic-jones-act-waiver-permanent-codification
+label        | Jones Act Permanent Waiver Law
+probability  | 0.02
+resolution   | Dec 31, 2026
+rationale    | Permanent codification of waiver authority is a low-probability (2%) existential threat to Philly Shipyard's commercial market; the waiver extension contract captures the near-term risk more efficiently.
+-[ RECORD 66 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-lloyds-oaktree-allianz-syndicate-1890
+label        | Syndicate 1890 Premium Volume
+probability  | 0.2
+resolution   | Mar 31, 2027
+rationale    | High Syndicate 1890 premium volume confirms aggressive new entrant capacity flooding the Lloyd's market, accelerating rate softening and compressing Price Forbes Re's placement margins.
+-[ RECORD 67 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-mhpi-dodig-reporting-ndaa-fy2027
+label        | MHPI Scorecard Disclosure Provision
+probability  | 0.33
+resolution   | Jan 3, 2027
+rationale    | A binding FY2027 NDAA quarterly scorecard disclosure requirement would impose new reporting obligations and public accountability mechanisms directly on Corvias as an MHPI partner.
+-[ RECORD 68 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-multifamily-foreclosure-wave-h2-2026
+label        | Multifamily CMBS Foreclosure Wave
+probability  | 0.407
+resolution   | Dec 31, 2026
+rationale    | 200+ multifamily CMBS foreclosure filings in H2 2026 (YES) signals distressed-asset volume that directly activates KM's receivership, valuation advisory, and distressed brokerage revenue lines.
+-[ RECORD 69 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-nc-hb992-foreclosure
+label        | NC Timeshare Foreclosure Law
+probability  | 0.82
+resolution   | Dec 31, 2026
+rationale    | NC SL 2025-75 remaining intact is a favorable outcome for HGV (enables efficient delinquency collection); a hedge would only be warranted if the law were struck down, which has very low probability and limited revenue impact.
+-[ RECORD 70 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-new-york-offshore-wind-policy-continuation
+label        | New York Offshore Wind Reauthorization
+probability  | 0.3
+resolution   | May 15, 2026
+rationale    | Failure of NY Governor to reauthorize NYSERDA (NO) leaves RWE's JV without a rebid pathway; a complementary hedge to the NYSERDA OREC major contract but with shorter horizon.
+-[ RECORD 71 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-nj-bpu-atlantic-shores-solicitation
+label        | NJ BPU Atlantic Shores Solicitation
+probability  | 0.08
+resolution   | Dec 31, 2026
+rationale    | NJ BPU NOT reopening a solicitation (prob 0.92 NO) means Atlantic Shores has no state offtake pathway, making the lease effectively worthless until federal moratorium is resolved.
+-[ RECORD 72 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Environmental / NEPA
+contract_key | synthetic-noaa-rightwhale-anprm-publication
+label        | Will NOAA publish the right whale vessel speed ANPRM with 35-65 foot vessel exemptions by June 30, 2026?
+probability  | 0.68
+resolution   | Jun 29, 2026
+rationale    | Failure to publish the deregulatory ANPRM with 35-65 ft exemptions leaves restrictive speed rules threatening Great Lakes powerboat sales and charter operations.
+-[ RECORD 73 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-nyserda-orecrfp25-solicitation
+label        | NYSERDA Offshore Wind OREC Award
+probability  | 0.2
+resolution   | Dec 31, 2026
+rationale    | Failure of a successor NYSERDA OREC solicitation (NO resolves) leaves RWE's Community Offshore Wind JV without contracted New York revenue, stranding 1.3 GW of previously awarded offtake and undermining project financing.
+-[ RECORD 74 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-obbba-25c-demand-impact
+label        | Section 25C Repeal Demand Impact
+probability  | 0.25
+resolution   | Mar 31, 2027
+rationale    | Closely related to the primary Section 25C shipment impact contract; small allocation covers the specific ≥10% unit decline threshold for an even more pronounced demand contraction scenario.
+-[ RECORD 75 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-obbba-30d-45w-ev-demand-impact
+label        | Post-30D EV Demand Shock
+probability  | 0.38
+resolution   | Mar 31, 2027
+rationale    | A confirmed >15% collapse in U.S. BEV sales following 30D/45W credit termination would validate the demand destruction thesis, directly reducing battery-grade lithium offtake volumes and prices that Albemarle depends on for its Energy Storage segment.
+-[ RECORD 76 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-obbba-45y-48e-repeal-recon
+label        | Tax Credit Reconciliation Repeal
+probability  | 0.343
+resolution   | Jun 30, 2027
+rationale    | Further restrictions on offshore wind tax credits would eliminate up to $2.5B in expected ITC/PTC value for Sunrise Wind and future projects, directly reducing project economics.
+-[ RECORD 77 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-obbba-offshore-wind-domestic-content-55
+label        | Offshore Wind Domestic Content Threshold
+probability  | 0.632
+resolution   | Mar 31, 2027
+rationale    | 55% domestic content threshold for offshore wind is unachievable with current supply chain; Hornsea 3 and future projects would lose 10% tax credit bonus worth hundreds of millions.
+-[ RECORD 78 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-ocs-withdrawal-appeal-outcome
+label        | OCS Withdrawal DOJ Appeal Success
+probability  | 0.537
+resolution   | Sep 30, 2026
+rationale    | YES pays when DOJ wins appeal reinstating offshore wind OCS withdrawal, permanently blocking U.S. federal waters offshore wind development through at least 2029.
+-[ RECORD 79 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-offshore-wind-eis-pipeline
+label        | BOEM Offshore Wind EIS Approvals
+probability  | 0.88
+resolution   | Jan 31, 2027
+rationale    | BOEM issuing fewer than 3 offshore wind RODs/EIS approvals in 2026 directly signals a collapsed offshore wind permitting pipeline, wiping out ICF's fast-growing renewable energy EIS and permitting services revenue as developers cancel or delay projects in response to the OBBBA credit phase-out.
+-[ RECORD 80 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-ofgem-tmo4-gate2-rwe
+label        | UK Offshore Grid Connection Offers
+probability  | 0.42
+resolution   | Dec 31, 2026
+rationale    | Ofgem failing to deliver bankable Gate 2 connection offers (NO) blocks RWE's Vanguard West FID, delaying a flagship UK offshore wind project and stranding development capex.
+-[ RECORD 81 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Environmental / NEPA
+contract_key | synthetic-oregon-hcp-rod-may-2026
+label        | Oregon State Forests HCP ROD
+probability  | 0.38
+resolution   | May 31, 2026
+rationale    | Federal ROD issuance locks in the HCP harvest constraints on ~640K acres of western Oregon state forests, but the harvest-volume-reduction contract is a more precise and direct downside hedge for Hampton.
+-[ RECORD 82 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-orion-puct-16tac-25194-final
+label        | PUCT SB 6 Final Rule
+probability  | 0.5
+resolution   | Dec 31, 2026
+rationale    | Finalized PUCT large-load interconnection rules would impose pre-application review and cost-allocation obligations on Orion's Texas plants if they seek capacity upgrades, raising energy infrastructure costs.
+-[ RECORD 83 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-puct-58317-disclosure
+label        | Texas PUCT §25.194 Large-Load Final Rule
+probability  | 0.58
+resolution   | Dec 31, 2026
+rationale    | PUCT finalizing the §25.194 large-load disclosure and financial assurance rule could slow new data-center project approvals in Texas, reducing Sundt's data-center construction backlog.
+-[ RECORD 84 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-puct-58480-ercot-planning
+label        | ERCOT 2027 Planning Forecast Exclusion
+probability  | 0.44
+resolution   | Dec 31, 2026
+rationale    | Exclusion of non-compliant large loads from ERCOT's 2027 planning forecast could delay transmission upgrades in CoServ's DFW service territory, raising near-term congestion and procurement cost exposure.
+-[ RECORD 85 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-puct-58480-forecasting-rule
+label        | PUCT Large-Load Forecast Milestone Rule
+probability  | 0.38
+resolution   | Aug 31, 2026
+rationale    | Binding milestone documentation requirements under Project 58480 reduce phantom load in CoServ's planning horizon, but near-term compliance burdens on cooperative load forecasting staff add operational cost.
+-[ RECORD 86 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-puct-58481-disclosure-financial
+label        | ERCOT Load Disclosure Mandate
+probability  | 0.52
+resolution   | Jan 1, 2027
+rationale    | PUCT financial security and load-disclosure obligations under Project 58481 would deter large-scale data center additions in ERCOT, reducing near-term demand for GE Vernova gas turbines and grid equipment in the Texas market.
+-[ RECORD 87 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-puct-58777-ercot-load-forecast
+label        | ERCOT Load Forecast Rate Review
+probability  | 0.38
+resolution   | Dec 31, 2026
+rationale    | A TCOS rate review triggered by rapid ERCOT load growth would signal rising industrial power costs at Eastman's Longview, TX complex, compounding the financial strain from the DOE grant cancellation.
+-[ RECORD 88 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-puct-58777-tx-load-forecast-rule
+label        | PUCT Load Forecast Transmission Rule
+probability  | 0.38
+resolution   | Dec 31, 2026
+rationale    | PUCT adopting the 367,790 MW 2032 peak demand forecast as a binding transmission expansion basis forces major backbone upgrades whose costs could flow to load-serving cooperatives in CoServ's service territory.
+-[ RECORD 89 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-qld-gas-tender-400mw-2026
+label        | Queensland Gas Power Tender Award
+probability  | 0.3
+resolution   | Oct 15, 2026
+rationale    | A gas-only award of the Queensland 400MW Central Queensland tender would directly displace PEP's BESS from the Gladstone region supply stack.
+-[ RECORD 90 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-selic-yearend-2026-below-1300
+label        | Selic Year-End Easing Path
+probability  | 0.48
+resolution   | Dec 20, 2026
+rationale    | If the Selic easing cycle stalls and rates do NOT fall to 13% by year-end (NO outcome), Rumo's infrastructure financing costs remain elevated and investor required returns on RAIL3 stay compressed.
+-[ RECORD 91 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-senate-epw-subpoena-totalenergies
+label        | Senate EPW Subpoena
+probability  | 0.05
+resolution   | Sep 30, 2026
+rationale    | A Senate EPW subpoena compelling document production would escalate legal and compliance costs for TotalEnergies' U.S. operations during a critical capital redeployment window.
+-[ RECORD 92 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Jones Act / WTIV
+contract_key | synthetic-ships-act-passage
+label        | SHIPS Act Passage
+probability  | 0.18
+resolution   | Dec 31, 2026
+rationale    | SHIPS Act failing to pass is a missed demand catalyst, not a direct loss trigger; zero allocation as this represents absent upside rather than incurred downside.
+-[ RECORD 93 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-spaygo-medicare-4pct-cut
+label        | Medicare 4% Sequestration Order
+probability  | 0.04
+resolution   | Jan 31, 2027
+rationale    | A 4% across-the-board Medicare sequestration (YES) would cut Humana's MA capitation rates by ~4%, directly reducing billions in annual revenue — a high-impact but low-probability hedge.
+-[ RECORD 94 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | BOEM/permitting
+contract_key | synthetic-speed-act-enacted-law
+label        | SPEED Act Enacted Into Law
+probability  | 0.24
+resolution   | Dec 31, 2026
+rationale    | SPEED Act failure to enact leaves NEPA review burdens intact on transmission and utility projects, sustaining permitting delays and cost overruns on Centuri's federally connected construction scopes.
+-[ RECORD 95 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-taiwan-localization-removal
+label        | Taiwan Localization Removal
+probability  | 0.335
+resolution   | Jun 30, 2027
+rationale    | Retention of local content mandates protects Ørsted's $300M+ investment in Taiwanese manufacturing capacity and local partnerships; removal creates stranded assets.
+-[ RECORD 96 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-taiwan-wto-local-content
+label        | Taiwan WTO Local Content Ruling
+probability  | 0.392
+resolution   | Dec 31, 2026
+rationale    | WTO ruling against Taiwan local content could eliminate Ørsted's competitive advantage from established Taiwanese supply chain relationships, raising future project costs.
+-[ RECORD 97 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-tariff-frontload-volume-reversal-h2
+label        | Container Demand Forecast Downgrade
+probability  | 0.06
+resolution   | Oct 1, 2026
+rationale    | Analyst downgrades to sub-2% container demand growth confirm the tariff-frontloading hangover that depresses port call volumes globally and reduces Svitzer's tug job revenue.
+-[ RECORD 98 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | OREC / offtake
+contract_key | synthetic-transformer-supply-surcharge-ferc
+label        | SCE Transformer Cost Recovery Surcharge
+probability  | 0.408
+resolution   | Dec 31, 2026
+rationale    | FERC denying SCE's transformer cost surcharge request (NO) leaves tariff-driven capital overruns unrecovered, directly absorbing into SCE's transmission revenue requirement and reducing shareholder returns.
+-[ RECORD 99 ]--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-treasury-feoc-offshore-wind-2026
+label        | Treasury FEOC Component Threshold
+probability  | 0.468
+resolution   | Oct 5, 2026
+rationale    | 25% FEOC threshold for offshore wind components would disqualify most projects from tax credits due to unavoidable Chinese supply chain dependencies.
+-[ RECORD 100 ]-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-trump-offshore-wind-moratorium-lift
+label        | Offshore Wind Moratorium Reversal
+probability  | 0.323
+resolution   | Jun 30, 2026
+rationale    | NO pays when Trump administration maintains offshore wind moratorium through mid-2026, blocking new U.S. offshore wind lease auctions and development activity.
+-[ RECORD 101 ]-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-uk-cfd-ar7-offshore-wind
+label        | UK CfD AR7 Offshore Wind Award
+probability  | 0.38
+resolution   | Dec 31, 2026
+rationale    | AR7 failing to award RWE a viable CfD strike price (NO) removes the revenue certainty required for Vanguard West financing, stalling the UK offshore programme.
+-[ RECORD 102 ]-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+bucket       | Offshore wind (general)
+contract_key | synthetic-wind-eo-new-pause-upheld
+label        | Dec 2025 Wind Pause Survival
+probability  | 0.45
+resolution   | Dec 31, 2026
+rationale    | If the December 2025 wind pause survives legal challenge (YES), Linea's wind development pipeline remains frozen through 2026, making YES a direct downside hedge on wind permitting risk.
+
