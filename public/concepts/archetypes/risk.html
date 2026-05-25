@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Risk monitoring — Castle Risk Index</title>
+<link rel="stylesheet" href="../../assets/css/colors_and_type.css">
+<link rel="stylesheet" href="_arch.css">
+<style>
+  /* Risk header */
+  .risk-head {
+    padding: 16px 0 28px; border-bottom: var(--hair2);
+    display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end;
+  }
+  .risk-head .pills { display: flex; gap: 6px; margin-bottom: 12px; }
+  .risk-head h1 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(36px, 4.4vw, 50px); line-height: 1.0;
+    letter-spacing: -0.02em; margin: 4px 0 12px;
+  }
+  .risk-head .subtitle {
+    font-family: var(--font-display); font-size: 19px; line-height: 1.45;
+    letter-spacing: -0.005em; color: var(--fg-2); margin: 0 0 16px;
+    max-width: 720px;
+  }
+  .risk-head .citation {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.05em; color: var(--fg-3);
+  }
+  .risk-head .actions {
+    display: flex; gap: 12px; flex-direction: column; align-items: flex-end;
+  }
+  .risk-head .actions .row { display: flex; gap: 12px; align-items: center; }
+  .risk-head .actions .ago {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+  }
+
+  /* Stat strip — bigger version */
+  .risk-stats {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+    margin: 32px 0; background: var(--bg-card); border: var(--hair2);
+  }
+  .risk-stats > div { padding: 22px 24px; border-right: var(--hair); }
+  .risk-stats > div:last-child { border-right: none; }
+  .risk-stats .l {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .risk-stats .v {
+    font-family: var(--font-display); font-size: 40px; line-height: 1;
+    letter-spacing: -0.02em; margin: 10px 0 4px; font-variant-numeric: tabular-nums;
+  }
+  .risk-stats .d {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.15em;
+  }
+
+  /* Main body */
+  .risk-body {
+    display: grid; grid-template-columns: 1fr 380px; gap: 56px;
+    margin-top: 40px;
+  }
+  @media (max-width: 1024px) { .risk-body { grid-template-columns: 1fr; } }
+
+  /* Castle's view */
+  .castle-view {
+    background: var(--bg-card); border: var(--hair2);
+    padding: 28px 32px; margin-bottom: 32px;
+  }
+  .castle-view .l {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .castle-view p {
+    font-family: var(--font-display); font-size: 21px; line-height: 1.55;
+    letter-spacing: -0.005em; color: var(--fg); margin: 0;
+  }
+
+  /* Attention chart */
+  .attn-frame .head { margin-bottom: 18px; }
+  .attn-frame svg { height: 280px; }
+
+  /* Timeline */
+  .timeline-frame { background: var(--bg-card); border: var(--hair2); padding: 24px 28px; margin-top: 32px; }
+  .timeline-frame .head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 14px; margin-bottom: 4px; border-bottom: var(--hair);
+  }
+  .timeline-frame .head h3 {
+    font-family: var(--font-display); font-weight: 400; font-size: 18px;
+    line-height: 1.2; letter-spacing: -0.01em; margin: 0;
+  }
+  .timeline-frame .head .meta {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+  }
+
+  .tl-row {
+    display: grid; grid-template-columns: 100px 24px 1fr;
+    gap: 16px; padding: 18px 0; align-items: start; position: relative;
+    border-bottom: var(--hair);
+  }
+  .tl-row:last-child { border-bottom: none; }
+  .tl-row .when {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.05em; color: var(--fg-3); padding-top: 2px;
+  }
+  .tl-row .when strong { color: var(--fg); display: block; font-size: 11px;
+                         font-weight: 700; letter-spacing: 0.2em;
+                         text-transform: uppercase; margin-bottom: 2px; }
+  .tl-row .marker { position: relative; }
+  .tl-row .marker::before {
+    content: ""; position: absolute; left: 50%; top: 8px; bottom: -32px;
+    width: 1px; background: var(--border);
+  }
+  .tl-row:last-child .marker::before { display: none; }
+  .tl-row .marker .dot {
+    position: absolute; left: calc(50% - 5px); top: 4px;
+    width: 11px; height: 11px; background: var(--castle-bone);
+    border: 2px solid var(--fg);
+  }
+  .tl-row.is-future .marker .dot { border-style: dashed; }
+  .tl-row.is-now .marker .dot { background: var(--fg); }
+  .tl-row .body { padding-top: 2px; min-width: 0; }
+  .tl-row .body .kind {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+    margin-bottom: 6px;
+  }
+  .tl-row .body .title { font-family: var(--font-body); font-size: 14.5px; line-height: 1.4; color: var(--fg); }
+  .tl-row .body .title strong { font-weight: 600; }
+  .tl-row .body .detail { font-size: 12.5px; color: var(--fg-3); margin-top: 4px; line-height: 1.5; }
+
+  /* News feed (in body) */
+  .news-feed { background: var(--bg-card); border: var(--hair2); padding: 24px 28px; margin-top: 32px; }
+  .news-feed .head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 14px; margin-bottom: 4px; border-bottom: var(--hair);
+  }
+  .news-feed .head h3 {
+    font-family: var(--font-display); font-weight: 400; font-size: 18px;
+    line-height: 1.2; letter-spacing: -0.01em; margin: 0;
+  }
+  .news-feed .item {
+    display: grid; grid-template-columns: 100px 1fr 80px; gap: 16px;
+    padding: 14px 0; border-bottom: var(--hair); align-items: center;
+    text-decoration: none; color: inherit;
+  }
+  .news-feed .item:last-child { border-bottom: none; }
+  .news-feed .item:hover { background: var(--castle-paper); padding-left: 8px; padding-right: 8px; margin: 0 -8px; }
+  .news-feed .item .src {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg);
+  }
+  .news-feed .item .src small {
+    display: block; font-weight: 600; color: var(--fg-3); margin-top: 4px;
+  }
+  .news-feed .item .ttl { font-size: 14px; line-height: 1.45; color: var(--fg); }
+  .news-feed .item .tag-cell { text-align: right; }
+
+  /* Right rail */
+  .rail-block { margin-bottom: 32px; }
+  .rail-block .l {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+    padding-bottom: 12px; border-bottom: var(--hair2); margin-bottom: 0;
+  }
+
+  .hedge-card-r {
+    padding: 16px 0; border-bottom: var(--hair);
+  }
+  .hedge-card-r:last-child { border-bottom: none; }
+  .hedge-card-r .ticker {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.05em; color: var(--fg);
+  }
+  .hedge-card-r .ttl {
+    font-size: 12.5px; color: var(--fg-2); line-height: 1.4; margin-top: 6px;
+  }
+  .hedge-card-r .row {
+    display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px;
+  }
+  .hedge-card-r .yes {
+    font-family: var(--font-mono); font-size: 22px; font-weight: 700;
+    letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+  }
+  .hedge-card-r .meta-row {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .hedge-card-r .change-up { color: var(--neg); font-weight: 700; }
+  .hedge-card-r .change-dn { color: var(--pos); font-weight: 700; }
+  .hedge-card-r .cta {
+    margin-top: 12px;
+    display: block; width: 100%; box-sizing: border-box;
+    font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    background: transparent; border: 1px solid var(--fg-2);
+    color: var(--fg); padding: 10px 0; text-align: center; cursor: pointer;
+  }
+  .hedge-card-r .cta:hover { background: var(--fg); color: var(--castle-bone); }
+  .hedge-card-r .cta.is-primary { background: var(--fg); color: var(--castle-bone); border-color: var(--fg); }
+
+  /* Alerts panel */
+  .alerts {
+    margin-top: 12px;
+    padding: 16px; background: var(--castle-paper); border: var(--hair2);
+  }
+  .alerts ul {
+    margin: 0; padding: 0; list-style: none;
+    font-size: 13px; line-height: 2;
+  }
+  .alerts li { display: flex; align-items: center; gap: 10px; }
+  .alerts li::before {
+    content: ""; display: inline-block;
+    width: 14px; height: 14px; border: 1px solid var(--fg-3);
+    flex-shrink: 0;
+  }
+  .alerts li.is-on::before {
+    background: var(--fg); border-color: var(--fg);
+    background-image: linear-gradient(45deg, transparent 40%, var(--castle-bone) 40%, var(--castle-bone) 50%, transparent 50%, transparent 70%, var(--castle-bone) 70%, var(--castle-bone) 80%, transparent 80%);
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img src="../../assets/svg/castle-logo-black.svg" alt="Castle">
+      <span class="product">Risk Index</span>
+    </a>
+    <div class="crumb">
+      <a href="index.html">Archetypes</a>
+      <span class="sep">/</span>
+      <a id="crumb-archetype" href="#"></a>
+      <span class="sep">/</span>
+      <span class="current">Risk</span>
+    </div>
+    <div class="right">
+      <span class="live">Live · <span id="risk-updated"></span></span>
+      <a id="back-archetype" href="#">← Archetype</a>
+      <span class="avatar">LC</span>
+    </div>
+  </div>
+</nav>
+
+<main class="page">
+
+  <header class="risk-head" id="risk-head"></header>
+
+  <section class="risk-stats" id="risk-stats"></section>
+
+  <div class="risk-body">
+    <!-- LEFT -->
+    <div>
+      <!-- Castle's view -->
+      <div class="castle-view">
+        <div class="l">Castle's view</div>
+        <p id="view"></p>
+      </div>
+
+      <!-- Attention chart -->
+      <section class="chart-frame attn-frame">
+        <div class="head">
+          <h3>Attention · last 12 weeks of policy &amp; media mentions</h3>
+          <span class="meta">Castle composite · all sources</span>
+        </div>
+        <svg id="attn-chart" preserveAspectRatio="xMidYMid meet" viewBox="0 0 800 280"></svg>
+        <p class="caption" id="attn-caption"></p>
+      </section>
+
+      <!-- Timeline -->
+      <section class="timeline-frame">
+        <div class="head">
+          <h3>Timeline of developments</h3>
+          <span class="meta">Past · Now · Upcoming</span>
+        </div>
+        <div id="timeline"></div>
+      </section>
+
+      <!-- News feed -->
+      <section class="news-feed">
+        <div class="head">
+          <h3>Recent items</h3>
+          <span class="meta"><a href="#" style="color:var(--accent);text-decoration:none;font-weight:700">All news →</a></span>
+        </div>
+        <div id="news-feed"></div>
+      </section>
+    </div>
+
+    <!-- RIGHT RAIL -->
+    <aside>
+      <div class="rail-block">
+        <div class="l">Mapped Kalshi hedges</div>
+        <div id="hedges"></div>
+      </div>
+
+      <div class="rail-block">
+        <div class="l">Notify me when…</div>
+        <div class="alerts">
+          <ul>
+            <li class="is-on">Probability moves &gt; 5pp</li>
+            <li class="is-on">New bill or rule matches</li>
+            <li class="is-on">Kalshi YES moves &gt; 5¢</li>
+            <li>Catalyst within 14 days</li>
+            <li>Castle changes its view</li>
+          </ul>
+        </div>
+        <a href="#" style="display:block;margin-top:12px;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);text-align:right">Customize alerts →</a>
+      </div>
+    </aside>
+  </div>
+
+</main>
+
+<footer class="foot">
+  <span>Castle · For informational purposes only · Sun May 24 · 7:18 AM EDT</span>
+  <span><a id="foot-back" href="#">← Archetype</a><a href="index.html">Archetypes</a></span>
+</footer>
+
+<script type="module">
+import { RISK_DETAIL, NEWS, escape, fmtUsd, fmtPct, archetypeById } from './_data.js';
+
+// In a real app we'd look up by archetype + id query params. For the mock,
+// we always show the headline risk (utility-solar :: §48E).
+const R = RISK_DETAIL;
+const A = archetypeById(R.archetype_id);
+
+document.title = `${R.title} — ${R.archetype_name}`;
+document.getElementById('crumb-archetype').textContent = R.archetype_name;
+document.getElementById('crumb-archetype').href = `archetype.html?id=${R.archetype_id}`;
+document.getElementById('back-archetype').href = `archetype.html?id=${R.archetype_id}`;
+document.getElementById('foot-back').href = `archetype.html?id=${R.archetype_id}`;
+document.getElementById('risk-updated').textContent = R.last_updated;
+
+// Header
+document.getElementById('risk-head').innerHTML = `
+  <div>
+    <div class="pills">
+      <span class="pill is-${R.category}">${R.category}</span>
+      <span class="pill is-high">High likelihood</span>
+      <span class="pill is-new">+24 attention overnight</span>
+    </div>
+    <h1>${escape(R.title)}</h1>
+    <p class="subtitle">${escape(R.subtitle)}</p>
+    <div class="citation">${escape(R.citation)} · Castle tracking since ${escape(R.tracked_since)}</div>
+  </div>
+  <div class="actions">
+    <span class="ago">Updated ${escape(R.last_updated)}</span>
+    <div class="row">
+      <button class="btn">★ Watching</button>
+      <button class="btn">Share</button>
+      <button class="btn is-primary">Hedge ${fmtUsd(R.hedges[0].notional)} →</button>
+    </div>
+  </div>
+`;
+
+// Stat strip
+document.getElementById('risk-stats').innerHTML = `
+  <div>
+    <div class="l">Attention</div>
+    <div class="v">${R.attention}</div>
+    <div class="d" style="color:var(--neg)">↑ +${R.attention_delta} in 48h</div>
+  </div>
+  <div>
+    <div class="l">Probability</div>
+    <div class="v">${Math.round(R.probability * 100)}%</div>
+    <div class="d" style="color:var(--neg)">↑ +${Math.round(R.probability_delta * 100)}pp WoW</div>
+  </div>
+  <div>
+    <div class="l">IRR impact</div>
+    <div class="v">${R.impact_irr.toFixed(1)} pp</div>
+    <div class="d" style="color:var(--fg-3)">if realized</div>
+  </div>
+  <div>
+    <div class="l">$ at risk</div>
+    <div class="v">${fmtUsd(R.impact_usd)}</div>
+    <div class="d" style="color:var(--fg-3)">archetype-typical capex</div>
+  </div>
+  <div>
+    <div class="l">Castle hedge cost</div>
+    <div class="v">${fmtUsd(R.hedge_cost)}</div>
+    <div class="d" style="color:var(--fg-3)">@ ${Math.round(R.hedge_yes * 100)}¢ on ${R.hedge_market.split('-')[0]}</div>
+  </div>
+`;
+
+// Castle's view
+document.getElementById('view').textContent = R.view;
+
+// Attention chart
+function buildAttn() {
+  const svg = document.getElementById('attn-chart');
+  const width = 800, height = 280;
+  const padL = 50, padR = 40, padT = 40, padB = 40;
+  const plotW = width - padL - padR;
+  const plotH = height - padT - padB;
+  const values = R.weekly;
+  const max = Math.max(...values, 100);
+
+  let html = '';
+  for (let i = 0; i <= 4; i++) {
+    const v = max * i / 4;
+    const y = padT + plotH - (v / max) * plotH;
+    html += `<line x1="${padL}" y1="${y}" x2="${width - padR}" y2="${y}" stroke="rgba(24,24,24,0.06)"/>`;
+    html += `<text x="${padL - 10}" y="${y + 4}" font-family="Geist Mono" font-size="11" fill="#737373" text-anchor="end" font-variant-numeric="tabular-nums">${Math.round(v)}</text>`;
+  }
+  html += `<line x1="${padL}" y1="${padT + plotH}" x2="${width - padR}" y2="${padT + plotH}" stroke="rgba(24,24,24,0.2)"/>`;
+
+  const bw = plotW / values.length - 6;
+  values.forEach((v, i) => {
+    const x = padL + i * (plotW / values.length) + 3;
+    const h = (v / max) * plotH;
+    const y = padT + plotH - h;
+    const isLast = i === values.length - 1;
+    html += `<rect x="${x}" y="${y}" width="${bw}" height="${h}" fill="${isLast ? '#171717' : '#246075'}" fill-opacity="${isLast ? 1 : 0.9}"/>`;
+    if (i % 2 === 0 || isLast) {
+      html += `<text x="${x + bw / 2}" y="${padT + plotH + 22}" font-family="Geist Mono" font-size="10" fill="#737373" text-anchor="middle" font-weight="600" letter-spacing="0.1em">w${values.length - i - 1}</text>`;
+    }
+  });
+  // annotate current week
+  const last = values[values.length - 1];
+  const lx = padL + (values.length - 1) * (plotW / values.length) + 3 + bw / 2;
+  const ly = padT + plotH - (last / max) * plotH;
+  html += `<line x1="${lx}" y1="${ly}" x2="${lx + 14}" y2="${ly - 14}" stroke="#171717" stroke-width="1"/>`;
+  html += `<text x="${lx + 18}" y="${ly - 14}" font-family="Geist Mono" font-size="10" font-weight="700" fill="#171717">This week — peak</text>`;
+  svg.innerHTML = html;
+}
+buildAttn();
+document.getElementById('attn-caption').innerHTML =
+  `Attention crossed <strong>100</strong> this week — the 12-week peak. ${R.events.find(e => e.now)?.detail || ''}`;
+
+// Timeline
+const KIND_LABEL = { deadline: 'Hard deadline', hearing: 'Hearing', market: 'Market move', filing: 'Filing', castle: 'Castle action', now: 'Now' };
+document.getElementById('timeline').innerHTML = R.events.map(e => `
+  <div class="tl-row ${e.future ? 'is-future' : ''} ${e.now ? 'is-now' : ''}">
+    <div class="when"><strong>${escape(e.when)}</strong>${escape(e.date)}</div>
+    <div class="marker"><span class="dot"></span></div>
+    <div class="body">
+      <div class="kind">${KIND_LABEL[e.kind] || e.kind}</div>
+      <div class="title">${e.now ? '<strong>' + escape(e.title) + '</strong>' : escape(e.title)}</div>
+      <div class="detail">${escape(e.detail)}</div>
+    </div>
+  </div>
+`).join('');
+
+// News feed
+document.getElementById('news-feed').innerHTML = R.news.map(n => `
+  <a class="item" href="#">
+    <div class="src">${escape(n.source)}<small>${escape(n.ago)}</small></div>
+    <div class="ttl">${escape(n.title)}</div>
+    <div class="tag-cell"><span class="pill is-${n.tag}">${escape(n.tag)}</span></div>
+  </a>
+`).join('');
+
+// Hedges
+document.getElementById('hedges').innerHTML = R.hedges.map((h, i) => {
+  const changeNum = h.change || 0;
+  const changeClass = changeNum > 0 ? 'change-up' : changeNum < 0 ? 'change-dn' : '';
+  const changeStr = (changeNum > 0 ? '+' : '') + (changeNum * 100).toFixed(0) + '¢';
+  return `<div class="hedge-card-r">
+    <div class="ticker">${escape(h.ticker)}</div>
+    <div class="ttl">${escape(h.title)}</div>
+    <div class="row">
+      <span class="yes">${Math.round(h.yes * 100)}¢ <span class="${changeClass}" style="font-size:11px;letter-spacing:0.05em">${changeStr}</span></span>
+      <span class="meta-row">Resolves ${escape(h.expiry)}</span>
+    </div>
+    <button class="cta ${i === 0 ? 'is-primary' : ''}">Hedge ${fmtUsd(h.notional)} →</button>
+  </div>`;
+}).join('');
+</script>
+
+</body>
+</html>
