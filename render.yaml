@@ -1,0 +1,57 @@
+services:
+  - type: web
+    name: castle-energy-risk-index
+    runtime: node
+    plan: standard
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - fromGroup: castle-eri-shared
+
+  - type: worker
+    name: castle-energy-risk-index-worker
+    runtime: node
+    plan: standard
+    buildCommand: npm ci && npm run build
+    startCommand: npm run worker
+    envVars:
+      - fromGroup: castle-eri-shared
+
+  - type: cron
+    name: castle-eri-daily-refresh
+    runtime: node
+    schedule: "0 10 * * 1-5"
+    buildCommand: npm ci
+    startCommand: npm run cron:daily-refresh
+    envVars:
+      - key: WEB_URL
+        sync: false
+      - key: CRON_SECRET
+        sync: false
+
+envVarGroups:
+  - name: castle-eri-shared
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_URL
+        sync: false
+      - key: NEXT_PUBLIC_SUPABASE_ANON_KEY
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: SCRAPER_SUPABASE_URL
+        sync: false
+      - key: SCRAPER_SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: CRON_SECRET
+        sync: false
+      - key: REVALIDATE_TOKEN
+        sync: false
+      - key: ADMIN_EMAILS
+        sync: false
+      - key: SLACK_WEBHOOK_URL
+        sync: false
+      - key: WEB_URL
+        sync: false
