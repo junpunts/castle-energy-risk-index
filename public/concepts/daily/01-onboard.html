@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Castle Daily — Set up</title>
+<link rel="stylesheet" href="../../assets/css/colors_and_type.css">
+<link rel="stylesheet" href="_daily.css">
+<style>
+  /* Onboarding-specific overrides */
+  body { background: var(--castle-bone); }
+  .onb { max-width: 1280px; margin: 0 auto; padding: 56px 48px 96px; }
+  .onb-progress {
+    display: flex; gap: 8px; margin-bottom: 48px;
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .onb-progress .step {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 12px; border: var(--hair2);
+  }
+  .onb-progress .step.is-active { background: var(--fg); color: var(--castle-bone); border-color: var(--fg); }
+  .onb-progress .step.is-done { color: var(--fg); }
+  .onb-progress .step.is-done::after { content: "✓"; margin-left: 4px; }
+
+  .onb-grid {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px;
+    align-items: start;
+  }
+  .onb-left h1 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(40px, 5.4vw, 60px); line-height: 1.0;
+    letter-spacing: -0.02em; margin: 0 0 16px;
+  }
+  .onb-left .deck {
+    font-size: 17px; line-height: 1.55; color: var(--fg-2);
+    max-width: 520px; margin: 0 0 36px;
+  }
+  .onb-input-wrap { margin-bottom: 24px; }
+  .onb-input-wrap label {
+    display: block;
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+    margin-bottom: 8px;
+  }
+  .onb-input {
+    width: 100%; box-sizing: border-box;
+    border: 1px solid var(--fg);
+    background: var(--bg-card);
+    padding: 16px 18px;
+    font-family: var(--font-body); font-size: 17px;
+    color: var(--fg); outline: none;
+  }
+  .onb-input.is-prefixed { padding-left: 56px; }
+  .onb-input-wrap .prefix {
+    position: absolute; margin: 16px 0 0 18px;
+    font-family: var(--font-mono); font-size: 17px; color: var(--fg-3);
+  }
+  .onb-helper { font-size: 12px; color: var(--fg-3); margin-top: 8px; line-height: 1.5; }
+  .onb-divider {
+    display: flex; align-items: center; gap: 16px;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.3em;
+    text-transform: uppercase; color: var(--fg-3);
+    margin: 24px 0;
+  }
+  .onb-divider::before, .onb-divider::after {
+    content: ""; flex: 1; height: 1px; background: var(--border);
+  }
+  .onb-suggestions {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+    background: rgba(24,24,24,0.14);
+    border: var(--hair2);
+  }
+  .onb-suggestions .sg {
+    background: var(--bg-card); padding: 14px 16px;
+    cursor: pointer; transition: background .12s;
+  }
+  .onb-suggestions .sg:hover { background: var(--castle-paper); }
+  .onb-suggestions .sg .name {
+    font-family: var(--font-display); font-size: 16px;
+    letter-spacing: -0.01em; color: var(--fg);
+  }
+  .onb-suggestions .sg .url {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.05em; color: var(--fg-3); margin-top: 2px;
+  }
+
+  /* RIGHT — Live analysis pane */
+  .onb-right {
+    background: var(--bg-card); border: var(--hair2);
+    padding: 32px;
+  }
+  .analysis-head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 16px; margin-bottom: 20px;
+    border-bottom: var(--hair2);
+  }
+  .analysis-head .live {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent-teal-deep);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .analysis-head .live::before {
+    content: ""; width: 6px; height: 6px; background: var(--accent-teal-deep);
+    border-radius: 50%; animation: pulse 1.5s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%, 100% { opacity: 1 } 50% { opacity: 0.3 } }
+  .analysis-co {
+    font-family: var(--font-display); font-size: 22px; letter-spacing: -0.01em;
+    color: var(--fg); margin-bottom: 4px;
+  }
+  .analysis-meta {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+  }
+
+  .reading { padding: 16px 0; border-bottom: var(--hair); }
+  .reading:last-of-type { border-bottom: none; }
+  .reading .l {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .reading .v {
+    margin-top: 8px; font-family: var(--font-body); font-size: 14px;
+    color: var(--fg); line-height: 1.55;
+  }
+  .reading .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .reading .chips span {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    border: 1px solid var(--border); padding: 4px 8px; color: var(--fg-2);
+  }
+  .reading .chips span.is-flag {
+    background: var(--fg); color: var(--castle-bone); border-color: var(--fg);
+  }
+
+  .preview-watchlist {
+    padding: 20px 0 0; border-top: var(--rule); margin-top: 24px;
+  }
+  .preview-watchlist .ph {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+    margin-bottom: 12px;
+    display: flex; justify-content: space-between;
+  }
+  .preview-watchlist .ph .count { color: var(--fg); font-weight: 700; }
+  .preview-watchlist .wl-row {
+    display: grid; grid-template-columns: 36px 1fr auto; gap: 12px;
+    padding: 10px 0; border-bottom: var(--hair); align-items: center;
+  }
+  .preview-watchlist .wl-row:last-child { border-bottom: none; }
+  .preview-watchlist .wl-row .pill { font-size: 8px; padding: 2px 5px; letter-spacing: 0.25em; }
+  .preview-watchlist .wl-row .name {
+    font-size: 13px; color: var(--fg); line-height: 1.3;
+  }
+  .preview-watchlist .wl-row .name small {
+    display: block; font-family: var(--font-mono); font-size: 9px;
+    letter-spacing: 0.15em; color: var(--fg-3); margin-top: 2px;
+  }
+  .preview-watchlist .wl-row .add {
+    font-family: var(--font-mono); font-size: 11px; color: var(--accent-teal-deep);
+    cursor: pointer;
+  }
+  .preview-watchlist .wl-row .add.is-on { color: var(--fg); }
+  .preview-watchlist .wl-row .add.is-on::after { content: " ✓"; }
+
+  .onb-cta-row {
+    margin-top: 32px; display: flex; gap: 12px; align-items: center;
+  }
+  .onb-cta-row .stats {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+    margin-left: auto;
+  }
+
+  @media (max-width: 960px) {
+    .onb-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="daily-nav">
+  <div class="daily-nav-inner">
+    <a class="daily-brand" href="../../index.html">
+      <img src="../../assets/svg/castle-logo-black.svg" alt="Castle">
+      <span class="product">Daily · Setup</span>
+    </a>
+    <div></div>
+    <div class="daily-user">
+      <span>Lily Chen · GP, Cardinal Renewable Partners</span>
+    </div>
+  </div>
+</nav>
+
+<div class="onb">
+  <div class="onb-progress">
+    <span class="step is-done">Sign in</span>
+    <span class="step is-active">Add your company</span>
+    <span class="step">Review watchlist</span>
+    <span class="step">First brief</span>
+  </div>
+
+  <div class="onb-grid">
+    <div class="onb-left">
+      <span class="eyebrow">Step 2 of 4</span>
+      <h1>Tell us about your company.</h1>
+      <p class="deck">Paste your website. Castle reads the site, public filings, and the news archive, then proposes a watchlist of specific bills, rules, tariffs, and market events tied to your operations. You'll review it in 60 seconds.</p>
+
+      <div class="onb-input-wrap">
+        <label>Company URL</label>
+        <span class="prefix">https://</span>
+        <input class="onb-input is-prefixed" value="cardinalpartners.com" autofocus>
+        <div class="onb-helper">We never write to your site. Read-only crawl of marketing pages + linked 10-K / 10-Q if public.</div>
+      </div>
+
+      <div class="onb-divider">or pick a sample</div>
+
+      <div class="onb-suggestions">
+        <div class="sg"><div class="name">NextEra Energy Resources</div><div class="url">nexteraenergyresources.com</div></div>
+        <div class="sg"><div class="name">Brookfield Renewable</div><div class="url">bep.brookfield.com</div></div>
+        <div class="sg"><div class="name">Plug Power</div><div class="url">plugpower.com</div></div>
+        <div class="sg"><div class="name">Sunrun</div><div class="url">sunrun.com</div></div>
+      </div>
+
+      <div class="onb-cta-row">
+        <button class="btn is-primary">Continue →</button>
+        <button class="btn is-ghost">Skip, enter manually</button>
+      </div>
+    </div>
+
+    <div class="onb-right">
+      <div class="analysis-head">
+        <span class="live">Live · analyzing</span>
+        <span class="analysis-meta">5 sources · 14 sec</span>
+      </div>
+      <div class="analysis-co">Cardinal Renewable Partners, LP</div>
+      <div class="analysis-meta">Independent power producer · ~$6.7B AUM · 12 projects · founded 2014</div>
+
+      <div class="reading">
+        <div class="l">Identified business model</div>
+        <div class="v">Renewable-energy project developer / IPP. Builds and operates utility-scale solar, offshore wind, battery storage, green hydrogen, and EV charging assets. Sells power and capacity through PPAs, OREC contracts, and state NEVI awards.</div>
+      </div>
+
+      <div class="reading">
+        <div class="l">Identified products</div>
+        <div class="chips">
+          <span class="is-flag">Utility-scale PV</span>
+          <span class="is-flag">Offshore wind</span>
+          <span class="is-flag">Li-ion BESS</span>
+          <span class="is-flag">Green hydrogen</span>
+          <span class="is-flag">DC fast charging</span>
+        </div>
+      </div>
+
+      <div class="reading">
+        <div class="l">Critical suppliers</div>
+        <div class="chips">
+          <span>Jinko Solar · CN</span>
+          <span>JA Solar · MY</span>
+          <span>Siemens Gamesa · DK</span>
+          <span>POSCO · KR</span>
+          <span>CATL · CN</span>
+          <span>Plug Power · US</span>
+          <span>ABB · CH</span>
+          <span>+ 11 more</span>
+        </div>
+      </div>
+
+      <div class="reading">
+        <div class="l">Primary regulators</div>
+        <div class="chips">
+          <span>Treasury / IRS</span><span>BOEM</span><span>FERC</span><span>FHWA</span><span>EPA</span><span>USTR</span><span>CBP</span><span>ERCOT</span><span>CAISO</span><span>PUCT</span>
+        </div>
+      </div>
+
+      <div class="preview-watchlist">
+        <div class="ph">
+          <span>Proposed watchlist · <span class="count">14 exposures</span></span>
+          <span>Click any to skip</span>
+        </div>
+
+        <div class="wl-row"><span class="pill is-policy">Policy</span><div class="name">§48E ITC reinstatement / phase-down<small>IRC §48E · House W&amp;M reconciliation</small></div><span class="add is-on">Add</span></div>
+        <div class="wl-row"><span class="pill is-policy">Policy</span><div class="name">§45V three-pillars rule finalization<small>Treasury REG-117631-23</small></div><span class="add is-on">Add</span></div>
+        <div class="wl-row"><span class="pill is-policy">Policy</span><div class="name">EO 14154 offshore-wind leasing pause<small>EO Jan 20, 2025</small></div><span class="add is-on">Add</span></div>
+        <div class="wl-row"><span class="pill is-trade">Trade</span><div class="name">Section 301 escalation on Chinese PV inputs<small>HTS 3818, 8541.40, USTR list 3</small></div><span class="add is-on">Add</span></div>
+        <div class="wl-row"><span class="pill is-trade">Trade</span><div class="name">Section 232 Korean steel plate<small>HTS 7208.51, 7208.52 · POSCO</small></div><span class="add is-on">Add</span></div>
+        <div class="wl-row"><span class="pill is-trade">Trade</span><div class="name">UFLPA detentions on Jinko / polysilicon<small>FLETF entity list</small></div><span class="add is-on">Add</span></div>
+        <div class="wl-row"><span class="pill is-trade">Trade</span><div class="name">AD/CVD on Southeast Asia CSPV modules<small>Cambodia, Malaysia, Thailand, Vietnam</small></div><span class="add is-on">Add</span></div>
+        <div class="wl-row"><span class="pill is-geopolitical">Geo</span><div class="name">China–Taiwan strait escalation<small>CATL / BYD supply tail risk</small></div><span class="add is-on">Add</span></div>
+        <div class="wl-row"><span class="pill is-policy">Policy</span><div class="name">NEVI program funding rescission<small>23 USC 175 · FHWA</small></div><span class="add">Add</span></div>
+        <div class="wl-row"><span class="pill is-macro">Macro</span><div class="name">Long-curve rate sensitivity on tax equity<small>±100 bps IRR impact</small></div><span class="add is-on">Add</span></div>
+      </div>
+
+      <div style="margin-top:20px;text-align:center">
+        <button class="btn is-ghost" style="font-size:10px">Show 4 more →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="daily-foot">
+  <span>Castle · For informational purposes only</span>
+  <span><a href="index.html">← All daily mocks</a> <a href="02-today.html">Skip to home →</a></span>
+</footer>
+
+</body>
+</html>

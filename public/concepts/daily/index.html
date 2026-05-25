@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Castle Daily — Product mocks</title>
+<link rel="stylesheet" href="../../assets/css/colors_and_type.css">
+<style>
+  body { background: var(--castle-bone); color: var(--fg); font-family: var(--font-body); margin: 0; }
+  main { max-width: 1280px; margin: 0 auto; padding: 64px 32px 96px; }
+  .top { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.3em;
+         text-transform: uppercase; color: var(--fg-3); margin-bottom: 32px; }
+  .top a:hover { color: var(--fg); }
+  .eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+             letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3); }
+  h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(40px, 5vw, 60px);
+       line-height: 1.05; letter-spacing: -0.01em; margin: 12px 0 16px; }
+  p.lead { font-size: 17px; line-height: 1.6; color: var(--fg-2); max-width: 720px; margin: 0 0 12px; }
+  .meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em;
+          text-transform: uppercase; color: var(--fg-3); margin-bottom: 56px; }
+
+  .flow {
+    display: grid; gap: 1px;
+    background: rgba(24,24,24,0.14);
+    border: 1px solid rgba(24,24,24,0.14);
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .step {
+    background: var(--castle-bone); padding: 32px 28px;
+    display: flex; flex-direction: column; gap: 16px;
+    text-decoration: none; color: inherit;
+    transition: background .15s;
+  }
+  .step:hover { background: var(--bg-card); }
+  .step.is-wide { grid-column: span 2; }
+  .step .num {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.25em; color: var(--fg);
+  }
+  .step .preview {
+    height: 200px; border: 1px solid rgba(24,24,24,0.16);
+    background: var(--castle-paper);
+    padding: 16px; overflow: hidden; position: relative;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .step h3 { font-family: var(--font-display); font-weight: 400; font-size: 22px;
+             line-height: 1.2; letter-spacing: -0.01em; margin: 0; }
+  .step p { font-size: 13.5px; line-height: 1.5; color: var(--fg-3); margin: 0; }
+
+  /* Preview sketches */
+  .pv-h {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+    border-bottom: 1px solid rgba(24,24,24,0.14); padding-bottom: 6px;
+    display: flex; justify-content: space-between;
+  }
+  .pv-h .dot { width: 6px; height: 6px; background: #8B2A1C; border-radius: 50%; display: inline-block; margin-right: 4px; vertical-align: middle; }
+  .pv-onboard .input {
+    border: 1px solid var(--fg); padding: 10px 12px;
+    font-family: var(--font-body); font-size: 11px; color: var(--fg-3);
+    margin: 6px 0 4px;
+  }
+  .pv-onboard .input strong { color: var(--fg); }
+  .pv-onboard .chips { display: flex; gap: 4px; flex-wrap: wrap; }
+  .pv-onboard .chip {
+    font-family: var(--font-mono); font-size: 8px; letter-spacing: 0.2em;
+    text-transform: uppercase; border: 1px solid var(--fg-3);
+    padding: 3px 6px; color: var(--fg-3);
+  }
+  .pv-today .greeting {
+    font-family: var(--font-display); font-size: 22px; line-height: 1;
+    letter-spacing: -0.01em; color: var(--fg);
+  }
+  .pv-today .delta {
+    font-family: var(--font-mono); font-size: 14px; letter-spacing: -0.01em;
+    color: var(--fg); display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .pv-today .delta strong { font-size: 32px; font-family: var(--font-display); letter-spacing: -0.02em; }
+  .pv-today .delta .down { color: #8B2A1C; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; }
+  .pv-today .item {
+    font-family: var(--font-body); font-size: 11px; color: var(--fg);
+    padding: 4px 0; border-top: 1px solid rgba(24,24,24,0.14);
+    display: flex; gap: 8px;
+  }
+  .pv-today .item .when { color: var(--fg-3); font-family: var(--font-mono); font-size: 9px;
+                          letter-spacing: 0.1em; text-transform: uppercase; flex-shrink: 0; width: 50px; }
+
+  .pv-exposure .title {
+    font-family: var(--font-display); font-size: 18px; line-height: 1.15;
+    letter-spacing: -0.01em; color: var(--fg);
+  }
+  .pv-exposure .row {
+    display: flex; justify-content: space-between;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+    padding: 4px 0; border-bottom: 1px solid rgba(24,24,24,0.14);
+  }
+  .pv-exposure .row .l { color: var(--fg-3); text-transform: uppercase; letter-spacing: 0.2em; }
+  .pv-exposure .row .v { color: var(--fg); font-weight: 700; font-variant-numeric: tabular-nums; }
+  .pv-exposure .timeline { display: flex; height: 24px; align-items: center; gap: 2px; margin-top: 8px; }
+  .pv-exposure .timeline i { width: 4px; background: #246075; }
+
+  .pv-inbox .item {
+    display: grid; grid-template-columns: 14px 1fr auto; gap: 8px;
+    padding: 6px 0; border-bottom: 1px solid rgba(24,24,24,0.14);
+    align-items: center; font-size: 11px; color: var(--fg);
+  }
+  .pv-inbox .item.is-unread { font-weight: 600; }
+  .pv-inbox .item.is-unread::before { content: ""; width: 6px; height: 6px; background: var(--accent-teal); border-radius: 50%; display: block; }
+  .pv-inbox .item:not(.is-unread)::before { content: ""; width: 6px; height: 6px; display: block; }
+  .pv-inbox .item .ago { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em;
+                        text-transform: uppercase; color: var(--fg-3); }
+
+  .pv-hedge .row {
+    display: grid; grid-template-columns: 1fr 50px; gap: 8px;
+    padding: 6px 0; border-bottom: 1px solid rgba(24,24,24,0.14);
+    align-items: center;
+  }
+  .pv-hedge .name { font-size: 11px; color: var(--fg); line-height: 1.3; }
+  .pv-hedge .name small { display: block; font-family: var(--font-mono); font-size: 9px;
+                          letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3); margin-top: 2px; }
+  .pv-hedge .cta {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    background: var(--fg); color: var(--castle-bone);
+    padding: 4px 6px; text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <div class="top">
+    <a href="../index.html">← Static concepts</a> · <a href="../../index.html">Live brief</a>
+  </div>
+
+  <span class="eyebrow">Castle · Daily · Product mocks</span>
+  <h1>Castle Daily — a daily risk tracker for companies.</h1>
+  <p class="lead">Five screens covering the loop a customer would run every morning: onboard once → daily home each morning → drill into changing exposures → clear an inbox of items needing action → confirm a recommended hedge.</p>
+  <p class="lead" style="color:var(--fg-3)">All mocks share a single fictional customer (<strong style="color:var(--fg)">Cardinal Renewable Partners</strong>) and the live data from the brief. The point is to see the product end-to-end before building it.</p>
+  <div class="meta">Five screens · static mocks · ~30 min walk-through</div>
+
+  <div class="flow">
+    <a class="step is-wide" href="01-onboard.html">
+      <div class="num">01 · Onboarding</div>
+      <div class="preview pv-onboard">
+        <div class="pv-h"><span>CASTLE / SET UP</span><span>30 SEC</span></div>
+        <div style="font-family:var(--font-display);font-size:18px;letter-spacing:-0.01em">Tell us about your company.</div>
+        <div class="input"><strong>cardinalpartners.com</strong></div>
+        <div style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--fg-3)">Castle is analyzing your exposures…</div>
+        <div class="chips">
+          <span class="chip">PV modules</span><span class="chip">offshore wind</span><span class="chip">LFP cells</span><span class="chip">electrolyzers</span><span class="chip">PEM</span><span class="chip">DC fast charging</span>
+        </div>
+      </div>
+      <h3>Onboard once.</h3>
+      <p>Paste a company URL. Claude reads the site + 10-Ks if public, extracts products, suppliers, regulators, and seeds a watchlist of 8–15 specific exposures. Confirm in 60 seconds.</p>
+    </a>
+
+    <a class="step" href="02-today.html">
+      <div class="num">02 · Today</div>
+      <div class="preview pv-today">
+        <div class="pv-h"><span>CASTLE / TODAY</span><span>SUN 7:15 AM</span></div>
+        <div class="greeting">Good morning, Lily.</div>
+        <div class="delta"><strong>48</strong> <span class="down">−2 SINCE FRI · CAPEX-WTD</span></div>
+        <div class="item"><span class="when">3 new</span>EO 14154 leasing pause back in markup</div>
+        <div class="item"><span class="when">+1d</span>FERC Order 917 takes effect tomorrow</div>
+        <div class="item"><span class="when">$200K</span>Buy KX48E protection — 1 click</div>
+      </div>
+      <h3>The morning home.</h3>
+      <p>Single screen, daily ritual. Composite + delta, "since you last looked," today's calendar, the 3 things to act on.</p>
+    </a>
+
+    <a class="step" href="03-exposure.html">
+      <div class="num">03 · Exposure</div>
+      <div class="preview pv-exposure">
+        <div class="pv-h"><span>CASTLE / WATCHLIST</span><span>TRACKED 41 DAYS</span></div>
+        <div class="title">§ 48E ITC Phase-Down</div>
+        <div class="row"><span class="l">Attention</span><span class="v">100 / 100</span></div>
+        <div class="row"><span class="l">$ at risk</span><span class="v">$180M</span></div>
+        <div class="row"><span class="l">Probability</span><span class="v">53%</span></div>
+        <div class="timeline">
+          <i style="height:30%"></i><i style="height:40%"></i><i style="height:25%"></i><i style="height:60%"></i><i style="height:45%"></i><i style="height:70%"></i><i style="height:50%"></i><i style="height:65%"></i><i style="height:55%"></i><i style="height:80%"></i><i style="height:75%"></i><i style="height:100%;background:var(--fg)"></i>
+        </div>
+      </div>
+      <h3>Drill into an exposure.</h3>
+      <p>One tracked exposure, full context: attention trend, related Congress + FR items, mapped Kalshi markets, Castle's analyst take.</p>
+    </a>
+
+    <a class="step" href="04-inbox.html">
+      <div class="num">04 · Inbox</div>
+      <div class="preview pv-inbox">
+        <div class="pv-h"><span>CASTLE / INBOX</span><span><span class="dot"></span>12 NEW</span></div>
+        <div class="item is-unread">EO 14154 markup scheduled <span class="ago">3 MIN</span></div>
+        <div class="item is-unread">KXTARIFFREVENUE-T200 moved +14¢ <span class="ago">25 MIN</span></div>
+        <div class="item is-unread">FERC Order 917 effective tomorrow <span class="ago">1 HR</span></div>
+        <div class="item">§45V comment period ending in 7 days <span class="ago">YESTERDAY</span></div>
+        <div class="item">Recommendation: hedge §48E exposure <span class="ago">MON</span></div>
+      </div>
+      <h3>Items needing action.</h3>
+      <p>Linear-style inbox of triggered events. Each item has a default action (Read more · Acknowledge · Buy protection). Read-once.</p>
+    </a>
+
+    <a class="step" href="05-hedge.html">
+      <div class="num">05 · Hedge</div>
+      <div class="preview pv-hedge">
+        <div class="pv-h"><span>CASTLE / RECOMMENDED</span><span>3 SUGGESTIONS</span></div>
+        <div class="row"><div class="name">KX48ETAXCREDIT<small>$200K · hedges § 48E</small></div><div class="cta">Buy</div></div>
+        <div class="row"><div class="name">KXTARIFFREVENUE-T200<small>$120K · Mojave + I-95</small></div><div class="cta">Buy</div></div>
+        <div class="row"><div class="name">KXSOLAR-26-35<small>$80K · Lone Star Solar</small></div><div class="cta">Buy</div></div>
+      </div>
+      <h3>Recommended hedges.</h3>
+      <p>3–5 specific trades sized to current exposure. One-click intent to buy. Below: ledger of positions taken.</p>
+    </a>
+  </div>
+
+</main>
+</body>
+</html>

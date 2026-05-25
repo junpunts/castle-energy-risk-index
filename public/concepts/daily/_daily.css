@@ -1,0 +1,159 @@
+/* Castle Daily — shared product styles */
+
+:root {
+  --hair: 1px solid rgba(24,24,24,0.10);
+  --hair2: 1px solid rgba(24,24,24,0.18);
+  --rule: 1px solid var(--fg);
+  --bg-app: var(--castle-bone);
+  --bg-pane: var(--bg-card);
+}
+
+html, body { margin: 0; background: var(--bg-app); color: var(--fg);
+             font-family: var(--font-body); font-size: 14px; line-height: 1.55; }
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+
+/* ── Top nav ──────────────────────────────────────────── */
+.daily-nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(245,245,240,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: var(--hair2);
+}
+.daily-nav-inner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 14px 32px;
+  display: grid; grid-template-columns: auto 1fr auto; gap: 32px; align-items: center;
+}
+.daily-brand { display: inline-flex; align-items: center; gap: 12px; color: var(--fg); }
+.daily-brand img { height: 20px; }
+.daily-brand .product {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+  padding-left: 12px; border-left: var(--hair2);
+}
+.daily-tabs { display: flex; gap: 0; }
+.daily-tabs a {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+  padding: 8px 14px; transition: color .15s;
+  position: relative;
+}
+.daily-tabs a:hover { color: var(--fg); }
+.daily-tabs a.is-active { color: var(--fg); }
+.daily-tabs a.is-active::after {
+  content: ""; position: absolute; left: 14px; right: 14px; bottom: -14px;
+  height: 2px; background: var(--fg);
+}
+.daily-tabs .badge {
+  background: #8B2A1C; color: var(--castle-bone);
+  font-size: 9px; padding: 1px 5px; margin-left: 4px;
+  font-weight: 700; letter-spacing: 0.05em;
+}
+.daily-user {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+}
+.daily-user .company {
+  border: 1px solid var(--border); padding: 6px 12px;
+  font-weight: 600; color: var(--fg);
+}
+.daily-user .avatar {
+  width: 28px; height: 28px; background: var(--fg);
+  color: var(--castle-bone); font-family: var(--font-mono);
+  font-size: 11px; font-weight: 700; letter-spacing: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+
+/* ── Main ──────────────────────────────────────────────── */
+.daily-page { max-width: 1280px; margin: 0 auto; padding: 32px 32px 96px; }
+
+/* ── Typography ────────────────────────────────────────── */
+.eyebrow {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+}
+.h1 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(40px, 5vw, 56px); line-height: 1.0;
+  letter-spacing: -0.02em; margin: 8px 0 8px;
+}
+.h2 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 26px; line-height: 1.15;
+  letter-spacing: -0.01em; margin: 0;
+}
+.h3 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: 19px; line-height: 1.2;
+  letter-spacing: -0.01em; margin: 0;
+}
+.section-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin: 40px 0 16px; padding-bottom: 8px;
+  border-bottom: var(--hair2);
+}
+.section-head .meta {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+}
+.section-head .meta strong { color: var(--fg); font-weight: 700; }
+
+/* ── Cards ────────────────────────────────────────────── */
+.pane {
+  background: var(--bg-pane);
+  border: var(--hair2);
+}
+
+/* ── Status colors ────────────────────────────────────── */
+.up { color: var(--accent-teal-deep); }
+.down { color: #8B2A1C; }
+.flat { color: var(--fg-3); }
+
+.pill {
+  display: inline-block;
+  font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  padding: 3px 7px; border: 1px solid var(--border);
+  color: var(--fg-3);
+}
+.pill.is-policy { color: #246075; border-color: #246075; }
+.pill.is-trade { color: #00544F; border-color: #00544F; }
+.pill.is-geopolitical { color: #395938; border-color: #395938; }
+.pill.is-macro { color: #3A5C9A; border-color: #3A5C9A; }
+.pill.is-deadline { color: var(--accent-teal); border-color: var(--accent-teal); }
+.pill.is-rule { color: var(--accent-teal-deep); border-color: var(--accent-teal-deep); }
+.pill.is-market { color: #3A5C9A; border-color: #3A5C9A; }
+.pill.is-new { background: var(--fg); color: var(--castle-bone); border-color: var(--fg); }
+.pill.is-low { color: #395938; border-color: #395938; }
+.pill.is-medium { color: #3A5C9A; border-color: #3A5C9A; }
+.pill.is-high { background: #8B2A1C; color: var(--castle-bone); border-color: #8B2A1C; }
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* ── Buttons ──────────────────────────────────────────── */
+.btn {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  background: transparent; border: 1px solid var(--border);
+  color: var(--fg); padding: 10px 16px; cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.btn:hover { background: var(--surface-overlay); }
+.btn.is-primary { background: var(--fg); color: var(--castle-bone); border-color: var(--fg); }
+.btn.is-primary:hover { opacity: 0.85; background: var(--fg); color: var(--castle-bone); }
+.btn.is-ghost { border-color: transparent; color: var(--fg-3); }
+.btn.is-ghost:hover { color: var(--fg); }
+
+/* ── Footer ───────────────────────────────────────────── */
+.daily-foot {
+  border-top: var(--hair2); padding: 24px 32px;
+  max-width: 1280px; margin: 48px auto 0;
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+  display: flex; justify-content: space-between;
+}
+.daily-foot a { color: var(--fg-3); margin-left: 16px; }
+.daily-foot a:hover { color: var(--fg); }

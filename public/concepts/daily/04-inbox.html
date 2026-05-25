@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inbox — Castle Daily</title>
+<link rel="stylesheet" href="../../assets/css/colors_and_type.css">
+<link rel="stylesheet" href="_daily.css">
+<style>
+  .inbox-head {
+    display: grid; grid-template-columns: 1fr auto; gap: 32px;
+    align-items: end; padding: 16px 0 24px;
+    border-bottom: var(--rule);
+  }
+  .inbox-head h1 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(36px, 4.4vw, 50px); line-height: 1.0;
+    letter-spacing: -0.02em; margin: 0 0 6px;
+  }
+  .inbox-head .deck {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .inbox-head .deck strong { color: var(--fg); font-weight: 700; }
+  .inbox-head .actions { display: flex; gap: 8px; }
+
+  /* Filters */
+  .filters {
+    display: flex; gap: 0; padding: 16px 0;
+    border-bottom: var(--hair2);
+    overflow-x: auto;
+  }
+  .chip {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    padding: 8px 14px; border: 1px solid var(--border);
+    margin-right: -1px;
+    color: var(--fg-3); cursor: pointer; white-space: nowrap;
+    background: transparent;
+  }
+  .chip:hover { color: var(--fg); }
+  .chip.is-active { background: var(--fg); color: var(--castle-bone); border-color: var(--fg); z-index: 1; }
+  .chip .count { margin-left: 6px; font-weight: 400; opacity: 0.6; }
+
+  /* Layout: list + reading pane */
+  .inbox-grid {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 0;
+    border-bottom: var(--hair2);
+    min-height: 60vh;
+  }
+  .inbox-list { border-right: var(--hair2); }
+  .inbox-reading { padding: 32px 32px 32px 32px; background: var(--castle-paper); }
+
+  /* List */
+  .inbox-day {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+    padding: 16px 24px 8px; background: var(--castle-paper);
+    border-bottom: var(--hair);
+  }
+  .inbox-day strong { color: var(--fg); font-weight: 700; }
+  .ix-item {
+    display: grid; grid-template-columns: 18px 1fr 80px; gap: 14px;
+    padding: 16px 24px; border-bottom: var(--hair);
+    align-items: center; cursor: pointer;
+    transition: background .12s;
+    text-decoration: none; color: var(--fg);
+  }
+  .ix-item:hover { background: var(--surface-overlay); }
+  .ix-item.is-selected { background: var(--bg-card); }
+  .ix-item.is-selected::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: var(--fg);
+  }
+  .ix-item { position: relative; }
+  .ix-item .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: transparent; margin-top: 4px;
+  }
+  .ix-item.is-unread .dot { background: var(--accent-teal); }
+  .ix-item.is-priority .dot { background: #8B2A1C; }
+  .ix-item .text { min-width: 0; }
+  .ix-item .head-row {
+    display: flex; gap: 8px; align-items: center; margin-bottom: 4px;
+  }
+  .ix-item .pill { font-size: 8px; padding: 2px 5px; letter-spacing: 0.25em; }
+  .ix-item .title {
+    font-size: 14.5px; line-height: 1.4;
+    margin: 0; color: var(--fg);
+  }
+  .ix-item.is-unread .title { font-weight: 600; }
+  .ix-item .ctx {
+    font-size: 12px; color: var(--fg-3); line-height: 1.4;
+    margin-top: 4px;
+    overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  }
+  .ix-item .when {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3);
+    text-align: right; align-self: start; padding-top: 2px;
+  }
+
+  /* Reading pane */
+  .read-head {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 16px; margin-bottom: 20px;
+    border-bottom: var(--hair2);
+  }
+  .read-head .crumb {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .read-head .crumb a { color: var(--accent-teal-deep); }
+  .read-head .actions { display: flex; gap: 8px; }
+
+  .read-h1 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: 28px; line-height: 1.15; letter-spacing: -0.01em;
+    margin: 4px 0 16px;
+  }
+  .read-meta {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+    display: flex; gap: 16px; flex-wrap: wrap;
+    padding-bottom: 16px; border-bottom: var(--hair);
+  }
+  .read-meta strong { color: var(--fg); font-weight: 700; }
+
+  .read-block { padding: 20px 0; border-bottom: var(--hair); }
+  .read-block .l {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+    margin-bottom: 8px;
+  }
+  .read-block .body { font-size: 14.5px; line-height: 1.65; color: var(--fg); }
+  .read-block .body strong { color: var(--fg); font-weight: 600; }
+  .read-block .deltas {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+    background: rgba(24,24,24,0.12);
+    margin: 8px 0 0;
+  }
+  .read-block .deltas > div {
+    background: var(--bg-pane); padding: 14px;
+  }
+  .read-block .deltas .dl {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .read-block .deltas .dv {
+    font-family: var(--font-display); font-size: 22px; line-height: 1;
+    letter-spacing: -0.02em; margin: 6px 0 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .read-block .deltas .dd {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  .quick-actions {
+    display: flex; gap: 12px; padding: 24px 0 0;
+  }
+
+  @media (max-width: 900px) {
+    .inbox-grid { grid-template-columns: 1fr; }
+    .inbox-reading { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="daily-nav">
+  <div class="daily-nav-inner">
+    <a class="daily-brand" href="../../index.html">
+      <img src="../../assets/svg/castle-logo-black.svg" alt="Castle">
+      <span class="product">Daily</span>
+    </a>
+    <div class="daily-tabs">
+      <a href="02-today.html">Today</a>
+      <a href="04-inbox.html" class="is-active">Inbox <span class="badge">12</span></a>
+      <a href="#">Watchlist</a>
+      <a href="05-hedge.html">Hedges</a>
+      <a href="#">Catalysts</a>
+    </div>
+    <div class="daily-user">
+      <span class="company">Cardinal Renewable Partners</span>
+      <span class="avatar">LC</span>
+    </div>
+  </div>
+</nav>
+
+<main class="daily-page">
+
+  <header class="inbox-head">
+    <div>
+      <span class="eyebrow">Items needing your attention</span>
+      <h1>Inbox</h1>
+      <div class="deck"><strong>12 unread</strong> · 26 total · last cleared Friday 6:42 PM</div>
+    </div>
+    <div class="actions">
+      <button class="btn">Mark all read</button>
+      <button class="btn">Snooze ▾</button>
+      <button class="btn is-primary">Compose digest →</button>
+    </div>
+  </header>
+
+  <!-- FILTERS -->
+  <section class="filters">
+    <button class="chip is-active">All <span class="count">26</span></button>
+    <button class="chip">Unread <span class="count">12</span></button>
+    <button class="chip">Priority <span class="count">4</span></button>
+    <button class="chip">Catalysts <span class="count">9</span></button>
+    <button class="chip">Score changes <span class="count">6</span></button>
+    <button class="chip">Watchlist hits <span class="count">8</span></button>
+    <button class="chip">Recommendations <span class="count">3</span></button>
+    <button class="chip">Castle notes <span class="count">2</span></button>
+  </section>
+
+  <div class="inbox-grid">
+    <!-- LEFT: list -->
+    <section class="inbox-list">
+      <div class="inbox-day"><strong>Today</strong> · Sun May 24</div>
+
+      <a class="ix-item is-unread is-priority is-selected" href="#">
+        <span class="dot"></span>
+        <div class="text">
+          <div class="head-row"><span class="pill is-policy">Policy</span><span class="pill is-high">High</span></div>
+          <div class="title">EO 14154 markup scheduled Thursday, May 28</div>
+          <div class="ctx">House W&amp;M chairman's mark filed Saturday; phase-down provision for §48E projects not under construction by 12/31/2026. Cosponsor split 31D / 18R.</div>
+        </div>
+        <div class="when">3 min<br><span style="font-weight:400;opacity:0.7">7:12 AM</span></div>
+      </a>
+
+      <a class="ix-item is-unread is-priority" href="#">
+        <span class="dot"></span>
+        <div class="text">
+          <div class="head-row"><span class="pill is-market">Market</span><span class="pill" style="color:var(--accent-teal-deep);border-color:var(--accent-teal-deep)">+6¢</span></div>
+          <div class="title">KXTARIFFREVENUE-T200 moved 51¢ → 65¢ overnight</div>
+          <div class="ctx">Tariff-revenue base case crossed $200B mark. Hedges Mojave BESS Section 301 exposure and I-95 EV charger imports.</div>
+        </div>
+        <div class="when">25 min</div>
+      </a>
+
+      <a class="ix-item is-unread" href="#">
+        <span class="dot"></span>
+        <div class="text">
+          <div class="head-row"><span class="pill is-rule">Rule</span></div>
+          <div class="title">FERC Order 917 takes effect tomorrow (Mon May 26)</div>
+          <div class="ctx">Electric Quarterly Reports filing process and data collection. Affects Mojave BESS market-based rate filing.</div>
+        </div>
+        <div class="when">1 hr</div>
+      </a>
+
+      <a class="ix-item is-unread" href="#">
+        <span class="dot"></span>
+        <div class="text">
+          <div class="head-row"><span class="pill is-policy">Policy</span></div>
+          <div class="title">Treasury REG-117631-23 final rule published — § 45V three-pillars LIVE</div>
+          <div class="ctx">Hourly matching effective Jan 1, 2027. Top-tier $3/kg credit confirmed. Permian Hydrogen Hub: re-modeling required.</div>
+        </div>
+        <div class="when">3 hr</div>
+      </a>
+
+      <a class="ix-item is-unread" href="#">
+        <span class="dot"></span>
+        <div class="text">
+          <div class="head-row"><span class="pill" style="color:var(--accent-blue-deep);border-color:var(--accent-blue-deep)">Recommendation</span></div>
+          <div class="title">Re-size your §48E hedge given overnight market move</div>
+          <div class="ctx">KX48ETAXCREDIT YES now at 98¢; suggest $200K notional (was $140K) — covers $180M of expected loss.</div>
+        </div>
+        <div class="when">6 hr</div>
+      </a>
+
+      <div class="inbox-day"><strong>Yesterday</strong> · Sat May 23</div>
+
+      <a class="ix-item is-unread" href="#">
+        <span class="dot"></span>
+        <div class="text">
+          <div class="head-row"><span class="pill is-trade">Trade</span></div>
+          <div class="title">USTR opens 60-day comment period on Section 301 batteries (HTS 8507.60)</div>
+          <div class="ctx">Mojave BESS: $60M of LFP cell imports exposed. CATL + BYD on tariff line. Comments close Jul 22.</div>
+        </div>
+        <div class="when">Sat 3:14 PM</div>
+      </a>
+
+      <a class="ix-item is-unread" href="#">
+        <span class="dot"></span>
+        <div class="text">
+          <div class="head-row"><span class="pill is-trade">Trade</span></div>
+          <div class="title">UFLPA detentions ticked up: 14 PV shipments held last week (vs 7 prior)</div>
+          <div class="ctx">CBP weekly summary · Jinko Solar on FLETF entity list · landed-cost variance up.</div>
+        </div>
+        <div class="when">Sat 11:00 AM</div>
+      </a>
+
+      <a class="ix-item is-unread" href="#">
+        <span class="dot"></span>
+        <div class="text">
+          <div class="head-row"><span class="pill is-geopolitical">Geo</span></div>
+          <div class="title">South Korea opposition gains in National Assembly polling</div>
+          <div class="ctx">POSCO state-funding posture uncertain. Monitoring; no action needed.</div>
+        </div>
+        <div class="when">Sat 9:00 AM</div>
+      </a>
+
+      <div class="inbox-day"><strong>Earlier</strong> · Fri May 22</div>
+
+      <a class="ix-item" href="#">
+        <span class="dot"></span>
+        <div class="text">
+          <div class="head-row"><span class="pill is-rule">Rule</span></div>
+          <div class="title">FERC Order 2222 CAISO filing deadline +30d to Jun 25</div>
+          <div class="ctx">DER aggregation tariff revisions. Mojave BESS dispatch margin sensitivity moderate.</div>
+        </div>
+        <div class="when">Fri 5:20 PM</div>
+      </a>
+
+      <a class="ix-item" href="#">
+        <span class="dot"></span>
+        <div class="text">
+          <div class="head-row"><span class="pill" style="color:var(--accent-blue-deep);border-color:var(--accent-blue-deep)">Recommendation</span></div>
+          <div class="title">Consider trimming KXFTAPRC-29 position — relevance dropped</div>
+          <div class="ctx">Loose match against China FTA exposure; better-fit market launched (KXCHTRADEBAL-26).</div>
+        </div>
+        <div class="when">Fri 2:00 PM</div>
+      </a>
+
+      <a class="ix-item" href="#">
+        <span class="dot"></span>
+        <div class="text">
+          <div class="head-row"><span class="pill is-policy">Policy</span></div>
+          <div class="title">HR 9001 introduced — NEVI Acceleration Act</div>
+          <div class="ctx">Bipartisan; would lock NEVI obligations through 2030. Net-positive for I-95 EV Charging Network.</div>
+        </div>
+        <div class="when">Fri 11:00 AM</div>
+      </a>
+    </section>
+
+    <!-- RIGHT: reading pane -->
+    <aside class="inbox-reading">
+      <div class="read-head">
+        <div class="crumb">
+          Inbox · Today · <a href="03-exposure.html">§ 48E ITC Phase-Down</a>
+        </div>
+        <div class="actions">
+          <button class="btn" style="padding:8px 12px">↑</button>
+          <button class="btn" style="padding:8px 12px">↓</button>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
+        <span class="pill is-policy">Policy</span>
+        <span class="pill is-high">High likelihood</span>
+        <span class="pill is-priority" style="background:#8B2A1C;color:var(--castle-bone);border-color:#8B2A1C">Priority</span>
+      </div>
+
+      <h2 class="read-h1">EO 14154 markup scheduled Thursday, May 28</h2>
+
+      <div class="read-meta">
+        <span>HR 9123 · § 48E reconciliation</span>
+        <span>Source <strong>Congress.gov</strong></span>
+        <span>Notified <strong>3 min ago · 7:12 AM</strong></span>
+      </div>
+
+      <div class="read-block">
+        <div class="l">Why this hit your inbox</div>
+        <div class="body">
+          You're watching <strong>§ 48E ITC Phase-Down</strong>. House W&amp;M filed the chairman's mark Saturday evening; it adds explicit phase-down language for projects not under construction by 12/31/2026. Both Lone Star Solar I (COD Q2 2027) and Mojave Battery Storage (COD Q1 2026) sit on the wrong side of that cliff.
+        </div>
+      </div>
+
+      <div class="read-block">
+        <div class="l">Impact since Friday</div>
+        <div class="deltas">
+          <div>
+            <div class="dl">Attention</div>
+            <div class="dv tabular">100</div>
+            <div class="dd down">↑ +24 in 48h</div>
+          </div>
+          <div>
+            <div class="dl">Probability</div>
+            <div class="dv tabular">53%</div>
+            <div class="dd down">↑ +8pp WoW</div>
+          </div>
+          <div>
+            <div class="dl">Expected loss</div>
+            <div class="dv tabular">$95M</div>
+            <div class="dd down">↑ $14M WoW</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="read-block">
+        <div class="l">Castle's view</div>
+        <div class="body">
+          The markup is real but cosponsor count (31D + 18R) is still 14 votes short of floor passage. We're moving probability of an adverse outcome to <strong>53%</strong> (from 45% Friday). The cheapest hedge for the next 12 months is <strong>KX48ETAXCREDIT-26MAY</strong> at <strong>98¢ YES</strong>, where the market has already moved most of the way. We'd size $200K notional to cover $180M of expected loss across the two affected projects.
+        </div>
+      </div>
+
+      <div class="quick-actions">
+        <button class="btn is-primary">Hedge $200K · 1 click →</button>
+        <button class="btn">Open exposure →</button>
+        <button class="btn is-ghost">Mark read</button>
+        <button class="btn is-ghost">Snooze 24h</button>
+      </div>
+    </aside>
+  </div>
+
+</main>
+
+<footer class="daily-foot">
+  <span>Castle · Daily · Inbox · 12 unread</span>
+  <span><a href="02-today.html">← Today</a><a href="index.html">All mocks</a></span>
+</footer>
+
+</body>
+</html>

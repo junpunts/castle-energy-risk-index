@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Castle Daily — Sun, May 24</title>
+<link rel="stylesheet" href="../../assets/css/colors_and_type.css">
+<link rel="stylesheet" href="_daily.css">
+<style>
+  /* TODAY-specific */
+  .today-hero {
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px;
+    padding: 24px 0 40px;
+    border-bottom: var(--hair2);
+    align-items: end;
+  }
+  .today-hero .greet { font-family: var(--font-display); font-size: clamp(36px, 4.5vw, 52px);
+                       line-height: 1.0; letter-spacing: -0.02em; margin: 8px 0 12px; }
+  .today-hero .stamp {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .today-hero .stamp strong { color: var(--fg); font-weight: 700; }
+  .today-hero .blurb {
+    font-size: 17px; line-height: 1.55; color: var(--fg-2);
+    max-width: 540px; margin: 16px 0 0;
+  }
+  .today-score-card {
+    background: var(--bg-card); border: var(--hair2);
+    padding: 24px;
+    display: grid; grid-template-columns: auto 1fr; gap: 24px; align-items: end;
+  }
+  .today-score-card .label {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+    grid-column: 1 / -1;
+  }
+  .today-score-card .big {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: 96px; line-height: 0.9; letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+  }
+  .today-score-card .of {
+    font-family: var(--font-mono); font-size: 12px; color: var(--fg-3);
+    letter-spacing: 0.05em;
+  }
+  .today-score-card .delta {
+    font-family: var(--font-mono); font-size: 13px; font-weight: 700;
+    letter-spacing: 0.1em; padding: 4px 8px; background: #8B2A1C;
+    color: var(--castle-bone); display: inline-block;
+  }
+  .today-score-card .breakdown {
+    grid-column: 1 / -1;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    border-top: var(--hair); padding-top: 16px; margin-top: 8px;
+  }
+  .today-score-card .breakdown > div { padding-right: 8px; }
+  .today-score-card .breakdown .bl {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .today-score-card .breakdown .bv {
+    font-family: var(--font-display); font-size: 22px; line-height: 1;
+    letter-spacing: -0.02em; margin: 4px 0 2px; font-variant-numeric: tabular-nums;
+  }
+  .today-score-card .breakdown .bd {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  /* Since you last looked */
+  .since {
+    display: grid; grid-template-columns: 200px 1fr;
+    gap: 24px; padding: 32px 0;
+    border-bottom: var(--hair2);
+  }
+  .since .l {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+    padding-top: 8px;
+  }
+  .since .l strong { color: var(--fg); font-weight: 700; font-size: 11px; display: block; margin-top: 6px; }
+  .since-list { display: flex; flex-direction: column; gap: 8px; }
+  .since-item {
+    display: grid; grid-template-columns: 110px 1fr auto; gap: 16px;
+    padding: 12px 16px; background: var(--bg-card); border: var(--hair2);
+    align-items: center;
+    text-decoration: none; color: var(--fg);
+    transition: background .12s, transform .12s;
+  }
+  .since-item:hover { background: var(--castle-paper); }
+  .since-item .when {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .since-item .when strong { color: var(--fg); display: block; font-size: 11px; }
+  .since-item .body { font-size: 14px; line-height: 1.4; color: var(--fg); min-width: 0; }
+  .since-item .body small { display: block; font-size: 11px; color: var(--fg-3); margin-top: 2px; }
+  .since-item .delta {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  /* Two-column main */
+  .today-grid {
+    display: grid; grid-template-columns: 1.5fr 1fr; gap: 48px;
+    margin-top: 32px;
+  }
+
+  /* Inbox preview */
+  .inbox-row {
+    display: grid; grid-template-columns: 16px 1fr auto auto; gap: 14px;
+    padding: 16px 0; border-bottom: var(--hair);
+    align-items: center;
+    text-decoration: none; color: var(--fg);
+  }
+  .inbox-row:hover { background: var(--surface-overlay); padding-left: 12px; padding-right: 12px; margin: 0 -12px; }
+  .inbox-row .dot {
+    width: 8px; height: 8px; border-radius: 50%; background: transparent;
+  }
+  .inbox-row.is-unread .dot { background: var(--accent-teal); }
+  .inbox-row.is-priority .dot { background: #8B2A1C; }
+  .inbox-row .text { min-width: 0; }
+  .inbox-row .title {
+    font-size: 14.5px; line-height: 1.4; color: var(--fg);
+  }
+  .inbox-row.is-unread .title { font-weight: 600; }
+  .inbox-row .ctx {
+    font-size: 11.5px; color: var(--fg-3); margin-top: 2px;
+    font-family: var(--font-body);
+  }
+  .inbox-row .when {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3);
+    white-space: nowrap;
+  }
+  .inbox-row .action {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--accent-teal-deep);
+    border-left: 1px solid var(--border); padding-left: 14px;
+  }
+
+  /* Today's calendar */
+  .cal-list { }
+  .cal-list .item {
+    display: grid; grid-template-columns: 56px 1fr; gap: 16px;
+    padding: 14px 0; border-bottom: var(--hair);
+    text-decoration: none; color: var(--fg);
+  }
+  .cal-list .item:hover { background: var(--surface-overlay); }
+  .cal-list .item .day {
+    font-family: var(--font-display); font-size: 32px; line-height: 1;
+    letter-spacing: -0.02em; text-align: right; font-variant-numeric: tabular-nums;
+  }
+  .cal-list .item .day small {
+    display: block; font-family: var(--font-mono); font-size: 9px;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+    margin-top: 4px;
+  }
+  .cal-list .item .body { min-width: 0; }
+  .cal-list .item .body .title { font-size: 14px; line-height: 1.4; }
+  .cal-list .item .body .detail { font-size: 11.5px; color: var(--fg-3); margin-top: 4px; }
+
+  /* Recommended action — single hero affordance */
+  .recommend {
+    background: var(--fg); color: var(--castle-bone);
+    padding: 28px 32px; margin-top: 32px;
+    display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
+  }
+  .recommend .l {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.4em; text-transform: uppercase;
+    color: rgba(245,245,240,0.7);
+  }
+  .recommend h2 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: 24px; line-height: 1.2; letter-spacing: -0.01em;
+    margin: 8px 0 4px;
+  }
+  .recommend p {
+    font-size: 14px; color: rgba(245,245,240,0.75);
+    margin: 0; max-width: 620px; line-height: 1.5;
+  }
+  .recommend .cta-stack { text-align: right; }
+  .recommend .cta {
+    font-family: var(--font-mono); font-size: 12px; font-weight: 700;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    background: var(--castle-bone); color: var(--fg);
+    padding: 12px 18px; cursor: pointer; border: none;
+  }
+  .recommend .cta-meta {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(245,245,240,0.5);
+    margin-top: 8px;
+  }
+
+  @media (max-width: 960px) {
+    .today-hero, .today-grid { grid-template-columns: 1fr; gap: 24px; }
+    .since { grid-template-columns: 1fr; }
+    .today-score-card .breakdown { grid-template-columns: repeat(2, 1fr); }
+    .recommend { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="daily-nav">
+  <div class="daily-nav-inner">
+    <a class="daily-brand" href="../../index.html">
+      <img src="../../assets/svg/castle-logo-black.svg" alt="Castle">
+      <span class="product">Daily</span>
+    </a>
+    <div class="daily-tabs">
+      <a href="02-today.html" class="is-active">Today</a>
+      <a href="04-inbox.html">Inbox <span class="badge">12</span></a>
+      <a href="#">Watchlist</a>
+      <a href="05-hedge.html">Hedges</a>
+      <a href="#">Catalysts</a>
+    </div>
+    <div class="daily-user">
+      <span class="company">Cardinal Renewable Partners</span>
+      <span class="avatar">LC</span>
+    </div>
+  </div>
+</nav>
+
+<main class="daily-page">
+
+  <!-- HERO -->
+  <section class="today-hero">
+    <div>
+      <span class="eyebrow">Sunday morning briefing</span>
+      <div class="greet">Good morning, Lily.</div>
+      <div class="stamp">May 24, 2026 · 7:15 AM EDT · <strong>Last visit Friday 6:42 PM</strong></div>
+      <p class="blurb">Three policy moves overnight, all touching offshore wind. Your composite is down 2 points since Friday. The §48E ITC reinstatement market just repriced — there's a hedge worth your attention this morning.</p>
+    </div>
+    <div class="today-score-card">
+      <span class="label">Composite risk · capex-weighted</span>
+      <div class="big tabular">48</div>
+      <div>
+        <div class="of">/ 100</div>
+        <div class="delta">−2 SINCE FRI</div>
+      </div>
+      <div class="breakdown">
+        <div><div class="bl">Policy</div><div class="bv tabular">62</div><div class="bd down">+3</div></div>
+        <div><div class="bl">Trade</div><div class="bv tabular">38</div><div class="bd up">−2</div></div>
+        <div><div class="bl">Geo</div><div class="bv tabular">42</div><div class="bd flat">0</div></div>
+        <div><div class="bl">Macro</div><div class="bv tabular">39</div><div class="bd up">−1</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SINCE YOU LAST LOOKED -->
+  <section class="since">
+    <div class="l">Since you last looked<strong>Friday · 6:42 PM</strong></div>
+    <div class="since-list">
+      <a class="since-item" href="03-exposure.html">
+        <div class="when"><strong>3 hr ago</strong>Sat 11:00 PM</div>
+        <div class="body">EO 14154 offshore-wind leasing pause back in House Natural Resources markup<small>Vineyard Wind II · §3(c) review extended — chairman's mark filed late Saturday</small></div>
+        <div class="delta down">attn 30 → 56</div>
+      </a>
+      <a class="since-item" href="03-exposure.html">
+        <div class="when"><strong>11 hr ago</strong>Sat 8:30 AM</div>
+        <div class="body">KX48ETAXCREDIT-26MAY repriced from 92¢ → 98¢ after Senate Finance markup<small>1 mapped hedge · § 48E reinstatement now base case in market</small></div>
+        <div class="delta down">+6¢</div>
+      </a>
+      <a class="since-item" href="03-exposure.html">
+        <div class="when"><strong>yesterday</strong>Sat AM</div>
+        <div class="body">Treasury REG-117631-23 finalized — § 45V three-pillars rule LIVE<small>Permian Hydrogen Hub · hourly matching effective Jan 2027</small></div>
+        <div class="delta up">attn 100 → 84</div>
+      </a>
+      <a class="since-item" href="03-exposure.html">
+        <div class="when"><strong>2 days</strong>Fri 3:14 PM</div>
+        <div class="body">USTR posts draft Section 301 review on Chinese batteries (HTS 8507.60)<small>Mojave BESS · 60-day comment period opens; rate-increase signal</small></div>
+        <div class="delta down">attn 80 → 92</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- RECOMMEND (the action) -->
+  <section class="recommend">
+    <div>
+      <span class="l">Recommended action · this morning</span>
+      <h2>Buy $200K notional of KX48ETAXCREDIT to hedge your §48E exposure.</h2>
+      <p>Yes-side priced at 98¢ after Saturday's Senate Finance markup. Hedges $180M of expected loss across Lone Star Solar I and Mojave BESS at a $4K premium. Position auto-closes when the bill is signed or 12/2029, whichever first.</p>
+    </div>
+    <div class="cta-stack">
+      <button class="cta">Buy protection →</button>
+      <div class="cta-meta">2 alternative hedges · skip</div>
+    </div>
+  </section>
+
+  <!-- TWO-COL: inbox + calendar -->
+  <div class="today-grid">
+    <section>
+      <div class="section-head">
+        <h2 class="h2">Items needing your attention</h2>
+        <span class="meta"><strong>9 unread</strong> · 12 total · <a href="04-inbox.html">open inbox →</a></span>
+      </div>
+
+      <a class="inbox-row is-unread is-priority" href="03-exposure.html">
+        <span class="dot"></span>
+        <div class="text">
+          <div class="title">§48E reconciliation markup scheduled Thursday, May 28</div>
+          <div class="ctx">House W&amp;M · HR 9123 · cosponsors split 31 D / 18 R · your exposure: $180M across 2 projects</div>
+        </div>
+        <div class="when">3 hr</div>
+        <div class="action">Open</div>
+      </a>
+
+      <a class="inbox-row is-unread is-priority" href="03-exposure.html">
+        <span class="dot"></span>
+        <div class="text">
+          <div class="title">Section 232 Korean steel · USTR public comment closing Friday</div>
+          <div class="ctx">POSCO monopile supplier on Vineyard Wind II · proposed rate hike from 12.5% to 25%</div>
+        </div>
+        <div class="when">5 hr</div>
+        <div class="action">Open</div>
+      </a>
+
+      <a class="inbox-row is-unread" href="03-exposure.html">
+        <span class="dot"></span>
+        <div class="text">
+          <div class="title">§45V three-pillars finalized — Permian Hydrogen Hub IRR re-modeled</div>
+          <div class="ctx">Hourly-matching effective Jan 2027 · $112M of capex unlocked at top-tier credit</div>
+        </div>
+        <div class="when">yesterday</div>
+        <div class="action">Read</div>
+      </a>
+
+      <a class="inbox-row is-unread" href="03-exposure.html">
+        <span class="dot"></span>
+        <div class="text">
+          <div class="title">KX48ETAXCREDIT repriced 92¢ → 98¢</div>
+          <div class="ctx">Mapped to your §48E watchlist · re-evaluate hedge sizing recommended above</div>
+        </div>
+        <div class="when">yesterday</div>
+        <div class="action">Adjust</div>
+      </a>
+
+      <a class="inbox-row" href="03-exposure.html">
+        <span class="dot"></span>
+        <div class="text">
+          <div class="title">FERC Order 2222 implementation update — CAISO filing deadline +30d</div>
+          <div class="ctx">Mojave BESS · CAISO DER aggregation tariff revisions due June 25</div>
+        </div>
+        <div class="when">Sat</div>
+        <div class="action">Open</div>
+      </a>
+
+      <a class="inbox-row" href="03-exposure.html">
+        <span class="dot"></span>
+        <div class="text">
+          <div class="title">UFLPA detention rate ticked up — 14 PV shipments held last week</div>
+          <div class="ctx">Jinko Solar on entity list · CBP weekly summary</div>
+        </div>
+        <div class="when">Fri</div>
+        <div class="action">Read</div>
+      </a>
+    </section>
+
+    <aside>
+      <div class="section-head">
+        <h2 class="h2">This week's calendar</h2>
+        <span class="meta">5 dated catalysts</span>
+      </div>
+
+      <div class="cal-list">
+        <a class="item" href="03-exposure.html">
+          <div class="day">26<small>May</small></div>
+          <div class="body">
+            <div class="title"><strong>FERC Order 917 takes effect</strong></div>
+            <div class="detail"><span class="pill is-rule">Rule effective</span> &nbsp;Electric Quarterly Reports · Mojave BESS</div>
+          </div>
+        </a>
+        <a class="item" href="03-exposure.html">
+          <div class="day">28<small>May</small></div>
+          <div class="body">
+            <div class="title"><strong>House W&amp;M markup — § 48E reconciliation</strong></div>
+            <div class="detail"><span class="pill is-policy">Hearing</span> &nbsp;Lone Star Solar I · Mojave BESS</div>
+          </div>
+        </a>
+        <a class="item" href="03-exposure.html">
+          <div class="day">29<small>May</small></div>
+          <div class="body">
+            <div class="title">USTR Section 232 Korean steel · public comment</div>
+            <div class="detail"><span class="pill is-deadline">Comments close</span> &nbsp;Vineyard Wind II</div>
+          </div>
+        </a>
+        <a class="item" href="03-exposure.html">
+          <div class="day">8<small>Jun</small></div>
+          <div class="body">
+            <div class="title">EPA NSPS GHG reconsideration · final rule</div>
+            <div class="detail"><span class="pill is-rule">Rule effective</span> &nbsp;Permian Hydrogen Hub</div>
+          </div>
+        </a>
+        <a class="item" href="03-exposure.html">
+          <div class="day">15<small>Jun</small></div>
+          <div class="body">
+            <div class="title">EPA Renewable Fuel Standard · 2026 standards</div>
+            <div class="detail"><span class="pill is-rule">Rule effective</span> &nbsp;Permian Hydrogen Hub</div>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </div>
+
+</main>
+
+<footer class="daily-foot">
+  <span>Cardinal Renewable Partners · Sun May 24 · For informational purposes only</span>
+  <span><a href="index.html">All daily mocks</a><a href="../../index.html">Live brief</a></span>
+</footer>
+
+</body>
+</html>

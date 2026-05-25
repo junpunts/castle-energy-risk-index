@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Recommended hedges — Castle Daily</title>
+<link rel="stylesheet" href="../../assets/css/colors_and_type.css">
+<link rel="stylesheet" href="_daily.css">
+<style>
+  .hh-head {
+    display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end;
+    padding: 16px 0 24px; border-bottom: var(--rule);
+  }
+  .hh-head h1 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(36px, 4.4vw, 50px); line-height: 1.0;
+    letter-spacing: -0.02em; margin: 0 0 6px;
+  }
+  .hh-head .deck {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .hh-head .deck strong { color: var(--fg); font-weight: 700; }
+  .hh-head .balance {
+    text-align: right;
+  }
+  .hh-head .balance .l {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .hh-head .balance .v {
+    font-family: var(--font-display); font-size: 44px; line-height: 1;
+    letter-spacing: -0.02em; margin: 8px 0 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .hh-head .balance .d {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.15em; color: var(--fg-3);
+  }
+
+  /* Coverage gauge */
+  .coverage {
+    margin: 32px 0;
+    padding: 24px 28px;
+    background: var(--bg-pane); border: var(--hair2);
+    display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
+  }
+  .coverage .l {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .coverage h3 {
+    font-family: var(--font-display); font-size: 22px; font-weight: 400;
+    letter-spacing: -0.01em; margin: 6px 0 0;
+  }
+  .coverage .gauge {
+    width: 360px; height: 12px;
+    background: var(--castle-paper); border: var(--hair2);
+    position: relative;
+  }
+  .coverage .gauge .bar {
+    height: 100%; background: var(--accent-teal-deep);
+  }
+  .coverage .gauge-meta {
+    display: flex; justify-content: space-between; margin-top: 8px;
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.15em; color: var(--fg-3);
+    font-variant-numeric: tabular-nums;
+  }
+  .coverage .gauge-meta strong { color: var(--fg); font-weight: 700; }
+
+  /* Section heads */
+  .h-section {
+    margin: 40px 0 16px;
+  }
+  .h-section .head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 12px; border-bottom: var(--hair2);
+    margin-bottom: 0;
+  }
+  .h-section h2 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: 26px; line-height: 1.15;
+    letter-spacing: -0.01em; margin: 0;
+  }
+  .h-section .meta {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+  }
+
+  /* Recommendation card */
+  .rec-card {
+    background: var(--bg-card);
+    border: var(--hair2);
+    border-top: none;
+    padding: 28px 32px;
+    display: grid; grid-template-columns: 1.6fr 1fr;
+    gap: 32px; align-items: start;
+  }
+  .rec-card + .rec-card { border-top: var(--hair); }
+  .rec-card.is-priority {
+    background: var(--fg); color: var(--castle-bone);
+  }
+  .rec-card .pretitle {
+    display: flex; gap: 8px; align-items: center; margin-bottom: 10px;
+    font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.3em; text-transform: uppercase;
+  }
+  .rec-card .pretitle .num { color: var(--fg-3); }
+  .rec-card.is-priority .pretitle .num { color: rgba(245,245,240,0.7); }
+  .rec-card .pretitle .priority-tag {
+    background: var(--castle-bone); color: var(--fg); padding: 2px 8px;
+    letter-spacing: 0.25em;
+  }
+  .rec-card .ticker {
+    font-family: var(--font-mono); font-size: 14px; font-weight: 700;
+    letter-spacing: 0.02em; color: var(--fg);
+  }
+  .rec-card.is-priority .ticker { color: var(--castle-bone); }
+  .rec-card .market-title {
+    font-family: var(--font-display); font-size: 22px; line-height: 1.25;
+    letter-spacing: -0.01em; margin: 10px 0 16px;
+    color: var(--fg);
+  }
+  .rec-card.is-priority .market-title { color: var(--castle-bone); }
+  .rec-card .rationale {
+    font-size: 14.5px; line-height: 1.6; color: var(--fg-2);
+    margin: 0;
+  }
+  .rec-card.is-priority .rationale { color: rgba(245,245,240,0.85); }
+  .rec-card .rationale strong { color: var(--fg); font-weight: 600; }
+  .rec-card.is-priority .rationale strong { color: var(--castle-bone); }
+
+  .rec-card .stats {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 0;
+    border-top: var(--hair); border-bottom: var(--hair);
+    margin: 20px 0;
+  }
+  .rec-card.is-priority .stats { border-color: rgba(245,245,240,0.18); }
+  .rec-card .stats > div { padding: 12px 0; }
+  .rec-card .stats > div:nth-child(odd) { padding-right: 16px; border-right: var(--hair); }
+  .rec-card.is-priority .stats > div:nth-child(odd) { border-right-color: rgba(245,245,240,0.18); }
+  .rec-card .stats > div:nth-child(even) { padding-left: 16px; }
+  .rec-card .stats .l {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .rec-card.is-priority .stats .l { color: rgba(245,245,240,0.65); }
+  .rec-card .stats .v {
+    font-family: var(--font-mono); font-size: 18px; font-weight: 700;
+    letter-spacing: -0.01em; margin-top: 6px;
+    font-variant-numeric: tabular-nums; color: var(--fg);
+  }
+  .rec-card.is-priority .stats .v { color: var(--castle-bone); }
+  .rec-card .stats .d {
+    font-family: var(--font-body); font-size: 11px; color: var(--fg-3);
+    margin-top: 4px;
+  }
+  .rec-card.is-priority .stats .d { color: rgba(245,245,240,0.65); }
+
+  /* Right column of rec-card */
+  .rec-side {
+    display: flex; flex-direction: column; gap: 16px;
+    padding-left: 32px; border-left: var(--hair);
+  }
+  .rec-card.is-priority .rec-side { border-color: rgba(245,245,240,0.18); }
+
+  .rec-trade {
+    padding: 20px; background: var(--castle-paper); border: var(--hair2);
+  }
+  .rec-card.is-priority .rec-trade {
+    background: rgba(255,255,255,0.06); border-color: rgba(245,245,240,0.18);
+  }
+  .rec-trade .l {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .rec-card.is-priority .rec-trade .l { color: rgba(245,245,240,0.6); }
+  .rec-trade .notional {
+    font-family: var(--font-display); font-size: 38px; line-height: 1;
+    letter-spacing: -0.02em; margin: 8px 0 4px;
+    font-variant-numeric: tabular-nums;
+    color: var(--fg);
+  }
+  .rec-card.is-priority .rec-trade .notional { color: var(--castle-bone); }
+  .rec-trade .breakdown {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 0.05em; color: var(--fg-3);
+    font-variant-numeric: tabular-nums;
+    padding: 6px 0 12px;
+    border-bottom: var(--hair);
+  }
+  .rec-card.is-priority .rec-trade .breakdown { color: rgba(245,245,240,0.7); border-color: rgba(245,245,240,0.18); }
+  .rec-trade .buy {
+    margin-top: 16px;
+    width: 100%; box-sizing: border-box;
+    font-family: var(--font-mono); font-size: 12px; font-weight: 700;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    background: var(--fg); color: var(--castle-bone);
+    padding: 14px 16px; border: none; cursor: pointer;
+    display: block; text-align: center;
+  }
+  .rec-card.is-priority .rec-trade .buy {
+    background: var(--castle-bone); color: var(--fg);
+  }
+  .rec-trade .skip {
+    margin-top: 8px;
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--fg-3); text-align: center; display: block; cursor: pointer;
+  }
+
+  .rec-affected {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .rec-affected strong { color: var(--fg); font-weight: 700; display: block; margin-bottom: 8px; font-size: 11px; }
+  .rec-card.is-priority .rec-affected, .rec-card.is-priority .rec-affected strong { color: rgba(245,245,240,0.85); }
+  .rec-affected ul { padding: 0; margin: 0; list-style: none; }
+  .rec-affected li {
+    padding: 6px 0; border-bottom: var(--hair);
+    font-family: var(--font-body); font-size: 12.5px; letter-spacing: 0;
+    text-transform: none; color: var(--fg-2);
+    display: flex; justify-content: space-between;
+  }
+  .rec-card.is-priority .rec-affected li { color: rgba(245,245,240,0.75); border-color: rgba(245,245,240,0.18); }
+  .rec-affected li:last-child { border-bottom: none; }
+  .rec-affected li span:last-child { font-family: var(--font-mono); font-weight: 700; font-variant-numeric: tabular-nums; color: var(--fg); }
+  .rec-card.is-priority .rec-affected li span:last-child { color: var(--castle-bone); }
+
+  /* Existing positions table */
+  .pos-table {
+    background: var(--bg-card); border: var(--hair2); margin-top: 16px;
+  }
+  .pos-row {
+    display: grid; grid-template-columns: 1fr 90px 110px 90px 90px;
+    gap: 16px; padding: 14px 24px;
+    border-bottom: var(--hair); align-items: center;
+    font-family: var(--font-mono); font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+  .pos-row:last-child { border-bottom: none; }
+  .pos-row.is-head {
+    background: var(--castle-paper); border-bottom: var(--hair2);
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .pos-row .name { font-family: var(--font-display); font-size: 15px;
+                   letter-spacing: -0.01em; color: var(--fg); }
+  .pos-row .name small { display: block; font-family: var(--font-mono); font-size: 10px;
+                         letter-spacing: 0.05em; color: var(--fg-3); margin-top: 2px;
+                         font-variant-numeric: normal; }
+  .pos-row .pnl { font-weight: 700; }
+  .pos-row .pnl.up { color: var(--accent-teal-deep); }
+  .pos-row .pnl.down { color: #8B2A1C; }
+  .pos-row .status { color: var(--fg-3); font-size: 10px;
+                     letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; }
+
+  @media (max-width: 900px) {
+    .rec-card { grid-template-columns: 1fr; }
+    .rec-side { padding-left: 0; border-left: none; border-top: var(--hair); padding-top: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="daily-nav">
+  <div class="daily-nav-inner">
+    <a class="daily-brand" href="../../index.html">
+      <img src="../../assets/svg/castle-logo-black.svg" alt="Castle">
+      <span class="product">Daily</span>
+    </a>
+    <div class="daily-tabs">
+      <a href="02-today.html">Today</a>
+      <a href="04-inbox.html">Inbox <span class="badge">12</span></a>
+      <a href="#">Watchlist</a>
+      <a href="05-hedge.html" class="is-active">Hedges</a>
+      <a href="#">Catalysts</a>
+    </div>
+    <div class="daily-user">
+      <span class="company">Cardinal Renewable Partners</span>
+      <span class="avatar">LC</span>
+    </div>
+  </div>
+</nav>
+
+<main class="daily-page">
+
+  <header class="hh-head">
+    <div>
+      <span class="eyebrow">Recommended hedges</span>
+      <h1>Three trades for this morning.</h1>
+      <div class="deck">Sized to current exposure · executable on Kalshi · <strong>refreshed 7:14 AM</strong></div>
+    </div>
+    <div class="balance">
+      <div class="l">Current hedge coverage</div>
+      <div class="v tabular">31%</div>
+      <div class="d">$420K / $1.34M target notional</div>
+    </div>
+  </header>
+
+  <!-- COVERAGE GAUGE -->
+  <section class="coverage">
+    <div>
+      <span class="l">Portfolio coverage</span>
+      <h3>You're hedged against 31% of mapped expected loss.</h3>
+      <p style="font-size:13.5px;line-height:1.55;color:var(--fg-3);margin:8px 0 0;max-width:620px">Two of three recommendations below would lift coverage to 64% with $400K of additional premium spend. Castle considers 60–75% the institutional baseline for a portfolio of this duration.</p>
+    </div>
+    <div>
+      <div class="gauge"><div class="bar" style="width:31%"></div></div>
+      <div class="gauge-meta">
+        <span><strong>31%</strong> covered</span>
+        <span>target <strong>60–75%</strong></span>
+        <span>$415M uncovered</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOP RECOMMENDATION -->
+  <div class="h-section">
+    <div class="head">
+      <h2>This morning's recommended trades</h2>
+      <span class="meta">3 of 47 evaluated · ranked by attention × coverage gap</span>
+    </div>
+  </div>
+
+  <article class="rec-card is-priority">
+    <div>
+      <div class="pretitle">
+        <span class="num">01</span>
+        <span class="priority-tag">Top pick</span>
+        <span style="color:rgba(245,245,240,0.7)">Refreshed 3 min ago</span>
+      </div>
+      <div class="ticker">KX48ETAXCREDIT-26MAY</div>
+      <h3 class="market-title">Will legislation reinstating the § 48E commercial Investment Tax Credit at 30%+ become law before Dec 31, 2029?</h3>
+      <p class="rationale">
+        Senate Finance markup added explicit phase-down language Saturday. Castle moved probability to <strong>53%</strong> (from 45% Friday); market YES repriced 92¢ → 98¢. Hedges <strong>Lone Star Solar I</strong> (500 MW · $120M at risk) and <strong>Mojave Battery Storage</strong> ($60M at risk). Position auto-resolves when bill is signed or 12/31/2029.
+      </p>
+      <div class="stats">
+        <div><div class="l">Current YES</div><div class="v tabular">98¢</div><div class="d">↑ +6¢ overnight</div></div>
+        <div><div class="l">Resolves</div><div class="v">Dec 31, 2029</div><div class="d">~3.5 years out</div></div>
+        <div><div class="l">Expected loss covered</div><div class="v tabular">$180M</div><div class="d">across 2 projects</div></div>
+        <div><div class="l">Castle confidence</div><div class="v">High</div><div class="d">live policy signal corroborates</div></div>
+      </div>
+    </div>
+    <div class="rec-side">
+      <div class="rec-trade">
+        <div class="l">Recommended notional</div>
+        <div class="notional tabular">$200K</div>
+        <div class="breakdown">Premium spend · $196K @ 98¢<br>Coverage gain · +13% pts</div>
+        <button class="buy">Buy protection — 1 click →</button>
+        <a class="skip" href="#">Skip · revisit Friday</a>
+      </div>
+      <div class="rec-affected">
+        <strong>Hedges these projects</strong>
+        <ul>
+          <li><span>Lone Star Solar I</span><span>$120M</span></li>
+          <li><span>Mojave Battery Storage Hub</span><span>$60M</span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <article class="rec-card">
+    <div>
+      <div class="pretitle">
+        <span class="num">02</span>
+        <span style="color:var(--fg-3)">Trade-policy hedge</span>
+      </div>
+      <div class="ticker">KXTARIFFREVENUE-26DEC31-T200</div>
+      <h3 class="market-title">Will US tariff revenue for 2026 exceed $200 billion?</h3>
+      <p class="rationale">
+        Treasury revenue at $200B+ implies meaningful tariff escalation has stuck. Market YES moved 51¢ → 65¢ overnight after USTR Section 301 batteries notice. Hedges <strong>Mojave BESS</strong> CATL/BYD cell exposure ($60M) and <strong>I-95 EV Charging</strong> ABB/Wallbox component pass-through ($30M). Imperfect proxy — pays out on the trend, not the specific lines — but the cheapest broad cover available.
+      </p>
+      <div class="stats">
+        <div><div class="l">Current YES</div><div class="v tabular">65¢</div><div class="d">↑ +14¢ overnight</div></div>
+        <div><div class="l">Resolves</div><div class="v">Dec 31, 2026</div><div class="d">~7 months out</div></div>
+        <div><div class="l">Expected loss covered</div><div class="v tabular">$90M</div><div class="d">indirect · 2 projects</div></div>
+        <div><div class="l">Castle confidence</div><div class="v">Medium</div><div class="d">imperfect proxy — sized accordingly</div></div>
+      </div>
+    </div>
+    <div class="rec-side">
+      <div class="rec-trade">
+        <div class="l">Recommended notional</div>
+        <div class="notional tabular">$120K</div>
+        <div class="breakdown">Premium spend · $78K @ 65¢<br>Coverage gain · +7% pts</div>
+        <button class="buy">Buy protection →</button>
+        <a class="skip" href="#">Skip · prefer KXSECTION301</a>
+      </div>
+      <div class="rec-affected">
+        <strong>Hedges these projects</strong>
+        <ul>
+          <li><span>Mojave Battery Storage Hub</span><span>$60M</span></li>
+          <li><span>I-95 EV Charging Network</span><span>$30M</span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <article class="rec-card">
+    <div>
+      <div class="pretitle">
+        <span class="num">03</span>
+        <span style="color:var(--fg-3)">Demand-floor hedge</span>
+      </div>
+      <div class="ticker">KXSOLAR-26-35</div>
+      <h3 class="market-title">Will at least 35 GWdc of utility-scale solar be installed in 2026?</h3>
+      <p class="rationale">
+        Cheap upside hedge on solar demand — pays YES if 2026 installs hit 35 GWdc. If §48E gets phased down, installs slow and this loses. Inverse to position 01. Take this only if you believe the §48E case resolves favorably — Castle suggests sizing small as a tactical complement.
+      </p>
+      <div class="stats">
+        <div><div class="l">Current YES</div><div class="v tabular">98¢</div><div class="d">↑ +1¢ WoW</div></div>
+        <div><div class="l">Resolves</div><div class="v">Mar 31, 2027</div><div class="d">~10 months out</div></div>
+        <div><div class="l">Expected loss covered</div><div class="v tabular">$40M</div><div class="d">demand-side, Lone Star Solar</div></div>
+        <div><div class="l">Castle confidence</div><div class="v">Low</div><div class="d">inverse to position 01</div></div>
+      </div>
+    </div>
+    <div class="rec-side">
+      <div class="rec-trade">
+        <div class="l">Recommended notional</div>
+        <div class="notional tabular">$80K</div>
+        <div class="breakdown">Premium spend · $78K @ 98¢<br>Coverage gain · +3% pts</div>
+        <button class="buy">Buy protection →</button>
+        <a class="skip" href="#">Skip · revisit if §48E resolves</a>
+      </div>
+      <div class="rec-affected">
+        <strong>Hedges these projects</strong>
+        <ul>
+          <li><span>Lone Star Solar I</span><span>$40M</span></li>
+        </ul>
+      </div>
+    </div>
+  </article>
+
+  <!-- EXISTING POSITIONS -->
+  <div class="h-section">
+    <div class="head">
+      <h2>Your active hedges</h2>
+      <span class="meta">5 positions · $420K notional · mtm <strong style="color:var(--accent-teal-deep)">+$48K</strong></span>
+    </div>
+  </div>
+
+  <div class="pos-table">
+    <div class="pos-row is-head">
+      <span>Position</span>
+      <span style="text-align:right">Notional</span>
+      <span style="text-align:right">Entry / Now</span>
+      <span style="text-align:right">MTM P&amp;L</span>
+      <span style="text-align:right">Status</span>
+    </div>
+    <div class="pos-row">
+      <div class="name">KX48ETAXCREDIT-26MAY <small>§ 48E reinstatement · 2 projects</small></div>
+      <span style="text-align:right">$140K</span>
+      <span style="text-align:right">71¢ → 98¢</span>
+      <span class="pnl up" style="text-align:right">+$37,800</span>
+      <span class="status" style="text-align:right">Open</span>
+    </div>
+    <div class="pos-row">
+      <div class="name">KXTARIFFREVENUE-T125 <small>Tariff revenue · 3 projects</small></div>
+      <span style="text-align:right">$100K</span>
+      <span style="text-align:right">82¢ → 94¢</span>
+      <span class="pnl up" style="text-align:right">+$12,200</span>
+      <span class="status" style="text-align:right">Open</span>
+    </div>
+    <div class="pos-row">
+      <div class="name">KXBOEM-26 <small>BOEM permitting pace · Vineyard Wind II</small></div>
+      <span style="text-align:right">$80K</span>
+      <span style="text-align:right">34¢ → 28¢</span>
+      <span class="pnl down" style="text-align:right">−$4,800</span>
+      <span class="status" style="text-align:right">Open</span>
+    </div>
+    <div class="pos-row">
+      <div class="name">KXSECTION232KR <small>§ 232 Korean steel · Vineyard Wind II</small></div>
+      <span style="text-align:right">$60K</span>
+      <span style="text-align:right">52¢ → 58¢</span>
+      <span class="pnl up" style="text-align:right">+$3,600</span>
+      <span class="status" style="text-align:right">Open</span>
+    </div>
+    <div class="pos-row">
+      <div class="name">KXNEVI-27 <small>NEVI funding floor · I-95 EV Charging</small></div>
+      <span style="text-align:right">$40K</span>
+      <span style="text-align:right">19¢ → 22¢</span>
+      <span class="pnl up" style="text-align:right">+$1,200</span>
+      <span class="status" style="text-align:right">Open</span>
+    </div>
+  </div>
+
+</main>
+
+<footer class="daily-foot">
+  <span>Castle · Daily · Recommended hedges · Not investment advice</span>
+  <span><a href="04-inbox.html">← Inbox</a><a href="index.html">All mocks</a></span>
+</footer>
+
+</body>
+</html>

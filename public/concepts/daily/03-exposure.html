@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>§ 48E ITC Phase-Down — Castle Daily</title>
+<link rel="stylesheet" href="../../assets/css/colors_and_type.css">
+<link rel="stylesheet" href="_daily.css">
+<style>
+  /* breadcrumb */
+  .crumb {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+    margin: 24px 0 12px;
+  }
+  .crumb a { color: var(--fg-3); }
+  .crumb a:hover { color: var(--fg); }
+  .crumb .sep { margin: 0 8px; opacity: 0.5; }
+
+  /* Header */
+  .exp-head {
+    display: grid; grid-template-columns: 1fr auto; gap: 32px;
+    align-items: end; padding-bottom: 28px;
+    border-bottom: var(--rule);
+  }
+  .exp-head h1 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(36px, 4.4vw, 52px); line-height: 1.05;
+    letter-spacing: -0.02em; margin: 12px 0 8px;
+  }
+  .exp-head .citation {
+    font-family: var(--font-mono); font-size: 12px;
+    letter-spacing: -0.01em; color: var(--fg-3);
+  }
+  .exp-head .actions {
+    display: flex; gap: 12px; align-items: center;
+  }
+  .exp-head .ago {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--fg-3); padding: 8px 0;
+  }
+
+  /* Stat strip */
+  .stat-strip {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+    margin: 24px 0;
+    border-top: var(--hair); border-bottom: var(--hair);
+  }
+  .stat-strip > div {
+    padding: 18px 20px; border-right: var(--hair);
+  }
+  .stat-strip > div:last-child { border-right: none; }
+  .stat-strip .l {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .stat-strip .v {
+    font-family: var(--font-display); font-size: 36px; line-height: 1;
+    letter-spacing: -0.02em; margin: 8px 0 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat-strip .d {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.15em; margin-top: 6px;
+  }
+  .stat-strip .d.up { color: var(--accent-teal-deep); }
+  .stat-strip .d.down { color: #8B2A1C; }
+
+  /* 12-week chart */
+  .attn-chart {
+    margin: 32px 0; padding: 24px;
+    background: var(--bg-card); border: var(--hair2);
+  }
+  .attn-chart-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 14px; margin-bottom: 18px; border-bottom: var(--hair);
+  }
+  .attn-chart-head h3 {
+    font-family: var(--font-display); font-size: 18px; font-weight: 400;
+    letter-spacing: -0.01em; margin: 0;
+  }
+  .attn-chart-head .meta {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .attn-chart svg {
+    width: 100%; height: 220px; display: block;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Two-column body */
+  .exp-body {
+    display: grid; grid-template-columns: 1fr 360px; gap: 48px;
+    margin-top: 40px;
+  }
+  .exp-view {
+    font-family: var(--font-display); font-size: 21px; line-height: 1.5;
+    letter-spacing: -0.01em; color: var(--fg);
+    padding-bottom: 28px; border-bottom: var(--hair);
+    margin-bottom: 28px;
+  }
+  .exp-view::first-letter {
+    font-size: 56px; float: left; line-height: 0.9;
+    padding: 4px 12px 0 0;
+  }
+
+  /* Timeline */
+  .timeline { padding: 0; margin: 24px 0; }
+  .timeline-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 20px;
+  }
+  .timeline-head h3 {
+    font-family: var(--font-display); font-size: 22px; font-weight: 400;
+    letter-spacing: -0.01em; margin: 0;
+  }
+  .tl-item {
+    display: grid; grid-template-columns: 110px 32px 1fr;
+    gap: 16px; padding: 18px 0; align-items: start;
+    border-bottom: var(--hair); position: relative;
+  }
+  .tl-item:hover { background: var(--surface-overlay); }
+  .tl-item .when {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .tl-item .when strong { color: var(--fg); display: block; font-size: 11px; }
+  .tl-item .marker {
+    position: relative; height: 100%; min-height: 50px;
+  }
+  .tl-item .marker::before {
+    content: ""; position: absolute; left: 50%; top: 6px; bottom: -32px;
+    width: 1px; background: var(--border);
+  }
+  .tl-item:last-child .marker::before { display: none; }
+  .tl-item .marker .dot {
+    position: absolute; left: calc(50% - 4px); top: 4px;
+    width: 9px; height: 9px; background: var(--castle-bone);
+    border: 2px solid var(--fg);
+  }
+  .tl-item.is-future .marker .dot { background: var(--castle-bone); border-style: dashed; }
+  .tl-item.is-now .marker .dot { background: var(--fg); }
+  .tl-item .body { min-width: 0; padding-top: 2px; }
+  .tl-item .body .meta {
+    display: flex; gap: 8px; align-items: center;
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+    margin-bottom: 6px;
+  }
+  .tl-item .body .title { font-size: 15px; line-height: 1.4; color: var(--fg); }
+  .tl-item .body .title strong { font-weight: 600; }
+  .tl-item .body .detail { font-size: 12.5px; color: var(--fg-3); margin-top: 4px; line-height: 1.5; }
+  .tl-item .body .link {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--accent-teal-deep); margin-top: 8px; display: inline-block;
+  }
+
+  /* Right rail */
+  .rail-section { margin-bottom: 32px; }
+  .rail-section .head {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+    padding-bottom: 8px; border-bottom: var(--hair2);
+    display: flex; justify-content: space-between;
+  }
+  .rail-section .head strong { color: var(--fg); font-weight: 700; }
+
+  .affected { display: flex; flex-direction: column; gap: 0; }
+  .affected .row {
+    display: grid; grid-template-columns: 1fr auto; gap: 12px;
+    padding: 12px 0; border-bottom: var(--hair); align-items: center;
+  }
+  .affected .row:last-child { border-bottom: none; }
+  .affected .row .name {
+    font-family: var(--font-display); font-size: 16px; letter-spacing: -0.01em;
+  }
+  .affected .row .name small {
+    display: block; font-family: var(--font-mono); font-size: 9px;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3); margin-top: 2px;
+  }
+  .affected .row .impact {
+    font-family: var(--font-mono); font-size: 12px; font-weight: 700;
+    letter-spacing: -0.01em; text-align: right; font-variant-numeric: tabular-nums;
+  }
+  .affected .row .impact small {
+    display: block; font-size: 9px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--fg-3); margin-top: 2px;
+  }
+
+  .hedges-list .h {
+    padding: 14px 0; border-bottom: var(--hair);
+  }
+  .hedges-list .h:last-child { border-bottom: none; }
+  .hedges-list .h .ticker {
+    font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.05em; color: var(--fg);
+  }
+  .hedges-list .h .title { font-size: 12.5px; color: var(--fg-2); line-height: 1.4; margin-top: 6px; }
+  .hedges-list .h .row { display: flex; justify-content: space-between; align-items: baseline; margin-top: 8px; }
+  .hedges-list .h .row .yes {
+    font-family: var(--font-mono); font-size: 20px; font-weight: 700;
+    letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+  }
+  .hedges-list .h .row .meta {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .hedges-list .h .cta {
+    margin-top: 10px;
+    font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--fg); border: 1px solid var(--border);
+    padding: 8px 12px; display: block; text-align: center; cursor: pointer;
+  }
+  .hedges-list .h .cta:hover { background: var(--fg); color: var(--castle-bone); border-color: var(--fg); }
+
+  /* Subscribe panel */
+  .sub-panel { padding: 16px; background: var(--castle-paper); border: var(--hair2); }
+  .sub-panel .l {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .sub-panel ul { padding: 0; margin: 12px 0 0; list-style: none; font-size: 13px; line-height: 2; }
+  .sub-panel ul li { display: flex; gap: 10px; align-items: center; }
+  .sub-panel ul li::before { content: "☐"; color: var(--fg-3); }
+  .sub-panel ul li.is-on::before { content: "☑"; color: var(--accent-teal); }
+
+  @media (max-width: 900px) {
+    .exp-body { grid-template-columns: 1fr; }
+    .stat-strip { grid-template-columns: repeat(2, 1fr); }
+    .stat-strip > div { border-right: none; border-bottom: var(--hair); }
+  }
+</style>
+</head>
+<body>
+
+<nav class="daily-nav">
+  <div class="daily-nav-inner">
+    <a class="daily-brand" href="../../index.html">
+      <img src="../../assets/svg/castle-logo-black.svg" alt="Castle">
+      <span class="product">Daily</span>
+    </a>
+    <div class="daily-tabs">
+      <a href="02-today.html">Today</a>
+      <a href="04-inbox.html">Inbox <span class="badge">12</span></a>
+      <a href="#" class="is-active">Watchlist</a>
+      <a href="05-hedge.html">Hedges</a>
+      <a href="#">Catalysts</a>
+    </div>
+    <div class="daily-user">
+      <span class="company">Cardinal Renewable Partners</span>
+      <span class="avatar">LC</span>
+    </div>
+  </div>
+</nav>
+
+<main class="daily-page">
+
+  <div class="crumb">
+    <a href="02-today.html">Today</a><span class="sep">/</span>
+    <a href="#">Watchlist</a><span class="sep">/</span>
+    <a href="#">Policy</a><span class="sep">/</span>
+    <span style="color:var(--fg)">§ 48E ITC Phase-Down</span>
+  </div>
+
+  <header class="exp-head">
+    <div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <span class="pill is-policy">Policy</span>
+        <span class="pill is-high">High likelihood</span>
+        <span class="pill is-new">+6¢ overnight</span>
+      </div>
+      <h1>§ 48E ITC Phase-Down — Reconciliation Risk</h1>
+      <div class="citation">IRC §48E (IRA §13702) · House W&amp;M reconciliation · HR 9123 (cosponsors 31 D / 18 R) · tracked since Apr 14, 2026</div>
+    </div>
+    <div class="actions">
+      <span class="ago">UPDATED 3 HR AGO</span>
+      <button class="btn">★ Watching</button>
+      <button class="btn is-primary">Hedge $200K →</button>
+    </div>
+  </header>
+
+  <section class="stat-strip">
+    <div>
+      <div class="l">Attention score</div>
+      <div class="v tabular">100</div>
+      <div class="d down">↑ +24 SINCE FRI</div>
+    </div>
+    <div>
+      <div class="l">Probability</div>
+      <div class="v tabular">53%</div>
+      <div class="d down">↑ +8pp WoW</div>
+    </div>
+    <div>
+      <div class="l">$ at risk</div>
+      <div class="v tabular">$180M</div>
+      <div class="d flat">Cross 2 projects</div>
+    </div>
+    <div>
+      <div class="l">Expected loss</div>
+      <div class="v tabular">$95M</div>
+      <div class="d down">↑ $14M WoW</div>
+    </div>
+    <div>
+      <div class="l">Castle hedge cost</div>
+      <div class="v tabular">$4K</div>
+      <div class="d flat">at 98¢ YES</div>
+    </div>
+  </section>
+
+  <!-- 12-WEEK ATTENTION CHART -->
+  <section class="attn-chart">
+    <div class="attn-chart-head">
+      <h3>Attention · last 12 weeks of mentions in Congress.gov + Federal Register</h3>
+      <span class="meta">Current 100 · 12-week peak</span>
+    </div>
+    <svg viewBox="0 0 800 220" preserveAspectRatio="none">
+      <!-- gridlines -->
+      <line x1="40" y1="40" x2="800" y2="40" stroke="rgba(24,24,24,0.06)"/>
+      <line x1="40" y1="90" x2="800" y2="90" stroke="rgba(24,24,24,0.06)"/>
+      <line x1="40" y1="140" x2="800" y2="140" stroke="rgba(24,24,24,0.06)"/>
+      <line x1="40" y1="190" x2="800" y2="190" stroke="rgba(24,24,24,0.18)"/>
+      <!-- y-axis labels -->
+      <text x="35" y="44" font-family="Geist Mono" font-size="10" fill="#737373" text-anchor="end">100</text>
+      <text x="35" y="94" font-family="Geist Mono" font-size="10" fill="#737373" text-anchor="end">75</text>
+      <text x="35" y="144" font-family="Geist Mono" font-size="10" fill="#737373" text-anchor="end">50</text>
+      <text x="35" y="194" font-family="Geist Mono" font-size="10" fill="#737373" text-anchor="end">0</text>
+      <!-- bars (12 weeks) -->
+      <g fill="#246075" fill-opacity="0.9">
+        <rect x="55" y="160" width="40" height="30"/>
+        <rect x="115" y="170" width="40" height="20"/>
+        <rect x="175" y="140" width="40" height="50"/>
+        <rect x="235" y="120" width="40" height="70"/>
+        <rect x="295" y="160" width="40" height="30"/>
+        <rect x="355" y="105" width="40" height="85"/>
+        <rect x="415" y="115" width="40" height="75"/>
+        <rect x="475" y="90" width="40" height="100"/>
+        <rect x="535" y="100" width="40" height="90"/>
+        <rect x="595" y="75" width="40" height="115"/>
+        <rect x="655" y="50" width="40" height="140"/>
+      </g>
+      <rect x="715" y="40" width="40" height="150" fill="#171717"/>
+      <!-- annotations -->
+      <line x1="475" y1="90" x2="475" y2="20" stroke="#737373" stroke-width="1" stroke-dasharray="2,2"/>
+      <text x="479" y="18" font-family="Geist Mono" font-size="10" fill="#171717" font-weight="600">Mar 24 — Treasury final guidance</text>
+      <line x1="715" y1="40" x2="715" y2="14" stroke="#171717" stroke-width="1"/>
+      <text x="711" y="12" font-family="Geist Mono" font-size="10" fill="#171717" font-weight="700" text-anchor="end">This week — peak</text>
+      <!-- x labels -->
+      <g font-family="Geist Mono" font-size="9" fill="#737373" letter-spacing="0.1em" text-anchor="middle">
+        <text x="75" y="210">w12</text>
+        <text x="195" y="210">w10</text>
+        <text x="315" y="210">w8</text>
+        <text x="435" y="210">w6</text>
+        <text x="555" y="210">w4</text>
+        <text x="675" y="210">w2</text>
+        <text x="735" y="210">w0</text>
+      </g>
+    </svg>
+  </section>
+
+  <!-- BODY: timeline + right rail -->
+  <div class="exp-body">
+    <div>
+      <!-- Analyst take -->
+      <p class="exp-view">
+        Senate Finance's Saturday markup added explicit phase-down language to §48E for projects not under construction by 12/31/2026, narrowing the safe-harbor window by 11 months. House W&amp;M chairman's mark, scheduled for Thursday 5/28, mirrors the Senate position. Combined cosponsor count crossed 50 over the weekend — meaningful, but still 14 votes short of the floor threshold. We're moving probability of an adverse outcome to 53% (from 45% Friday) and adjusting expected loss upward to $95M.
+      </p>
+
+      <!-- Timeline -->
+      <div class="timeline">
+        <div class="timeline-head">
+          <h3>Timeline</h3>
+          <span class="meta" style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;text-transform:uppercase;color:var(--fg-3)">Past · Now · Upcoming</span>
+        </div>
+
+        <a class="tl-item is-future" href="#">
+          <div class="when"><strong>Dec 31, 2026</strong>+219d</div>
+          <div class="marker"><span class="dot"></span></div>
+          <div class="body">
+            <div class="meta"><span class="pill is-deadline">Deadline</span></div>
+            <div class="title"><strong>Construction-start safe-harbor cliff</strong> for projects in current §48E regime</div>
+            <div class="detail">If reconciliation amendment passes as drafted, projects not started by 12/31 lose technology-neutral rate.</div>
+          </div>
+        </a>
+
+        <a class="tl-item is-future" href="#">
+          <div class="when"><strong>Jun 12</strong>+19d</div>
+          <div class="marker"><span class="dot"></span></div>
+          <div class="body">
+            <div class="meta"><span class="pill is-policy">Hearing</span></div>
+            <div class="title">Senate Finance full-committee markup</div>
+            <div class="detail">Wyden / Crapo joint motion likely. Adoption sets HEC priority order.</div>
+          </div>
+        </a>
+
+        <a class="tl-item is-future" href="#">
+          <div class="when"><strong>May 28</strong>+4d</div>
+          <div class="marker"><span class="dot"></span></div>
+          <div class="body">
+            <div class="meta"><span class="pill is-policy">Hearing</span></div>
+            <div class="title">House W&amp;M markup — § 48E reconciliation provisions</div>
+            <div class="detail">Chairman's mark filed Saturday; floor vote possible same week.</div>
+            <span class="link">View bill text →</span>
+          </div>
+        </a>
+
+        <a class="tl-item is-now" href="#">
+          <div class="when"><strong>Today</strong>3 hr ago</div>
+          <div class="marker"><span class="dot"></span></div>
+          <div class="body">
+            <div class="meta"><span class="pill is-new">Now</span> &nbsp;Sat 11:00 PM</div>
+            <div class="title"><strong>Senate Finance markup adds phase-down language to §48E</strong></div>
+            <div class="detail">Phase-down for projects not under construction by 12/31/2026. Cosponsor count 31 D + 18 R (was 22 D + 12 R Thursday).</div>
+            <span class="link">Read Castle's overnight note →</span>
+          </div>
+        </a>
+
+        <a class="tl-item" href="#">
+          <div class="when"><strong>May 20</strong>4d ago</div>
+          <div class="marker"><span class="dot"></span></div>
+          <div class="body">
+            <div class="meta"><span class="pill is-market">Market</span> &nbsp;KX48ETAXCREDIT-26MAY</div>
+            <div class="title">Kalshi YES priced up from 71¢ → 92¢</div>
+            <div class="detail">After Senate Finance staff signaled phase-down was in the chairman's mark.</div>
+          </div>
+        </a>
+
+        <a class="tl-item" href="#">
+          <div class="when"><strong>May 12</strong>12d ago</div>
+          <div class="marker"><span class="dot"></span></div>
+          <div class="body">
+            <div class="meta"><span class="pill is-policy">Filing</span></div>
+            <div class="title">HR 9123 introduced — Solar Investment Stability Act</div>
+            <div class="detail">Reps. Larsen (D-WA) / Conaway (R-TX) · would extend §48E technology-neutral rate through 2032.</div>
+            <span class="link">View Congress.gov record →</span>
+          </div>
+        </a>
+
+        <a class="tl-item" href="#">
+          <div class="when"><strong>Apr 14</strong>41d ago</div>
+          <div class="marker"><span class="dot"></span></div>
+          <div class="body">
+            <div class="meta"><span class="pill is-policy">Castle</span></div>
+            <div class="title">Watchlist added — § 48E ITC Phase-Down</div>
+            <div class="detail">Onboarding scan flagged Lone Star Solar I and Mojave BESS as §48E-dependent. Tracked since.</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right rail -->
+    <aside>
+      <div class="rail-section">
+        <div class="head"><span>Affected projects</span><strong>2 of 5</strong></div>
+        <div class="affected">
+          <a class="row" href="#">
+            <div class="name">Lone Star Solar I<small>500 MW · West Texas · COD Q2 2027</small></div>
+            <div class="impact tabular">$120M<small>at risk</small></div>
+          </a>
+          <a class="row" href="#">
+            <div class="name">Mojave Battery Storage<small>250 MW / 1 GWh · CA · COD Q1 2026</small></div>
+            <div class="impact tabular">$60M<small>at risk</small></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="rail-section">
+        <div class="head"><span>Mapped Kalshi hedges</span><strong>3 active</strong></div>
+        <div class="hedges-list">
+          <div class="h">
+            <div class="ticker">KX48ETAXCREDIT-26MAY</div>
+            <div class="title">Will legislation reinstating § 48E commercial ITC at 30%+ become law before Dec 31, 2029?</div>
+            <div class="row"><span class="yes">98¢</span><span class="meta">Resolves 12/2029</span></div>
+            <a class="cta" href="05-hedge.html">Hedge $200K →</a>
+          </div>
+          <div class="h">
+            <div class="ticker">KX48ECONST-26DEC</div>
+            <div class="title">Will § 48E construction-start safe harbor extend past 12/31/2026?</div>
+            <div class="row"><span class="yes">42¢</span><span class="meta">Resolves 12/2026</span></div>
+            <a class="cta" href="05-hedge.html">Hedge $120K →</a>
+          </div>
+          <div class="h">
+            <div class="ticker">KXRECON-26-3</div>
+            <div class="title">Will House reconciliation package pass before recess?</div>
+            <div class="row"><span class="yes">61¢</span><span class="meta">Resolves Aug 2026</span></div>
+            <a class="cta" href="05-hedge.html">Hedge $80K →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="rail-section">
+        <div class="head"><span>Alert preferences</span><a href="#" style="color:var(--accent-teal-deep);text-decoration:none;font-weight:600">Adjust →</a></div>
+        <div class="sub-panel">
+          <span class="l">Notify me when…</span>
+          <ul>
+            <li class="is-on">A new bill matches</li>
+            <li class="is-on">Probability moves &gt; 5pp</li>
+            <li class="is-on">Kalshi YES moves &gt; 5¢</li>
+            <li>Catalyst within 14 days</li>
+            <li>Castle changes its view</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+</main>
+
+<footer class="daily-foot">
+  <span>Castle · Daily · § 48E ITC Phase-Down · Updated 3 hr ago</span>
+  <span><a href="02-today.html">← Back to today</a><a href="index.html">All mocks</a></span>
+</footer>
+
+</body>
+</html>
