@@ -1,0 +1,163 @@
+/* Castle Risk Index — v2
+   Discipline: maximum restraint. Big type. Generous space.
+   One accent (teal) used surgically. No pills, no boxes unless required.
+   Hedvig for headlines AND large numbers. Mono used very sparingly. */
+
+:root {
+  --hair:   1px solid rgba(24,24,24,0.08);
+  --hair2:  1px solid rgba(24,24,24,0.14);
+  --rule:   1px solid var(--fg);
+  --accent: #246075;
+  --pos:    #00544F;
+  --neg:    #8B2A1C;
+  --paper:  var(--castle-bone);
+}
+
+html, body { margin: 0; background: var(--paper); color: var(--fg);
+             font-family: var(--font-body); font-size: 15px; line-height: 1.6;
+             font-feature-settings: 'kern' 1; }
+a { color: inherit; text-decoration: none; }
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* ── Nav ─────────────────────────────────────────────── */
+.nav {
+  border-bottom: var(--hair);
+}
+.nav-inner {
+  max-width: 1120px; margin: 0 auto; padding: 20px 48px;
+  display: grid; grid-template-columns: auto 1fr auto; gap: 48px; align-items: center;
+}
+.brand {
+  display: inline-flex; align-items: center; gap: 14px; color: var(--fg);
+}
+.brand img { height: 18px; }
+.brand .product {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--fg-2);
+  padding-left: 14px; border-left: var(--hair);
+}
+.crumb {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--fg-3);
+  display: inline-flex; gap: 12px; align-items: center;
+}
+.crumb a { color: var(--fg-3); transition: color .15s; }
+.crumb a:hover { color: var(--fg); }
+.crumb .sep { color: var(--fg-3); opacity: 0.4; }
+.crumb .current { color: var(--fg); }
+
+.right { display: inline-flex; align-items: center; gap: 24px; font-family: var(--font-mono);
+         font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3); }
+.right a { transition: color .15s; }
+.right a:hover { color: var(--fg); }
+.right .live { color: var(--fg-2); display: inline-flex; align-items: center; gap: 6px; }
+.right .live::before { content: ""; width: 5px; height: 5px; background: var(--pos);
+                       border-radius: 50%; animation: pulse 2.4s ease-in-out infinite; }
+@keyframes pulse { 0%,100% { opacity: 1 } 50% { opacity: 0.3 } }
+
+/* ── Page wrapper ─────────────────────────────────────── */
+.page { max-width: 1120px; margin: 0 auto; padding: 96px 48px 160px; }
+
+/* ── Eyebrow ──────────────────────────────────────────── */
+.eyebrow {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--fg-3);
+}
+
+/* ── Display Type — way bigger than before ───────────── */
+.display-1 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(60px, 8vw, 104px); line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin: 28px 0 0;
+}
+.display-2 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(40px, 5vw, 56px); line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 24px 0 0;
+}
+
+/* Subtitle — large but quieter */
+.subhead {
+  font-family: var(--font-display); font-weight: 400; font-style: italic;
+  font-size: clamp(20px, 2.2vw, 26px); line-height: 1.4;
+  letter-spacing: -0.005em; color: var(--fg-2);
+  margin: 20px 0 0; max-width: 720px;
+}
+
+/* The big number — composite or hero metric in serif */
+.big-num {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(120px, 16vw, 180px); line-height: 0.9;
+  letter-spacing: -0.05em; font-variant-numeric: tabular-nums;
+  color: var(--fg); margin: 0;
+}
+.big-num .of {
+  font-family: var(--font-display); font-size: 0.22em;
+  color: var(--fg-3); letter-spacing: -0.02em;
+}
+
+/* Body lede — under headlines */
+.lede {
+  font-family: var(--font-body); font-size: 17px; line-height: 1.7;
+  color: var(--fg-2); max-width: 580px; margin: 0;
+}
+
+/* Section labels — single hairline over caps text */
+.section-label {
+  display: grid; grid-template-columns: 1fr auto;
+  align-items: baseline; padding-bottom: 16px;
+  border-bottom: var(--rule); margin: 120px 0 32px;
+}
+.section-label .l {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--fg);
+}
+.section-label .r {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3);
+}
+.section-label .r a { color: var(--accent); }
+
+/* Small heading inside sections */
+.tiny-label {
+  font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--fg-3);
+}
+
+/* Delta — used in number+delta combos */
+.delta {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.08em; font-variant-numeric: tabular-nums;
+}
+.delta.is-up { color: var(--neg); }
+.delta.is-down { color: var(--pos); }
+.delta.is-flat { color: var(--fg-3); }
+
+/* ── Buttons ──────────────────────────────────────────── */
+.btn {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  background: transparent; color: var(--fg);
+  border: 1px solid var(--fg);
+  padding: 13px 22px; cursor: pointer; display: inline-block;
+  transition: background .15s, color .15s;
+}
+.btn:hover { background: var(--fg); color: var(--paper); }
+.btn.is-primary { background: var(--fg); color: var(--paper); }
+.btn.is-primary:hover { opacity: 0.88; background: var(--fg); }
+.btn.is-ghost { border-color: transparent; padding: 13px 0; color: var(--fg-3); }
+.btn.is-ghost:hover { color: var(--fg); background: transparent; }
+
+/* ── Footer ───────────────────────────────────────────── */
+.foot {
+  max-width: 1120px; margin: 120px auto 0;
+  padding: 32px 48px 64px;
+  border-top: var(--hair);
+  font-family: var(--font-mono); font-size: 10px;
+  letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3);
+  display: flex; justify-content: space-between;
+}
+.foot a { margin-left: 16px; transition: color .15s; }
+.foot a:hover { color: var(--fg); }

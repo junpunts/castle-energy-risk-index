@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Castle Risk Index</title>
+<link rel="stylesheet" href="../../assets/css/colors_and_type.css">
+<link rel="stylesheet" href="_v2.css">
+<style>
+  /* ── Hero ─────────────────────────────────────────── */
+  .hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 80px;
+          align-items: end; padding-bottom: 80px; border-bottom: var(--hair); }
+  .hero .lede { margin-top: 32px; }
+  .hero .reading { text-align: right; align-self: end; }
+  .hero .reading .label { color: var(--fg-3); display: block; margin-bottom: 16px; }
+  .hero .reading .big-num { display: block; }
+  .hero .reading .meta-row { margin-top: 24px; display: flex; justify-content: flex-end;
+                              gap: 24px; align-items: baseline; }
+  .hero .reading .meta-row .delta { font-size: 13px; }
+  .hero .reading .meta-row .tiny-label { color: var(--fg-3); }
+
+  /* ── Archetype grid — 3×2 ─────────────────────────── */
+  .archetypes {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    margin-top: 80px;
+    border-top: var(--rule);
+  }
+  .arch {
+    padding: 48px 40px 56px;
+    border-right: var(--hair2);
+    border-bottom: var(--hair2);
+    text-decoration: none; color: inherit;
+    display: flex; flex-direction: column;
+    min-height: 320px;
+    transition: background .15s;
+    position: relative;
+  }
+  .arch:nth-child(3n) { border-right: none; }
+  .arch:nth-last-child(-n+3) { border-bottom: none; }
+  .arch:hover { background: rgba(245,245,245,0.6); }
+  .arch::after {
+    content: "→"; position: absolute; top: 48px; right: 40px;
+    font-family: var(--font-mono); font-size: 16px; color: var(--fg-3);
+    opacity: 0; transition: opacity .15s, transform .15s;
+  }
+  .arch:hover::after { opacity: 1; transform: translate(2px, 0); }
+  .arch .tag { color: var(--accent); margin-bottom: 8px; }
+  .arch .name {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: 36px; line-height: 1.0; letter-spacing: -0.02em;
+    color: var(--fg); margin: 0 0 12px;
+  }
+  .arch .desc {
+    font-size: 14px; line-height: 1.55; color: var(--fg-3);
+    margin: 0 0 32px; max-width: 320px;
+  }
+  .arch .footer {
+    margin-top: auto; display: flex; align-items: baseline;
+    justify-content: space-between; gap: 16px;
+  }
+  .arch .score {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: 56px; line-height: 0.95; letter-spacing: -0.03em;
+    color: var(--fg); font-variant-numeric: tabular-nums;
+  }
+  .arch .footer-meta { text-align: right; }
+  .arch .footer-meta .small {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--fg-3); display: block; margin-bottom: 6px;
+  }
+  .arch .footer-meta .delta { font-size: 12px; }
+
+  /* Note row at bottom */
+  .note-row {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 64px;
+    margin-top: 120px; padding-top: 32px; border-top: var(--hair);
+  }
+  .note-row > div { }
+  .note-row .label { color: var(--fg-3); margin-bottom: 12px; }
+  .note-row .v {
+    font-family: var(--font-display); font-size: 36px; line-height: 1.0;
+    letter-spacing: -0.02em; margin: 0; font-variant-numeric: tabular-nums;
+  }
+  .note-row .help {
+    font-size: 13px; color: var(--fg-3); line-height: 1.5;
+    margin-top: 10px; max-width: 280px;
+  }
+
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero .reading { text-align: left; }
+    .hero .reading .meta-row { justify-content: flex-start; }
+    .archetypes { grid-template-columns: repeat(2, 1fr); }
+    .arch:nth-child(3n) { border-right: var(--hair2); }
+    .arch:nth-child(2n) { border-right: none; }
+    .arch:nth-last-child(-n+3) { border-bottom: var(--hair2); }
+    .arch:nth-last-child(-n+2) { border-bottom: none; }
+  }
+  @media (max-width: 720px) {
+    .page { padding: 56px 24px 96px; }
+    .archetypes { grid-template-columns: 1fr; }
+    .arch { border-right: none !important; border-bottom: var(--hair2) !important; }
+    .arch:last-child { border-bottom: none !important; }
+    .note-row { grid-template-columns: 1fr; gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../../index.html">
+      <img src="../../assets/svg/castle-logo-black.svg" alt="Castle">
+      <span class="product">Risk Index</span>
+    </a>
+    <div></div>
+    <div class="right">
+      <span class="live">Live</span>
+      <a href="#">Sign in</a>
+    </div>
+  </div>
+</nav>
+
+<main class="page">
+
+  <header class="hero">
+    <div>
+      <span class="eyebrow">Castle / Energy / Week of May 24</span>
+      <h1 class="display-1">Renewable<br>project risk.</h1>
+      <p class="lede">Six project archetypes covering the bulk of US renewables deal flow. We monitor 47 specific risks across them in real time, sourced from Congress.gov, the Federal Register, USTR, Kalshi prediction markets, and 40+ industry sources.</p>
+    </div>
+    <div class="reading">
+      <span class="tiny-label label">Composite reading</span>
+      <span class="big-num">53<span class="of">/100</span></span>
+      <div class="meta-row">
+        <span class="tiny-label">Capex-weighted</span>
+        <span class="delta is-up">−1 since last Sunday</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="archetypes" id="archetypes"></section>
+
+  <section class="note-row">
+    <div>
+      <span class="eyebrow label">Risks tracked</span>
+      <div class="v">47</div>
+      <p class="help">across all six archetypes. 12 currently high-likelihood — see archetypes for breakdowns.</p>
+    </div>
+    <div>
+      <span class="eyebrow label">Items this week</span>
+      <div class="v">81</div>
+      <p class="help">policy filings, rules, and market moves. Up 14 vs the prior week.</p>
+    </div>
+    <div>
+      <span class="eyebrow label">Inside 90 days</span>
+      <div class="v">23</div>
+      <p class="help">dated catalysts &mdash; comment deadlines, rule effective dates, hearings.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <span>Castle &middot; For informational purposes only</span>
+  <span><a href="../index.html">Other concepts</a><a href="../../index.html">Live brief</a></span>
+</footer>
+
+<script type="module">
+import { ARCHETYPES } from '../archetypes/_data.js';
+function escape(s) { return String(s ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;'); }
+
+document.getElementById('archetypes').innerHTML = ARCHETYPES.map(a => {
+  const deltaClass = a.composite_delta === 0 ? 'is-flat' : a.composite_delta > 0 ? 'is-up' : 'is-down';
+  const deltaTxt = a.composite_delta === 0 ? '0' : (a.composite_delta > 0 ? '+' : '') + a.composite_delta;
+  return `<a class="arch" href="archetype.html?id=${encodeURIComponent(a.id)}">
+    <span class="eyebrow tag">${escape(a.eyebrow)}</span>
+    <h3 class="name">${escape(a.name)}</h3>
+    <p class="desc">${escape(a.blurb)}</p>
+    <div class="footer">
+      <div class="score">${a.composite}</div>
+      <div class="footer-meta">
+        <span class="small">${a.risks_total} risks &middot; ${a.risks_high} high</span>
+        <span class="delta ${deltaClass}">${deltaTxt} WoW</span>
+      </div>
+    </div>
+  </a>`;
+}).join('');
+</script>
+</body>
+</html>

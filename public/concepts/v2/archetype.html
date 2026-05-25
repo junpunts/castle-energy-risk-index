@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Archetype — Castle Risk Index</title>
+<link rel="stylesheet" href="../../assets/css/colors_and_type.css">
+<link rel="stylesheet" href="_v2.css">
+<style>
+  /* ── Hero ─────────────────────────────────────────── */
+  .hero {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: 96px;
+    align-items: end; padding-bottom: 64px; border-bottom: var(--hair);
+  }
+  .hero .display-1 { font-size: clamp(56px, 7vw, 88px); }
+  .hero .lede { margin-top: 32px; }
+  .hero .badges {
+    margin-top: 40px;
+    display: flex; flex-direction: column; gap: 12px;
+    font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.08em; color: var(--fg-2);
+  }
+  .hero .badges .row { display: grid; grid-template-columns: 180px 1fr; gap: 16px;
+                       padding: 8px 0; border-top: var(--hair); }
+  .hero .badges .row:first-child { border-top: none; }
+  .hero .badges .label { color: var(--fg-3); letter-spacing: 0.28em; text-transform: uppercase; font-size: 10px; }
+  .hero .reading { text-align: right; align-self: end; }
+  .hero .reading .label { color: var(--fg-3); display: block; margin-bottom: 12px; }
+  .hero .reading .meta-row { margin-top: 20px; display: flex; gap: 32px; justify-content: flex-end; }
+  .hero .reading .meta-row .stat .v {
+    font-family: var(--font-display); font-size: 28px; line-height: 1;
+    letter-spacing: -0.02em; margin-top: 6px; font-variant-numeric: tabular-nums;
+  }
+  .hero .reading .meta-row .stat .l {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3);
+  }
+
+  /* ── Waterfall chart — clean & big ─────────────────── */
+  .chart-block { margin-top: 80px; }
+  .chart-block .chart-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding-bottom: 16px; border-bottom: var(--hair); margin-bottom: 48px;
+  }
+  .chart-block .chart-head h3 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: 24px; line-height: 1.2; letter-spacing: -0.01em; margin: 0;
+  }
+  .chart-block .chart-head .meta {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .chart-block svg { width: 100%; height: 440px; display: block; font-variant-numeric: tabular-nums; }
+  .chart-block .caption {
+    margin: 32px 0 0; max-width: 720px;
+    font-family: var(--font-display); font-style: italic;
+    font-size: 17px; line-height: 1.55; color: var(--fg-2);
+  }
+  .chart-block .caption strong { font-weight: 400; font-style: normal; color: var(--fg); }
+
+  /* ── News list ────────────────────────────────────── */
+  .news-list { }
+  .news-row {
+    display: grid; grid-template-columns: 120px 100px 1fr 24px;
+    gap: 32px; padding: 24px 0; border-bottom: var(--hair);
+    align-items: baseline;
+    text-decoration: none; color: inherit;
+    transition: padding .12s, background .12s;
+  }
+  .news-row:hover { padding-left: 16px; padding-right: 16px;
+                    margin: 0 -16px; background: rgba(245,245,245,0.6); }
+  .news-row .src {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg);
+  }
+  .news-row .ago {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3);
+  }
+  .news-row .ttl {
+    font-family: var(--font-display); font-size: 19px; line-height: 1.35;
+    letter-spacing: -0.005em; color: var(--fg);
+  }
+  .news-row .arr { font-family: var(--font-mono); font-size: 16px; color: var(--fg-3); }
+  .news-row:hover .arr { color: var(--fg); }
+
+  /* ── Risks list ───────────────────────────────────── */
+  .risks-list { }
+  .risk-row {
+    display: grid; grid-template-columns: 1fr 100px 100px 24px;
+    gap: 32px; padding: 24px 0; border-bottom: var(--hair);
+    align-items: baseline;
+    text-decoration: none; color: inherit;
+    transition: padding .12s, background .12s;
+  }
+  .risk-row:hover { padding-left: 16px; padding-right: 16px;
+                    margin: 0 -16px; background: rgba(245,245,245,0.6); }
+  .risk-row .body { min-width: 0; }
+  .risk-row .name {
+    font-family: var(--font-display); font-size: 21px; line-height: 1.3;
+    letter-spacing: -0.005em; color: var(--fg); margin: 0;
+  }
+  .risk-row .name .cat {
+    font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--accent); margin-right: 12px;
+  }
+  .risk-row .cit {
+    font-family: var(--font-mono); font-size: 11px; color: var(--fg-3);
+    letter-spacing: 0.02em; margin-top: 8px;
+  }
+  .risk-row .impact, .risk-row .prob {
+    font-family: var(--font-mono); font-size: 18px; font-weight: 700;
+    letter-spacing: -0.02em; text-align: right;
+    font-variant-numeric: tabular-nums; color: var(--fg);
+  }
+  .risk-row .impact small, .risk-row .prob small {
+    font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3);
+    display: block; margin-top: 6px;
+  }
+  .risk-row .arr { font-family: var(--font-mono); font-size: 16px; color: var(--fg-3); align-self: center; }
+  .risk-row:hover .arr { color: var(--fg); }
+
+  @media (max-width: 1024px) {
+    .hero { grid-template-columns: 1fr; gap: 32px; }
+    .hero .reading { text-align: left; }
+    .hero .reading .meta-row { justify-content: flex-start; }
+    .news-row, .risk-row { grid-template-columns: 1fr; gap: 8px; }
+    .news-row .src, .news-row .ago { grid-row: 1; }
+    .news-row .arr, .risk-row .arr { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">
+      <img src="../../assets/svg/castle-logo-black.svg" alt="Castle">
+      <span class="product">Risk Index</span>
+    </a>
+    <div class="crumb">
+      <a href="index.html">Archetypes</a>
+      <span class="sep">/</span>
+      <span class="current" id="crumb-name"></span>
+    </div>
+    <div class="right">
+      <span class="live">Live</span>
+      <a href="index.html">All archetypes</a>
+    </div>
+  </div>
+</nav>
+
+<main class="page">
+
+  <header class="hero" id="hero"></header>
+
+  <!-- Waterfall chart -->
+  <section class="chart-block">
+    <div class="chart-head">
+      <h3 id="wf-h3">Estimated impact on project IRR</h3>
+      <span class="meta">Probability-weighted &middot; 18-month horizon</span>
+    </div>
+    <svg id="waterfall" viewBox="0 0 1024 440" preserveAspectRatio="xMidYMid meet"></svg>
+    <p class="caption" id="wf-caption"></p>
+  </section>
+
+  <!-- News & developments -->
+  <div class="section-label">
+    <span class="l">News &amp; developments</span>
+    <span class="r"><span id="news-count"></span> items this week &middot; <a href="#">all news →</a></span>
+  </div>
+  <section class="news-list" id="news"></section>
+
+  <!-- Tracked risks -->
+  <div class="section-label">
+    <span class="l">All tracked risks</span>
+    <span class="r" id="risks-meta">Ranked by IRR impact</span>
+  </div>
+  <section class="risks-list" id="risks"></section>
+
+</main>
+
+<footer class="foot">
+  <span>Castle &middot; For informational purposes only</span>
+  <span><a href="index.html">All archetypes</a><a href="../index.html">Other concepts</a></span>
+</footer>
+
+<script type="module">
+import { ARCHETYPES, RISKS, NEWS, archetypeById } from '../archetypes/_data.js';
+
+function escape(s) { return String(s ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;'); }
+function fmtUsd(n) {
+  if (n == null) return '—';
+  const a = Math.abs(n);
+  if (a >= 1e9) return `$${(n / 1e9).toFixed(1)}B`;
+  if (a >= 1e6) return `$${(n / 1e6).toFixed(0)}M`;
+  if (a >= 1e3) return `$${(n / 1e3).toFixed(0)}K`;
+  return `$${Math.round(n).toLocaleString()}`;
+}
+function fmtPct(n, d = 0) { return n == null ? '—' : `${(n * 100).toFixed(d)}%`; }
+
+const params = new URLSearchParams(location.search);
+const id = params.get('id') || 'utility-solar';
+const A = archetypeById(id);
+if (!A) {
+  document.querySelector('main').innerHTML = '<div style="padding:120px 48px">Unknown archetype.</div>';
+  throw new Error('no archetype');
+}
+
+document.title = `${A.name} — Castle Risk Index`;
+document.getElementById('crumb-name').textContent = A.name;
+
+const risks = (RISKS[A.id] || []).slice().sort((x, y) => (y.impact_irr * y.probability) - (x.impact_irr * x.probability));
+const news = NEWS[A.id] || [];
+
+const totalImpact = risks.reduce((s, r) => s + Math.abs(r.impact_irr * r.probability), 0);
+const baseIRR = A.typical.target_irr * 100;
+const stressedIRR = baseIRR - totalImpact;
+const deltaClass = A.composite_delta === 0 ? 'is-flat' : A.composite_delta > 0 ? 'is-up' : 'is-down';
+const deltaTxt = A.composite_delta === 0 ? 'flat WoW' : (A.composite_delta > 0 ? '+' : '') + A.composite_delta + ' WoW';
+
+// HERO
+document.getElementById('hero').innerHTML = `
+  <div>
+    <span class="eyebrow" style="color:var(--accent)">${escape(A.eyebrow)}</span>
+    <h1 class="display-1">${escape(A.name)}.</h1>
+    <p class="lede">${escape(A.blurb)}</p>
+    <div class="badges">
+      <div class="row"><span class="label">Typical capacity</span><span>${escape(A.typical.capacity)}</span></div>
+      <div class="row"><span class="label">Typical capex</span><span>${fmtUsd(A.typical.capex)}</span></div>
+      <div class="row"><span class="label">Target equity IRR</span><span>${fmtPct(A.typical.target_irr, 1)}</span></div>
+      <div class="row"><span class="label">COD timeline</span><span>~${A.typical.cod_months} months</span></div>
+      ${A.typical.ppa_price ? `<div class="row"><span class="label">Typical PPA</span><span>~$${A.typical.ppa_price}/MWh</span></div>` : ''}
+    </div>
+  </div>
+  <div class="reading">
+    <span class="tiny-label label">Composite reading</span>
+    <span class="big-num">${A.composite}<span class="of">/100</span></span>
+    <div class="meta-row">
+      <div class="stat">
+        <div class="l">Risks tracked</div>
+        <div class="v tabular">${A.risks_total}</div>
+      </div>
+      <div class="stat">
+        <div class="l">High likelihood</div>
+        <div class="v tabular">${A.risks_high}</div>
+      </div>
+      <div class="stat">
+        <div class="l">Composite ${deltaTxt.includes('WoW') && !deltaTxt.includes('flat') ? 'change' : 'trend'}</div>
+        <div class="v tabular" style="color:${deltaClass==='is-up'?'var(--neg)':deltaClass==='is-down'?'var(--pos)':'var(--fg)'}">${deltaTxt}</div>
+      </div>
+    </div>
+  </div>
+`;
+
+// WATERFALL — clean version
+function buildWaterfall() {
+  const svg = document.getElementById('waterfall');
+  const W = 1024, H = 440;
+  const padL = 80, padR = 80, padT = 40, padB = 100;
+  const plotW = W - padL - padR;
+  const plotH = H - padT - padB;
+
+  const wfRisks = risks.slice(0, 8);
+  const yMax = Math.ceil(baseIRR + 1);
+  const yMin = Math.min(0, Math.floor(stressedIRR - 1));
+  const yRange = yMax - yMin;
+  const sy = v => padT + plotH - ((v - yMin) / yRange) * plotH;
+
+  const cols = 2 + wfRisks.length;
+  const colW = plotW / cols;
+  const barW = colW * 0.5;
+
+  let html = '';
+
+  // Horizontal grid every 2pp
+  const gridStep = yRange > 8 ? 2 : 1;
+  for (let v = Math.ceil(yMin / gridStep) * gridStep; v <= yMax; v += gridStep) {
+    const y = sy(v);
+    const color = v === 0 ? 'rgba(24,24,24,0.18)' : 'rgba(24,24,24,0.06)';
+    html += `<line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="${color}"/>`;
+    html += `<text x="${padL - 12}" y="${y + 4}" font-family="Geist Mono" font-size="11" fill="#737373" text-anchor="end" font-variant-numeric="tabular-nums">${v.toFixed(0)}%</text>`;
+  }
+
+  // Start bar — target IRR
+  const x0 = padL + (colW - barW) / 2;
+  const startTop = sy(baseIRR);
+  const startBot = sy(Math.max(0, yMin));
+  html += `<rect x="${x0}" y="${startTop}" width="${barW}" height="${Math.max(2, startBot - startTop)}" fill="#171717"/>`;
+  html += `<text x="${x0 + barW/2}" y="${startTop - 14}" text-anchor="middle" font-family="Hedvig Letters Serif" font-size="22" fill="#171717" font-variant-numeric="tabular-nums" letter-spacing="-0.02em">${baseIRR.toFixed(1)}%</text>`;
+  html += `<text x="${x0 + barW/2}" y="${H - padB + 26}" text-anchor="middle" font-family="Geist Mono" font-size="10" fill="#737373" letter-spacing="0.25em" font-weight="600">TARGET</text>`;
+
+  // Risk bars
+  let running = baseIRR;
+  let connectorPrev = startTop;
+  wfRisks.forEach((r, i) => {
+    const reduction = Math.abs(r.impact_irr * r.probability);
+    const newVal = running - reduction;
+    const x = padL + (i + 1) * colW + (colW - barW) / 2;
+    const yTop = sy(running);
+    const yBot = sy(newVal);
+    // dashed connector
+    const prevX = padL + i * colW + (colW + barW) / 2;
+    html += `<line x1="${prevX}" y1="${connectorPrev}" x2="${x}" y2="${yTop}" stroke="rgba(24,24,24,0.28)" stroke-dasharray="2 4"/>`;
+    // bar
+    html += `<rect x="${x}" y="${yTop}" width="${barW}" height="${yBot - yTop}" fill="#246075"/>`;
+    // -delta label (above the bar)
+    html += `<text x="${x + barW/2}" y="${yTop - 8}" text-anchor="middle" font-family="Geist Mono" font-size="11" font-weight="700" fill="#246075" font-variant-numeric="tabular-nums" letter-spacing="-0.01em">−${reduction.toFixed(1)}</text>`;
+    // tilted x-axis label
+    const fullTitle = r.title;
+    const lbl = fullTitle.length > 22 ? fullTitle.slice(0, 20) + '…' : fullTitle;
+    html += `<g transform="translate(${x + barW/2}, ${H - padB + 18}) rotate(-32)">
+      <text font-family="Geist Mono" font-size="10" fill="#525252" font-weight="600" text-anchor="end" letter-spacing="0.03em">${escapeXml(lbl)}</text>
+    </g>`;
+    connectorPrev = yBot;
+    running = newVal;
+  });
+
+  // Final bar
+  const xN = padL + (cols - 1) * colW + (colW - barW) / 2;
+  const finalTop = sy(running);
+  const finalBot = sy(Math.max(0, yMin));
+  const prevX = padL + (wfRisks.length) * colW + (colW + barW) / 2;
+  html += `<line x1="${prevX}" y1="${connectorPrev}" x2="${xN}" y2="${finalTop}" stroke="rgba(24,24,24,0.28)" stroke-dasharray="2 4"/>`;
+  html += `<rect x="${xN}" y="${finalTop}" width="${barW}" height="${Math.max(2, finalBot - finalTop)}" fill="#8B2A1C"/>`;
+  html += `<text x="${xN + barW/2}" y="${finalTop - 14}" text-anchor="middle" font-family="Hedvig Letters Serif" font-size="22" fill="#8B2A1C" font-variant-numeric="tabular-nums" letter-spacing="-0.02em">${running.toFixed(1)}%</text>`;
+  html += `<text x="${xN + barW/2}" y="${H - padB + 26}" text-anchor="middle" font-family="Geist Mono" font-size="10" fill="#737373" letter-spacing="0.25em" font-weight="600">STRESSED</text>`;
+
+  svg.innerHTML = html;
+}
+function escapeXml(s) { return String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+buildWaterfall();
+
+const topRisk = risks[0];
+document.getElementById('wf-caption').innerHTML =
+  `Each blue column subtracts one tracked risk's probability-weighted IRR drag. <strong>${escape(topRisk.title)}</strong> is the largest contributor at <strong>${Math.abs(topRisk.impact_irr * topRisk.probability).toFixed(1)} pp</strong>. Stressed IRR of <strong>${stressedIRR.toFixed(1)}%</strong> assumes all eight materialise at the stated probabilities — Castle's central case.`;
+
+// NEWS — clean list
+document.getElementById('news-count').textContent = `${A.news_this_week}`;
+document.getElementById('news').innerHTML = news.slice(0, 5).map(n => `
+  <a class="news-row" href="risk.html?archetype=${encodeURIComponent(A.id)}&id=${encodeURIComponent(risks[0].id)}">
+    <span class="src">${escape(n.source)}</span>
+    <span class="ago">${escape(n.ago)}</span>
+    <span class="ttl">${escape(n.title)}</span>
+    <span class="arr">→</span>
+  </a>
+`).join('');
+
+// RISKS — clean list
+document.getElementById('risks-meta').textContent = `${risks.length} risks · ranked by IRR impact`;
+document.getElementById('risks').innerHTML = risks.map(r => {
+  const ei = Math.abs(r.impact_irr * r.probability);
+  return `<a class="risk-row" href="risk.html?archetype=${encodeURIComponent(A.id)}&id=${encodeURIComponent(r.id)}">
+    <div class="body">
+      <h4 class="name"><span class="cat">${escape(r.category)}</span>${escape(r.title)}</h4>
+      <div class="cit">${escape(r.citation)}</div>
+    </div>
+    <div class="impact">−${ei.toFixed(1)}pp<small>IRR</small></div>
+    <div class="prob">${Math.round(r.probability * 100)}%<small>probability</small></div>
+    <span class="arr">→</span>
+  </a>`;
+}).join('');
+</script>
+</body>
+</html>
