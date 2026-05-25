@@ -463,15 +463,58 @@ type PipelineContext = {
 
 Note: stages 5–7 from BACKEND.md (`recompute_derived`, `validate`, `write_and_commit`) are now internal to `applyProposalToArchetype` and run *per proposal*, not as separate pipeline stages. This is cleaner because every state change — whether from cron, copilot, or manual edit — flows through the same write path.
 
-### 5.3 Checkpoints & resume
+### 5.3 Concurrency
+
+Two axes of parallelism, sharing one global limiter.
+
+**Axis 1 — within stage 4 (`update_existing_risks`).** Each Sonnet call in stage 4 is independent: same shared inputs (research scaffold), different per-risk evidence packets, non-overlapping outputs. Fan out:
+
+```ts
+import pLimit from 'p-limit'
+
+const limit = sharedLLMLimiter            // see Axis 2 below
+const results = await Promise.allSettled(
+  Object.entries(changes).map(([riskId, evidence]) =>
+    limit(() => updateRisk(riskId, evidence, ctx))
+  )
+)
+
+for (const r of results) {
+  if (r.status === 'rejected') {
+    // log and queue a requires_review proposal — do not crash the stage
+  }
+}
+```
+
+Three things to get right:
+- **`Promise.allSettled`, not `Promise.all`.** A failed sibling must not discard the 8 successful proposals.
+- **Cost / log telemetry merging.** Every `cost()` and `log()` invocation gets tagged with the `risk_id` it came from, so the admin trace UI can group interleaved messages.
+- **Retry once on transient errors** (5xx, rate-limit, timeout) before marking the call's would-be proposal as `requires_review` with the error attached.
+
+**Axis 2 — across archetypes (cron `?archetype=all`).** Different archetypes touch different rows; nothing is shared except the limiter. Run concurrently:
+
+```ts
+await Promise.allSettled(
+  archetypeIds.map(id => limit(() => runDailyRefresh(id, ctx)))
+)
+```
+
+**Global limiter** (`lib/llm/limiter.ts`): one `p-limit(10)` shared across the whole process. Internal-stage fan-out and cross-archetype fan-out both go through it. With Sonnet tier-2 limits (50 RPM, 40k input TPM, 8k output TPM) this keeps us well under ceiling while letting wall-time scale roughly linearly with parallelism. For an active news day across 5 archetypes × ~5 affected risks each, this turns a ~4-minute sequential run into ~30 seconds.
+
+**What we do *not* parallelize:**
+
+- **Stage 5 (Pass B, Opus).** One call per archetype already — parallelism here happens at Axis 2.
+- **Stage 6 (`apply_auto_proposals`) within an archetype.** Each apply takes an optimistic-concurrency check on `archetypes.state_version` via the `apply_archetype_revision` SQL function. Concurrent applies on the same row produce retry-loops and wasted work. Apply *sequentially* per archetype; parallelism across archetypes is fine because they're different rows.
+
+### 5.4 Checkpoints & resume
 
 Same shape as castle-dashboard's `loadCompletedCheckpoints`. Load all `pipeline_traces` rows with non-null `output_json` for the run, skip those stages, start from the first unfinished one.
 
-### 5.4 Run registry (abort)
+### 5.5 Run registry (abort)
 
 Module-level `Map<string, AbortController>` in `lib/pipeline/run-registry.ts`. Ported from castle-dashboard verbatim — 36 lines, works on Next.js as-is. Caveat: it's process-local, so if you scale to >1 instance, swap for Postgres `LISTEN/NOTIFY` polled from each instance.
 
-### 5.5 Cron
+### 5.6 Cron
 
 ```jsonc
 // vercel.json
