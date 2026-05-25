@@ -3,7 +3,13 @@
 **Audience:** the engineer (or agent) implementing the daily refresh loop.
 **Constraint:** the v2 dashboard's layout, CSS, charts, and overall visual structure stay unchanged. The backend's job is to keep its input data fresh and accurate.
 
-> **Stack note (added after `ADMIN.md`):** the project is being unified into a single Next.js app — public dashboard, admin pages, copilot chat, and pipeline runner all in the same codebase. See `ADMIN.md` for the full layout. In that world the current static `public/concepts/v2/*.html` files become React server components under `app/(public)/*` that read `data/archetypes/<id>.json` directly. **§1 and §1.1 below describe the legacy plain-static-HTML wiring and are now superseded by the Next.js layout** — kept here only for reference if you're inspecting the original static prototype. The data contract in §2 onwards is unchanged: one JSON file per archetype, same schema, same daily-refresh loop, same audit/diff structure. Only the rendering substrate moved.
+> **Stack note (updated):** the project is a single Next.js app with **Supabase Postgres** as the state store. See `ADMIN.md` for the full layout, schema, and migration order. The data shape described in §2 onwards is unchanged — same Risk / NewsItem / RiskDetail structure, same daily-refresh loop, same audit log. What moved:
+>
+> - **Canonical archetype state** lives in the `archetypes` table (one row per archetype, with a `state` jsonb column holding the bundle described in §2). The seed file `public/data/offshore-wind.json` we already wrote becomes the initial INSERT in `supabase/seed.sql`.
+> - **`data/archetypes/<id>.json` files** are removed. `data/research/*` (research scaffold, hedges JSON, critical contracts) stays in git as static inputs the daily refresh diffs against.
+> - **Audit log** is the `archetype_revisions` table (append-only, one row per applied proposal, full blob preserved). Replaces git-log-on-the-JSON-file.
+> - **Public dashboard** reads canonical state through `readArchetype(id)` (Supabase server client), cached via Next.js ISR or static export.
+> - The §1 and §1.1 sections below describe the original plain-static-HTML wiring and are **superseded** — kept only for reference if you're inspecting the original prototype.
 
 ---
 
