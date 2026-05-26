@@ -12,8 +12,13 @@ export const revalidate = 60
 export default async function PublicIndex() {
   const archetypes = await readAllArchetypes()
 
-  // Sort by archetype.id to stabilise grid order.
-  archetypes.sort((a, b) => a.archetype_id.localeCompare(b.archetype_id))
+  // Sort by composite score, descending — gives the grid a clear high-to-low
+  // ranking. Tie-break on id for stable order.
+  archetypes.sort(
+    (a, b) =>
+      b.archetype.composite - a.archetype.composite ||
+      a.archetype_id.localeCompare(b.archetype_id),
+  )
 
   const totalRisks = archetypes.reduce((s, a) => s + a.archetype.risks_total, 0)
   const totalHigh = archetypes.reduce((s, a) => s + a.archetype.risks_high, 0)

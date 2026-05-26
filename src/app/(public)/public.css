@@ -48,15 +48,26 @@
   opacity: 0; transition: opacity .15s, transform .15s;
 }
 .arch:hover::after { opacity: 1; transform: translate(2px, 0); }
-.arch .tag { color: var(--accent); margin-bottom: 8px; }
+.arch .tag {
+  color: var(--accent); margin-bottom: 8px;
+  display: block; line-height: 1.5;
+  /* Reserve two lines so the serif title below always starts at the same
+     baseline across cards, regardless of how many lines the kicker wraps to. */
+  min-height: calc(2 * 10px * 1.5);
+}
 .arch .name {
   font-family: var(--font-display); font-weight: 400;
   font-size: 36px; line-height: 1.0; letter-spacing: -0.02em;
   color: var(--fg); margin: 0 0 12px;
+  /* Reserve two lines so single-line titles don't pull their description
+     up higher than two-line titles ("Natural Gas Generation"). */
+  min-height: calc(2 * 36px);
 }
 .arch .desc {
   font-size: 14px; line-height: 1.55; color: var(--fg-3);
   margin: 0 0 32px; max-width: 320px;
+  /* Even out the gap to the score across cards with different blurb lengths. */
+  min-height: calc(6 * 14px * 1.55);
 }
 .arch .footer {
   margin-top: auto; display: flex; align-items: baseline;
