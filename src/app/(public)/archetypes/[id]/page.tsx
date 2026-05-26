@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { readArchetype } from '@/lib/archetypes/read'
 import { rankedRisks } from '@/lib/archetypes/derive'
-import { fmtUsd, fmtPct, fmtSignedInt } from '@/lib/format'
+import { fmtUsd, fmtPct, fmtSignedInt, fmtCountdown } from '@/lib/format'
 import type { Risk } from '@/lib/schemas'
 
 export const dynamic = 'force-dynamic'
@@ -23,6 +23,17 @@ export default async function ArchetypePage({ params }: PageProps) {
 
   const risks = rankedRisks(A.risks)
   const news = A.news
+
+  // Aggregate upcoming dated catalysts across all risks for the rail.
+  const now = Date.now()
+  const catalysts = risks
+    .flatMap((r) =>
+      (A.risk_details[r.id]?.events ?? [])
+        .filter((e) => e.future && Date.parse(e.date) >= now)
+        .map((e) => ({ ...e, riskId: r.id })),
+    )
+    .sort((a, b) => Date.parse(a.date) - Date.parse(b.date))
+    .slice(0, 6)
   const totalImpact = risks.reduce(
     (s, r) => s + Math.abs(r.impact_irr * r.probability),
     0,
@@ -207,6 +218,28 @@ export default async function ArchetypePage({ params }: PageProps) {
                 </Link>
               ))}
             </section>
+
+            {catalysts.length > 0 && (
+              <>
+                <div className="section-label rail-label-2">
+                  <span className="l">Upcoming catalysts</span>
+                  <span className="r">next {catalysts.length}</span>
+                </div>
+                <section className="catalyst-list">
+                  {catalysts.map((c, i) => (
+                    <Link
+                      key={`${c.riskId}-${c.date}-${i}`}
+                      className="catalyst-row"
+                      href={`/archetypes/${A.archetype_id}/risks/${c.riskId}`}
+                    >
+                      <span className="cat-when">{fmtCountdown(c.date)}</span>
+                      <span className="cat-kind">{c.kind}</span>
+                      <span className="cat-ttl">{c.title}</span>
+                    </Link>
+                  ))}
+                </section>
+              </>
+            )}
           </aside>
         </div>
       </main>

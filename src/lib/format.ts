@@ -18,3 +18,15 @@ export function fmtSignedInt(n: number): string {
   if (n === 0) return '0'
   return n > 0 ? `+${n}` : `${n}`
 }
+
+/**
+ * Human countdown to a future ISO date ("in 12d", "in 3mo", "today").
+ * Used for the upcoming-catalysts rail.
+ */
+export function fmtCountdown(isoDate: string): string {
+  const days = Math.round((Date.parse(isoDate) - Date.now()) / 86_400_000)
+  if (days <= 0) return 'today'
+  if (days < 30) return `in ${days}d`
+  if (days < 365) return `in ${Math.round(days / 30)}mo`
+  return `in ${(days / 365).toFixed(1)}y`
+}

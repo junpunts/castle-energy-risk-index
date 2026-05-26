@@ -211,6 +211,34 @@
 }
 .news-rail .news-row .arr { display: none; }
 
+/* Second rail block: upcoming dated catalysts. */
+.rail-label-2 { margin-top: 56px !important; }
+.catalyst-row {
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 4px 12px; padding: 16px 0; border-bottom: var(--hair);
+  text-decoration: none; color: inherit;
+  transition: padding .12s, background .12s;
+}
+.catalyst-row:hover {
+  padding-left: 12px; padding-right: 12px; margin: 0 -12px;
+  background: rgba(245,245,245,0.6);
+}
+.catalyst-row .cat-when {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  letter-spacing: 0.06em; color: var(--accent); font-variant-numeric: tabular-nums;
+  grid-column: 1;
+}
+.catalyst-row .cat-kind {
+  font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+  letter-spacing: 0.24em; text-transform: uppercase; color: var(--fg-3);
+  grid-column: 2; align-self: center;
+}
+.catalyst-row .cat-ttl {
+  font-family: var(--font-display); font-size: 15px; line-height: 1.35;
+  letter-spacing: -0.005em; color: var(--fg);
+  grid-column: 1 / -1;
+}
+
 .risks-grid {
   --cols: 28px 88px 1fr 140px 72px 56px 16px;
   --gap: 22px;
