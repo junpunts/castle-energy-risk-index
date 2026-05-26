@@ -326,35 +326,35 @@
       ],
       "hedges": [
         {
-          "ticker": "library-ef7635e4-96cc-479e-827d-d5fc6d04ca04",
+          "ticker": "will-the-trump-administration-lift-the-january-2025-offshore-wind-project-morato",
           "title": "Will the federal offshore wind moratorium be lifted by Jun 30, 2026? (NO pays continued freeze)",
-          "yes": 0.258,
-          "change": -0.04,
+          "yes": 0.323,
+          "change": 0.0,
           "expiry": "Jun 2026",
           "notional": 250000
         },
         {
-          "ticker": "synthetic-doi-order-offshore-wind-delay",
+          "ticker": "will-the-december-22-2025-trump-administration-offshore-wind-pause-citing-nation",
           "title": "Will DOI order add 12+ months to BOEM offshore wind timelines by Sept 30, 2027?",
-          "yes": 0.715,
-          "change": 0.05,
-          "expiry": "Sep 2027",
+          "yes": 0.45,
+          "change": 0.0,
+          "expiry": "Dec 2026",
           "notional": 250000
         },
         {
-          "ticker": "synthetic-boem-offshore-wind-trump-policy",
+          "ticker": "will-boem-formally-lift-the-trump-administration-s-january-2025-offshore-wind-le",
           "title": "Will the Trump administration permanently revoke offshore wind construction permits by Dec 31, 2026?",
           "yes": 0.18,
-          "change": 0.02,
+          "change": 0.0,
           "expiry": "Dec 2026",
           "notional": 120000
         },
         {
-          "ticker": "synthetic-first-circuit-wind-moratorium-ruling",
+          "ticker": "will-federal-courts-issue-final-rulings-permanently-blocking-boem-s-december-202",
           "title": "Will the First Circuit overturn the district court vacatur of the wind moratorium by Dec 31, 2026?",
-          "yes": 0.52,
-          "change": 0.03,
-          "expiry": "Dec 2026",
+          "yes": 0.645,
+          "change": 0.0,
+          "expiry": "Sep 2026",
           "notional": 160000
         }
       ]
@@ -436,19 +436,19 @@
       ],
       "hedges": [
         {
-          "ticker": "synthetic-boem-stop-work-injunction",
+          "ticker": "will-federal-courts-issue-final-rulings-permanently-blocking-boem-s-december-202",
           "title": "Will a court issue a BOEM stop-work injunction on a major project by Sep 30, 2026?",
           "yes": 0.645,
-          "change": 0.04,
+          "change": 0.0,
           "expiry": "Sep 2026",
           "notional": 220000
         },
         {
-          "ticker": "synthetic-empire-wind-ocs-a-0512-injunction",
+          "ticker": "will-the-december-22-2025-trump-administration-offshore-wind-pause-citing-nation",
           "title": "Will Empire Wind OCS-A 0512 face an injunction by Sep 30, 2026?",
-          "yes": 0.38,
-          "change": 0.02,
-          "expiry": "Sep 2026",
+          "yes": 0.45,
+          "change": 0.0,
+          "expiry": "Dec 2026",
           "notional": 120000
         }
       ]
@@ -558,35 +558,35 @@
       ],
       "hedges": [
         {
-          "ticker": "library-50-pct-steel-aluminum-tariff-continuity",
+          "ticker": "will-section-232-tariffs-on-steel-and-aluminum-be-reduced-below-25-by-september-",
           "title": "Will the 50% steel & aluminum tariff continue through Dec 31, 2026?",
-          "yes": 0.72,
-          "change": 0.04,
-          "expiry": "Dec 2026",
+          "yes": 0.08,
+          "change": 0.0,
+          "expiry": "Sep 2026",
           "notional": 200000
         },
         {
-          "ticker": "library-section-232-tariff-reduction",
+          "ticker": "will-section-232-steel-and-aluminum-tariffs-be-reduced-below-40-by-september-30-",
           "title": "Will the \u00a7232 steel tariff be reduced before Sep 30, 2026? (NO is the hedge)",
-          "yes": 0.263,
-          "change": -0.02,
+          "yes": 0.07,
+          "change": 0.0,
           "expiry": "Sep 2026",
           "notional": 120000
         },
         {
-          "ticker": "library-section-232-derivatives-expansion",
+          "ticker": "will-section-232-derivative-product-coverage-be-expanded-to-include-additional-f",
           "title": "Will \u00a7232 derivatives coverage expand again by Dec 31, 2026?",
-          "yes": 0.74,
-          "change": 0.05,
-          "expiry": "Dec 2026",
+          "yes": 0.08,
+          "change": 0.0,
+          "expiry": "Jun 2026",
           "notional": 150000
         },
         {
-          "ticker": "KXTARIFFREVENUE-26DEC31-T200",
+          "ticker": "will-section-232-derivative-product-coverage-be-expanded-to-include-additional-f",
           "title": "Will US tariff revenue for 2026 be above $200B? (broad protectionism proxy)",
-          "yes": 0.65,
-          "change": 0.02,
-          "expiry": "Dec 2026",
+          "yes": 0.08,
+          "change": 0.0,
+          "expiry": "Jun 2026",
           "notional": 80000
         }
       ]
@@ -652,19 +652,19 @@
       ],
       "hedges": [
         {
-          "ticker": "kalshi-KXJONESACTREPEAL-27-JAN04",
+          "ticker": "will-the-march-18-2026-jones-act-noncontiguous-shipping-waiver-be-formally-exten",
           "title": "Will the Jones Act be repealed by Jan 4, 2027? (NO is the hedge)",
-          "yes": 0.15,
+          "yes": 0.38,
           "change": 0.0,
-          "expiry": "Jan 2027",
+          "expiry": "Jul 2026",
           "notional": 80000
         },
         {
-          "ticker": "poly-1516727",
+          "ticker": "will-the-trump-administration-issue-a-presidential-jones-act-waiver-covering-lng",
           "title": "Jones Act shipping repeal by Jun 30, 2026",
-          "yes": 0.11,
-          "change": -0.01,
-          "expiry": "Jun 2026",
+          "yes": 0.03,
+          "change": 0.0,
+          "expiry": "Dec 2026",
           "notional": 50000
         }
       ]
@@ -780,43 +780,43 @@
       ],
       "hedges": [
         {
-          "ticker": "synthetic-obbba-45y-48e-repeal-recon",
+          "ticker": "will-congress-pass-legislation-restoring-section-45y-ptc-or-section-48e-itc-for-",
           "title": "Will further \u00a745Y/\u00a748E offshore wind narrowing be enacted by Jun 30, 2027?",
-          "yes": 0.343,
-          "change": 0.04,
-          "expiry": "Jun 2027",
+          "yes": 0.355,
+          "change": 0.0,
+          "expiry": "Dec 2026",
           "notional": 300000
         },
         {
-          "ticker": "synthetic-obbba-offshore-wind-domestic-content-55",
+          "ticker": "will-treasury-issue-final-regulations-setting-the-offshore-wind-domestic-content",
           "title": "Will the 55% domestic content threshold for offshore wind remain binding through Mar 31, 2027?",
           "yes": 0.632,
-          "change": 0.06,
+          "change": 0.0,
           "expiry": "Mar 2027",
           "notional": 250000
         },
         {
-          "ticker": "synthetic-treasury-feoc-offshore-wind-2026",
+          "ticker": "will-irs-delays-in-issuing-final-feoc-guidance-for-sections-48e-45y-extend-beyon",
           "title": "Will Treasury FEOC threshold for offshore wind disqualify most projects by Oct 5, 2026?",
-          "yes": 0.468,
-          "change": 0.03,
-          "expiry": "Oct 2026",
+          "yes": 0.507,
+          "change": 0.0,
+          "expiry": "Jul 2026",
           "notional": 200000
         },
         {
-          "ticker": "synthetic-48e-domestic-content-27pct-compliance",
+          "ticker": "will-treasury-issue-final-guidance-under-obbba-45y-48e-45x-feoc-material-assista",
           "title": "Will Treasury confirm GE Vernova US assembly meets 27.5% domestic content by Sep 30, 2026?",
-          "yes": 0.408,
-          "change": -0.02,
-          "expiry": "Sep 2026",
+          "yes": 0.25,
+          "change": 0.0,
+          "expiry": "Dec 2026",
           "notional": 150000
         },
         {
-          "ticker": "KX48ETAXCREDIT-26MAY",
+          "ticker": "will-irs-delays-in-issuing-final-feoc-guidance-for-sections-48e-45y-extend-beyon",
           "title": "Will legislation reinstating \u00a748E commercial ITC at 30%+ become law before Dec 31, 2029?",
-          "yes": 0.98,
-          "change": 0.01,
-          "expiry": "Dec 2029",
+          "yes": 0.507,
+          "change": 0.0,
+          "expiry": "Jul 2026",
           "notional": 50000
         }
       ]
@@ -890,19 +890,19 @@
       ],
       "hedges": [
         {
-          "ticker": "synthetic-obbba-offshore-wind-domestic-content-55",
+          "ticker": "will-treasury-issue-final-regulations-setting-the-offshore-wind-domestic-content",
           "title": "Will 55% offshore wind domestic content threshold remain binding by Mar 31, 2027?",
           "yes": 0.632,
-          "change": 0.05,
+          "change": 0.0,
           "expiry": "Mar 2027",
           "notional": 200000
         },
         {
-          "ticker": "synthetic-treasury-feoc-offshore-wind-2026",
+          "ticker": "will-irs-delays-in-issuing-final-feoc-guidance-for-sections-48e-45y-extend-beyon",
           "title": "Will Treasury set FEOC threshold disqualifying most offshore wind projects by Oct 5, 2026?",
-          "yes": 0.468,
-          "change": 0.03,
-          "expiry": "Oct 2026",
+          "yes": 0.507,
+          "change": 0.0,
+          "expiry": "Jul 2026",
           "notional": 180000
         }
       ]
@@ -976,19 +976,19 @@
       ],
       "hedges": [
         {
-          "ticker": "synthetic-house-naturalresources-rightwhale-hearing",
+          "ticker": "will-noaa-publish-the-right-whale-vessel-speed-anprm-with-35-65-foot-vessel-exem",
           "title": "Will House Natural Resources hold hearings opposing NOAA right-whale speed restrictions by Sep 29, 2026?",
-          "yes": 0.55,
-          "change": 0.02,
-          "expiry": "Sep 2026",
+          "yes": 0.25,
+          "change": 0.0,
+          "expiry": "Jun 2026",
           "notional": 80000
         },
         {
-          "ticker": "synthetic-noaa-rightwhale-anprm-publication",
+          "ticker": "will-fws-and-nmfs-finalize-proposed-esa-interagency-consultation-revisions-docke",
           "title": "Will NOAA publish the right-whale vessel-speed ANPRM with 35-65 ft exemptions by Jun 30, 2026?",
-          "yes": 0.68,
-          "change": 0.03,
-          "expiry": "Jun 2026",
+          "yes": 0.38,
+          "change": 0.0,
+          "expiry": "Dec 2026",
           "notional": 100000
         }
       ]
@@ -1053,15 +1053,15 @@
       ],
       "hedges": [
         {
-          "ticker": "synthetic-atlantic-shores-epa-permit-resolution",
+          "ticker": "will-the-epa-environmental-appeals-board-issue-a-final-decision-on-the-remanded-",
           "title": "Will EAB resolve the Atlantic Shores CAA permit remand by Dec 31, 2026?",
           "yes": 0.35,
-          "change": -0.01,
+          "change": 0.0,
           "expiry": "Dec 2026",
           "notional": 140000
         },
         {
-          "ticker": "synthetic-atlantic-shores-eab-remand-timeline",
+          "ticker": "will-the-epa-environmental-appeals-board-deny-the-region-2-remand-request-and-re",
           "title": "Will EAB reinstate the Atlantic Shores CAA construction permit by Sep 30, 2026?",
           "yes": 0.08,
           "change": 0.0,
@@ -1130,23 +1130,23 @@
       ],
       "hedges": [
         {
-          "ticker": "synthetic-nyserda-orecrfp25-solicitation",
+          "ticker": "will-nyserda-issue-and-complete-a-successor-offshore-wind-solicitation-to-orecrf",
           "title": "Will NYSERDA award offshore wind OREC under RFP25 by Dec 31, 2026?",
           "yes": 0.2,
-          "change": -0.02,
+          "change": 0.0,
           "expiry": "Dec 2026",
           "notional": 160000
         },
         {
-          "ticker": "synthetic-new-york-offshore-wind-policy-continuation",
+          "ticker": "will-nyserda-issue-and-complete-a-successor-offshore-wind-solicitation-to-orecrf",
           "title": "Will the NY Governor reauthorize NYSERDA's offshore wind program by May 15, 2026?",
-          "yes": 0.3,
+          "yes": 0.2,
           "change": 0.0,
-          "expiry": "May 2026",
+          "expiry": "Dec 2026",
           "notional": 100000
         },
         {
-          "ticker": "synthetic-nj-bpu-atlantic-shores-solicitation",
+          "ticker": "will-the-new-jersey-board-of-public-utilities-reopen-an-offshore-wind-solicitati",
           "title": "Will NJ BPU reopen an Atlantic Shores OREC solicitation by Dec 31, 2026?",
           "yes": 0.08,
           "change": 0.0,
