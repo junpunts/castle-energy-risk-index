@@ -7,7 +7,7 @@
   "horizon": "18 months",
   "archetype": {
     "id": "natural-gas",
-    "name": "Natural Gas Generation",
+    "name": "Natural Gas",
     "eyebrow": "Combined-cycle \u00b7 LNG-linked \u00b7 merchant",
     "blurb": "Gas-fired generation and LNG-export-linked supply \u2014 the administration's energy centerpiece, supercharged by data-center demand. Risk concentrates in LNG authorizations, pipeline permitting, turbine supply, and Henry Hub volatility.",
     "typical": {
@@ -210,7 +210,7 @@
       "probability": 0.42,
       "attention": 82,
       "archetype_id": "natural-gas",
-      "archetype_name": "Natural Gas Generation",
+      "archetype_name": "Natural Gas",
       "id": "ng1"
     },
     "ng2": {
@@ -273,7 +273,7 @@
       "probability": 0.31,
       "attention": 67,
       "archetype_id": "natural-gas",
-      "archetype_name": "Natural Gas Generation",
+      "archetype_name": "Natural Gas",
       "id": "ng2"
     },
     "ng3": {
@@ -328,7 +328,7 @@
       "probability": 0.36,
       "attention": 59,
       "archetype_id": "natural-gas",
-      "archetype_name": "Natural Gas Generation",
+      "archetype_name": "Natural Gas",
       "id": "ng3"
     },
     "ng4": {
@@ -383,7 +383,7 @@
       "probability": 0.51,
       "attention": 74,
       "archetype_id": "natural-gas",
-      "archetype_name": "Natural Gas Generation",
+      "archetype_name": "Natural Gas",
       "id": "ng4"
     },
     "ng5": {
@@ -446,7 +446,7 @@
       "probability": 0.45,
       "attention": 55,
       "archetype_id": "natural-gas",
-      "archetype_name": "Natural Gas Generation",
+      "archetype_name": "Natural Gas",
       "id": "ng5"
     },
     "ng6": {
@@ -501,7 +501,7 @@
       "probability": 0.15,
       "attention": 48,
       "archetype_id": "natural-gas",
-      "archetype_name": "Natural Gas Generation",
+      "archetype_name": "Natural Gas",
       "id": "ng6"
     },
     "ng7": {
@@ -564,7 +564,7 @@
       "probability": 0.05,
       "attention": 41,
       "archetype_id": "natural-gas",
-      "archetype_name": "Natural Gas Generation",
+      "archetype_name": "Natural Gas",
       "id": "ng7"
     }
   },
