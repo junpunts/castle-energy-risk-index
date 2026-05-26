@@ -45,6 +45,10 @@ envVarGroups:
         sync: false
       - key: SCRAPER_SUPABASE_SERVICE_ROLE_KEY
         sync: false
+      - key: LIBRARY_SUPABASE_URL
+        sync: false
+      - key: LIBRARY_SUPABASE_SERVICE_ROLE_KEY
+        sync: false
       - key: CRON_SECRET
         sync: false
       - key: REVALIDATE_TOKEN

@@ -1,0 +1,572 @@
+{
+  "schema_version": "1.0.0",
+  "archetype_id": "natural-gas",
+  "generated_at": "2026-05-26T16:00:00+00:00",
+  "generated_by": "scaffold-gen-v1",
+  "as_of": "2026-05-26",
+  "horizon": "18 months",
+  "archetype": {
+    "id": "natural-gas",
+    "name": "Natural Gas Generation",
+    "eyebrow": "Combined-cycle \u00b7 LNG-linked \u00b7 merchant",
+    "blurb": "Gas-fired generation and LNG-export-linked supply \u2014 the administration's energy centerpiece, supercharged by data-center demand. Risk concentrates in LNG authorizations, pipeline permitting, turbine supply, and Henry Hub volatility.",
+    "typical": {
+      "capacity": "1,100 MW CCGT",
+      "capex": 1100000000.0,
+      "capex_per_gw": 1000000000.0,
+      "target_irr": 0.12,
+      "cod_months": 36,
+      "ppa_price": 45.0
+    },
+    "composite": 25,
+    "composite_delta": 0,
+    "risks_total": 7,
+    "risks_high": 2,
+    "news_this_week": 3,
+    "attention_weekly": [
+      40,
+      38,
+      37,
+      35,
+      34,
+      33,
+      31,
+      30,
+      29,
+      27,
+      26,
+      25
+    ]
+  },
+  "risks": [
+    {
+      "id": "ng1",
+      "category": "policy",
+      "title": "LNG export authorizations stall <5 Bcf/d",
+      "citation": "DOE \u00a73 \u00b7 E.O. 14154",
+      "impact_irr": -2.4,
+      "impact_usd": 210000000.0,
+      "probability": 0.42,
+      "attention": 82,
+      "likelihood": "high",
+      "headline_change": "+11"
+    },
+    {
+      "id": "ng2",
+      "category": "operational",
+      "title": "CP2 LNG authorization remanded",
+      "citation": "D.C. Cir. 24-1291 \u00b7 NEPA/CAA",
+      "impact_irr": -2.0,
+      "impact_usd": 175000000.0,
+      "probability": 0.31,
+      "attention": 67,
+      "likelihood": "medium",
+      "headline_change": "+5"
+    },
+    {
+      "id": "ng3",
+      "category": "policy",
+      "title": "FERC pipeline approvals exceed 18 months",
+      "citation": "NGA \u00a77 \u00b7 FERC certificate queue",
+      "impact_irr": -1.7,
+      "impact_usd": 150000000.0,
+      "probability": 0.36,
+      "attention": 59,
+      "likelihood": "medium",
+      "headline_change": "+3"
+    },
+    {
+      "id": "ng4",
+      "category": "market",
+      "title": "Henry Hub spikes above $5/MMBtu",
+      "citation": "NYMEX HH \u00b7 30-day sustained",
+      "impact_irr": -1.9,
+      "impact_usd": 165000000.0,
+      "probability": 0.51,
+      "attention": 74,
+      "likelihood": "high",
+      "headline_change": "+8"
+    },
+    {
+      "id": "ng5",
+      "category": "operational",
+      "title": "EPA combustion-turbine rule delays COD",
+      "citation": "EPA NSPS \u00b7 Jan 2026 turbine rule",
+      "impact_irr": -1.4,
+      "impact_usd": 120000000.0,
+      "probability": 0.45,
+      "attention": 55,
+      "likelihood": "medium",
+      "headline_change": "+6"
+    },
+    {
+      "id": "ng6",
+      "category": "market",
+      "title": "PJM capacity shortfall / data-center demand",
+      "citation": "PJM BRA \u00b7 15-yr backstop auction",
+      "impact_irr": -1.1,
+      "impact_usd": 95000000.0,
+      "probability": 0.15,
+      "attention": 48,
+      "likelihood": "low",
+      "headline_change": "+14"
+    },
+    {
+      "id": "ng7",
+      "category": "policy",
+      "title": "NEPA categorical-exclusion injunction",
+      "citation": "E.O. 14318 \u00b7 NEPA cat-ex litigation",
+      "impact_irr": -1.3,
+      "impact_usd": 110000000.0,
+      "probability": 0.05,
+      "attention": 41,
+      "likelihood": "low",
+      "headline_change": "-1"
+    }
+  ],
+  "news": [
+    {
+      "source": "DOE",
+      "ago": "4 hr ago",
+      "tag": "policy",
+      "title": "DOE advances LNG export docket; cumulative 5 Bcf/d target in question",
+      "sum": "Throughput on competing project authorizations will determine whether the year-end cumulative threshold is met.",
+      "published_at": "2026-05-26T12:00:00Z"
+    },
+    {
+      "source": "DC CIRCUIT",
+      "ago": "1 day ago",
+      "tag": "operational",
+      "title": "CP2 LNG oral arguments conclude; ruling expected by year-end",
+      "sum": "Affirm-vs-remand outcome will re-price NEPA litigation risk across pending terminals.",
+      "published_at": "2026-05-25T14:00:00Z"
+    },
+    {
+      "source": "PJM",
+      "ago": "6 hr ago",
+      "tag": "market",
+      "title": "Data-center interconnection requests push PJM capacity outlook tighter",
+      "published_at": "2026-05-26T10:00:00Z"
+    }
+  ],
+  "risk_details": {
+    "ng1": {
+      "subtitle": "If DOE approvals fall short of 5 Bcf/d cumulative, the export-demand thesis underpinning new gas supply weakens.",
+      "tracked_since": "Jan 12, 2026",
+      "last_updated": "4 hr ago",
+      "attention_delta": 11,
+      "probability_delta": 0.05,
+      "hedge_cost": 9000,
+      "view": "LNG export authorizations are the demand engine for U.S. gas. E.O. 14154 lifted the Biden pause, but DOE still has to actually approve capacity \u2014 and the 5 Bcf/d cumulative threshold by year-end is, on our read, only 42% likely given docket throughput. Falling short doesn't kill the thesis, but it slows the takeaway demand that justifies new combined-cycle and supply investment. The multi-project authorization contract (42%) is the cleaner read on administration follow-through. Hedge both the cumulative-capacity and the three-project versions.",
+      "weekly": [
+        60,
+        62,
+        64,
+        66,
+        68,
+        70,
+        72,
+        74,
+        76,
+        78,
+        80,
+        82
+      ],
+      "events": [
+        {
+          "date": "2026-12-31",
+          "when": "+219d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "DOE cumulative-authorization tally",
+          "detail": "Resolves on whether DOE approves >5 Bcf/d new LNG export capacity cumulatively by year-end."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-doe-approve-new-lng-export-capacity-authorizations-exceeding-5-bcf-d-cumula",
+          "title": "Will DOE approve >5 Bcf/d new LNG export capacity by Dec 31, 2026?",
+          "yes": 0.578,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 500000
+        },
+        {
+          "ticker": "will-doe-approve-export-authorizations-for-3-or-more-competing-us-lng-projects-a",
+          "title": "Will DOE approve export authorizations for 3+ competing US LNG projects by Dec 31, 2026?",
+          "yes": 0.421,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 300000
+        }
+      ],
+      "category": "policy",
+      "title": "LNG export authorizations stall <5 Bcf/d",
+      "citation": "DOE \u00a73 \u00b7 E.O. 14154",
+      "impact_irr": -2.4,
+      "impact_usd": 210000000.0,
+      "probability": 0.42,
+      "attention": 82,
+      "archetype_id": "natural-gas",
+      "archetype_name": "Natural Gas Generation",
+      "id": "ng1"
+    },
+    "ng2": {
+      "subtitle": "A D.C. Circuit remand of CP2's environmental review would freeze a flagship export terminal and chill project finance sector-wide.",
+      "tracked_since": "Jan 28, 2026",
+      "last_updated": "7 hr ago",
+      "attention_delta": 5,
+      "probability_delta": 0.02,
+      "hedge_cost": 7500,
+      "view": "CP2 is the bellwether. The D.C. Circuit either affirms FERC's authorizations (we model 52% affirm) or remands for NEPA/Clean Air Act deficiencies (31%). A remand doesn't just hit CP2 \u2014 it re-prices litigation risk on every pending terminal and the pipelines feeding them. The two contracts are near-complementary; we hold the remand-risk hedge because that's the asymmetric downside for a gas-supply investor counting on export pull.",
+      "weekly": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        67
+      ],
+      "events": [
+        {
+          "date": "2026-12-31",
+          "when": "+219d",
+          "kind": "filing",
+          "future": true,
+          "now": true,
+          "title": "D.C. Circuit CP2 ruling window",
+          "detail": "Affirm vs. remand of FERC's CP2 LNG terminal authorizations. Highest-information event in the LNG channel."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-the-d-c-circuit-remand-ferc-s-cp2-lng-environmental-review-d-c-cir-nos-24-1",
+          "title": "Will the D.C. Circuit remand FERC's CP2 LNG environmental review before Dec 31, 2026?",
+          "yes": 0.31,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 350000
+        },
+        {
+          "ticker": "will-the-u-s-court-of-appeals-for-the-d-c-circuit-affirm-ferc-s-cp2-lng-terminal",
+          "title": "Will the D.C. Circuit affirm FERC's CP2 LNG terminal authorizations by Dec 31, 2026?",
+          "yes": 0.52,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 200000
+        }
+      ],
+      "category": "operational",
+      "title": "CP2 LNG authorization remanded",
+      "citation": "D.C. Cir. 24-1291 \u00b7 NEPA/CAA",
+      "impact_irr": -2.0,
+      "impact_usd": 175000000.0,
+      "probability": 0.31,
+      "attention": 67,
+      "archetype_id": "natural-gas",
+      "archetype_name": "Natural Gas Generation",
+      "id": "ng2"
+    },
+    "ng3": {
+      "subtitle": "FERC certificate processing staying above 18 months delays the pipeline takeaway new gas generation depends on.",
+      "tracked_since": "Feb 8, 2026",
+      "last_updated": "1 day ago",
+      "attention_delta": 3,
+      "probability_delta": 0.0,
+      "hedge_cost": 6000,
+      "view": "Even with the administration's permitting push, FERC certificate timelines are sticky. Average processing exceeding 18 months for 2026-filed interstate projects (we model 36%) is the schedule risk that strands a combined-cycle plant without firm fuel transport. This is a timing hedge, not a headline one \u2014 but for a 36-month COD plant, six months of pipeline slip is real IRR drag.",
+      "weekly": [
+        50,
+        50,
+        51,
+        52,
+        53,
+        54,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59
+      ],
+      "events": [
+        {
+          "date": "2027-06-30",
+          "when": "+400d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "FERC pipeline-timeline measurement",
+          "detail": "Resolves on whether average FERC approval exceeds 18 months for 2026-filed interstate projects."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-ferc-pipeline-approval-processing-times-exceed-18-months-average-for-new-in",
+          "title": "Will FERC pipeline approval times exceed 18 months average for 2026 interstate projects?",
+          "yes": 0.358,
+          "change": 0.0,
+          "expiry": "Jun 2027",
+          "notional": 250000
+        }
+      ],
+      "category": "policy",
+      "title": "FERC pipeline approvals exceed 18 months",
+      "citation": "NGA \u00a77 \u00b7 FERC certificate queue",
+      "impact_irr": -1.7,
+      "impact_usd": 150000000.0,
+      "probability": 0.36,
+      "attention": 59,
+      "archetype_id": "natural-gas",
+      "archetype_name": "Natural Gas Generation",
+      "id": "ng3"
+    },
+    "ng4": {
+      "subtitle": "A sustained Henry Hub spike above $5 compresses spark spreads and merchant gas margins.",
+      "tracked_since": "Jan 16, 2026",
+      "last_updated": "3 hr ago",
+      "attention_delta": 8,
+      "probability_delta": 0.03,
+      "hedge_cost": 7000,
+      "view": "For a merchant or tolling combined-cycle plant, fuel cost is the margin. Henry Hub holding above $5/MMBtu for 30 consecutive days (we model 51% in the Apr\u2013Oct window) compresses spark spreads precisely when LNG feedgas demand competes with power burn. This is the cleanest market hedge in the book: a YES on the sustained-spike contract directly offsets fuel-cost downside.",
+      "weekly": [
+        58,
+        59,
+        60,
+        62,
+        63,
+        65,
+        66,
+        68,
+        69,
+        71,
+        72,
+        74
+      ],
+      "events": [
+        {
+          "date": "2026-10-31",
+          "when": "+158d",
+          "kind": "market",
+          "future": true,
+          "now": true,
+          "title": "Henry Hub sustained-spike window closes",
+          "detail": "Resolves on whether HH exceeded $5/MMBtu for 30 consecutive days between Apr and Oct 2026."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-u-s-henry-hub-natural-gas-spot-prices-exceed-5-00-mmbtu-for-30-consecutive-",
+          "title": "Will Henry Hub exceed $5/MMBtu for 30 consecutive days Apr\u2013Oct 2026?",
+          "yes": 0.512,
+          "change": 0.0,
+          "expiry": "Oct 2026",
+          "notional": 400000
+        }
+      ],
+      "category": "market",
+      "title": "Henry Hub spikes above $5/MMBtu",
+      "citation": "NYMEX HH \u00b7 30-day sustained",
+      "impact_irr": -1.9,
+      "impact_usd": 165000000.0,
+      "probability": 0.51,
+      "attention": 74,
+      "archetype_id": "natural-gas",
+      "archetype_name": "Natural Gas Generation",
+      "id": "ng4"
+    },
+    "ng5": {
+      "subtitle": "EPA's combustion-turbine NSPS rule could delay permitting for new gas units mid-development.",
+      "tracked_since": "Feb 14, 2026",
+      "last_updated": "8 hr ago",
+      "attention_delta": 6,
+      "probability_delta": 0.02,
+      "hedge_cost": 5000,
+      "view": "EPA's January 2026 combustion-turbine rules cut both ways: the permitting rule closing a temporary exemption (25%) and the NSPS rule delaying specific projects (45%) both add regulatory schedule risk to new gas units. For a developer mid-permit, this is the operational analogue of the pipeline-timeline risk \u2014 a rule change that resets the clock. Hedge the project-delay contract.",
+      "weekly": [
+        48,
+        48,
+        49,
+        49,
+        50,
+        51,
+        51,
+        52,
+        53,
+        53,
+        54,
+        55
+      ],
+      "events": [
+        {
+          "date": "2026-09-30",
+          "when": "+127d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "EPA turbine-rule effect measurement",
+          "detail": "Resolves on whether EPA's NSPS turbine rule delays affected projects."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-epa-s-january-2026-combustion-turbine-nsps-rule-delay-crusoe-abilene-turbin",
+          "title": "Will EPA's Jan 2026 combustion-turbine NSPS rule delay affected turbine projects?",
+          "yes": 0.45,
+          "change": 0.0,
+          "expiry": "Sep 2026",
+          "notional": 200000
+        },
+        {
+          "ticker": "will-epa-s-january-2026-gas-turbine-permitting-rule-closing-temporary-exemption-",
+          "title": "Will EPA's Jan 2026 gas-turbine permitting rule close the temporary exemption?",
+          "yes": 0.25,
+          "change": 0.0,
+          "expiry": "Jun 2026",
+          "notional": 120000
+        }
+      ],
+      "category": "operational",
+      "title": "EPA combustion-turbine rule delays COD",
+      "citation": "EPA NSPS \u00b7 Jan 2026 turbine rule",
+      "impact_irr": -1.4,
+      "impact_usd": 120000000.0,
+      "probability": 0.45,
+      "attention": 55,
+      "archetype_id": "natural-gas",
+      "archetype_name": "Natural Gas Generation",
+      "id": "ng5"
+    },
+    "ng6": {
+      "subtitle": "Data-center load is driving a PJM capacity shortfall \u2014 upside for gas margins, but dependent on auction mechanics.",
+      "tracked_since": "Mar 1, 2026",
+      "last_updated": "5 hr ago",
+      "attention_delta": 14,
+      "probability_delta": 0.06,
+      "hedge_cost": 4000,
+      "view": "This is the upside-risk channel. AI data-center load is straining PJM, and the question is whether it translates into capacity-market revenue for gas. The 6,600 MW emergency-procurement cost contract (5%) and the 15-year backstop-auction approval (15%) are both low-probability but high-payoff signals of how the capacity construct evolves. For a gas plant counting on scarcity pricing, these are the hedges that pay when the demand thesis materializes faster than the market expects.",
+      "weekly": [
+        40,
+        40,
+        41,
+        42,
+        42,
+        43,
+        44,
+        45,
+        45,
+        46,
+        47,
+        48
+      ],
+      "events": [
+        {
+          "date": "2026-09-30",
+          "when": "+127d",
+          "kind": "market",
+          "future": true,
+          "now": true,
+          "title": "PJM capacity-construct decisions",
+          "detail": "Resolves on emergency-procurement cost impact and backstop-auction approval."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-pjm-s-6-600-mw-capacity-shortfall-emergency-procurement-impose-costs-100m-o",
+          "title": "Will PJM's 6,600 MW capacity-shortfall procurement impose >$100M costs?",
+          "yes": 0.05,
+          "change": 0.0,
+          "expiry": "Sep 2026",
+          "notional": 120000
+        }
+      ],
+      "category": "market",
+      "title": "PJM capacity shortfall / data-center demand",
+      "citation": "PJM BRA \u00b7 15-yr backstop auction",
+      "impact_irr": -1.1,
+      "impact_usd": 95000000.0,
+      "probability": 0.15,
+      "attention": 48,
+      "archetype_id": "natural-gas",
+      "archetype_name": "Natural Gas Generation",
+      "id": "ng6"
+    },
+    "ng7": {
+      "subtitle": "A court injunction against E.O. 14318's NEPA categorical exclusions would re-impose review burden on gas infrastructure.",
+      "tracked_since": "Feb 20, 2026",
+      "last_updated": "2 days ago",
+      "attention_delta": -1,
+      "probability_delta": 0.0,
+      "hedge_cost": 3500,
+      "view": "The administration's NEPA categorical exclusions are the legal scaffolding for faster gas-infrastructure permitting. A federal injunction blocking E.O. 14318's cat-ex (we model just 5%) is a low-probability tail, but it's the kind of event that would re-impose full review on a pipeline or terminal mid-permit. We also track FERC's own cat-ex finalization (47%) as the constructive counterpart. Hold the injunction hedge as cheap tail protection.",
+      "weekly": [
+        42,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41,
+        41
+      ],
+      "events": [
+        {
+          "date": "2026-12-31",
+          "when": "+219d",
+          "kind": "filing",
+          "future": true,
+          "now": true,
+          "title": "NEPA cat-ex litigation window",
+          "detail": "Resolves on whether a federal court enjoins E.O. 14318's NEPA categorical exclusions."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-a-federal-court-issue-an-injunction-blocking-eo-14318-s-nepa-categorical-ex",
+          "title": "Will a federal court enjoin E.O. 14318's NEPA categorical exclusions?",
+          "yes": 0.05,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 150000
+        },
+        {
+          "ticker": "will-ferc-finalize-categorical-nepa-exemptions-for-grid-reconductoring-projects-",
+          "title": "Will FERC finalize NEPA categorical exemptions for grid projects by Sep 30, 2026?",
+          "yes": 0.472,
+          "change": 0.0,
+          "expiry": "Sep 2026",
+          "notional": 100000
+        }
+      ],
+      "category": "policy",
+      "title": "NEPA categorical-exclusion injunction",
+      "citation": "E.O. 14318 \u00b7 NEPA cat-ex litigation",
+      "impact_irr": -1.3,
+      "impact_usd": 110000000.0,
+      "probability": 0.05,
+      "attention": 41,
+      "archetype_id": "natural-gas",
+      "archetype_name": "Natural Gas Generation",
+      "id": "ng7"
+    }
+  },
+  "sources": {}
+}

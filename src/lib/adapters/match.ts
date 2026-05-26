@@ -47,6 +47,17 @@ const ARCHETYPE_NEGATIVE_TOKENS: Record<string, string[]> = {
     'oil pollution',
     'oil and gas lease',
   ],
+  'utility-solar': [
+    'offshore wind',
+    'solar eclipse',
+    'solar system',
+    'solar flare',
+  ],
+  'natural-gas': [
+    'gasoline',
+    'greenhouse gas emissions standard',
+    'natural gas vehicle',
+  ],
 }
 
 // Highly-discriminating tokens, curated per-archetype. Hits any one of these
@@ -78,6 +89,33 @@ const ARCHETYPE_STRONG_TOKENS: Record<string, string[]> = {
     'auxin',
     'solar tariff',
     'interconnection queue',
+    'crystalline silicon',
+    'uflpa',
+    'forced labor',
+    'feoc',
+    'section 201',
+    'longi',
+    'solar cell',
+    'solar iv',
+    '48e',
+    '45y',
+  ],
+  'natural-gas': [
+    'lng',
+    'liquefied natural gas',
+    'ferc',
+    'henry hub',
+    'cp2',
+    'combustion turbine',
+    'gas pipeline',
+    'natural gas pipeline',
+    'doe export',
+    'golden pass',
+    'rio grande lng',
+    'nepa categorical',
+    'eo 14318',
+    'pjm capacity',
+    'mmbtu',
   ],
   'onshore-wind': ['ptc', 'onshore wind farm', 'wind ptc'],
   'battery-storage': ['battery storage', 'bess', 'energy storage', 'itc storage'],
@@ -123,6 +161,65 @@ const KEYWORDS_BY_RISK: Record<string, Array<[string, number]>> = {
   ow9: [
     ['orec', 3], ['nyserda', 3], ['nj bpu', 3], ['mass doer', 3], ['orec re-opener', 3],
     ['offshore wind solicitation', 2], ['ppa price', 2],
+  ],
+
+  // utility-solar:
+  us1: [
+    ['solar iv', 3], ['ad/cvd', 3], ['antidumping', 3], ['countervailing', 3], ['usitc', 3],
+    ['injury determination', 3], ['crystalline silicon', 2], ['solar cell', 2], ['731-ta', 3], ['701-ta', 3],
+  ],
+  us2: [
+    ['section 301', 3], ['solar tariff', 3], ['panel tariff', 3], ['china tariff', 2], ['combined rate', 2],
+    ['module pricing', 2],
+  ],
+  us3: [
+    ['feoc', 3], ['48e', 3], ['45y', 3], ['§48e', 3], ['§45y', 3], ['foreign entity of concern', 3],
+    ['treasury guidance', 2], ['tax equity', 2], ['obbb', 3], ['prohibited foreign entity', 2],
+  ],
+  us4: [
+    ['uflpa', 3], ['forced labor', 3], ['cbp', 3], ['customs detention', 3], ['withhold release order', 3],
+    ['polysilicon', 2], ['traceability', 2],
+  ],
+  us5: [
+    ['interconnection queue', 3], ['pjm', 3], ['ferc order 2023', 3], ['queue reform', 3],
+    ['interconnection', 2], ['queue processing', 2],
+  ],
+  us6: [
+    ['ercot', 3], ['curtailment', 3], ['negative price', 2], ['midday', 2], ['merchant solar', 2],
+  ],
+  us7: [
+    ['longi', 3], ['prohibited foreign entity', 3], ['feoc', 3], ['48e', 2], ['treasury designation', 3],
+    ['module supplier', 2],
+  ],
+
+  // natural-gas:
+  ng1: [
+    ['lng export', 3], ['doe export', 3], ['export authorization', 3], ['bcf/d', 3], ['eo 14154', 3],
+    ['liquefied natural gas', 2], ['cumulative capacity', 2],
+  ],
+  ng2: [
+    ['cp2', 3], ['cp2 lng', 3], ['d.c. circuit', 3], ['nepa', 3], ['clean air act', 2], ['remand', 2],
+    ['environmental review', 2], ['terminal authorization', 2],
+  ],
+  ng3: [
+    ['ferc certificate', 3], ['pipeline approval', 3], ['nga §7', 3], ['interstate pipeline', 3],
+    ['certificate queue', 2], ['processing time', 2],
+  ],
+  ng4: [
+    ['henry hub', 3], ['mmbtu', 3], ['gas price', 2], ['spark spread', 3], ['nymex', 2],
+    ['spot price', 2], ['feedgas', 2],
+  ],
+  ng5: [
+    ['combustion turbine', 3], ['nsps', 3], ['epa turbine', 3], ['turbine permitting', 3],
+    ['new source performance', 2], ['gas turbine', 2],
+  ],
+  ng6: [
+    ['pjm capacity', 3], ['capacity auction', 3], ['data center', 3], ['backstop auction', 3],
+    ['capacity shortfall', 3], ['base residual auction', 2], ['scarcity pricing', 2],
+  ],
+  ng7: [
+    ['nepa categorical', 3], ['categorical exclusion', 3], ['eo 14318', 3], ['injunction', 2],
+    ['permitting reform', 2], ['cat-ex', 3],
   ],
 }
 

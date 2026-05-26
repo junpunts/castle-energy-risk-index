@@ -13,6 +13,7 @@
 
 import type { Stage } from '../registry'
 import { snapshotPrices, type HedgePriceSnapshot } from '@/lib/adapters/castle-scraper'
+import { snapshotLibraryPrices, isLibraryTicker } from '@/lib/adapters/castle-library'
 import { parseArchetypeBundle } from '@/lib/schemas'
 
 interface SnapshotInput {
@@ -53,7 +54,25 @@ export const snapshotHedgePricesStage: Stage<SnapshotInput | null, SnapshotOutpu
     }
 
     ctx.log(`snapshotting ${tickerList.length} ticker${tickerList.length === 1 ? '' : 's'}`)
-    const priceMap = await snapshotPrices(tickerList, (m) => ctx.log(`  ${m}`))
+
+    // Route each ticker to its price source: library slugs → library Supabase,
+    // everything else (Kalshi/Polymarket) → castle-scraper Supabase.
+    const libraryTickers = tickerList.filter((t) => isLibraryTicker(t))
+    const scraperTickers = tickerList.filter((t) => !isLibraryTicker(t))
+
+    const [libraryMap, scraperMap] = await Promise.all([
+      libraryTickers.length
+        ? snapshotLibraryPrices(libraryTickers, (m) => ctx.log(`  ${m}`))
+        : Promise.resolve(new Map<string, HedgePriceSnapshot>()),
+      scraperTickers.length
+        ? snapshotPrices(scraperTickers, (m) => ctx.log(`  ${m}`))
+        : Promise.resolve(new Map<string, HedgePriceSnapshot>()),
+    ])
+
+    const priceMap = new Map<string, HedgePriceSnapshot>([
+      ...Array.from(libraryMap.entries()),
+      ...Array.from(scraperMap.entries()),
+    ])
 
     const prices: Record<string, HedgePriceSnapshot> = {}
     const missing: string[] = []

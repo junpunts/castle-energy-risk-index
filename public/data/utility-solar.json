@@ -1,0 +1,572 @@
+{
+  "schema_version": "1.0.0",
+  "archetype_id": "utility-solar",
+  "generated_at": "2026-05-26T16:00:00+00:00",
+  "generated_by": "scaffold-gen-v1",
+  "as_of": "2026-05-26",
+  "horizon": "18 months",
+  "archetype": {
+    "id": "utility-solar",
+    "name": "Utility-Scale Solar",
+    "eyebrow": "Single-axis tracker \u00b7 PPA / merchant",
+    "blurb": "Ground-mount PV at 100MW+. The largest source of new U.S. capacity \u2014 and the most exposed to trade policy: panel tariffs, AD/CVD orders, UFLPA detentions, and the 45Y/48E credit phase-out.",
+    "typical": {
+      "capacity": "200 MWdc",
+      "capex": 220000000.0,
+      "capex_per_gw": 1100000000.0,
+      "target_irr": 0.09,
+      "cod_months": 30,
+      "ppa_price": 35.0
+    },
+    "composite": 76,
+    "composite_delta": 0,
+    "risks_total": 7,
+    "risks_high": 3,
+    "news_this_week": 3,
+    "attention_weekly": [
+      40,
+      43,
+      46,
+      49,
+      53,
+      56,
+      59,
+      62,
+      66,
+      69,
+      72,
+      76
+    ]
+  },
+  "risks": [
+    {
+      "id": "us1",
+      "category": "trade",
+      "title": "AD/CVD Solar IV orders on SE-Asia cells",
+      "citation": "USITC Inv. 701-TA-699 \u00b7 731-TA-1664",
+      "impact_irr": -2.9,
+      "impact_usd": 48000000.0,
+      "probability": 0.82,
+      "attention": 94,
+      "likelihood": "high",
+      "headline_change": "+18"
+    },
+    {
+      "id": "us2",
+      "category": "trade",
+      "title": "Chinese panel tariffs exceed 60% combined",
+      "citation": "Sec. 301 \u00b7 Commerce AD/CVD stacking",
+      "impact_irr": -2.1,
+      "impact_usd": 34000000.0,
+      "probability": 0.5,
+      "attention": 71,
+      "likelihood": "medium",
+      "headline_change": "+6"
+    },
+    {
+      "id": "us3",
+      "category": "policy",
+      "title": "48E/45Y FEOC guidance delay",
+      "citation": "IRA \u00a748E/\u00a745Y \u00b7 OBBB P.L. 119-21",
+      "impact_irr": -2.6,
+      "impact_usd": 42000000.0,
+      "probability": 0.51,
+      "attention": 88,
+      "likelihood": "high",
+      "headline_change": "+22"
+    },
+    {
+      "id": "us4",
+      "category": "trade",
+      "title": "UFLPA / forced-labor detentions widen",
+      "citation": "UFLPA 2021 \u00b7 CBP WRO",
+      "impact_irr": -1.8,
+      "impact_usd": 29000000.0,
+      "probability": 0.97,
+      "attention": 63,
+      "likelihood": "high",
+      "headline_change": "+4"
+    },
+    {
+      "id": "us5",
+      "category": "operational",
+      "title": "Interconnection queue >2yr in PJM",
+      "citation": "FERC Order 2023 \u00b7 PJM queue reform",
+      "impact_irr": -1.5,
+      "impact_usd": 24000000.0,
+      "probability": 0.62,
+      "attention": 58,
+      "likelihood": "medium",
+      "headline_change": "+3"
+    },
+    {
+      "id": "us6",
+      "category": "market",
+      "title": "ERCOT curtailment up >25% by 2027",
+      "citation": "ERCOT ITS \u00b7 negative-price hours",
+      "impact_irr": -1.2,
+      "impact_usd": 19000000.0,
+      "probability": 1.0,
+      "attention": 52,
+      "likelihood": "medium",
+      "headline_change": "-2"
+    },
+    {
+      "id": "us7",
+      "category": "trade",
+      "title": "LONGi named Prohibited Foreign Entity",
+      "citation": "\u00a748E FEOC \u00b7 Treasury designation",
+      "impact_irr": -1.6,
+      "impact_usd": 26000000.0,
+      "probability": 0.5,
+      "attention": 49,
+      "likelihood": "medium",
+      "headline_change": "+9"
+    }
+  ],
+  "news": [
+    {
+      "source": "USITC",
+      "ago": "3 hr ago",
+      "tag": "trade",
+      "title": "Solar IV: Commission sets final injury vote for mid-October",
+      "sum": "Final affirmative determination would trigger AD/CVD orders on cells from India, Indonesia, and Laos within one week.",
+      "published_at": "2026-05-26T13:00:00Z"
+    },
+    {
+      "source": "TREASURY",
+      "ago": "1 day ago",
+      "tag": "policy",
+      "title": "FEOC guidance for 48E/45Y still pending as appropriations strain IRS staffing",
+      "sum": "Tax-equity investors signal they will hold underwriting until prohibited-entity thresholds are defined.",
+      "published_at": "2026-05-25T15:00:00Z"
+    },
+    {
+      "source": "PJM",
+      "ago": "2 days ago",
+      "tag": "operational",
+      "title": "PJM queue reform update: average processing still tracking above two years",
+      "published_at": "2026-05-24T12:00:00Z"
+    }
+  ],
+  "risk_details": {
+    "us1": {
+      "subtitle": "A final affirmative injury vote triggers AD/CVD orders on cells from India, Indonesia, and Laos within a week \u2014 re-routing the post-Cambodia supply chain a second time.",
+      "tracked_since": "Jan 14, 2026",
+      "last_updated": "3 hr ago",
+      "attention_delta": 18,
+      "probability_delta": 0.07,
+      "hedge_cost": 4000,
+      "view": "The Solar IV cases are the single largest near-term cost shock to U.S. utility PV. After the 2024 AD/CVD orders pushed sourcing from Cambodia/Vietnam/Thailand/Malaysia into India and Indonesia, petitioners followed the supply chain \u2014 and the USITC's preliminary injury findings were affirmative. A final affirmative determination (we model 82%) triggers orders within a week, layering duties on the new low-cost origins and stranding modules already on the water. Developers who signed 2026 COD PPAs at pre-order module pricing eat the delta. The hedge pays on the affirmative vote; size it to the module fraction of capex.",
+      "weekly": [
+        60,
+        63,
+        66,
+        69,
+        72,
+        75,
+        78,
+        81,
+        84,
+        87,
+        90,
+        94
+      ],
+      "events": [
+        {
+          "date": "2026-10-19",
+          "when": "+146d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "USITC final injury vote \u2014 Solar IV",
+          "detail": "Final affirmative determination triggers AD/CVD order issuance within one week. Highest-information event in the trade channel."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-the-usitc-issue-a-final-affirmative-injury-determination-in-the-solar-iv-in",
+          "title": "Will the USITC issue a final affirmative injury determination in the Solar IV investigations by Oct 19, 2026?",
+          "yes": 0.82,
+          "change": 0.0,
+          "expiry": "Oct 2026",
+          "notional": 250000
+        }
+      ],
+      "category": "trade",
+      "title": "AD/CVD Solar IV orders on SE-Asia cells",
+      "citation": "USITC Inv. 701-TA-699 \u00b7 731-TA-1664",
+      "impact_irr": -2.9,
+      "impact_usd": 48000000.0,
+      "probability": 0.82,
+      "attention": 94,
+      "archetype_id": "utility-solar",
+      "archetype_name": "Utility-Scale Solar",
+      "id": "us1"
+    },
+    "us2": {
+      "subtitle": "Stacked Section 301 + AD/CVD duties push the all-in Chinese module rate past 60%, hardening the case for domestic and Indian supply.",
+      "tracked_since": "Feb 2, 2026",
+      "last_updated": "6 hr ago",
+      "attention_delta": 6,
+      "probability_delta": 0.02,
+      "hedge_cost": 3000,
+      "view": "China-origin modules already face a punitive stack, but the combined effective rate clearing 60% is the threshold at which Indian and domestic cells become unambiguously cheaper even after their own premia. We put this near a coin-flip by Sep 30. For a developer, the risk isn't direct China exposure \u2014 it's that the whole module market reprices upward as the cheapest marginal supplier exits. The hedge is a clean YES on the 60% threshold.",
+      "weekly": [
+        55,
+        56,
+        57,
+        59,
+        60,
+        62,
+        63,
+        65,
+        66,
+        68,
+        69,
+        71
+      ],
+      "events": [
+        {
+          "date": "2026-09-30",
+          "when": "+127d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "Combined-rate measurement date",
+          "detail": "Contract resolves on whether stacked duties exceed 60% combined by Sep 30, 2026."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-chinese-solar-panel-tariffs-exceed-60-combined-rate-by-september-30-2026",
+          "title": "Will Chinese solar panel tariffs exceed 60% combined rate by Sep 30, 2026?",
+          "yes": 0.502,
+          "change": 0.0,
+          "expiry": "Oct 2026",
+          "notional": 180000
+        }
+      ],
+      "category": "trade",
+      "title": "Chinese panel tariffs exceed 60% combined",
+      "citation": "Sec. 301 \u00b7 Commerce AD/CVD stacking",
+      "impact_irr": -2.1,
+      "impact_usd": 34000000.0,
+      "probability": 0.5,
+      "attention": 71,
+      "archetype_id": "utility-solar",
+      "archetype_name": "Utility-Scale Solar",
+      "id": "us2"
+    },
+    "us3": {
+      "subtitle": "If Treasury misses the FEOC guidance window, 48E/45Y credit eligibility stays ambiguous through the 2026 build season \u2014 chilling tax-equity commitments.",
+      "tracked_since": "Jan 20, 2026",
+      "last_updated": "2 hr ago",
+      "attention_delta": 22,
+      "probability_delta": 0.11,
+      "hedge_cost": 4500,
+      "view": "The 48E/45Y investment and production credits are the economic backbone of utility solar, but OBBB attached Foreign-Entity-of-Concern restrictions that Treasury must define before tax-equity investors will fully underwrite. Appropriations-driven IRS staffing constraints make a slip past June 30 (we model 51%) and a comprehensive proposed-rule slip past Sep 30 (67%) both live. Every month of ambiguity delays financial close on projects targeting 2026 COD. Two hedges bracket the timing: the near-term staffing-delay contract and the comprehensive-rulemaking contract.",
+      "weekly": [
+        64,
+        66,
+        68,
+        70,
+        72,
+        74,
+        77,
+        79,
+        81,
+        83,
+        85,
+        88
+      ],
+      "events": [
+        {
+          "date": "2026-06-30",
+          "when": "+35d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "Final FEOC guidance target",
+          "detail": "IRS staffing constraints make a slip past this date the base case. Triggers the near-term hedge."
+        },
+        {
+          "date": "2026-09-30",
+          "when": "+127d",
+          "kind": "deadline",
+          "future": true,
+          "title": "Comprehensive proposed FEOC regs",
+          "detail": "Defines prohibited-entity thresholds. Slip past Sep 30 resolves the second hedge YES."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-irs-delays-in-issuing-final-feoc-guidance-for-sections-48e-45y-extend-beyon",
+          "title": "Will IRS FEOC guidance for 48E/45Y slip past June 30, 2026?",
+          "yes": 0.507,
+          "change": 0.0,
+          "expiry": "Jul 2026",
+          "notional": 260000
+        },
+        {
+          "ticker": "will-irs-treasury-issue-comprehensive-proposed-feoc-regulations-for-sections-45y",
+          "title": "Will IRS/Treasury issue comprehensive proposed FEOC regs for 45Y/48E by Sep 30, 2026?",
+          "yes": 0.672,
+          "change": 0.0,
+          "expiry": "Oct 2026",
+          "notional": 150000
+        }
+      ],
+      "category": "policy",
+      "title": "48E/45Y FEOC guidance delay",
+      "citation": "IRA \u00a748E/\u00a745Y \u00b7 OBBB P.L. 119-21",
+      "impact_irr": -2.6,
+      "impact_usd": 42000000.0,
+      "probability": 0.51,
+      "attention": 88,
+      "archetype_id": "utility-solar",
+      "archetype_name": "Utility-Scale Solar",
+      "id": "us3"
+    },
+    "us4": {
+      "subtitle": "Expanded CBP forced-labor enforcement raises the odds of module shipments held at the border on traceability grounds.",
+      "tracked_since": "Jan 9, 2026",
+      "last_updated": "9 hr ago",
+      "attention_delta": 4,
+      "probability_delta": 0.01,
+      "hedge_cost": 2500,
+      "view": "UFLPA detentions remain the most operationally disruptive trade risk: a held container doesn't just cost duty, it slips COD and can void PPA milestones. The administration is expanding forced-labor enforcement (we model 97% on the broad-enforcement contract), and while solar polysilicon traceability has improved, the tail risk of a detention wave during a build is real. The hedge is cheap relative to the schedule risk it offsets.",
+      "weekly": [
+        55,
+        55,
+        56,
+        57,
+        57,
+        58,
+        59,
+        60,
+        60,
+        61,
+        62,
+        63
+      ],
+      "events": [
+        {
+          "date": "2027-01-01",
+          "when": "+220d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "Enforcement-expansion measurement",
+          "detail": "Resolves on whether CBP expands forced-labor enforcement targeting additional commodities."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-customs-expand-forced-labor-enforcement-targeting-cotton-rubber-or-textile-",
+          "title": "Will Customs expand forced-labor enforcement to additional commodities by 2027?",
+          "yes": 0.97,
+          "change": 0.0,
+          "expiry": "Jan 2027",
+          "notional": 120000
+        }
+      ],
+      "category": "trade",
+      "title": "UFLPA / forced-labor detentions widen",
+      "citation": "UFLPA 2021 \u00b7 CBP WRO",
+      "impact_irr": -1.8,
+      "impact_usd": 29000000.0,
+      "probability": 0.97,
+      "attention": 63,
+      "archetype_id": "utility-solar",
+      "archetype_name": "Utility-Scale Solar",
+      "id": "us4"
+    },
+    "us5": {
+      "subtitle": "PJM queue processing staying above two years pushes interconnection-dependent COD dates beyond PPA windows.",
+      "tracked_since": "Feb 18, 2026",
+      "last_updated": "1 day ago",
+      "attention_delta": 3,
+      "probability_delta": 0.0,
+      "hedge_cost": 2000,
+      "view": "Interconnection is the slow-burn risk: not a price shock but a schedule tax. PJM's average queue processing staying above two years (we model 62%) is the difference between a project that hits its PPA COD and one that pays delay damages or re-prices. Combined with the structural signal that post-45Y/48E queue additions could drop 30%+, the channel is about timing certainty, not headline drama. Hedge the PJM-specific delay.",
+      "weekly": [
+        50,
+        50,
+        51,
+        52,
+        52,
+        53,
+        54,
+        55,
+        55,
+        56,
+        57,
+        58
+      ],
+      "events": [
+        {
+          "date": "2026-12-31",
+          "when": "+219d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "PJM queue-time measurement",
+          "detail": "Resolves on whether average PJM queue processing remains above 2 years for 2026 cohort."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-pjm-interconnection-average-queue-processing-times-remain-above-2-years-for",
+          "title": "Will PJM average queue processing stay above 2 years through 2026?",
+          "yes": 0.62,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 100000
+        },
+        {
+          "ticker": "will-u-s-utility-scale-wind-and-solar-interconnection-queue-additions-drop-by-30",
+          "title": "Will U.S. utility-scale wind/solar queue additions drop 30%+ in 2028 vs 2026?",
+          "yes": 1.0,
+          "change": 0.0,
+          "expiry": "Mar 2029",
+          "notional": 80000
+        }
+      ],
+      "category": "operational",
+      "title": "Interconnection queue >2yr in PJM",
+      "citation": "FERC Order 2023 \u00b7 PJM queue reform",
+      "impact_irr": -1.5,
+      "impact_usd": 24000000.0,
+      "probability": 0.62,
+      "attention": 58,
+      "archetype_id": "utility-solar",
+      "archetype_name": "Utility-Scale Solar",
+      "id": "us5"
+    },
+    "us6": {
+      "subtitle": "Rising ERCOT curtailment erodes merchant revenue and the value of uncontracted solar MWh.",
+      "tracked_since": "Mar 4, 2026",
+      "last_updated": "2 days ago",
+      "attention_delta": -2,
+      "probability_delta": 0.0,
+      "hedge_cost": 1500,
+      "view": "In ERCOT, the marginal solar MWh increasingly clears at zero or negative prices in the midday belly. Curtailment rising more than 25% by 2027 (the contract resolves YES on current trajectory) directly hits merchant and hybrid PPA revenue. For a tracker project counting on midday capture, this is a basis risk that storage co-location only partly offsets. The hedge pays as curtailment worsens.",
+      "weekly": [
+        48,
+        48,
+        48,
+        49,
+        49,
+        49,
+        50,
+        50,
+        50,
+        51,
+        51,
+        52
+      ],
+      "events": [
+        {
+          "date": "2028-01-31",
+          "when": "+615d",
+          "kind": "market",
+          "future": true,
+          "now": true,
+          "title": "ERCOT 2027 curtailment tally",
+          "detail": "Resolves on whether 2027 wind+solar curtailment rose more than 25% vs baseline."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-wind-and-solar-curtailment-in-ercot-increase-by-more-than-25-in-2027-versus",
+          "title": "Will ERCOT wind+solar curtailment rise >25% in 2027?",
+          "yes": 1.0,
+          "change": 0.0,
+          "expiry": "Jan 2028",
+          "notional": 90000
+        }
+      ],
+      "category": "market",
+      "title": "ERCOT curtailment up >25% by 2027",
+      "citation": "ERCOT ITS \u00b7 negative-price hours",
+      "impact_irr": -1.2,
+      "impact_usd": 19000000.0,
+      "probability": 1.0,
+      "attention": 52,
+      "archetype_id": "utility-solar",
+      "archetype_name": "Utility-Scale Solar",
+      "id": "us6"
+    },
+    "us7": {
+      "subtitle": "A LONGi Prohibited-Foreign-Entity designation would strand a major module supplier mid-procurement.",
+      "tracked_since": "Feb 25, 2026",
+      "last_updated": "5 hr ago",
+      "attention_delta": 9,
+      "probability_delta": 0.04,
+      "hedge_cost": 2500,
+      "view": "If Treasury designates LONGi a Prohibited Foreign Entity under 48E FEOC rules (we model 50%), any project relying on its modules for credit-eligible capex faces re-sourcing on short notice. This is the supply-chain analogue of the FEOC timing risk: not whether the credit exists, but whether your chosen supplier disqualifies it. The companion contract on banning FEOC battery components from Chinese suppliers (68%) signals the broader designation appetite. Hedge the LONGi-specific designation.",
+      "weekly": [
+        45,
+        45,
+        45,
+        46,
+        46,
+        46,
+        47,
+        47,
+        47,
+        48,
+        48,
+        49
+      ],
+      "events": [
+        {
+          "date": "2026-09-30",
+          "when": "+127d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "LONGi designation window",
+          "detail": "Resolves on whether Treasury designates LONGi a Prohibited Foreign Entity by Sep 30, 2026."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-treasury-designate-longi-solar-as-a-prohibited-foreign-entity-under-section",
+          "title": "Will Treasury designate LONGi Solar a Prohibited Foreign Entity by Sep 30, 2026?",
+          "yes": 0.5,
+          "change": 0.0,
+          "expiry": "Oct 2026",
+          "notional": 130000
+        },
+        {
+          "ticker": "will-irs-treasury-issue-comprehensive-proposed-feoc-regulations-for-sections-45y",
+          "title": "Will IRS/Treasury issue comprehensive proposed FEOC regs for 45Y/48E by Sep 30, 2026?",
+          "yes": 0.672,
+          "change": 0.0,
+          "expiry": "Oct 2026",
+          "notional": 100000
+        }
+      ],
+      "category": "trade",
+      "title": "LONGi named Prohibited Foreign Entity",
+      "citation": "\u00a748E FEOC \u00b7 Treasury designation",
+      "impact_irr": -1.6,
+      "impact_usd": 26000000.0,
+      "probability": 0.5,
+      "attention": 49,
+      "archetype_id": "utility-solar",
+      "archetype_name": "Utility-Scale Solar",
+      "id": "us7"
+    }
+  },
+  "sources": {}
+}
