@@ -137,73 +137,78 @@ export default async function ArchetypePage({ params }: PageProps) {
           </p>
         </section>
 
-        <div className="section-label">
-          <span className="l">News &amp; developments</span>
-          <span className="r">{A.archetype.news_this_week} items this week</span>
-        </div>
-        <section className="news-list">
-          {news.slice(0, 5).map((n, i) => (
-            <Link
-              key={`${n.source}-${i}`}
-              className="news-row"
-              href={`/archetypes/${A.archetype_id}/risks/${risks[0].id}`}
-            >
-              <span className="src">{n.source}</span>
-              <span className="ago">{n.ago}</span>
-              <span className="ttl">{n.title}</span>
-              <span className="arr">→</span>
-            </Link>
-          ))}
-        </section>
-
-        <div className="section-label">
-          <span className="l">All tracked risks</span>
-          <span className="r">{risks.length} risks · ranked by IRR impact</span>
-        </div>
-        <section className="risks-table risks-grid">
-          <div className="risks-head">
-            <span className="h-rank">#</span>
-            <span className="h-cat">Category</span>
-            <span className="h-name">Risk</span>
-            <span className="ir-col">
-              Impact magnitude<span className="sub">vs portfolio worst</span>
-            </span>
-            <span className="ir-col">
-              IRR pp<span className="sub">probability-weighted</span>
-            </span>
-            <span className="h-prob ir-col">Prob</span>
-            <span className="h-arr"></span>
+        <div className="detail-cols">
+          <div className="detail-main">
+            <div className="section-label">
+              <span className="l">All tracked risks</span>
+              <span className="r">{risks.length} risks · ranked by IRR impact</span>
+            </div>
+            <section className="risks-table risks-grid">
+              <div className="risks-head">
+                <span className="h-rank">#</span>
+                <span className="h-cat">Category</span>
+                <span className="h-name">Risk</span>
+                <span className="ir-col">
+                  Impact magnitude<span className="sub">vs portfolio worst</span>
+                </span>
+                <span className="ir-col">
+                  IRR pp<span className="sub">probability-weighted</span>
+                </span>
+                <span className="h-prob ir-col">Prob</span>
+                <span className="h-arr"></span>
+              </div>
+              {risks.map((r, i) => {
+                const ei = Math.abs(r.impact_irr * r.probability)
+                const maxImpact = Math.max(
+                  ...risks.map((x) => Math.abs(x.impact_irr * x.probability)),
+                )
+                const barPct = (ei / maxImpact) * 100
+                return (
+                  <Link
+                    key={r.id}
+                    className="risk-row"
+                    href={`/archetypes/${A.archetype_id}/risks/${r.id}`}
+                  >
+                    <span className="rank">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="cat">{r.category}</span>
+                    <div className="body">
+                      <h4 className="name">{r.title}</h4>
+                      <div className="cit">{r.citation}</div>
+                    </div>
+                    <div className="impact-bar">
+                      <div className="bar">
+                        <i style={{ width: `${barPct.toFixed(0)}%` }} />
+                      </div>
+                    </div>
+                    <div className="num">−{ei.toFixed(1)}</div>
+                    <div className="num prob">{Math.round(r.probability * 100)}%</div>
+                    <span className="arr">→</span>
+                  </Link>
+                )
+              })}
+            </section>
           </div>
-          {risks.map((r, i) => {
-            const ei = Math.abs(r.impact_irr * r.probability)
-            const maxImpact = Math.max(
-              ...risks.map((x) => Math.abs(x.impact_irr * x.probability)),
-            )
-            const barPct = (ei / maxImpact) * 100
-            return (
-              <Link
-                key={r.id}
-                className="risk-row"
-                href={`/archetypes/${A.archetype_id}/risks/${r.id}`}
-              >
-                <span className="rank">{String(i + 1).padStart(2, '0')}</span>
-                <span className="cat">{r.category}</span>
-                <div className="body">
-                  <h4 className="name">{r.title}</h4>
-                  <div className="cit">{r.citation}</div>
-                </div>
-                <div className="impact-bar">
-                  <div className="bar">
-                    <i style={{ width: `${barPct.toFixed(0)}%` }} />
-                  </div>
-                </div>
-                <div className="num">−{ei.toFixed(1)}</div>
-                <div className="num prob">{Math.round(r.probability * 100)}%</div>
-                <span className="arr">→</span>
-              </Link>
-            )
-          })}
-        </section>
+
+          <aside className="detail-rail">
+            <div className="section-label">
+              <span className="l">News &amp; developments</span>
+              <span className="r">{A.archetype.news_this_week} this week</span>
+            </div>
+            <section className="news-list news-rail">
+              {news.slice(0, 6).map((n, i) => (
+                <Link
+                  key={`${n.source}-${i}`}
+                  className="news-row"
+                  href={`/archetypes/${A.archetype_id}/risks/${risks[0].id}`}
+                >
+                  <span className="src">{n.source}</span>
+                  <span className="ago">{n.ago}</span>
+                  <span className="ttl">{n.title}</span>
+                </Link>
+              ))}
+            </section>
+          </aside>
+        </div>
       </main>
 
       <footer className="foot">

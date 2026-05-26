@@ -185,9 +185,35 @@
 .news-row .arr { font-family: var(--font-mono); font-size: 16px; color: var(--fg-3); }
 .news-row:hover .arr { color: var(--fg); }
 
+/* ───────────────────────────────────────────────────────────────
+ * Detail page: risks (main) + news (rail), side by side
+ * ─────────────────────────────────────────────────────────────── */
+.detail-cols {
+  display: grid; grid-template-columns: minmax(0, 2.2fr) minmax(280px, 1fr);
+  gap: 64px; margin-top: 120px;
+}
+.detail-main { min-width: 0; }
+.detail-rail { min-width: 0; }
+/* The section-label's default 120px top margin is supplied by .detail-cols
+   here, so reset it inside the columns. */
+.detail-cols .section-label { margin: 0 0 24px; }
+
+/* Compact, vertically-stacked news cards for the narrow rail. */
+.news-rail .news-row {
+  display: block; grid-template-columns: none;
+  gap: 0; padding: 18px 0; align-items: initial;
+}
+.news-rail .news-row:hover { padding-left: 12px; padding-right: 12px; margin: 0 -12px; }
+.news-rail .news-row .src { display: inline; margin-right: 12px; }
+.news-rail .news-row .ago { display: inline; }
+.news-rail .news-row .ttl {
+  display: block; margin-top: 8px; font-size: 16px; line-height: 1.4;
+}
+.news-rail .news-row .arr { display: none; }
+
 .risks-grid {
-  --cols: 32px 96px 1fr 180px 84px 64px 16px;
-  --gap: 28px;
+  --cols: 28px 88px 1fr 140px 72px 56px 16px;
+  --gap: 22px;
 }
 .risks-head {
   display: grid; grid-template-columns: var(--cols); gap: var(--gap);
@@ -381,6 +407,8 @@
   .hero, .hero-arch, .hero-risk { grid-template-columns: 1fr; gap: 32px; }
   .hero .reading, .hero-arch .reading { text-align: left; }
   .hero .reading .meta-row, .hero-arch .reading .meta-row { justify-content: flex-start; }
+  .detail-cols { grid-template-columns: 1fr; gap: 0; }
+  .detail-cols .detail-rail { margin-top: 96px; }
   .archetypes { grid-template-columns: repeat(2, 1fr); }
   .arch:nth-child(3n) { border-right: var(--hair2); }
   .arch:nth-child(2n) { border-right: none; }
