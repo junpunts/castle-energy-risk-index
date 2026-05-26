@@ -58,6 +58,7 @@ export function allPipelines(): Pipeline[] {
 // Auto-register built-in pipelines on import. Sibling modules do the heavy
 // lifting — this just wires them.
 import { recomputeDerivedStage } from './stages/recompute-derived'
+import { updateExistingRisksStage } from './stages/update-existing-risks'
 
 registerPipeline({
   name: 'rebuild_archetype',
@@ -68,9 +69,17 @@ registerPipeline({
 
 registerPipeline({
   name: 'daily_refresh',
-  description: 'Full daily refresh (pull → diff → LLM updates → apply). Stub for now.',
+  description: 'Full daily refresh (pull → diff → LLM updates → apply). Pass A only for now.',
   stages: [
-    // Reuse recompute as a placeholder so the worker has *something* to do.
+    // M7: pull_sources, snapshot_hedge_prices, diff_against_prior go here.
+    updateExistingRisksStage,
     recomputeDerivedStage,
   ],
+})
+
+registerPipeline({
+  name: 'agent_smoke_test',
+  description:
+    'Pass A only, against a stub evidence packet on a single risk. Used to verify the LLM path end-to-end without adapters.',
+  stages: [updateExistingRisksStage],
 })
