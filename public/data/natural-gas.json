@@ -49,7 +49,8 @@
       "probability": 0.42,
       "attention": 82,
       "likelihood": "high",
-      "headline_change": "+11"
+      "headline_change": "+11",
+      "driver": "revenue"
     },
     {
       "id": "ng2",
@@ -61,7 +62,8 @@
       "probability": 0.31,
       "attention": 67,
       "likelihood": "medium",
-      "headline_change": "+5"
+      "headline_change": "+5",
+      "driver": "delay"
     },
     {
       "id": "ng3",
@@ -73,7 +75,8 @@
       "probability": 0.36,
       "attention": 59,
       "likelihood": "medium",
-      "headline_change": "+3"
+      "headline_change": "+3",
+      "driver": "delay"
     },
     {
       "id": "ng4",
@@ -85,7 +88,8 @@
       "probability": 0.51,
       "attention": 74,
       "likelihood": "high",
-      "headline_change": "+8"
+      "headline_change": "+8",
+      "driver": "revenue"
     },
     {
       "id": "ng5",
@@ -97,7 +101,8 @@
       "probability": 0.45,
       "attention": 55,
       "likelihood": "medium",
-      "headline_change": "+6"
+      "headline_change": "+6",
+      "driver": "delay"
     },
     {
       "id": "ng6",
@@ -109,7 +114,8 @@
       "probability": 0.15,
       "attention": 48,
       "likelihood": "low",
-      "headline_change": "+14"
+      "headline_change": "+14",
+      "driver": "revenue"
     },
     {
       "id": "ng7",
@@ -121,7 +127,8 @@
       "probability": 0.05,
       "attention": 41,
       "likelihood": "low",
-      "headline_change": "-1"
+      "headline_change": "-1",
+      "driver": "delay"
     }
   ],
   "news": [

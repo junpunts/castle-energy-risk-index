@@ -49,7 +49,8 @@
       "probability": 0.78,
       "attention": 100,
       "likelihood": "high",
-      "headline_change": "+32"
+      "headline_change": "+32",
+      "driver": "delay"
     },
     {
       "id": "ow2",
@@ -61,7 +62,8 @@
       "probability": 0.43,
       "attention": 88,
       "likelihood": "high",
-      "headline_change": "+18"
+      "headline_change": "+18",
+      "driver": "delay"
     },
     {
       "id": "ow3",
@@ -73,7 +75,8 @@
       "probability": 0.67,
       "attention": 92,
       "likelihood": "high",
-      "headline_change": "+14"
+      "headline_change": "+14",
+      "driver": "cost"
     },
     {
       "id": "ow4",
@@ -85,7 +88,8 @@
       "probability": 0.45,
       "attention": 64,
       "likelihood": "medium",
-      "headline_change": "+4"
+      "headline_change": "+4",
+      "driver": "delay"
     },
     {
       "id": "ow5",
@@ -97,7 +101,8 @@
       "probability": 0.7,
       "attention": 85,
       "likelihood": "high",
-      "headline_change": "+22"
+      "headline_change": "+22",
+      "driver": "cost"
     },
     {
       "id": "ow6",
@@ -109,7 +114,8 @@
       "probability": 0.55,
       "attention": 72,
       "likelihood": "high",
-      "headline_change": "+9"
+      "headline_change": "+9",
+      "driver": "cost"
     },
     {
       "id": "ow7",
@@ -121,7 +127,8 @@
       "probability": 0.4,
       "attention": 55,
       "likelihood": "medium",
-      "headline_change": "+6"
+      "headline_change": "+6",
+      "driver": "delay"
     },
     {
       "id": "ow8",
@@ -133,7 +140,8 @@
       "probability": 0.62,
       "attention": 48,
       "likelihood": "high",
-      "headline_change": "+3"
+      "headline_change": "+3",
+      "driver": "delay"
     },
     {
       "id": "ow9",
@@ -145,7 +153,8 @@
       "probability": 0.5,
       "attention": 48,
       "likelihood": "medium",
-      "headline_change": "0"
+      "headline_change": "0",
+      "driver": "revenue"
     }
   ],
   "news": [

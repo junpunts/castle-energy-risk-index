@@ -100,6 +100,15 @@ export const RiskSchema = z.object({
   likelihood: LikelihoodSchema,
   /** Attention delta vs last week, signed string ("+32", "-4", "0"). */
   headline_change: z.string().regex(/^[+-]?\d+$/),
+  /**
+   * Scenario-model driver — how this risk's impact responds to deal-input
+   * changes (capex, IRR, COD, capacity, PPA). Optional; the scenario model
+   * falls back to a category-based default when absent.
+   *   cost    — dollar impact scales with capex; IRR drag ~invariant
+   *   delay   — IRR drag scales with cost-of-capital × timeline
+   *   revenue — impact scales with the revenue base (capacity × PPA)
+   */
+  driver: z.enum(['cost', 'delay', 'revenue']).optional(),
 })
 export type Risk = z.infer<typeof RiskSchema>
 

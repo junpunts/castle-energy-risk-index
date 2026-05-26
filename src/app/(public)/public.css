@@ -239,6 +239,71 @@
   grid-column: 1 / -1;
 }
 
+/* ───────────────────────────────────────────────────────────────
+ * Scenario explorer — deal-assumption inputs + what-if recompute
+ * ─────────────────────────────────────────────────────────────── */
+.scenario { margin-top: 80px; }
+.scn-inputs {
+  border: var(--hair2); border-radius: 4px;
+  padding: 28px 32px; margin-bottom: 64px;
+  background: rgba(245,245,245,0.4);
+}
+.scn-inputs-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 24px;
+}
+.scn-inputs-head .l {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.32em; text-transform: uppercase; color: var(--fg);
+}
+.scn-inputs-head .r {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.24em; text-transform: uppercase; color: var(--fg-3);
+}
+.scn-reset {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent);
+  background: none; border: none; cursor: pointer; padding: 0;
+}
+.scn-reset:hover { text-decoration: underline; }
+.scn-fields {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 28px 40px;
+}
+.scn-field { display: flex; flex-direction: column; gap: 6px; }
+.scn-field-label {
+  font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+  letter-spacing: 0.24em; text-transform: uppercase; color: var(--fg-3);
+}
+.scn-field-val {
+  font-family: var(--font-display); font-size: 24px; line-height: 1;
+  letter-spacing: -0.02em; color: var(--fg); font-variant-numeric: tabular-nums;
+}
+.scn-field input[type='range'] {
+  -webkit-appearance: none; appearance: none; width: 100%; height: 2px;
+  background: var(--fg-3); border-radius: 2px; margin-top: 4px; cursor: pointer;
+}
+.scn-field input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--accent); cursor: pointer;
+}
+.scn-field input[type='range']::-moz-range-thumb {
+  width: 14px; height: 14px; border: none; border-radius: 50%;
+  background: var(--accent); cursor: pointer;
+}
+.scn-note {
+  margin: 24px 0 0; padding-top: 20px; border-top: var(--hair);
+  font-size: 13px; line-height: 1.6; color: var(--fg-3); max-width: 720px;
+}
+.scn-note strong { font-weight: 600; color: var(--fg); }
+/* Driver tag on each risk row's citation line. */
+.risk-row .cit .drv {
+  margin-left: 10px; padding: 1px 6px; border-radius: 2px;
+  background: rgba(36,96,117,0.1); color: var(--accent);
+  font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+}
+
 .risks-grid {
   --cols: 28px 88px 1fr 140px 72px 56px 16px;
   --gap: 22px;
