@@ -59,6 +59,9 @@ export function allPipelines(): Pipeline[] {
 // lifting — this just wires them.
 import { recomputeDerivedStage } from './stages/recompute-derived'
 import { updateExistingRisksStage } from './stages/update-existing-risks'
+import { pullSourcesStage } from './stages/pull-sources'
+import { snapshotHedgePricesStage } from './stages/snapshot-hedge-prices'
+import { diffAgainstPriorStage } from './stages/diff-against-prior'
 
 registerPipeline({
   name: 'rebuild_archetype',
@@ -69,12 +72,21 @@ registerPipeline({
 
 registerPipeline({
   name: 'daily_refresh',
-  description: 'Full daily refresh (pull → diff → LLM updates → apply). Pass A only for now.',
+  description:
+    'Full daily refresh: pull adapters → snapshot hedge prices → diff vs prior → Pass A LLM → recompute derived.',
   stages: [
-    // M7: pull_sources, snapshot_hedge_prices, diff_against_prior go here.
+    pullSourcesStage,
+    snapshotHedgePricesStage,
+    diffAgainstPriorStage,
     updateExistingRisksStage,
     recomputeDerivedStage,
   ],
+})
+
+registerPipeline({
+  name: 'pull_only',
+  description: 'Just pull adapters → news_cache. No LLM. Cheap and idempotent.',
+  stages: [pullSourcesStage],
 })
 
 registerPipeline({
