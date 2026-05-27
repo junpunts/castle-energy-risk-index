@@ -16,9 +16,29 @@ interface Proposal {
   status: string
 }
 
+interface DiffChange {
+  label: string
+  kind: 'text' | 'value' | 'add' | 'remove'
+  before: string | null
+  after: string | null
+}
+interface Preview {
+  ok: boolean
+  op: string
+  archetype_name: string
+  target: string | null
+  context: string | null
+  reasoning: string
+  changes: DiffChange[]
+  message?: string
+}
+
 export function OpenProposals({ initial }: { initial: any[] }) {
   const [proposals, setProposals] = useState<Proposal[]>(initial as Proposal[])
   const [pending, startTransition] = useTransition()
+  const [openId, setOpenId] = useState<string | null>(null)
+  const [preview, setPreview] = useState<Preview | null>(null)
+  const [loadingPreview, setLoadingPreview] = useState(false)
 
   useEffect(() => {
     const sb = createSSRBrowserClient(
@@ -36,71 +56,162 @@ export function OpenProposals({ initial }: { initial: any[] }) {
     }
   }, [])
 
+  // Close modal on Escape.
+  useEffect(() => {
+    if (!openId) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeModal()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [openId])
+
+  async function openModal(id: string) {
+    setOpenId(id)
+    setPreview(null)
+    setLoadingPreview(true)
+    try {
+      const res = await fetch(`/api/admin/proposals/${id}/preview`)
+      const data = await res.json()
+      setPreview(data)
+    } catch (e: any) {
+      setPreview({ ok: false, message: String(e) } as Preview)
+    } finally {
+      setLoadingPreview(false)
+    }
+  }
+  function closeModal() {
+    setOpenId(null)
+    setPreview(null)
+  }
+
   async function applyProposal(id: string) {
     startTransition(async () => {
       await fetch(`/api/admin/proposals/${id}/apply`, { method: 'POST' })
+      if (id === openId) closeModal()
     })
   }
   async function rejectProposal(id: string) {
     startTransition(async () => {
       await fetch(`/api/admin/proposals/${id}/reject`, { method: 'POST' })
+      if (id === openId) closeModal()
     })
   }
 
   return (
-    <table className="admin-table">
-      <thead>
-        <tr>
-          <th>Archetype</th>
-          <th>Op</th>
-          <th>Target</th>
-          <th>Source</th>
-          <th>Reasoning</th>
-          <th>Created</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {proposals.length === 0 ? (
+    <>
+      <table className="admin-table">
+        <thead>
           <tr>
-            <td className="empty" colSpan={7}>
-              No open proposals.
-            </td>
+            <th>Archetype</th>
+            <th>Op</th>
+            <th>Target</th>
+            <th>Source</th>
+            <th>Reasoning</th>
+            <th>Created</th>
+            <th></th>
           </tr>
-        ) : (
-          proposals.map((p) => (
-            <tr key={p.id}>
-              <td className="mono">
-                <Link href={`/admin/archetypes/${p.archetype_id}`}>{p.archetype_id}</Link>
-              </td>
-              <td className="mono">{p.op}</td>
-              <td className="mono">{p.target ?? '—'}</td>
-              <td className="mono">{p.source}</td>
-              <td style={{ maxWidth: 360 }}>{truncate(p.reasoning, 140)}</td>
-              <td className="ago">{shortTs(p.created_at)}</td>
-              <td>
-                <button
-                  className="btn"
-                  style={{ fontSize: '10px', padding: '8px 12px' }}
-                  disabled={pending}
-                  onClick={() => applyProposal(p.id)}
-                >
-                  Approve
-                </button>{' '}
-                <button
-                  className="btn is-ghost"
-                  style={{ fontSize: '10px', padding: '8px 8px' }}
-                  disabled={pending}
-                  onClick={() => rejectProposal(p.id)}
-                >
-                  Reject
-                </button>
+        </thead>
+        <tbody>
+          {proposals.length === 0 ? (
+            <tr>
+              <td className="empty" colSpan={7}>
+                No open proposals.
               </td>
             </tr>
-          ))
-        )}
-      </tbody>
-    </table>
+          ) : (
+            proposals.map((p) => (
+              <tr
+                key={p.id}
+                className="proposal-row"
+                onClick={() => openModal(p.id)}
+                title="Click to preview changes"
+              >
+                <td className="mono">{p.archetype_id}</td>
+                <td className="mono">{p.op}</td>
+                <td className="mono">{p.target ?? '—'}</td>
+                <td className="mono">{p.source}</td>
+                <td style={{ maxWidth: 360 }}>{truncate(p.reasoning, 140)}</td>
+                <td className="ago">{shortTs(p.created_at)}</td>
+                <td onClick={(e) => e.stopPropagation()}>
+                  <button
+                    className="btn"
+                    style={{ fontSize: '10px', padding: '8px 12px' }}
+                    disabled={pending}
+                    onClick={() => openModal(p.id)}
+                  >
+                    Review
+                  </button>
+                </td>
+              </tr>
+            ))
+          )}
+        </tbody>
+      </table>
+
+      {openId && (
+        <div className="diff-overlay" onClick={closeModal}>
+          <div className="diff-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="diff-close" onClick={closeModal} aria-label="Close">
+              ×
+            </button>
+
+            {loadingPreview && <div className="diff-loading">Computing diff…</div>}
+
+            {preview && !preview.ok && (
+              <div className="diff-error">Could not preview: {preview.message ?? 'unknown error'}</div>
+            )}
+
+            {preview && preview.ok && (
+              <>
+                <div className="diff-head">
+                  <span className="diff-op">{prettyOp(preview.op)}</span>
+                  <h3 className="diff-title">{preview.context ?? preview.archetype_name}</h3>
+                  <div className="diff-sub">
+                    {preview.archetype_name}
+                    {preview.target ? ` · ${preview.target}` : ''}
+                  </div>
+                </div>
+
+                <div className="diff-changes">
+                  {preview.changes.map((c, i) => (
+                    <div className="diff-block" key={i}>
+                      <div className="diff-label">{c.label}</div>
+                      {c.before != null && (
+                        <div className={`diff-line diff-before ${c.kind === 'text' ? 'is-text' : ''}`}>
+                          {c.before}
+                        </div>
+                      )}
+                      {c.after != null && (
+                        <div className={`diff-line diff-after ${c.kind === 'text' ? 'is-text' : ''}`}>
+                          {c.after}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {preview.reasoning && (
+                  <div className="diff-reasoning">
+                    <div className="diff-label">Why</div>
+                    <p>{preview.reasoning}</p>
+                  </div>
+                )}
+
+                <div className="diff-actions">
+                  <button className="btn" disabled={pending} onClick={() => applyProposal(openId)}>
+                    Approve &amp; apply
+                  </button>
+                  <button className="btn is-ghost" disabled={pending} onClick={() => rejectProposal(openId)}>
+                    Reject
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 
@@ -114,8 +225,19 @@ function mergeProposal(current: Proposal[], payload: any): Proposal[] {
     copy[idx] = { ...copy[idx], ...next }
     return copy
   }
-  // Status transitioned out of pending — drop it from the inbox.
   return current.filter((p) => p.id !== next?.id)
+}
+
+function prettyOp(op: string): string {
+  return (
+    {
+      update_risk: 'Update risk',
+      add_risk: 'Add risk',
+      remove_risk: 'Remove risk',
+      pin_news: 'Pin news',
+      update_hedge: 'Update hedge',
+    }[op] ?? op
+  )
 }
 
 function truncate(s: string, n: number) {
