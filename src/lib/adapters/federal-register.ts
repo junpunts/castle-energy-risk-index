@@ -55,6 +55,15 @@ const QUERY_TERMS: Record<string, string[]> = {
     'advanced manufacturing credit',
     'grid-scale storage',
   ],
+  'nuclear-smr': [
+    'small modular reactor',
+    'construction permit reactor',
+    'Nuclear Regulatory Commission',
+    'section 45U',
+    'advanced nuclear',
+    'high-assay low-enriched uranium',
+    'Russian uranium',
+  ],
   'green-hydrogen': ['clean hydrogen', '45V hydrogen', 'electrolyzer'],
   'ev-charging': ['EV charging', 'NEVI', 'electric vehicle infrastructure'],
 }

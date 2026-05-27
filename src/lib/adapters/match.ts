@@ -119,6 +119,7 @@ const ARCHETYPE_STRONG_TOKENS: Record<string, string[]> = {
   ],
   'onshore-wind': ['ptc', 'onshore wind farm', 'wind ptc'],
   'battery-storage': ['battery storage', 'bess', 'energy storage', 'itc storage', 'lithium-ion', 'sodium-ion', '45x', 'feoc', 'ul 9540', 'long-duration', 'hts 8507', 'thermal runaway'],
+  'nuclear-smr': ['small modular reactor', 'bwrx-300', 'clinch river', 'nuclear regulatory commission', 'construction permit', '45u', 'haleu', 'advanced nuclear', 'safety evaluation report', 'russian uranium', 'part 53'],
   'green-hydrogen': ['45v', 'electrolyzer', 'clean hydrogen', 'three pillars'],
   'ev-charging': ['nevi', 'ev charging', 'charging infrastructure'],
 }
@@ -250,6 +251,36 @@ const KEYWORDS_BY_RISK: Record<string, Array<[string, number]>> = {
   bs7: [
     ['ancillary', 3], ['arbitrage', 3], ['caiso', 3], ['ercot', 2], ['merchant storage', 3],
     ['as saturation', 2], ['storage tariff', 2], ['dispatch', 2],
+  ],
+
+  // nuclear-smr:
+  ns1: [
+    ['construction permit', 3], ['bwrx-300', 3], ['clinch river', 3], ['safety evaluation report', 3],
+    ['aser', 3], ['fser', 3], ['licensing', 2], ['part 50', 2], ['tva', 2], ['small modular reactor', 3],
+  ],
+  ns2: [
+    ['45u', 3], ['§45u', 3], ['production tax credit', 2], ['nuclear ptc', 3], ['feoc', 3],
+    ['prohibited foreign entity', 3], ['obbba', 2], ['treasury regulations', 2],
+  ],
+  ns3: [
+    ['russian uranium', 3], ['haleu', 3], ['high-assay low-enriched uranium', 3], ['enrichment', 3],
+    ['uranium import', 3], ['doe waiver', 3], ['orano', 3], ['fuel supply', 2], ['low-enriched uranium', 2],
+  ],
+  ns4: [
+    ['part 53', 3], ['eo 14300', 3], ['executive order 14300', 3], ['part 37', 3],
+    ['risk-informed', 3], ['technology-inclusive', 3], ['regulatory modernization', 2], ['rulemaking', 2],
+  ],
+  ns5: [
+    ['loan guarantee', 3], ['loan programs office', 3], ['lpo', 3], ['title 17', 3], ['shine medical', 3],
+    ['conditional commitment', 2], ['financing close', 2], ['doe loan', 3],
+  ],
+  ns6: [
+    ['beyond nuclear', 3], ['injunction', 3], ['stay of proceedings', 3], ['dc circuit', 3],
+    ['sierra club', 2], ['petition for review', 2], ['litigation', 2],
+  ],
+  ns7: [
+    ['government shutdown', 3], ['appropriations lapse', 3], ['continuing resolution', 2],
+    ['funding lapse', 3], ['shutdown', 2], ['permitting delay', 2],
   ],
 }
 

@@ -1,0 +1,676 @@
+{
+  "schema_version": "1.0.0",
+  "archetype_id": "nuclear-smr",
+  "generated_at": "2026-05-27T16:00:00+00:00",
+  "generated_by": "scaffold-gen-v1",
+  "as_of": "2026-05-27",
+  "horizon": "18 months",
+  "archetype": {
+    "id": "nuclear-smr",
+    "name": "Nuclear / SMR",
+    "eyebrow": "Small modular reactor \u00b7 300 MW BWRX-300 (development-stage)",
+    "blurb": "First-of-a-kind small modular reactor, benchmarked to TVA's BWRX-300 at Clinch River. The marquee firm-clean-power bet of the Trump nuclear push \u2014 backed by the \u00a745U production credit, EO 14300 NRC overhaul, and DOE loan support \u2014 but still pre-construction, so the risk profile is dominated by licensing timing, financing close, and fuel-supply security rather than operating economics.",
+    "typical": {
+      "capacity": "300 MW (BWRX-300 SMR)",
+      "capex": 3000000000.0,
+      "capex_per_gw": 10000000000.0,
+      "target_irr": 0.09,
+      "cod_months": 60,
+      "ppa_price": null
+    },
+    "composite": 53,
+    "composite_delta": 0,
+    "risks_total": 7,
+    "risks_high": 2,
+    "news_this_week": 3,
+    "attention_weekly": [
+      45,
+      45,
+      46,
+      47,
+      47,
+      48,
+      49,
+      50,
+      50,
+      51,
+      52,
+      53
+    ]
+  },
+  "risks": [
+    {
+      "id": "ns1",
+      "category": "operational",
+      "title": "NRC licensing slips construction permit",
+      "citation": "10 CFR Part 50 \u00b7 Clinch River CPA",
+      "impact_irr": -2.8,
+      "impact_usd": 84000000.0,
+      "probability": 0.72,
+      "attention": 89,
+      "likelihood": "high",
+      "headline_change": "+12",
+      "driver": "delay"
+    },
+    {
+      "id": "ns2",
+      "category": "policy",
+      "title": "\u00a745U nuclear PTC narrowed / FEOC-gated",
+      "citation": "OBBBA \u00a745U \u00b7 Treasury FEOC",
+      "impact_irr": -2.2,
+      "impact_usd": 66000000.0,
+      "probability": 0.32,
+      "attention": 74,
+      "likelihood": "medium",
+      "headline_change": "+9",
+      "driver": "cost"
+    },
+    {
+      "id": "ns3",
+      "category": "trade",
+      "title": "Fuel-supply squeeze (Russian-ban / HALEU)",
+      "citation": "Prohibiting Russian Uranium Imports Act",
+      "impact_irr": -1.8,
+      "impact_usd": 54000000.0,
+      "probability": 0.45,
+      "attention": 68,
+      "likelihood": "medium",
+      "headline_change": "+7",
+      "driver": "cost"
+    },
+    {
+      "id": "ns4",
+      "category": "operational",
+      "title": "NRC framework modernization stalls",
+      "citation": "EO 14300 \u00b7 10 CFR Part 53",
+      "impact_irr": -1.5,
+      "impact_usd": 45000000.0,
+      "probability": 0.58,
+      "attention": 61,
+      "likelihood": "medium",
+      "headline_change": "+5",
+      "driver": "delay"
+    },
+    {
+      "id": "ns5",
+      "category": "market",
+      "title": "DOE loan / financing close fails",
+      "citation": "DOE LPO Title 17 \u00b7 FOAK finance",
+      "impact_irr": -2.4,
+      "impact_usd": 72000000.0,
+      "probability": 0.65,
+      "attention": 71,
+      "likelihood": "high",
+      "headline_change": "+8",
+      "driver": "cost"
+    },
+    {
+      "id": "ns6",
+      "category": "policy",
+      "title": "Litigation stays NRC proceedings",
+      "citation": "Beyond Nuclear v. NRC \u00b7 DC Cir.",
+      "impact_irr": -2.0,
+      "impact_usd": 60000000.0,
+      "probability": 0.1,
+      "attention": 42,
+      "likelihood": "low",
+      "headline_change": "+1",
+      "driver": "delay"
+    },
+    {
+      "id": "ns7",
+      "category": "policy",
+      "title": "Federal shutdown delays permitting",
+      "citation": "Appropriations lapse \u00b7 NRC/DOE",
+      "impact_irr": -1.2,
+      "impact_usd": 36000000.0,
+      "probability": 0.35,
+      "attention": 55,
+      "likelihood": "medium",
+      "headline_change": "+3",
+      "driver": "delay"
+    }
+  ],
+  "news": [
+    {
+      "source": "NRC",
+      "ago": "3 hr ago",
+      "tag": "operational",
+      "title": "BWRX-300 construction-permit review advances toward Advance SER milestone",
+      "sum": "The ASER is the next gate on TVA's Clinch River SMR; timing sets the whole FOAK schedule.",
+      "published_at": "2026-05-27T13:00:00Z"
+    },
+    {
+      "source": "TREASURY",
+      "ago": "6 hr ago",
+      "tag": "policy",
+      "title": "\u00a745U FEOC rulemaking expected to define prohibited-entity fuel and component thresholds",
+      "sum": "A FEOC gate on the nuclear PTC would reshape SMR levelized economics.",
+      "published_at": "2026-05-27T10:30:00Z"
+    },
+    {
+      "source": "DOE",
+      "ago": "1 day ago",
+      "tag": "trade",
+      "title": "Russian-uranium waiver cap and HALEU buildout dominate fuel-security outlook",
+      "sum": "Domestic enrichment is docketing but thin; waivers bridge a constrained supply window.",
+      "published_at": "2026-05-26T15:00:00Z"
+    }
+  ],
+  "risk_details": {
+    "ns1": {
+      "subtitle": "A first-of-a-kind SMR lives or dies on its NRC licensing timeline; any slip in the construction permit cascades through the entire FOAK schedule.",
+      "tracked_since": "Jan 12, 2026",
+      "last_updated": "3 hr ago",
+      "attention_delta": 12,
+      "probability_delta": 0.04,
+      "hedge_cost": 7000,
+      "view": "For a pre-construction SMR, licensing IS the project \u2014 there is no revenue, no operating margin, just a regulatory critical path. TVA's BWRX-300 at Clinch River is the US reference case, and the market prices only a 0.28 chance the NRC issues the construction permit on the near-term schedule, with the Advance Safety Evaluation Report at 0.42 and the Final SER at 0.38. That implies roughly a 0.72 chance of a licensing slip relative to the developer's base plan \u2014 and every month of slip pushes COD, compounds carrying cost on a multi-billion-dollar capital stack, and risks placed-in-service windows for the \u00a745U credit. This is the single largest driver of the archetype's risk. Hedge the licensing milestones as a ladder: ASER, FSER, then the construction permit itself.",
+      "weekly": [
+        72,
+        73,
+        75,
+        76,
+        78,
+        79,
+        81,
+        82,
+        84,
+        85,
+        87,
+        89
+      ],
+      "events": [
+        {
+          "date": "2026-10-31",
+          "when": "+157d",
+          "kind": "filing",
+          "future": true,
+          "now": true,
+          "title": "BWRX-300 Advance Safety Evaluation Report",
+          "detail": "Whether the NRC issues the ASER for the BWRX-300 construction-permit review."
+        },
+        {
+          "date": "2026-11-30",
+          "when": "+187d",
+          "kind": "filing",
+          "future": true,
+          "title": "BWRX-300 Final Safety Evaluation Report",
+          "detail": "Whether the NRC issues the FSER for TVA's BWRX-300."
+        },
+        {
+          "date": "2027-12-31",
+          "when": "+583d",
+          "kind": "deadline",
+          "future": true,
+          "title": "BWRX-300 construction permit",
+          "detail": "Whether the NRC issues the construction permit for TVA's BWRX-300 SMR."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-the-nrc-issue-an-advance-safety-evaluation-report-aser-for-the-bwrx-300-con",
+          "title": "Will the NRC issue an Advance SER for the BWRX-300 construction review?",
+          "yes": 0.42,
+          "change": 0.0,
+          "expiry": "Oct 2026",
+          "notional": 260000
+        },
+        {
+          "ticker": "will-the-nrc-issue-a-final-safety-evaluation-report-fser-for-tva-s-bwrx-300-smal",
+          "title": "Will the NRC issue a Final SER for TVA's BWRX-300 SMR?",
+          "yes": 0.38,
+          "change": 0.0,
+          "expiry": "Nov 2026",
+          "notional": 240000
+        },
+        {
+          "ticker": "will-the-nrc-issue-a-construction-permit-for-tva-s-bwrx-300-small-modular-reacto",
+          "title": "Will the NRC issue a construction permit for TVA's BWRX-300 SMR?",
+          "yes": 0.28,
+          "change": 0.0,
+          "expiry": "Dec 2027",
+          "notional": 340000
+        }
+      ],
+      "category": "operational",
+      "title": "NRC licensing slips construction permit",
+      "citation": "10 CFR Part 50 \u00b7 Clinch River CPA",
+      "impact_irr": -2.8,
+      "impact_usd": 84000000.0,
+      "probability": 0.72,
+      "attention": 89,
+      "archetype_id": "nuclear-smr",
+      "archetype_name": "Nuclear / SMR",
+      "id": "ns1"
+    },
+    "ns2": {
+      "subtitle": "The \u00a745U production credit is the economic spine of the SMR thesis; FEOC gating or a narrower-than-expected rule resets the model.",
+      "tracked_since": "Jan 20, 2026",
+      "last_updated": "6 hr ago",
+      "attention_delta": 9,
+      "probability_delta": 0.03,
+      "hedge_cost": 6000,
+      "view": "OBBBA's \u00a745U nuclear production tax credit is what makes a FOAK SMR pencil at all \u2014 the market prices the credit surviving as enacted at 0.68. The downside is in the fine print: Treasury is expected to issue \u00a745U regulations requiring nuclear FEOC compliance (0.20), and a final FEOC rule that explicitly prohibits prohibited-entity fuel or components (0.15) would gate eligibility for projects whose supply chain isn't fully de-risked. For a developer modeling the credit at face value, a FEOC haircut is a direct revenue-side hit to the levelized economics. We model 0.32 the credit is narrowed or FEOC-gated in a way that bites. Hedge the FEOC rulemaking pair against the credit-survival contract.",
+      "weekly": [
+        64,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74
+      ],
+      "events": [
+        {
+          "date": "2026-12-31",
+          "when": "+218d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "\u00a745U FEOC rulemaking",
+          "detail": "Whether Treasury issues \u00a745U regulations requiring nuclear FEOC compliance."
+        },
+        {
+          "date": "2027-12-31",
+          "when": "+583d",
+          "kind": "deadline",
+          "future": true,
+          "title": "\u00a745U credit survival",
+          "detail": "Whether the \u00a745U nuclear PTC remains in force as enacted under OBBBA."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-the-section-45u-nuclear-production-tax-credit-irc-45u-as-enacted-under-the-",
+          "title": "Will the \u00a745U nuclear PTC remain in force as enacted under OBBBA?",
+          "yes": 0.68,
+          "change": 0.0,
+          "expiry": "Dec 2027",
+          "notional": 300000
+        },
+        {
+          "ticker": "will-treasury-issue-proposed-or-final-regulations-under-obbba-45u-requiring-nucl",
+          "title": "Will Treasury issue \u00a745U regulations requiring nuclear FEOC compliance?",
+          "yes": 0.2,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 180000
+        },
+        {
+          "ticker": "will-treasury-s-final-feoc-regulations-under-obbba-section-45u-explicitly-prohib",
+          "title": "Will Treasury's final \u00a745U FEOC rule explicitly prohibit prohibited-entity supply?",
+          "yes": 0.15,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 140000
+        }
+      ],
+      "category": "policy",
+      "title": "\u00a745U nuclear PTC narrowed / FEOC-gated",
+      "citation": "OBBBA \u00a745U \u00b7 Treasury FEOC",
+      "impact_irr": -2.2,
+      "impact_usd": 66000000.0,
+      "probability": 0.32,
+      "attention": 74,
+      "archetype_id": "nuclear-smr",
+      "archetype_name": "Nuclear / SMR",
+      "id": "ns2"
+    },
+    "ns3": {
+      "subtitle": "SMR fuel supply runs through a thin, partly-sanctioned enrichment market; a Russian-import disruption or HALEU shortfall raises fuel cost and schedule risk.",
+      "tracked_since": "Feb 3, 2026",
+      "last_updated": "9 hr ago",
+      "attention_delta": 7,
+      "probability_delta": 0.02,
+      "hedge_cost": 4500,
+      "view": "Nuclear fuel security is back as a first-order risk. The Prohibiting Russian Uranium Imports Act bans Russian LEU but leans on DOE waivers to bridge supply \u2014 the market prices a 2026 waiver extension at 0.38, and a 0.18 chance Congress amends the statute. Meanwhile domestic enrichment capacity is only now docketing (Orano's complete enrichment-facility application at 0.55). For an SMR, the HALEU-adjacent supply question compounds the cost picture: tight enrichment plus uncertain waivers means fuel-cost and delivery-timing risk that a developer can't fully contract away yet. We model 0.45 of a meaningful fuel-supply squeeze over the horizon. Hedge the waiver, the statutory-amendment, and the domestic-capacity contracts together \u2014 they bracket the supply path.",
+      "weekly": [
+        60,
+        60,
+        61,
+        62,
+        62,
+        63,
+        64,
+        65,
+        65,
+        66,
+        67,
+        68
+      ],
+      "events": [
+        {
+          "date": "2026-12-31",
+          "when": "+218d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "DOE Russian-uranium waiver extension",
+          "detail": "Whether DOE grants or extends a waiver under the Prohibiting Russian Uranium Imports Act for 2026."
+        },
+        {
+          "date": "2026-12-31",
+          "when": "+218d",
+          "kind": "filing",
+          "future": true,
+          "title": "Orano enrichment-facility docketing",
+          "detail": "Whether the NRC formally accepts Orano's complete enrichment-facility application for docketing."
+        },
+        {
+          "date": "2027-12-31",
+          "when": "+583d",
+          "kind": "deadline",
+          "future": true,
+          "title": "Russian-uranium statute amendment",
+          "detail": "Whether Congress passes legislation amending the Prohibiting Russian Uranium Imports Act."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-doe-grant-or-extend-a-waiver-under-the-prohibiting-russian-uranium-imports-",
+          "title": "Will DOE grant or extend a Russian-uranium import waiver for 2026?",
+          "yes": 0.38,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 220000
+        },
+        {
+          "ticker": "will-the-nrc-formally-accept-for-docketing-orano-s-complete-enrichment-facility-",
+          "title": "Will the NRC accept Orano's complete enrichment-facility application for docketing?",
+          "yes": 0.55,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 160000
+        },
+        {
+          "ticker": "will-congress-pass-legislation-amending-the-prohibiting-russian-uranium-imports-",
+          "title": "Will Congress amend the Prohibiting Russian Uranium Imports Act?",
+          "yes": 0.18,
+          "change": 0.0,
+          "expiry": "Dec 2027",
+          "notional": 120000
+        }
+      ],
+      "category": "trade",
+      "title": "Fuel-supply squeeze (Russian-ban / HALEU)",
+      "citation": "Prohibiting Russian Uranium Imports Act",
+      "impact_irr": -1.8,
+      "impact_usd": 54000000.0,
+      "probability": 0.45,
+      "attention": 68,
+      "archetype_id": "nuclear-smr",
+      "archetype_name": "Nuclear / SMR",
+      "id": "ns3"
+    },
+    "ns4": {
+      "subtitle": "The Trump nuclear push depends on the NRC actually modernizing its licensing framework; if Part 53 and the EO 14300 overhaul stall, the schedule tailwind evaporates.",
+      "tracked_since": "Feb 9, 2026",
+      "last_updated": "1 day ago",
+      "attention_delta": 5,
+      "probability_delta": 0.0,
+      "hedge_cost": 3500,
+      "view": "The bull case for SMR deployment assumes the NRC's licensing machinery gets faster \u2014 that's the whole point of EO 14300's mandated wholesale regulatory revision and the risk-informed Part 53 framework. But these are hard rulemakings: the market prices a final Part 53 rule at only 0.42, the EO 14300 wholesale revision producing a final rule at 0.18, and the Part 37 physical-protection modernization at 0.25. If these slip, the implicit schedule acceleration in a developer's model doesn't materialize, and licensing reverts to the slow historical baseline. This is a softer, slower-burning version of n1 \u2014 framework risk rather than a single milestone. Hedge the Part 53 and EO 14300 contracts as the cleanest proxies for the modernization thesis.",
+      "weekly": [
+        56,
+        56,
+        56,
+        57,
+        57,
+        58,
+        58,
+        59,
+        59,
+        60,
+        60,
+        61
+      ],
+      "events": [
+        {
+          "date": "2027-06-30",
+          "when": "+765d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "EO 14300 wholesale regulatory revision",
+          "detail": "Whether the NRC's EO 14300-mandated revision results in a final rule."
+        },
+        {
+          "date": "2027-12-31",
+          "when": "+583d",
+          "kind": "deadline",
+          "future": true,
+          "title": "Part 53 licensing framework",
+          "detail": "Whether the NRC publishes a final Part 53 risk-informed, technology-inclusive licensing rule."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-the-nrc-publish-a-final-part-53-risk-informed-technology-inclusive-licensin",
+          "title": "Will the NRC publish a final Part 53 risk-informed licensing rule?",
+          "yes": 0.42,
+          "change": 0.0,
+          "expiry": "Dec 2027",
+          "notional": 200000
+        },
+        {
+          "ticker": "will-the-nrc-s-eo-14300-mandated-wholesale-regulatory-revision-result-in-a-final",
+          "title": "Will the NRC's EO 14300 wholesale revision produce a final rule?",
+          "yes": 0.18,
+          "change": 0.0,
+          "expiry": "Jun 2027",
+          "notional": 150000
+        },
+        {
+          "ticker": "will-nrc-publish-a-final-rule-modernizing-10-cfr-part-37-physical-protection-req",
+          "title": "Will the NRC finalize 10 CFR Part 37 physical-protection modernization?",
+          "yes": 0.25,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 110000
+        }
+      ],
+      "category": "operational",
+      "title": "NRC framework modernization stalls",
+      "citation": "EO 14300 \u00b7 10 CFR Part 53",
+      "impact_irr": -1.5,
+      "impact_usd": 45000000.0,
+      "probability": 0.58,
+      "attention": 61,
+      "archetype_id": "nuclear-smr",
+      "archetype_name": "Nuclear / SMR",
+      "id": "ns4"
+    },
+    "ns5": {
+      "subtitle": "A FOAK SMR needs a financing close \u2014 typically a DOE loan guarantee \u2014 to reach FID; failure to close strands the project at the development stage.",
+      "tracked_since": "Jan 28, 2026",
+      "last_updated": "7 hr ago",
+      "attention_delta": 8,
+      "probability_delta": 0.02,
+      "hedge_cost": 5500,
+      "view": "First-of-a-kind nuclear is uninvestable on a pure-merchant basis \u2014 the capital stack leans on federal credit support, and the DOE loan-guarantee close is the financing gate to FID. The cleanest live proxy is the DOE conditionally closing its loan guarantee to SHINE Medical (0.35), a comparable advanced-nuclear DOE-finance test case. A 0.35 conditional-close probability implies roughly 0.65 that the broader FOAK-financing path stays uncertain over the horizon, which is why we tag this high. Without the loan support, the project's WACC and equity check both balloon. Hedge the DOE conditional-close contract as the financing-readiness signal.",
+      "weekly": [
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71
+      ],
+      "events": [
+        {
+          "date": "2026-09-30",
+          "when": "+126d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "DOE loan-guarantee conditional close",
+          "detail": "Whether DOE conditionally closes its loan guarantee to SHINE Medical Technologies (advanced-nuclear finance proxy)."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-the-doe-conditionally-close-on-its-loan-guarantee-to-shine-medical-technolo",
+          "title": "Will DOE conditionally close its loan guarantee to SHINE Medical (advanced-nuclear finance proxy)?",
+          "yes": 0.35,
+          "change": 0.0,
+          "expiry": "Sep 2026",
+          "notional": 300000
+        }
+      ],
+      "category": "market",
+      "title": "DOE loan / financing close fails",
+      "citation": "DOE LPO Title 17 \u00b7 FOAK finance",
+      "impact_irr": -2.4,
+      "impact_usd": 72000000.0,
+      "probability": 0.65,
+      "attention": 71,
+      "archetype_id": "nuclear-smr",
+      "archetype_name": "Nuclear / SMR",
+      "id": "ns5"
+    },
+    "ns6": {
+      "subtitle": "An injunction or stay of NRC proceedings would freeze the licensing critical path regardless of the merits \u2014 a low-probability, high-impact tail.",
+      "tracked_since": "Feb 18, 2026",
+      "last_updated": "2 days ago",
+      "attention_delta": 1,
+      "probability_delta": 0.0,
+      "hedge_cost": 2500,
+      "view": "Nuclear licensing has always attracted litigation, and a court order is the one event that can halt the critical path outright. The market prices a federal preliminary injunction or stay of NRC proceedings at just 0.04, and a DC Circuit ruling for petitioners in the Beyond Nuclear / Sierra Club line at 0.08 \u2014 genuine tails. But the impact if either lands is severe: a stay freezes the whole schedule and the carrying cost continues to accrue. We model 0.10 combined. This is cheap protection against a low-frequency, high-severity legal shock; size it small. Hedge the injunction and the DC Circuit contracts together.",
+      "weekly": [
+        40,
+        40,
+        40,
+        40,
+        40,
+        40,
+        41,
+        41,
+        41,
+        41,
+        41,
+        42
+      ],
+      "events": [
+        {
+          "date": "2026-12-31",
+          "when": "+218d",
+          "kind": "hearing",
+          "future": true,
+          "now": true,
+          "title": "NRC injunction / stay window",
+          "detail": "Whether a federal court issues a preliminary injunction or stay of NRC proceedings."
+        },
+        {
+          "date": "2026-12-31",
+          "when": "+218d",
+          "kind": "hearing",
+          "future": true,
+          "title": "DC Circuit Beyond Nuclear ruling",
+          "detail": "Whether the DC Circuit rules for petitioners in the Beyond Nuclear / Sierra Club challenge."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-a-federal-court-issue-a-preliminary-injunction-or-stay-of-nrc-proceedings-f",
+          "title": "Will a federal court issue a preliminary injunction or stay of NRC proceedings?",
+          "yes": 0.04,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 120000
+        },
+        {
+          "ticker": "will-the-u-s-court-of-appeals-for-the-dc-circuit-rule-in-beyond-nuclear-and-sier",
+          "title": "Will the DC Circuit rule for petitioners in the Beyond Nuclear / Sierra Club challenge?",
+          "yes": 0.08,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 100000
+        }
+      ],
+      "category": "policy",
+      "title": "Litigation stays NRC proceedings",
+      "citation": "Beyond Nuclear v. NRC \u00b7 DC Cir.",
+      "impact_irr": -2.0,
+      "impact_usd": 60000000.0,
+      "probability": 0.1,
+      "attention": 42,
+      "archetype_id": "nuclear-smr",
+      "archetype_name": "Nuclear / SMR",
+      "id": "ns6"
+    },
+    "ns7": {
+      "subtitle": "NRC and DOE both depend on appropriations; a federal shutdown stalls reviews, dockets, and loan processing across the board.",
+      "tracked_since": "Mar 4, 2026",
+      "last_updated": "1 day ago",
+      "attention_delta": 3,
+      "probability_delta": 0.0,
+      "hedge_cost": 3000,
+      "view": "The NRC's licensing reviews and DOE's loan processing are appropriations-dependent, so a federal government shutdown is a generic-but-real delay vector for a pre-construction SMR. The market prices a shutdown delaying construction permits and infrastructure approvals at 0.35. Unlike n1, this isn't project-specific \u2014 it hits every milestone in flight simultaneously \u2014 but for an asset whose entire value is on the regulatory critical path, even a multi-week freeze has measurable carrying-cost drag. Hedge the shutdown-delay contract as a portfolio-level timing overlay.",
+      "weekly": [
+        52,
+        52,
+        52,
+        52,
+        53,
+        53,
+        53,
+        53,
+        54,
+        54,
+        54,
+        55
+      ],
+      "events": [
+        {
+          "date": "2026-12-31",
+          "when": "+218d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "Shutdown-delay measurement window",
+          "detail": "Whether a federal government shutdown delays construction permits and infrastructure approvals."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-a-federal-government-shutdown-delay-construction-permits-and-infrastructure",
+          "title": "Will a federal government shutdown delay construction permits and infrastructure approvals?",
+          "yes": 0.35,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 180000
+        }
+      ],
+      "category": "policy",
+      "title": "Federal shutdown delays permitting",
+      "citation": "Appropriations lapse \u00b7 NRC/DOE",
+      "impact_irr": -1.2,
+      "impact_usd": 36000000.0,
+      "probability": 0.35,
+      "attention": 55,
+      "archetype_id": "nuclear-smr",
+      "archetype_name": "Nuclear / SMR",
+      "id": "ns7"
+    }
+  },
+  "sources": {}
+}
