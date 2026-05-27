@@ -28,6 +28,9 @@ interface Preview {
   archetype_name: string
   target: string | null
   context: string | null
+  action_summary: string
+  destination: string
+  apply_note: string
   reasoning: string
   changes: DiffChange[]
   message?: string
@@ -166,11 +169,12 @@ export function OpenProposals({ initial }: { initial: any[] }) {
               <>
                 <div className="diff-head">
                   <span className="diff-op">{prettyOp(preview.op)}</span>
-                  <h3 className="diff-title">{preview.context ?? preview.archetype_name}</h3>
-                  <div className="diff-sub">
-                    {preview.archetype_name}
-                    {preview.target ? ` · ${preview.target}` : ''}
-                  </div>
+                  <p className="diff-summary">{preview.action_summary}</p>
+                </div>
+
+                <div className="diff-dest">
+                  <span className="diff-dest-label">Where this lands</span>
+                  <span className="diff-dest-path">{preview.destination}</span>
                 </div>
 
                 <div className="diff-changes">
@@ -178,14 +182,22 @@ export function OpenProposals({ initial }: { initial: any[] }) {
                     <div className="diff-block" key={i}>
                       <div className="diff-label">{c.label}</div>
                       {c.before != null && (
-                        <div className={`diff-line diff-before ${c.kind === 'text' ? 'is-text' : ''}`}>
-                          {c.before}
-                        </div>
+                        <>
+                          <div className="diff-side-label">{c.kind === 'remove' ? 'Removing' : 'Now'}</div>
+                          <div className={`diff-line diff-before ${c.kind === 'text' ? 'is-text' : ''}`}>
+                            {c.before}
+                          </div>
+                        </>
                       )}
                       {c.after != null && (
-                        <div className={`diff-line diff-after ${c.kind === 'text' ? 'is-text' : ''}`}>
-                          {c.after}
-                        </div>
+                        <>
+                          <div className="diff-side-label diff-side-label-add">
+                            {c.before != null ? 'Will become' : 'Adding'}
+                          </div>
+                          <div className={`diff-line diff-after ${c.kind === 'text' ? 'is-text' : ''}`}>
+                            {c.after}
+                          </div>
+                        </>
                       )}
                     </div>
                   ))}
@@ -193,10 +205,12 @@ export function OpenProposals({ initial }: { initial: any[] }) {
 
                 {preview.reasoning && (
                   <div className="diff-reasoning">
-                    <div className="diff-label">Why</div>
+                    <div className="diff-label">Why the system proposed this</div>
                     <p>{preview.reasoning}</p>
                   </div>
                 )}
+
+                <div className="diff-apply-note">{preview.apply_note}</div>
 
                 <div className="diff-actions">
                   <button className="btn" disabled={pending} onClick={() => applyProposal(openId)}>

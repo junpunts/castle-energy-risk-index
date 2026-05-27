@@ -33,6 +33,12 @@ export interface ProposalPreview {
   target: string | null
   /** A short title for the risk/section being touched, if any. */
   context: string | null
+  /** One plain-English sentence: what this proposal does. */
+  action_summary: string
+  /** Human-readable breadcrumb of where the change lands. */
+  destination: string
+  /** Plain-English description of what approving does. */
+  apply_note: string
   reasoning: string
   changes: DiffChange[]
 }
@@ -46,7 +52,7 @@ const FIELD_LABELS: Record<string, string> = {
   probability: 'Probability',
   impact_irr: 'IRR impact (pp)',
   impact_usd: 'Capital at risk ($)',
-  attention: 'Attention',
+  attention: 'Attention score',
   likelihood: 'Likelihood',
   category: 'Category',
   title: 'Title',
@@ -55,6 +61,15 @@ const FIELD_LABELS: Record<string, string> = {
   view: "Castle's view",
   tracked_since: 'Tracked since',
   hedge_cost: 'Hedge cost ($)',
+}
+
+/** Format a field value for human display (e.g. probability 0.72 -> "72%"). */
+function fmtFieldValue(field: string, v: any): string {
+  if (v === null || v === undefined) return '—'
+  if (field === 'probability') return `${Math.round(Number(v) * 100)}%`
+  if (field === 'impact_irr') return `${v} pp`
+  if (field === 'impact_usd' || field === 'hedge_cost') return `$${Number(v).toLocaleString()}`
+  return String(v)
 }
 
 export async function previewProposal(
@@ -85,9 +100,13 @@ export async function previewProposal(
     return { ok: false, code: 'invalid_payload', message: `state invalid: ${e?.message ?? e}` }
   }
 
+  const archName = bundle.archetype?.name ?? prop.archetype_id
   const payload = prop.payload_json ?? {}
   let changes: DiffChange[] = []
   let context: string | null = null
+  let action_summary = ''
+  let destination = archName
+  let apply_note = 'Approving applies this change to the live dashboard immediately.'
 
   try {
     switch (prop.op) {
@@ -96,16 +115,25 @@ export async function previewProposal(
         const field = payload.field
         const risk = bundle.risks.find((r) => r.id === riskId)
         const detail = bundle.risk_details?.[riskId]
-        context = risk?.title ?? riskId ?? null
-        const before =
-          (risk as any)?.[field] ??
-          (detail as any)?.[field] ??
-          null
+        const riskTitle = risk?.title ?? riskId
+        context = riskTitle
+        const fieldLabel = FIELD_LABELS[field] ?? field
+        const rawBefore = (risk as any)?.[field] ?? (detail as any)?.[field] ?? null
+        const isText = ['view', 'subtitle', 'title', 'citation'].includes(field)
+        const beforeStr = isText
+          ? (rawBefore == null ? null : String(rawBefore))
+          : (rawBefore == null ? null : fmtFieldValue(field, rawBefore))
+        const afterStr = isText
+          ? (payload.new_value == null ? null : String(payload.new_value))
+          : (payload.new_value == null ? null : fmtFieldValue(field, payload.new_value))
+
+        action_summary = `Change the ${fieldLabel} of the risk “${riskTitle}” from ${beforeStr ?? '—'} to ${afterStr ?? '—'}.`
+        destination = `${archName}  ›  Risk “${riskTitle}” (${riskId})`
         changes.push({
-          label: FIELD_LABELS[field] ?? field,
-          kind: field === 'view' || field === 'subtitle' || field === 'title' || field === 'citation' ? 'text' : 'value',
-          before: before === null || before === undefined ? null : String(before),
-          after: payload.new_value === undefined ? null : String(payload.new_value),
+          label: fieldLabel,
+          kind: isText ? 'text' : 'value',
+          before: beforeStr,
+          after: afterStr,
         })
         break
       }
@@ -114,12 +142,18 @@ export async function previewProposal(
         const item = payload.news_item ?? {}
         if (scope.kind === 'risk') {
           const r = bundle.risks.find((x) => x.id === scope.risk_id)
-          context = r?.title ?? scope.risk_id ?? null
+          const riskTitle = r?.title ?? scope.risk_id
+          context = riskTitle
+          destination = `${archName}  ›  Risk “${riskTitle}” (${scope.risk_id})  ›  News feed`
+          action_summary = `Add a news item to the “${riskTitle}” risk’s news feed.`
         } else {
-          context = 'Archetype headline feed'
+          context = `${archName} — headline feed`
+          destination = `${archName}  ›  Top-level news feed`
+          action_summary = `Add a news item to ${archName}’s main headline feed.`
         }
+        apply_note = 'Approving pins this headline to the feed shown on the public dashboard. It does not change any risk numbers.'
         changes.push({
-          label: `Pin news · ${item.source ?? '—'}`,
+          label: `New headline · ${item.source ?? 'source'}${item.ago ? ' · ' + item.ago : ''}`,
           kind: 'add',
           before: null,
           after: [item.title, item.sum].filter(Boolean).join('\n\n'),
@@ -130,22 +164,31 @@ export async function previewProposal(
         const riskId = payload.risk_id
         const r = bundle.risks.find((x) => x.id === riskId)
         const detail = bundle.risk_details?.[riskId]
-        context = r?.title ?? riskId ?? null
+        const riskTitle = r?.title ?? riskId
+        context = riskTitle
+        destination = `${archName}  ›  Risk “${riskTitle}” (${riskId})  ›  Hedges`
         const existing = detail?.hedges?.find((h) => h.ticker === payload.ticker)
         const fmt = (h: any) =>
-          h ? `${h.title}\nYES ${Math.round((h.yes ?? 0) * 100)}¢ · ${h.expiry ?? '—'} · $${(h.notional ?? 0).toLocaleString()}` : null
+          h ? `${h.title}\nYES ${Math.round((h.yes ?? 0) * 100)}¢ · expires ${h.expiry ?? '—'} · sized $${(h.notional ?? 0).toLocaleString()}` : null
         if (payload.op === 'remove') {
-          changes.push({ label: `Hedge · ${payload.ticker}`, kind: 'remove', before: fmt(existing), after: null })
+          action_summary = `Remove a hedge contract from the “${riskTitle}” risk.`
+          changes.push({ label: 'Hedge being removed', kind: 'remove', before: fmt(existing), after: null })
         } else if (payload.op === 'add') {
-          changes.push({ label: `Hedge · ${payload.ticker}`, kind: 'add', before: null, after: fmt(payload.hedge) })
+          action_summary = `Add a new hedge contract to the “${riskTitle}” risk.`
+          changes.push({ label: 'Hedge being added', kind: 'add', before: null, after: fmt(payload.hedge) })
         } else {
-          changes.push({ label: `Hedge · ${payload.ticker}`, kind: 'value', before: fmt(existing), after: fmt(payload.hedge) })
+          action_summary = `Update a hedge contract on the “${riskTitle}” risk.`
+          changes.push({ label: 'Hedge', kind: 'value', before: fmt(existing), after: fmt(payload.hedge) })
         }
         break
       }
       case 'add_risk': {
         const rk = payload.risk ?? {}
-        context = rk.title ?? '(new risk)'
+        const riskTitle = rk.title ?? '(new risk)'
+        context = riskTitle
+        destination = `${archName}  ›  Tracked risks`
+        action_summary = `Add a brand-new risk, “${riskTitle}”, to ${archName}.`
+        apply_note = 'Approving adds this risk to the archetype and recomputes the composite score.'
         changes.push({
           label: 'New risk',
           kind: 'add',
@@ -153,8 +196,8 @@ export async function previewProposal(
           after: [
             rk.title,
             rk.category ? `Category: ${rk.category}` : null,
-            rk.probability != null ? `Probability: ${rk.probability}` : null,
-            rk.impact_irr != null ? `IRR impact: ${rk.impact_irr}pp` : null,
+            rk.probability != null ? `Probability: ${Math.round(rk.probability * 100)}%` : null,
+            rk.impact_irr != null ? `IRR impact: ${rk.impact_irr} pp` : null,
             payload.risk_detail?.view ? `\n${payload.risk_detail.view}` : null,
           ].filter(Boolean).join('\n'),
         })
@@ -164,9 +207,13 @@ export async function previewProposal(
         const riskId = payload.risk_id
         const r = bundle.risks.find((x) => x.id === riskId)
         const detail = bundle.risk_details?.[riskId]
-        context = r?.title ?? riskId ?? null
+        const riskTitle = r?.title ?? riskId
+        context = riskTitle
+        destination = `${archName}  ›  Tracked risks`
+        action_summary = `Remove the risk “${riskTitle}” from ${archName}.`
+        apply_note = 'Approving retires this risk from the archetype and recomputes the composite score.'
         changes.push({
-          label: `Remove risk · ${riskId}`,
+          label: 'Risk being removed',
           kind: 'remove',
           before: [r?.title, detail?.subtitle].filter(Boolean).join('\n'),
           after: null,
@@ -174,6 +221,7 @@ export async function previewProposal(
         break
       }
       default:
+        action_summary = `Apply a ${prop.op} change.`
         changes.push({ label: prop.op, kind: 'value', before: null, after: JSON.stringify(payload, null, 2) })
     }
   } catch (e: any) {
@@ -185,9 +233,12 @@ export async function previewProposal(
     id: prop.id,
     op: prop.op,
     archetype_id: prop.archetype_id,
-    archetype_name: bundle.archetype?.name ?? prop.archetype_id,
+    archetype_name: archName,
     target: prop.target ?? null,
     context,
+    action_summary,
+    destination,
+    apply_note,
     reasoning: prop.reasoning ?? '',
     changes,
   }
