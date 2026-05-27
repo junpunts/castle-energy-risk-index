@@ -159,66 +159,69 @@ export function OpenProposals({ initial }: { initial: any[] }) {
               ×
             </button>
 
-            {loadingPreview && <div className="diff-loading">Computing diff…</div>}
+            {loadingPreview && <div className="diff-loading" style={{ padding: '40px 44px' }}>Computing diff…</div>}
 
             {preview && !preview.ok && (
-              <div className="diff-error">Could not preview: {preview.message ?? 'unknown error'}</div>
+              <div className="diff-error" style={{ padding: '40px 44px' }}>Could not preview: {preview.message ?? 'unknown error'}</div>
             )}
 
             {preview && preview.ok && (
               <>
-                <div className="diff-head">
-                  <span className="diff-op">{prettyOp(preview.op)}</span>
-                  <p className="diff-summary">{preview.action_summary}</p>
-                </div>
-
-                <div className="diff-dest">
-                  <span className="diff-dest-label">Where this lands</span>
-                  <span className="diff-dest-path">{preview.destination}</span>
-                </div>
-
-                <div className="diff-changes">
-                  {preview.changes.map((c, i) => (
-                    <div className="diff-block" key={i}>
-                      <div className="diff-label">{c.label}</div>
-                      {c.before != null && (
-                        <>
-                          <div className="diff-side-label">{c.kind === 'remove' ? 'Removing' : 'Now'}</div>
-                          <div className={`diff-line diff-before ${c.kind === 'text' ? 'is-text' : ''}`}>
-                            {c.before}
-                          </div>
-                        </>
-                      )}
-                      {c.after != null && (
-                        <>
-                          <div className="diff-side-label diff-side-label-add">
-                            {c.before != null ? 'Will become' : 'Adding'}
-                          </div>
-                          <div className={`diff-line diff-after ${c.kind === 'text' ? 'is-text' : ''}`}>
-                            {c.after}
-                          </div>
-                        </>
-                      )}
-                    </div>
-                  ))}
-                </div>
-
-                {preview.reasoning && (
-                  <div className="diff-reasoning">
-                    <div className="diff-label">Why the system proposed this</div>
-                    <p>{preview.reasoning}</p>
+                <div className="diff-scroll">
+                  <div className="diff-head">
+                    <span className="diff-op">{prettyOp(preview.op)}</span>
+                    <p className="diff-summary">{preview.action_summary}</p>
                   </div>
-                )}
 
-                <div className="diff-apply-note">{preview.apply_note}</div>
+                  <div className="diff-dest">
+                    <span className="diff-dest-label">Where this lands</span>
+                    <span className="diff-dest-path">{preview.destination}</span>
+                  </div>
 
-                <div className="diff-actions">
-                  <button className="btn" disabled={pending} onClick={() => applyProposal(openId)}>
-                    Approve &amp; apply
-                  </button>
-                  <button className="btn is-ghost" disabled={pending} onClick={() => rejectProposal(openId)}>
-                    Reject
-                  </button>
+                  <div className="diff-changes">
+                    {preview.changes.map((c, i) => (
+                      <div className="diff-block" key={i}>
+                        <div className="diff-label">{c.label}</div>
+                        {c.before != null && (
+                          <>
+                            <div className="diff-side-label">{c.kind === 'remove' ? 'Removing' : 'Now'}</div>
+                            <div className={`diff-line diff-before ${c.kind === 'text' ? 'is-text' : ''}`}>
+                              {c.before}
+                            </div>
+                          </>
+                        )}
+                        {c.after != null && (
+                          <>
+                            <div className="diff-side-label diff-side-label-add">
+                              {c.before != null ? 'Will become' : 'Adding'}
+                            </div>
+                            <div className={`diff-line diff-after ${c.kind === 'text' ? 'is-text' : ''}`}>
+                              {c.after}
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+
+                  {preview.reasoning && (
+                    <div className="diff-reasoning">
+                      <div className="diff-label">Why the system proposed this</div>
+                      <p>{preview.reasoning}</p>
+                    </div>
+                  )}
+                </div>
+
+                <div className="diff-footer">
+                  <div className="diff-apply-note">{preview.apply_note}</div>
+                  <div className="diff-actions">
+                    <button className="btn" disabled={pending} onClick={() => applyProposal(openId)}>
+                      Approve &amp; apply
+                    </button>
+                    <button className="btn is-ghost" disabled={pending} onClick={() => rejectProposal(openId)}>
+                      Reject
+                    </button>
+                  </div>
                 </div>
               </>
             )}

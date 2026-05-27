@@ -245,9 +245,18 @@
 }
 .diff-modal {
   position: relative; width: 100%; max-width: 680px;
+  max-height: 88vh; display: flex; flex-direction: column;
   background: var(--paper, #f5f2ea); border: 1px solid rgba(24,24,24,0.16);
   box-shadow: 0 24px 64px rgba(0,0,0,0.28);
-  padding: 40px 44px 36px;
+  padding: 0;
+}
+.diff-scroll {
+  overflow-y: auto; padding: 40px 44px 24px;
+}
+.diff-footer {
+  border-top: 1px solid rgba(24,24,24,0.14);
+  background: var(--paper, #f5f2ea);
+  padding: 18px 44px 20px;
 }
 .diff-close {
   position: absolute; top: 16px; right: 18px;
@@ -337,5 +346,5 @@
 .diff-apply-note {
   font-family: var(--font-body); font-size: 13px; line-height: 1.5;
   color: var(--fg-3); font-style: italic;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
