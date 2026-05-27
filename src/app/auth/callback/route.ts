@@ -6,9 +6,15 @@ import { createServerClient, type CookieOptions } from '@supabase/ssr'
  * We exchange the code for a session, set cookies, and forward to /admin.
  */
 export async function GET(request: NextRequest) {
-  const { searchParams, origin } = new URL(request.url)
+  const { searchParams } = new URL(request.url)
   const code = searchParams.get('code')
   const next = searchParams.get('next') || '/admin'
+
+  // Behind Render's proxy, new URL(request.url).origin resolves to the internal
+  // container address (e.g. https://localhost:10000), NOT the public URL. Use
+  // WEB_URL as the canonical origin for all redirects so the magic-link flow
+  // lands on the real site. Falls back to request origin for local dev.
+  const origin = process.env.WEB_URL ?? new URL(request.url).origin
 
   if (!code) {
     return NextResponse.redirect(`${origin}/admin/login?error=missing_code`)
