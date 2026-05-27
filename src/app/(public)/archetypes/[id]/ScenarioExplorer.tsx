@@ -147,7 +147,7 @@ export default function ScenarioExplorer({ bundle, archetypeId, rail }: Props) {
       {/* ── Risks table + rail ── */}
       <div className="detail-cols">
         <div className="detail-main">
-          <div className="section-label" style={{ marginTop: 64 }}>
+          <div className="section-label">
             <span className="l">All tracked risks</span>
             <span className="r">{ranked.length} risks · ranked by IRR impact</span>
           </div>
