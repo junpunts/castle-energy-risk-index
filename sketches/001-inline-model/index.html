@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Castle — Inline Model</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5f2ea;--fg:#171717;--fg-2:#404040;--fg-3:#737373;
+  --hair:1px solid rgba(24,24,24,0.08);--hair2:1px solid rgba(24,24,24,0.14);
+  --rule:1px solid var(--fg);--accent:#246075;--pos:#00544F;--neg:#8B2A1C;--amber:#9a6a14;
+  --font-display:'Hedvig Letters Serif',Georgia,serif;
+  --font-body:ui-sans-serif,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  --font-mono:ui-monospace,'SF Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--paper);color:var(--fg);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.tabular,.mono{font-variant-numeric:tabular-nums}.mono{font-family:var(--font-mono)}
+a{color:inherit;text-decoration:none}
+.eyebrow{font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--fg-3)}
+.nav{border-bottom:var(--hair)}
+.nav-inner{max-width:1180px;margin:0 auto;padding:18px 40px;display:flex;justify-content:space-between;align-items:center}
+.brand{font-family:var(--font-display);font-size:18px;display:inline-flex;align-items:center;gap:14px}
+.brand .product{font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--fg-2);padding-left:14px;border-left:var(--hair)}
+.crumb{font-family:var(--font-mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--fg-3)}
+.page{max-width:1180px;margin:0 auto;padding:48px 40px 120px}
+
+.hero{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:end;margin-bottom:36px;padding-bottom:36px;border-bottom:var(--rule)}
+.hero h1{font-family:var(--font-display);font-size:50px;line-height:1.02;letter-spacing:-.02em;margin:12px 0 14px}
+.hero .lede{font-size:15px;line-height:1.65;color:var(--fg-2);max-width:560px}
+.hero .read{text-align:right}
+.hero .read .ml{font-family:var(--font-mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--fg-3)}
+.hero .read .mv{font-family:var(--font-display);font-size:64px;line-height:.85;letter-spacing:-.02em;font-variant-numeric:tabular-nums;transition:color .2s}
+.hero .read .mv .u{font-size:22px;color:var(--fg-3)}
+.hero .read.flash .mv{color:var(--accent)}
+.hero .read .sub{font-family:var(--font-mono);font-size:11px;color:var(--fg-3);margin-top:8px}
+
+/* ── Assumption strip: inline, horizontal, part of the content flow ── */
+.strip{display:flex;gap:0;border:var(--hair2);border-radius:4px;background:#fbf9f4;margin-bottom:14px;overflow:hidden}
+.strip .cell{flex:1;padding:14px 18px;border-right:var(--hair)}
+.strip .cell:last-child{border-right:none}
+.strip .cell .lbl{font-family:var(--font-mono);font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-3);display:flex;justify-content:space-between}
+.strip .cell .val{font-family:var(--font-mono);font-size:15px;font-weight:600;margin:5px 0 9px;font-variant-numeric:tabular-nums}
+.strip input[type=range]{width:100%;height:2px;-webkit-appearance:none;appearance:none;background:rgba(24,24,24,.18);cursor:pointer}
+.strip input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:11px;height:11px;border-radius:50%;background:var(--accent)}
+.strip input[type=range]::-moz-range-thumb{width:11px;height:11px;border:none;border-radius:50%;background:var(--accent)}
+.strip-foot{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px;font-size:12px;color:var(--fg-3)}
+.reset{font-family:var(--font-mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);background:none;border:none;cursor:pointer}
+.reset:hover{text-decoration:underline}
+
+/* ── Summary band: target → stressed, no separate chart ── */
+.band{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:24px;align-items:center;padding:26px 32px;background:#171717;color:#f5f2ea;border-radius:4px;margin-bottom:48px}
+.band .seg .l{font-family:var(--font-mono);font-size:9px;letter-spacing:.24em;text-transform:uppercase;opacity:.55}
+.band .seg .v{font-family:var(--font-display);font-size:40px;line-height:1;letter-spacing:-.02em;margin-top:6px;font-variant-numeric:tabular-nums}
+.band .arrow{font-family:var(--font-mono);font-size:22px;opacity:.4}
+.band .seg.stress .v{color:#e8a87c}
+.band .seg.drag .v{color:#7fb3c4;font-size:30px}
+
+/* ── The risk ledger IS the visualization: inline drag bars ── */
+.section-label{display:grid;grid-template-columns:1fr auto;align-items:baseline;padding-bottom:14px;border-bottom:var(--rule);margin-bottom:4px}
+.section-label .l{font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.32em;text-transform:uppercase}
+.section-label .r{font-family:var(--font-mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--fg-3)}
+.led{display:grid;grid-template-columns:28px 1fr 280px 70px 50px;gap:22px;align-items:center;padding:16px 10px;margin:0 -10px;border-bottom:var(--hair);transition:background .12s}
+.led:hover{background:rgba(36,96,117,.06)}
+.led .rk{font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--fg-3)}
+.led .nm{font-family:var(--font-display);font-size:19px;line-height:1.2}
+.led .cit{font-family:var(--font-mono);font-size:9px;color:var(--fg-3);margin-top:4px;letter-spacing:.02em;opacity:.75}
+.led .drv{margin-left:8px;padding:1px 5px;border-radius:2px;background:rgba(36,96,117,.1);color:var(--accent);letter-spacing:.14em;text-transform:uppercase}
+.led .drv.ts{background:rgba(154,106,20,.13);color:var(--amber)}
+/* inline drag bar — the per-risk "mini waterfall" */
+.dragbar{position:relative;height:26px;background:linear-gradient(90deg,rgba(24,24,24,.04),rgba(24,24,24,.04));border-radius:2px}
+.dragbar i{position:absolute;right:0;top:0;height:100%;background:var(--accent);opacity:.85;border-radius:2px;transition:width .25s}
+.dragbar .pp{position:absolute;left:8px;top:50%;transform:translateY(-50%);font-family:var(--font-mono);font-size:10px;color:var(--fg-3);letter-spacing:.08em}
+.led .num{font-family:var(--font-mono);font-size:15px;font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.led .pb{font-family:var(--font-mono);font-size:12px;text-align:right;color:var(--fg-3)}
+.foot-note{font-size:12px;color:var(--fg-3);margin-top:18px;max-width:680px;line-height:1.6}
+.foot-note .drv{padding:1px 5px;border-radius:2px;background:rgba(154,106,20,.13);color:var(--amber);font-family:var(--font-mono);font-size:10px}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner">
+  <span class="brand">Castle<span class="product">Risk Index</span></span>
+  <span class="crumb">Archetypes / Utility-Scale Solar</span>
+</div></nav>
+<div class="page">
+  <div class="hero">
+    <div>
+      <span class="eyebrow">Single-axis tracker · PPA / Merchant</span>
+      <h1>Utility-Scale Solar.</h1>
+      <p class="lede">Ground-mount PV at 100MW+. The largest source of new U.S. capacity — and the most exposed to trade policy: panel tariffs, AD/CVD orders, UFLPA detentions, and the 45Y/48E phase-out.</p>
+    </div>
+    <div class="read" id="read"><div class="ml">Composite</div><div class="mv tabular"><span id="o-comp">76</span><span class="u">/100</span></div><div class="sub" id="o-sub">Castle reference</div></div>
+  </div>
+
+  <div class="strip" id="strip">
+    <div class="cell"><div class="lbl"><span>Capacity</span></div><div class="val" id="v-cap">200 MWdc</div><input type="range" id="s-cap" min="50" max="600" step="10" value="200"></div>
+    <div class="cell"><div class="lbl"><span>Capex</span></div><div class="val" id="v-capex">$220M</div><input type="range" id="s-capex" min="55" max="660" step="5" value="220"></div>
+    <div class="cell"><div class="lbl"><span>Target IRR</span></div><div class="val" id="v-irr">9.0%</div><input type="range" id="s-irr" min="4" max="20" step="0.5" value="9"></div>
+    <div class="cell"><div class="lbl"><span>COD</span></div><div class="val" id="v-cod">30 mo</div><input type="range" id="s-cod" min="15" max="60" step="1" value="30"></div>
+    <div class="cell"><div class="lbl"><span>PPA</span></div><div class="val" id="v-ppa">$35</div><input type="range" id="s-ppa" min="14" max="88" step="1" value="35"></div>
+  </div>
+  <div class="strip-foot"><span id="dirty-note">Castle reference project — drag any input to model your deal.</span><button class="reset" id="reset">↺ Reset to typical</button></div>
+
+  <div class="band">
+    <div class="seg"><div class="l">Target equity IRR</div><div class="v" id="b-base">9.0%</div></div>
+    <div class="arrow">→</div>
+    <div class="seg drag"><div class="l">Probability-weighted risk drag</div><div class="v" id="b-drag">−9.4</div></div>
+    <div class="arrow">→</div>
+    <div class="seg stress"><div class="l">Stressed IRR</div><div class="v" id="b-stress">−0.4%</div></div>
+  </div>
+
+  <div class="section-label"><span class="l">All tracked risks</span><span class="r" id="rcount">7 risks · ranked by IRR impact</span></div>
+  <div id="rows"></div>
+  <p class="foot-note" id="ts-note" style="display:none">Risks marked <span class="drv">two-sided</span> can move in your favour as well as against you (a gas generator gains from a price spike). Shown here as downside exposure only.</p>
+</div>
+
+<script>
+const REF={capacity:200,capex:220e6,irr:0.09,cod:30,ppa:35};
+const RISKS=[
+ {id:'us1',cat:'trade',nm:'AD/CVD Solar IV orders on SE-Asia cells',cit:'USITC Inv. 701-TA-699',drv:'cost',irr:-2.9,usd:48e6,p:0.82},
+ {id:'us2',cat:'trade',nm:'Chinese panel tariffs exceed 60% combined',cit:'Sec. 301 · AD/CVD stacking',drv:'cost',irr:-2.1,usd:34e6,p:0.50},
+ {id:'us3',cat:'policy',nm:'48E/45Y FEOC guidance delay',cit:'IRA §48E/§45Y · OBBB',drv:'cost',irr:-2.6,usd:42e6,p:0.51},
+ {id:'us4',cat:'trade',nm:'UFLPA / forced-labor detentions widen',cit:'UFLPA 2021 · CBP WRO',drv:'cost',irr:-1.8,usd:29e6,p:0.97},
+ {id:'us5',cat:'operational',nm:'Interconnection queue >2yr in PJM',cit:'FERC Order 2023',drv:'delay',irr:-1.5,usd:24e6,p:0.62},
+ {id:'us6',cat:'market',nm:'ERCOT curtailment up >25% by 2027',cit:'ERCOT ITS',drv:'revenue',irr:-1.2,usd:19e6,p:1.0},
+ {id:'us7',cat:'trade',nm:'LONGi named Prohibited Foreign Entity',cit:'§48E FEOC',drv:'cost',irr:-1.6,usd:26e6,p:0.50},
+];
+const DRVLABEL={cost:'capex-scaled',delay:'schedule-scaled',revenue:'revenue-scaled'};
+const lerp=(r,s)=>1+(r-1)*s;
+function project(r,inp){
+  const rCx=inp.capex/REF.capex,rIrr=inp.irr/REF.irr,rCod=inp.cod/REF.cod,rRev=(inp.capacity*inp.ppa)/(REF.capacity*REF.ppa);
+  let irr=r.irr,usd=r.usd;
+  if(r.drv==='cost'){usd=r.usd*rCx;irr=r.irr*lerp(rIrr,0.4);}
+  else if(r.drv==='delay'){irr=r.irr*rIrr*rCod;usd=r.usd*rCx*rCod;}
+  else{usd=r.usd*rRev;irr=r.irr*lerp(rRev,0.6);}
+  return{irr:Math.min(0,irr),usd:Math.max(0,usd)};
+}
+let state={...REF};const $=id=>document.getElementById(id);
+function compute(){
+  const rows=RISKS.map(r=>{const p=project(r,state);return{...r,...p,drag:Math.abs(p.irr*r.p)};}).sort((a,b)=>b.drag-a.drag);
+  const totalDrag=rows.reduce((s,r)=>s+r.drag,0),base=state.irr*100,stressed=base-totalDrag;
+  const expDrag=rows.reduce((s,r)=>s+r.p*Math.abs(r.irr),0);
+  const comp=Math.max(0,Math.min(100,Math.round((expDrag/(state.irr*100*rows.length))*509)));
+  return{rows,base,stressed,comp,totalDrag};
+}
+function flash(){const e=$('read');e.classList.add('flash');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('flash'),250);}
+function render(){
+  const c=compute();
+  $('o-comp').textContent=c.comp;
+  $('b-base').textContent=c.base.toFixed(1)+'%';
+  $('b-drag').textContent='−'+c.totalDrag.toFixed(1);
+  $('b-stress').textContent=c.stressed.toFixed(1)+'%';
+  const dirty=JSON.stringify(state)!==JSON.stringify(REF);
+  $('o-sub').textContent=dirty?'vs 76 reference':'Castle reference';
+  $('dirty-note').textContent=dirty?'Modeled for your inputs — probabilities & hedge prices stay fixed.':'Castle reference project — drag any input to model your deal.';
+  const max=Math.max(...c.rows.map(r=>r.drag),0.001);
+  $('rows').innerHTML=c.rows.map((r,i)=>`
+    <div class="led">
+      <span class="rk">${String(i+1).padStart(2,'0')}</span>
+      <div><div class="nm">${r.nm}</div><div class="cit">${r.cit}<span class="mono drv ${r.drv}">${DRVLABEL[r.drv]}</span></div></div>
+      <div class="dragbar"><i style="width:${(r.drag/max*100).toFixed(0)}%"></i><span class="pp">−${r.drag.toFixed(1)} pp IRR</span></div>
+      <div class="num">${fmtUsd(r.usd)}</div>
+      <div class="pb">${Math.round(r.p*100)}%</div>
+    </div>`).join('');
+}
+function fmtUsd(n){const a=Math.abs(n);if(a>=1e9)return '$'+(n/1e9).toFixed(1)+'B';if(a>=1e6)return '$'+(n/1e6).toFixed(0)+'M';return '$'+(n/1e3).toFixed(0)+'K';}
+function bind(sid,key,fmt,scale){const s=$(sid);s.oninput=()=>{const raw=parseFloat(s.value);state[key]=scale?scale(raw):raw;$('v-'+sid.split('-')[1]).textContent=fmt(raw);flash();render();};}
+bind('s-cap','capacity',v=>v+' MWdc');
+bind('s-capex','capex',v=>'$'+v+'M',v=>v*1e6);
+bind('s-irr','irr',v=>v.toFixed(1)+'%',v=>v/100);
+bind('s-cod','cod',v=>v+' mo');
+bind('s-ppa','ppa',v=>'$'+v);
+$('reset').onclick=()=>{state={...REF};$('s-cap').value=200;$('v-cap').textContent='200 MWdc';$('s-capex').value=220;$('v-capex').textContent='$220M';$('s-irr').value=9;$('v-irr').textContent='9.0%';$('s-cod').value=30;$('v-cod').textContent='30 mo';$('s-ppa').value=35;$('v-ppa').textContent='$35';render();};
+render();
+</script>
+</body>
+</html>
