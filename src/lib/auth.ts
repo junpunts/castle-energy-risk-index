@@ -8,6 +8,12 @@ import { createAuthServerClient } from '@/lib/supabase/auth-server'
  * Use this in every admin server component as the first call.
  */
 export async function requireAdmin() {
+  // TEMPORARY: auth bypass. When AUTH_DISABLED=true, return a stub admin user
+  // so all `user.email` consumers keep working. Re-enable by unsetting the var.
+  if (process.env.AUTH_DISABLED === 'true') {
+    return { id: 'auth-disabled', email: 'admin@castle.tech' } as any
+  }
+
   const sb = createAuthServerClient()
   const {
     data: { user },
@@ -26,6 +32,9 @@ export async function requireAdmin() {
 
 /** Non-redirecting variant. Returns null instead of throwing. */
 export async function getAdminOrNull() {
+  if (process.env.AUTH_DISABLED === 'true') {
+    return { id: 'auth-disabled', email: 'admin@castle.tech' } as any
+  }
   const sb = createAuthServerClient()
   const {
     data: { user },

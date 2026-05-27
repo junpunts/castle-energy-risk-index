@@ -35,8 +35,13 @@ export async function middleware(request: NextRequest) {
 
   const { pathname } = request.nextUrl
 
+  // TEMPORARY: auth bypass. When AUTH_DISABLED=true, skip the /admin gate
+  // entirely (login is broken pending Supabase URL config; re-enable by
+  // unsetting AUTH_DISABLED). All auth code is left intact.
+  const authDisabled = process.env.AUTH_DISABLED === 'true'
+
   // Gate /admin/* (except /admin/login).
-  if (pathname.startsWith('/admin') && !pathname.startsWith('/admin/login')) {
+  if (!authDisabled && pathname.startsWith('/admin') && !pathname.startsWith('/admin/login')) {
     const {
       data: { user },
     } = await supabase.auth.getUser()
