@@ -47,7 +47,14 @@ const QUERY_TERMS: Record<string, string[]> = {
     'NEPA categorical exclusion',
   ],
   'onshore-wind': ['onshore wind', 'wind energy', 'PTC wind'],
-  'battery-storage': ['battery storage', 'energy storage', 'ITC storage', 'BESS'],
+  'battery-storage': [
+    'battery energy storage',
+    'lithium-ion battery',
+    'energy storage system',
+    'section 45X',
+    'advanced manufacturing credit',
+    'grid-scale storage',
+  ],
   'green-hydrogen': ['clean hydrogen', '45V hydrogen', 'electrolyzer'],
   'ev-charging': ['EV charging', 'NEVI', 'electric vehicle infrastructure'],
 }

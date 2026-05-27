@@ -1,0 +1,612 @@
+{
+  "schema_version": "1.0.0",
+  "archetype_id": "battery-storage",
+  "generated_at": "2026-05-26T16:00:00+00:00",
+  "generated_by": "scaffold-gen-v1",
+  "as_of": "2026-05-26",
+  "horizon": "18 months",
+  "archetype": {
+    "id": "battery-storage",
+    "name": "Battery Storage",
+    "eyebrow": "Grid-scale BESS \u00b7 4hr Li-ion / LDES",
+    "blurb": "Standalone and co-located grid-scale battery storage. The fastest-growing US asset class \u2014 ITC-backed and Trump-durable \u2014 but acutely exposed to Chinese cell tariffs, FEOC component rules, interconnection queues, and emerging fire-safety regulation.",
+    "typical": {
+      "capacity": "200 MW / 800 MWh",
+      "capex": 260000000.0,
+      "capex_per_gw": 1300000000.0,
+      "target_irr": 0.11,
+      "cod_months": 24,
+      "ppa_price": null
+    },
+    "composite": 41,
+    "composite_delta": 0,
+    "risks_total": 7,
+    "risks_high": 2,
+    "news_this_week": 3,
+    "attention_weekly": [
+      45,
+      44,
+      44,
+      43,
+      43,
+      43,
+      42,
+      42,
+      42,
+      41,
+      41,
+      41
+    ]
+  },
+  "risks": [
+    {
+      "id": "bs1",
+      "category": "trade",
+      "title": "Section 301 cell tariffs escalate",
+      "citation": "Sec. 301 \u00b7 HTS 8507 \u00b7 USTR",
+      "impact_irr": -2.7,
+      "impact_usd": 57000000.0,
+      "probability": 0.57,
+      "attention": 91,
+      "likelihood": "high",
+      "headline_change": "+15",
+      "driver": "cost"
+    },
+    {
+      "id": "bs2",
+      "category": "policy",
+      "title": "FEOC battery-component disqualification",
+      "citation": "OBBB \u00a745X \u00b7 Treasury FEOC/PFE",
+      "impact_irr": -2.4,
+      "impact_usd": 50000000.0,
+      "probability": 0.68,
+      "attention": 86,
+      "likelihood": "high",
+      "headline_change": "+19",
+      "driver": "cost"
+    },
+    {
+      "id": "bs3",
+      "category": "policy",
+      "title": "48E storage ITC repeal / narrowing",
+      "citation": "IRA \u00a748E \u00b7 OBBB P.L. 119-21",
+      "impact_irr": -2.9,
+      "impact_usd": 61000000.0,
+      "probability": 0.35,
+      "attention": 78,
+      "likelihood": "medium",
+      "headline_change": "+8",
+      "driver": "cost"
+    },
+    {
+      "id": "bs4",
+      "category": "operational",
+      "title": "Interconnection queue >2yr in PJM",
+      "citation": "FERC Order 2023 \u00b7 PJM queue",
+      "impact_irr": -1.6,
+      "impact_usd": 33000000.0,
+      "probability": 0.62,
+      "attention": 64,
+      "likelihood": "medium",
+      "headline_change": "+4",
+      "driver": "delay"
+    },
+    {
+      "id": "bs5",
+      "category": "operational",
+      "title": "BESS fire-safety regulation tightens",
+      "citation": "UL 9540A \u00b7 TX BESS fire code",
+      "impact_irr": -1.3,
+      "impact_usd": 27000000.0,
+      "probability": 0.28,
+      "attention": 58,
+      "likelihood": "medium",
+      "headline_change": "+11",
+      "driver": "delay"
+    },
+    {
+      "id": "bs6",
+      "category": "trade",
+      "title": "UFLPA / CBP detention of BESS shipment",
+      "citation": "UFLPA 2021 \u00b7 CBP WRO",
+      "impact_irr": -1.1,
+      "impact_usd": 23000000.0,
+      "probability": 0.08,
+      "attention": 44,
+      "likelihood": "low",
+      "headline_change": "+2",
+      "driver": "cost"
+    },
+    {
+      "id": "bs7",
+      "category": "market",
+      "title": "Ancillary / arbitrage revenue compression",
+      "citation": "CAISO/ERCOT \u00b7 AS saturation",
+      "impact_irr": -1.5,
+      "impact_usd": 31000000.0,
+      "probability": 0.4,
+      "attention": 61,
+      "likelihood": "medium",
+      "headline_change": "-3",
+      "driver": "revenue",
+      "two_sided": true
+    }
+  ],
+  "news": [
+    {
+      "source": "USTR",
+      "ago": "2 hr ago",
+      "tag": "trade",
+      "title": "Section 301 review weighs sodium-ion cell coverage as Li-ion rate steps up",
+      "sum": "Cell duties are the dominant cost lever for US storage; sodium-ion inclusion would close the substitution path.",
+      "published_at": "2026-05-26T13:30:00Z"
+    },
+    {
+      "source": "TREASURY",
+      "ago": "5 hr ago",
+      "tag": "policy",
+      "title": "FEOC battery-component rulemaking advances; domestic qualification race intensifies",
+      "sum": "Disqualification of Chinese components would make \u00a745X/48E eligibility binary for many projects.",
+      "published_at": "2026-05-26T11:00:00Z"
+    },
+    {
+      "source": "PJM",
+      "ago": "1 day ago",
+      "tag": "operational",
+      "title": "Storage interconnection backlog persists as queue-reform compliance filings land",
+      "published_at": "2026-05-25T12:00:00Z"
+    }
+  ],
+  "risk_details": {
+    "bs1": {
+      "subtitle": "Stacked Section 301 duties on Chinese Li-ion and sodium-ion cells push landed cell cost up \u2014 cells are ~60% of BESS capex.",
+      "tracked_since": "Jan 18, 2026",
+      "last_updated": "2 hr ago",
+      "attention_delta": 15,
+      "probability_delta": 0.06,
+      "hedge_cost": 5500,
+      "view": "Cells are the cost spine of a battery project \u2014 roughly 60% of system capex \u2014 and the overwhelming majority still originate in China. The Section 301 schedule on Li-ion energy-storage cells is set to step up (one near-term contract resolves Feb 15 at 0.57), and USTR is weighing extending duties to sodium-ion (0.32). A developer who signed a 2026 COD EPC at pre-escalation cell pricing eats the delta directly. This is the single largest near-term cost shock to US storage economics, and unlike solar there's far less non-China supply to pivot to. The hedge pays on the escalation; size it to the cell fraction of capex.",
+      "weekly": [
+        62,
+        64,
+        67,
+        69,
+        72,
+        75,
+        77,
+        80,
+        83,
+        85,
+        88,
+        91
+      ],
+      "events": [
+        {
+          "date": "2026-02-15",
+          "when": "past",
+          "kind": "deadline",
+          "future": false,
+          "title": "Sec. 301 Li-ion storage rate step-up",
+          "detail": "Near-term escalation of the Section 301 rate on Chinese Li-ion energy-storage cells."
+        },
+        {
+          "date": "2026-09-30",
+          "when": "+127d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "USTR sodium-ion coverage decision",
+          "detail": "Whether USTR expands Section 301 to cover sodium-ion cells (HTS 8507). Resolves the second hedge."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-section-301-tariffs-on-chinese-lithium-ion-batteries-for-energy-storage-inc",
+          "title": "Will Section 301 tariffs on Chinese Li-ion storage batteries increase by Feb 15, 2026?",
+          "yes": 0.567,
+          "change": 0.0,
+          "expiry": "Feb 2026",
+          "notional": 300000
+        },
+        {
+          "ticker": "will-ustr-expand-section-301-tariffs-to-cover-sodium-ion-battery-cells-hts-8507-",
+          "title": "Will USTR expand Section 301 tariffs to cover sodium-ion battery cells by Sep 30, 2026?",
+          "yes": 0.322,
+          "change": 0.0,
+          "expiry": "Sep 2026",
+          "notional": 180000
+        },
+        {
+          "ticker": "will-the-combined-effective-tariff-rate-on-chinese-sodium-ion-battery-cell-impor",
+          "title": "Will the combined effective tariff on Chinese sodium-ion cells clear the threshold by year-end?",
+          "yes": 0.323,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 150000
+        }
+      ],
+      "category": "trade",
+      "title": "Section 301 cell tariffs escalate",
+      "citation": "Sec. 301 \u00b7 HTS 8507 \u00b7 USTR",
+      "impact_irr": -2.7,
+      "impact_usd": 57000000.0,
+      "probability": 0.57,
+      "attention": 91,
+      "archetype_id": "battery-storage",
+      "archetype_name": "Battery Storage",
+      "id": "bs1"
+    },
+    "bs2": {
+      "subtitle": "If Treasury's FEOC rules disqualify Chinese-sourced components, projects lose 45X/48E credit eligibility unless re-sourced.",
+      "tracked_since": "Jan 22, 2026",
+      "last_updated": "4 hr ago",
+      "attention_delta": 19,
+      "probability_delta": 0.09,
+      "hedge_cost": 5000,
+      "view": "OBBB attached Foreign-Entity-of-Concern restrictions to the storage credits, and Treasury is finalizing rules banning FEOC battery components from Chinese suppliers (we model 0.68 the ban lands; 0.56 the formal 45X PFE rulemaking confirms thresholds). For a project whose cells and modules trace to a prohibited entity, this isn't a cost bump \u2014 it's binary credit eligibility. The market is racing to qualify domestic supply (Form Energy's Weirton line at 0.72 to qualify for 45X is the bellwether). Hedge the component-ban and the rulemaking together; they bracket the disqualification risk.",
+      "weekly": [
+        60,
+        62,
+        64,
+        67,
+        69,
+        71,
+        74,
+        76,
+        78,
+        81,
+        83,
+        86
+      ],
+      "events": [
+        {
+          "date": "2026-09-30",
+          "when": "+127d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "45X FEOC/PFE rulemaking",
+          "detail": "Treasury's formal FEOC/PFE rulemaking for \u00a745X \u2014 defines prohibited-entity thresholds."
+        },
+        {
+          "date": "2026-12-31",
+          "when": "+219d",
+          "kind": "deadline",
+          "future": true,
+          "title": "Chinese component ban finalized",
+          "detail": "Whether Treasury finalizes the ban on FEOC battery components from Chinese suppliers."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-treasury-finalize-rules-banning-feoc-battery-components-from-chinese-suppli",
+          "title": "Will Treasury finalize rules banning FEOC battery components from Chinese suppliers?",
+          "yes": 0.677,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 260000
+        },
+        {
+          "ticker": "will-treasury-s-formal-feoc-pfe-rulemaking-for-section-45x-expected-q2-2026-conf",
+          "title": "Will Treasury's formal FEOC/PFE rulemaking for \u00a745X confirm thresholds by Sep 30, 2026?",
+          "yes": 0.563,
+          "change": 0.0,
+          "expiry": "Sep 2026",
+          "notional": 160000
+        },
+        {
+          "ticker": "will-form-energy-s-weirton-factory-production-qualify-for-section-45x-credits-un",
+          "title": "Will Form Energy's Weirton factory qualify for \u00a745X credits (domestic-supply bellwether)?",
+          "yes": 0.72,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 120000
+        }
+      ],
+      "category": "policy",
+      "title": "FEOC battery-component disqualification",
+      "citation": "OBBB \u00a745X \u00b7 Treasury FEOC/PFE",
+      "impact_irr": -2.4,
+      "impact_usd": 50000000.0,
+      "probability": 0.68,
+      "attention": 86,
+      "archetype_id": "battery-storage",
+      "archetype_name": "Battery Storage",
+      "id": "bs2"
+    },
+    "bs3": {
+      "subtitle": "A repeal or narrowing of the 48E storage ITC before 2028 would reset the economics of the entire merchant-storage pipeline.",
+      "tracked_since": "Jan 15, 2026",
+      "last_updated": "6 hr ago",
+      "attention_delta": 8,
+      "probability_delta": 0.03,
+      "hedge_cost": 6000,
+      "view": "Standalone storage only became ITC-eligible under the IRA, and that credit is the reason the merchant-storage pipeline exists at today's scale. A repeal or material narrowing of \u00a748E before end-2027 (we model 0.35) is the tail that reprices every un-built project. The base case is survival \u2014 storage has unusual bipartisan support as a grid-reliability asset \u2014 but the magnitude if it goes is large, hence the high IRR impact. Treasury's PFE safe-harbor tables (0.35) are the constructive counterpart that would lock in eligibility. Hedge the repeal-or-modify contract.",
+      "weekly": [
+        58,
+        59,
+        61,
+        63,
+        65,
+        67,
+        68,
+        70,
+        72,
+        74,
+        76,
+        78
+      ],
+      "events": [
+        {
+          "date": "2027-12-31",
+          "when": "+584d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "\u00a748E storage ITC repeal window",
+          "detail": "Whether Congress repeals or modifies the \u00a748E storage ITC before Dec 31, 2027."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-congress-repeal-or-modify-section-48e-storage-itc-before-december-31-2027",
+          "title": "Will Congress repeal or modify the \u00a748E storage ITC before Dec 31, 2027?",
+          "yes": 0.35,
+          "change": 0.0,
+          "expiry": "Dec 2027",
+          "notional": 350000
+        },
+        {
+          "ticker": "will-treasury-publish-pfe-safe-harbor-tables-for-energy-storage-by-december-31-2",
+          "title": "Will Treasury publish PFE safe-harbor tables for energy storage by year-end?",
+          "yes": 0.35,
+          "change": 0.0,
+          "expiry": "Jan 2027",
+          "notional": 140000
+        }
+      ],
+      "category": "policy",
+      "title": "48E storage ITC repeal / narrowing",
+      "citation": "IRA \u00a748E \u00b7 OBBB P.L. 119-21",
+      "impact_irr": -2.9,
+      "impact_usd": 61000000.0,
+      "probability": 0.35,
+      "attention": 78,
+      "archetype_id": "battery-storage",
+      "archetype_name": "Battery Storage",
+      "id": "bs3"
+    },
+    "bs4": {
+      "subtitle": "PJM queue processing staying above two years pushes COD past the window assumed in the offtake or merchant model.",
+      "tracked_since": "Feb 6, 2026",
+      "last_updated": "1 day ago",
+      "attention_delta": 4,
+      "probability_delta": 0.0,
+      "hedge_cost": 3000,
+      "view": "Storage interconnection is the schedule tax. PJM average queue processing staying above two years (0.62) delays revenue start and can blow through tax-credit placed-in-service timing. Co-located storage faces an extra wrinkle \u2014 FERC has only a 0.05 chance of granting it priority queue status this cycle \u2014 so standalone projects wait in the same long line as everything else. This is a timing hedge, not a headline one, but for a 24-month-COD asset, six months of slip is real IRR drag. Hedge the PJM queue-time contract.",
+      "weekly": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        64
+      ],
+      "events": [
+        {
+          "date": "2026-12-31",
+          "when": "+219d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "PJM queue-time measurement",
+          "detail": "Whether PJM average queue processing remains above 2 years for the 2026 cohort."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-pjm-interconnection-average-queue-processing-times-remain-above-2-years-for",
+          "title": "Will PJM average queue processing stay above 2 years through 2026?",
+          "yes": 0.62,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 150000
+        },
+        {
+          "ticker": "will-ferc-grant-priority-interconnection-queue-status-to-storage-co-located-with",
+          "title": "Will FERC grant priority interconnection-queue status to co-located storage?",
+          "yes": 0.05,
+          "change": 0.0,
+          "expiry": "Jan 2027",
+          "notional": 80000
+        }
+      ],
+      "category": "operational",
+      "title": "Interconnection queue >2yr in PJM",
+      "citation": "FERC Order 2023 \u00b7 PJM queue",
+      "impact_irr": -1.6,
+      "impact_usd": 33000000.0,
+      "probability": 0.62,
+      "attention": 64,
+      "archetype_id": "battery-storage",
+      "archetype_name": "Battery Storage",
+      "id": "bs4"
+    },
+    "bs5": {
+      "subtitle": "New state fire-safety codes (post-incident) can add siting constraints, setbacks, and permitting delay to BESS projects.",
+      "tracked_since": "Feb 11, 2026",
+      "last_updated": "8 hr ago",
+      "attention_delta": 11,
+      "probability_delta": 0.05,
+      "hedge_cost": 2500,
+      "view": "A handful of high-profile BESS fires have pushed states toward statewide fire-safety codes \u2014 Texas is weighing one (0.28). For a developer mid-siting, a new code means setbacks, UL 9540A test documentation, and local-approval delay that resets the schedule. It's the operational analogue of the interconnection risk: not a cost shock, a timing one. Hedge the Texas fire-code contract as a proxy for the broader regulatory-tightening trend.",
+      "weekly": [
+        48,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "events": [
+        {
+          "date": "2026-12-31",
+          "when": "+219d",
+          "kind": "deadline",
+          "future": true,
+          "now": true,
+          "title": "TX statewide BESS fire-safety code",
+          "detail": "Whether the Texas Legislature enacts a statewide battery energy-storage fire-safety code."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-the-texas-legislature-enact-a-statewide-battery-energy-storage-fire-safety-",
+          "title": "Will Texas enact a statewide BESS fire-safety code?",
+          "yes": 0.28,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 120000
+        }
+      ],
+      "category": "operational",
+      "title": "BESS fire-safety regulation tightens",
+      "citation": "UL 9540A \u00b7 TX BESS fire code",
+      "impact_irr": -1.3,
+      "impact_usd": 27000000.0,
+      "probability": 0.28,
+      "attention": 58,
+      "archetype_id": "battery-storage",
+      "archetype_name": "Battery Storage",
+      "id": "bs5"
+    },
+    "bs6": {
+      "subtitle": "A CBP detention of a Li-ion BESS shipment on forced-labor grounds would strand equipment mid-procurement.",
+      "tracked_since": "Feb 24, 2026",
+      "last_updated": "1 day ago",
+      "attention_delta": 2,
+      "probability_delta": 0.0,
+      "hedge_cost": 2000,
+      "view": "UFLPA enforcement has mostly hit solar, but battery supply chains run through the same regions, and CBP could extend detentions to BESS (we model just 0.08 \u2014 a genuine tail). A held shipment doesn't just cost duty; it slips COD and can void placed-in-service deadlines. It's cheap tail protection relative to the schedule risk a detention wave would impose. Hold the BESS-detention hedge small.",
+      "weekly": [
+        42,
+        42,
+        42,
+        42,
+        42,
+        42,
+        43,
+        43,
+        43,
+        43,
+        43,
+        44
+      ],
+      "events": [
+        {
+          "date": "2026-12-31",
+          "when": "+219d",
+          "kind": "filing",
+          "future": true,
+          "now": true,
+          "title": "BESS detention measurement window",
+          "detail": "Whether CBP detains or excludes a Li-ion BESS shipment on forced-labor grounds."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-cbp-detain-or-exclude-a-lithium-ion-battery-energy-storage-system-bess-ship",
+          "title": "Will CBP detain or exclude a Li-ion BESS shipment on forced-labor grounds?",
+          "yes": 0.08,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 100000
+        }
+      ],
+      "category": "trade",
+      "title": "UFLPA / CBP detention of BESS shipment",
+      "citation": "UFLPA 2021 \u00b7 CBP WRO",
+      "impact_irr": -1.1,
+      "impact_usd": 23000000.0,
+      "probability": 0.08,
+      "attention": 44,
+      "archetype_id": "battery-storage",
+      "archetype_name": "Battery Storage",
+      "id": "bs6"
+    },
+    "bs7": {
+      "subtitle": "As more storage comes online, ancillary-services and arbitrage spreads compress \u2014 eroding merchant revenue.",
+      "tracked_since": "Mar 2, 2026",
+      "last_updated": "5 hr ago",
+      "attention_delta": -3,
+      "probability_delta": 0.0,
+      "hedge_cost": 3500,
+      "view": "The merchant-storage thesis rests on ancillary-services revenue and energy arbitrage. But ancillary markets are shallow \u2014 as GW of storage flood ERCOT and CAISO, AS prices saturate and per-MW revenue falls. CAISO's 2026 storage tariff revisions (0.40) reshape how that revenue is modeled. This is a genuinely two-sided risk: tighter grids and price volatility can also *lift* arbitrage spreads, so the downside drag we model is the adverse case, not the expected one. Hedge the CAISO tariff-revision contract as the cleanest proxy.",
+      "weekly": [
+        55,
+        55,
+        56,
+        56,
+        57,
+        57,
+        58,
+        58,
+        59,
+        59,
+        60,
+        61
+      ],
+      "events": [
+        {
+          "date": "2027-06-30",
+          "when": "+400d",
+          "kind": "market",
+          "future": true,
+          "now": true,
+          "title": "CAISO storage tariff revisions",
+          "detail": "Whether FERC accepts CAISO's 2026 storage design and modeling tariff revisions."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-ferc-accept-caiso-s-2026-storage-design-and-modeling-tariff-revisions-inclu",
+          "title": "Will FERC accept CAISO's 2026 storage design & modeling tariff revisions?",
+          "yes": 0.4,
+          "change": 0.0,
+          "expiry": "Jun 2027",
+          "notional": 200000
+        }
+      ],
+      "category": "market",
+      "title": "Ancillary / arbitrage revenue compression",
+      "citation": "CAISO/ERCOT \u00b7 AS saturation",
+      "impact_irr": -1.5,
+      "impact_usd": 31000000.0,
+      "probability": 0.4,
+      "attention": 61,
+      "archetype_id": "battery-storage",
+      "archetype_name": "Battery Storage",
+      "id": "bs7"
+    }
+  },
+  "sources": {}
+}

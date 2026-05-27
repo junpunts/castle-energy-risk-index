@@ -118,7 +118,7 @@ const ARCHETYPE_STRONG_TOKENS: Record<string, string[]> = {
     'mmbtu',
   ],
   'onshore-wind': ['ptc', 'onshore wind farm', 'wind ptc'],
-  'battery-storage': ['battery storage', 'bess', 'energy storage', 'itc storage'],
+  'battery-storage': ['battery storage', 'bess', 'energy storage', 'itc storage', 'lithium-ion', 'sodium-ion', '45x', 'feoc', 'ul 9540', 'long-duration', 'hts 8507', 'thermal runaway'],
   'green-hydrogen': ['45v', 'electrolyzer', 'clean hydrogen', 'three pillars'],
   'ev-charging': ['nevi', 'ev charging', 'charging infrastructure'],
 }
@@ -220,6 +220,36 @@ const KEYWORDS_BY_RISK: Record<string, Array<[string, number]>> = {
   ng7: [
     ['nepa categorical', 3], ['categorical exclusion', 3], ['eo 14318', 3], ['injunction', 2],
     ['permitting reform', 2], ['cat-ex', 3],
+  ],
+
+  // battery-storage:
+  bs1: [
+    ['section 301', 3], ['hts 8507', 3], ['lithium-ion', 3], ['sodium-ion', 3], ['battery cell', 3],
+    ['cell tariff', 3], ['ustr', 2], ['battery tariff', 3],
+  ],
+  bs2: [
+    ['feoc', 3], ['45x', 3], ['§45x', 3], ['prohibited foreign entity', 3], ['battery component', 3],
+    ['domestic content', 2], ['pfe', 2], ['material assistance', 2], ['form energy', 2],
+  ],
+  bs3: [
+    ['48e', 3], ['§48e', 3], ['storage itc', 3], ['investment tax credit', 2], ['ira repeal', 3],
+    ['safe harbor', 2], ['obbb', 2], ['credit repeal', 3],
+  ],
+  bs4: [
+    ['interconnection queue', 3], ['pjm', 3], ['ferc order 2023', 3], ['co-located', 3],
+    ['queue processing', 2], ['interconnection', 2],
+  ],
+  bs5: [
+    ['ul 9540', 3], ['fire safety', 3], ['thermal runaway', 3], ['bess fire', 3], ['fire code', 3],
+    ['setback', 2], ['siting', 2],
+  ],
+  bs6: [
+    ['uflpa', 3], ['forced labor', 3], ['cbp', 3], ['detention', 3], ['withhold release order', 3],
+    ['bess shipment', 2],
+  ],
+  bs7: [
+    ['ancillary', 3], ['arbitrage', 3], ['caiso', 3], ['ercot', 2], ['merchant storage', 3],
+    ['as saturation', 2], ['storage tariff', 2], ['dispatch', 2],
   ],
 }
 
