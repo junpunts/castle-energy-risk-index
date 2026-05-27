@@ -303,6 +303,17 @@
   background: rgba(36,96,117,0.1); color: var(--accent);
   font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
 }
+/* Two-sided marker — amber, distinct from the teal driver tag. */
+.drv.two-sided {
+  background: rgba(180,120,20,0.12); color: #9a6a14;
+}
+.two-sided-note {
+  margin-top: 12px !important; font-size: 12px; color: var(--fg-3);
+}
+.two-sided-note .drv.two-sided {
+  margin-left: 0; margin-right: 2px;
+  font-family: var(--font-mono); font-weight: 600;
+}
 
 .risks-grid {
   --cols: 28px 88px 1fr 140px 72px 56px 16px;

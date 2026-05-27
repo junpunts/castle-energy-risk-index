@@ -89,7 +89,8 @@
       "attention": 74,
       "likelihood": "high",
       "headline_change": "+8",
-      "driver": "revenue"
+      "driver": "revenue",
+      "two_sided": true
     },
     {
       "id": "ng5",
@@ -115,7 +116,8 @@
       "attention": 48,
       "likelihood": "low",
       "headline_change": "+14",
-      "driver": "revenue"
+      "driver": "revenue",
+      "two_sided": true
     },
     {
       "id": "ng7",

@@ -100,15 +100,17 @@ export const RiskSchema = z.object({
   likelihood: LikelihoodSchema,
   /** Attention delta vs last week, signed string ("+32", "-4", "0"). */
   headline_change: z.string().regex(/^[+-]?\d+$/),
-  /**
-   * Scenario-model driver — how this risk's impact responds to deal-input
-   * changes (capex, IRR, COD, capacity, PPA). Optional; the scenario model
-   * falls back to a category-based default when absent.
-   *   cost    — dollar impact scales with capex; IRR drag ~invariant
-   *   delay   — IRR drag scales with cost-of-capital × timeline
-   *   revenue — impact scales with the revenue base (capacity × PPA)
-   */
+  /** Economic driver for variable-scenario reprojection (M11). Optional for
+   *  backward-compat; absent → treated as 'cost' by the projection engine.
+   *    cost    — dollar shock, scales with capex (tariffs, duties, credit loss)
+   *    delay   — schedule slip, scales with COD × cost-of-capital (permitting, queue)
+   *    revenue — output value at risk, scales with capacity × PPA (curtailment, offtake) */
   driver: z.enum(['cost', 'delay', 'revenue']).optional(),
+  /** True if the risk is genuinely two-sided (can help as well as hurt — e.g. a
+   *  gas generator benefits from a Henry Hub spike). v1 still models it as
+   *  downside drag, but the flag lets the UI footnote it / a future signed model
+   *  render it as ±. */
+  two_sided: z.boolean().optional(),
 })
 export type Risk = z.infer<typeof RiskSchema>
 

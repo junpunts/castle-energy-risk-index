@@ -47,6 +47,7 @@ export default function ScenarioExplorer({ bundle, archetypeId, rail }: Props) {
   const maxDrag = Math.max(...sc.risks.map((r) => r.weighted_drag), 0.001)
   const topRisk = ranked[0]
   const capUnit = bundle.archetype.typical.capacity.replace(/[\d.,\s]+/, '')
+  const hasTwoSided = bundle.risks.some((r) => r.two_sided)
 
   const set = (patch: Partial<ScenarioInputs>) => setInp((p) => ({ ...p, ...patch }))
 
@@ -135,6 +136,14 @@ export default function ScenarioExplorer({ bundle, archetypeId, rail }: Props) {
         <strong>{sc.stressedIRR.toFixed(1)}%</strong> assumes all materialise at the
         stated probabilities — Castle&rsquo;s central case.
       </p>
+      {hasTwoSided && (
+        <p className="caption two-sided-note">
+          Risks marked <span className="drv two-sided">two-sided</span> can move in your
+          favour as well as against you (e.g. a gas generator benefits from a Henry Hub
+          spike). They&rsquo;re shown here as downside exposure only — the modeled drag is
+          the adverse case, not the expected case.
+        </p>
+      )}
 
       <div className="detail-cols">
         <div className="detail-main">
@@ -169,6 +178,7 @@ export default function ScenarioExplorer({ bundle, archetypeId, rail }: Props) {
                   <div className="cit">
                     {meta.citation}
                     <span className="drv">{DRIVER_LABEL[driverFor(meta)]}</span>
+                    {meta.two_sided && <span className="drv two-sided">two-sided</span>}
                   </div>
                 </div>
                 <div className="impact-bar">
