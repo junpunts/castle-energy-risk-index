@@ -42,6 +42,26 @@ const FEEDS: FeedConfig[] = [
     url: 'https://www.whitehouse.gov/news/feed/',
     // Executive orders + presidential proclamations land here before FR.
   },
+  {
+    name: 'ustr',
+    url: 'https://ustr.gov/rss.xml',
+    // Section 301 / AD-CVD / tariff actions — drives solar + battery trade risks.
+    archetype_hints: ['utility-solar', 'battery-storage', 'natural-gas'],
+  },
+  {
+    name: 'canarymedia',
+    url: 'https://www.canarymedia.com/feeds/articles.rss',
+    // Energy-transition trade press. Project-level signal (storage, solar,
+    // nuclear, transmission) that government feeds miss. High volume — matcher filters.
+    archetype_hints: ['utility-solar', 'offshore-wind', 'nuclear-smr', 'battery-storage', 'natural-gas'],
+  },
+  {
+    name: 'utilitydive',
+    url: 'https://www.utilitydive.com/feeds/news/',
+    // Utility/grid trade press — interconnection, storage installs, data-center
+    // demand, FERC/CAISO/PJM actions. Spans every archetype.
+    archetype_hints: ['utility-solar', 'offshore-wind', 'nuclear-smr', 'battery-storage', 'natural-gas'],
+  },
 ]
 
 export const rssAdapter: SourceAdapter = {
