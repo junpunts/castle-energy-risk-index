@@ -157,3 +157,78 @@
   .kpi-row { grid-template-columns: repeat(2, 1fr); gap: 32px; }
   .editor-grid { grid-template-columns: 1fr; gap: 24px; }
 }
+
+/* ── Copilot (M9) ───────────────────────────────────── */
+.copilot {
+  display: flex; flex-direction: column;
+  border: 1px solid rgba(24,24,24,0.12);
+  height: 70vh; min-height: 520px;
+}
+.copilot-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px; border-bottom: var(--hair);
+  background: rgba(24,24,24,0.02);
+}
+.copilot-pick { display: flex; align-items: center; gap: 12px; }
+.copilot-pick .l {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--fg-3);
+}
+.copilot-pick select {
+  font-family: var(--font-mono); font-size: 12px;
+  padding: 6px 10px; background: transparent;
+  border: 1px solid rgba(24,24,24,0.18); color: var(--fg);
+}
+.copilot-meta { font-size: 11px; color: var(--fg-3); }
+.copilot-meta .sep { margin: 0 8px; }
+
+.copilot-thread { flex: 1; overflow-y: auto; padding: 24px; }
+.copilot-empty { color: var(--fg-2); font-size: 14px; line-height: 1.7; }
+.copilot-empty ul { margin: 16px 0; padding: 0; list-style: none; }
+.copilot-empty li { margin: 8px 0; }
+.copilot-empty code, .copilot-empty .copilot-note code {
+  font-family: var(--font-mono); font-size: 12px;
+  background: rgba(24,24,24,0.05); padding: 3px 7px;
+}
+.copilot-note { margin-top: 20px; font-size: 12px; color: var(--fg-3); }
+
+.copilot-msg { margin-bottom: 24px; }
+.copilot-role {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--fg-3); margin-bottom: 6px;
+}
+.copilot-msg.user .copilot-text { color: var(--fg); font-weight: 600; }
+.copilot-text { font-size: 15px; line-height: 1.6; white-space: pre-wrap; }
+.copilot-thinking { color: var(--fg-3); font-style: italic; }
+
+.copilot-proposals { margin-top: 14px; display: flex; flex-direction: column; gap: 10px; }
+.copilot-prop {
+  border: 1px solid rgba(24,24,24,0.14); border-left: 2px solid var(--accent);
+  padding: 12px 14px; background: rgba(24,24,24,0.015);
+}
+.copilot-prop.applied { border-left-color: var(--pos); opacity: 0.7; }
+.copilot-prop.rejected { border-left-color: var(--neg); opacity: 0.55; }
+.copilot-prop-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.copilot-prop-head .op { font-size: 11px; font-weight: 700; color: var(--accent); }
+.copilot-prop-head .tgt { font-size: 11px; color: var(--fg-2); }
+.copilot-prop-head .pill {
+  margin-left: auto; font-family: var(--font-mono); font-size: 9px;
+  letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 8px;
+  border: 1px solid rgba(24,24,24,0.2); color: var(--fg-3);
+}
+.copilot-prop-head .pill.applied { color: var(--pos); border-color: var(--pos); }
+.copilot-prop-head .pill.rejected { color: var(--neg); border-color: var(--neg); }
+.copilot-prop-reason { font-size: 13px; line-height: 1.55; color: var(--fg-2); }
+.copilot-prop-actions { margin-top: 10px; }
+.copilot-prop-actions .btn { font-size: 10px; padding: 6px 12px; }
+
+.copilot-input {
+  display: flex; gap: 12px; padding: 16px 20px; border-top: var(--hair);
+}
+.copilot-input textarea {
+  flex: 1; font-family: var(--font-body); font-size: 14px; line-height: 1.5;
+  padding: 10px 12px; background: transparent; resize: none;
+  border: 1px solid rgba(24,24,24,0.18); color: var(--fg);
+}
+.copilot-input textarea:focus { outline: none; border-color: var(--fg); }
+.copilot-input .btn { align-self: flex-end; }

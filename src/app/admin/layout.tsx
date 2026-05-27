@@ -24,6 +24,8 @@ export default async function AdminLayout({ children }: { children: ReactNode })
             <span className="sep">·</span>
             <Link href="/admin/proposals">Proposals</Link>
             <span className="sep">·</span>
+            <Link href="/admin/copilot">Copilot</Link>
+            <span className="sep">·</span>
             <Link href="/admin/runs">Runs</Link>
           </div>
           <div className="right">
