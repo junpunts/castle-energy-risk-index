@@ -203,7 +203,7 @@ export const RiskDetailSchema = z.object({
   /** Suggested hedge cost for sizing the CTA ("Hedge $4K"). */
   hedge_cost: z.number().int().nonnegative(),
 
-  /** Castle's view — 200–500 word Castle-voice paragraph. */
+  /** Castle's view — a two-sentence headline (≤50 words, percentages not decimals). See lib/agent/view-methodology.ts. */
   view: z.string().min(1),
   /** 12-week attention sparkline. */
   weekly: z.array(z.number().int().min(0).max(100)).length(12),

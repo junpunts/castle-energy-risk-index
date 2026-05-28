@@ -42,7 +42,7 @@ export const PROPOSE_RISK_UPDATE: Anthropic.Tool = {
       },
       new_value: {
         description:
-          "New value. Must match the field's type: number for probability (0–1), impact_irr (≤0), impact_usd (≥0), attention (0–100), hedge_cost (integer ≥0). String for everything else, with likelihood ∈ {low,medium,high}, category ∈ {policy,trade,operational,market}.",
+          "New value. Must match the field's type: number for probability (0–1), impact_irr (≤0), impact_usd (≥0), attention (0–100), hedge_cost (integer ≥0). String for everything else, with likelihood ∈ {low,medium,high}, category ∈ {policy,trade,operational,market}. For field='view', write a TWO-SENTENCE HEADLINE (≤50 words): sentence 1 = the call, sentence 2 = the move + the hedge; whole-number percentages never decimals; never restate the numbers shown above the view.",
       },
       reasoning: {
         type: 'string',

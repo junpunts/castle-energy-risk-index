@@ -16,6 +16,7 @@ import { llmLimit } from '@/lib/llm/limiter'
 import { ALL_PASS_A_TOOLS, toolUseToProposal, type ParsedProposal } from './tools'
 import { ProposalOpSchema } from '@/lib/schemas'
 import type { RiskDetail } from '@/lib/schemas'
+import { viewMethodologyBlock } from './view-methodology'
 
 export interface EvidencePacket {
   /** The single risk being updated. */
@@ -110,15 +111,19 @@ Rules:
 - Don't restate what the dashboard already shows; only flag what changed.
 - For probability moves: justify direction AND magnitude. Don't move >15pp \
 without an obvious catalyst.
-- For view-paragraph rewrites: only propose when the existing view is now \
-materially wrong or misleading. Preserve Castle voice (direct, quantified, \
-sources cited inline).
+- For Castle's-view rewrites: propose a rewrite when new evidence makes the \
+existing view materially wrong, OR when the existing view does not match the \
+house format below (e.g. it is a long paragraph, uses decimal probabilities, \
+or restates the dashboard's numbers). Any rewrite MUST follow the house format \
+exactly.
 - Castle voice: present tense, specific quantities, primary sources cited \
 inline.
 - Never propose updates to derived fields (composite, risks_total, \
 attention_weekly, news_this_week).
 - It's fine to return zero tool calls if the evidence doesn't justify any \
 change.
+
+${viewMethodologyBlock()}
 `
 
 const USER_PROMPT = (risk: RiskDetail, e: EvidencePacket) => {
