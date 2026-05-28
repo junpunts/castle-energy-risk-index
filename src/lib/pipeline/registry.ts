@@ -64,6 +64,7 @@ import { snapshotHedgePricesStage } from './stages/snapshot-hedge-prices'
 import { diffAgainstPriorStage } from './stages/diff-against-prior'
 import { computeAttentionStage } from './stages/compute-attention'
 import { syncMarketProbabilitiesStage } from './stages/sync-market-probabilities'
+import { estimateProbabilitiesOpusStage } from './stages/estimate-probabilities-opus'
 
 registerPipeline({
   name: 'rebuild_archetype',
@@ -75,16 +76,27 @@ registerPipeline({
 registerPipeline({
   name: 'daily_refresh',
   description:
-    'Full daily refresh: pull adapters → compute attention → snapshot hedge prices → sync market probabilities → diff vs prior → Pass A LLM → recompute derived.',
+    'Full daily refresh: pull adapters → compute attention → snapshot hedge prices → estimate probabilities (Opus, one call per archetype) → diff vs prior → Pass A LLM → recompute derived.',
   stages: [
     pullSourcesStage,
     computeAttentionStage,
     snapshotHedgePricesStage,
-    syncMarketProbabilitiesStage,
+    // Opus produces analyst-calibrated probabilities; preferred over the
+    // market YES (which carries liquidity premium). syncMarketProbabilitiesStage
+    // is left registered for manual / standalone use.
+    estimateProbabilitiesOpusStage,
     diffAgainstPriorStage,
     updateExistingRisksStage,
     recomputeDerivedStage,
   ],
+})
+
+// Standalone pipeline (callable independently): sync probabilities from the
+// market YES via library/scraper. Not in daily_refresh anymore — Opus wins.
+registerPipeline({
+  name: 'sync_market_probabilities',
+  description: 'Standalone: pull live YES from library/scraper and write to risk.probability for active risks with primary_hedge_ticker.',
+  stages: [syncMarketProbabilitiesStage],
 })
 
 registerPipeline({
