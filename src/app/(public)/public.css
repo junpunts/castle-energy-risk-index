@@ -486,28 +486,12 @@
 }
 .hedge-row:last-child { border-bottom: none; }
 
-/* Featured (top-1 recommended) hedge — restrained: typography + accent rule only. */
+/* Hedge stack — all rows uniform. The section header "RECOMMENDED HEDGES",
+   the first-position order, and the primary "Buy hedge" CTA on row #1 carry
+   the ranking signal; no size-delta or accent rule needed. */
 .hedge-stack { margin-top: 8px; }
-.hedge-stack .hedge-row.is-featured {
-  padding-top: 40px; padding-bottom: 36px;
-  border-top: 2px solid var(--accent);
-  grid-template-columns: 1fr 240px auto;
-}
-/* Hide the raw library/kalshi ticker on every hedge in the stack — the title
-   is self-descriptive and the slug just makes the row look messy. */
 .hedge-stack .hedge-row .ticker { display: none; }
-/* Let the title use the full grid column instead of wrapping at 620px. */
-.hedge-stack .hedge-row.is-featured .ttl { font-size: 32px; line-height: 1.2; max-width: none; }
-.hedge-stack .hedge-row.is-featured .price .yes { font-size: 56px; }
-.hedge-stack .hedge-row.is-featured .btn.is-primary { padding: 14px 26px; letter-spacing: 0.22em; }
-/* Tag the recommendation via an inline eyebrow inside the title column. */
-.hedge-stack .hedge-row.is-featured .ttl::before {
-  content: 'RECOMMENDED';
-  display: block;
-  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
-  letter-spacing: 0.28em; color: var(--accent);
-  margin-bottom: 12px;
-}
+.hedge-stack .hedge-row .ttl { max-width: none; }
 .hedge-head { margin-top: 64px; }
 .hedge-row .ticker {
   font-family: var(--font-mono); font-size: 11px; font-weight: 700;

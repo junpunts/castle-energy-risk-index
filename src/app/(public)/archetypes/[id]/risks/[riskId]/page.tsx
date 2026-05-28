@@ -127,10 +127,7 @@ export default async function RiskPage({ params }: PageProps) {
             const cls = cn > 0 ? 'up' : cn < 0 ? 'dn' : ''
             const cstr = `${cn > 0 ? '+' : ''}${(cn * 100).toFixed(0)}¢`
             return (
-              <div
-                key={h.ticker}
-                className={`hedge-row${i === 0 ? ' is-featured' : ''}`}
-              >
+              <div key={h.ticker} className="hedge-row">
                 <div>
                   <div className="ticker">{h.ticker}</div>
                   <p className="ttl">{h.title}</p>
