@@ -493,8 +493,9 @@
   border-top: 2px solid var(--accent);
   grid-template-columns: 1fr 240px auto;
 }
-/* Hide the raw library slug on featured; the title is self-descriptive. */
-.hedge-stack .hedge-row.is-featured .ticker { display: none; }
+/* Hide the raw library/kalshi ticker on every hedge in the stack — the title
+   is self-descriptive and the slug just makes the row look messy. */
+.hedge-stack .hedge-row .ticker { display: none; }
 /* Let the title use the full grid column instead of wrapping at 620px. */
 .hedge-stack .hedge-row.is-featured .ttl { font-size: 32px; line-height: 1.2; max-width: none; }
 .hedge-stack .hedge-row.is-featured .price .yes { font-size: 56px; }
