@@ -65,6 +65,7 @@ import { diffAgainstPriorStage } from './stages/diff-against-prior'
 import { computeAttentionStage } from './stages/compute-attention'
 import { syncMarketProbabilitiesStage } from './stages/sync-market-probabilities'
 import { estimateProbabilitiesOpusStage } from './stages/estimate-probabilities-opus'
+import { surfaceNewRisksStage } from './stages/surface-new-risks'
 
 registerPipeline({
   name: 'rebuild_archetype',
@@ -110,4 +111,11 @@ registerPipeline({
   description:
     'Pass A only, against a stub evidence packet on a single risk. Used to verify the LLM path end-to-end without adapters.',
   stages: [updateExistingRisksStage],
+})
+
+registerPipeline({
+  name: 'weekly_discover',
+  description:
+    'Pass B — scan unmatched news_cache for emerging risks not yet on the watchlist. Pulls fresh sources first so the unmatched-set is current, then computes attention so any items that DID match get aggregated, then runs Opus to surface new risk candidates.',
+  stages: [pullSourcesStage, computeAttentionStage, surfaceNewRisksStage],
 })

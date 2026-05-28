@@ -184,23 +184,93 @@ export async function previewProposal(
       }
       case 'add_risk': {
         const rk = payload.risk ?? {}
+        const detail = payload.risk_detail ?? {}
         const riskTitle = rk.title ?? '(new risk)'
         context = riskTitle
         destination = `${archName}  ›  Tracked risks`
         action_summary = `Add a brand-new risk, “${riskTitle}”, to ${archName}.`
-        apply_note = 'Approving adds this risk to the archetype and recomputes the composite score.'
+        apply_note =
+          'Approving adds this risk to the archetype, assigns the next id in the prefix sequence (e.g. ow12, bs9), and recomputes the composite score.'
+
+        // Lead with the risk title + citation as a coherent header.
         changes.push({
-          label: 'New risk',
+          label: 'Proposed risk',
           kind: 'add',
           before: null,
           after: [
-            rk.title,
+            rk.title ? `${rk.title}` : null,
+            rk.citation ? `Citation: ${rk.citation}` : null,
             rk.category ? `Category: ${rk.category}` : null,
-            rk.probability != null ? `Probability: ${Math.round(rk.probability * 100)}%` : null,
-            rk.impact_irr != null ? `IRR impact: ${rk.impact_irr} pp` : null,
-            payload.risk_detail?.view ? `\n${payload.risk_detail.view}` : null,
-          ].filter(Boolean).join('\n'),
+            rk.likelihood ? `Likelihood: ${rk.likelihood}` : null,
+          ]
+            .filter(Boolean)
+            .join('\n'),
         })
+
+        // Stat preview block.
+        const stats: string[] = []
+        if (rk.probability != null) stats.push(`Probability: ${Math.round(rk.probability * 100)}%`)
+        if (rk.impact_irr != null) stats.push(`IRR impact: ${rk.impact_irr} pp`)
+        if (rk.impact_usd != null) stats.push(`Capital at risk: $${Number(rk.impact_usd).toLocaleString()}`)
+        if (rk.attention != null) stats.push(`Attention: ${rk.attention}/100`)
+        if (stats.length > 0) {
+          changes.push({
+            label: 'Stats',
+            kind: 'add',
+            before: null,
+            after: stats.join('  ·  '),
+          })
+        }
+
+        // Castle's view paragraph (the headline two-sentence call).
+        if (detail.view) {
+          changes.push({
+            label: "Castle's view (proposed)",
+            kind: 'text',
+            before: null,
+            after: detail.view,
+          })
+        }
+
+        // Subtitle / detail.
+        if (detail.subtitle) {
+          changes.push({
+            label: 'Subtitle',
+            kind: 'text',
+            before: null,
+            after: detail.subtitle,
+          })
+        }
+
+        // Candidate hedges, if any.
+        if (Array.isArray(detail.hedges) && detail.hedges.length > 0) {
+          const hedgeLines = detail.hedges
+            .slice(0, 3)
+            .map(
+              (h: any) =>
+                `· ${h.title ?? h.ticker}${h.ticker && h.ticker !== 'TBD' ? `  (${h.ticker})` : ''}`,
+            )
+            .join('\n')
+          changes.push({
+            label: `Candidate hedges (${detail.hedges.length})`,
+            kind: 'add',
+            before: null,
+            after: hedgeLines,
+          })
+        }
+
+        // Evidence URLs — pulled from detail.news[].url.
+        const urls = Array.isArray(detail.news)
+          ? detail.news.map((n: any) => n?.url).filter(Boolean)
+          : []
+        if (urls.length > 0) {
+          changes.push({
+            label: `Evidence (${urls.length} source${urls.length === 1 ? '' : 's'})`,
+            kind: 'add',
+            before: null,
+            after: urls.join('\n'),
+          })
+        }
         break
       }
       case 'remove_risk': {

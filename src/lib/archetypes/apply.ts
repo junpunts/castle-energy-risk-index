@@ -239,6 +239,21 @@ function applyAddRisk(bundle: ArchetypeBundle, p: AddRiskPayload): ArchetypeBund
   const newId = p.suggested_id ?? nextRiskId(out)
   if (out.risks.some((r) => r.id === newId)) throw new Error(`risk id ${newId} already exists`)
 
+  // Cheap dedupe gate: refuse if the proposed title or citation is a
+  // near-exact match for an existing risk. The semantic-similarity gate
+  // (cosine ≥ 0.85) happens at proposal-creation time in surface_new_risks;
+  // this is the last-line defence on apply.
+  const newTitle = (p.risk.title ?? '').trim().toLowerCase()
+  const newCitation = (p.risk.citation ?? '').trim().toLowerCase()
+  for (const existing of out.risks) {
+    if (newTitle && existing.title.trim().toLowerCase() === newTitle) {
+      throw new Error(`risk with identical title already exists (${existing.id})`)
+    }
+    if (newCitation && existing.citation.trim().toLowerCase() === newCitation) {
+      throw new Error(`risk with identical citation already exists (${existing.id})`)
+    }
+  }
+
   // Coerce: agent supplies partial risk + detail; we set the id + defaults.
   const risk = {
     id: newId,
@@ -251,6 +266,10 @@ function applyAddRisk(bundle: ArchetypeBundle, p: AddRiskPayload): ArchetypeBund
     attention: p.risk.attention ?? 0,
     likelihood: p.risk.likelihood ?? 'medium',
     headline_change: p.risk.headline_change ?? '0',
+    status: p.risk.status ?? 'active',
+    ...(p.risk.realized_date ? { realized_date: p.risk.realized_date } : {}),
+    ...(p.risk.driver ? { driver: p.risk.driver } : {}),
+    ...(p.risk.primary_hedge_ticker ? { primary_hedge_ticker: p.risk.primary_hedge_ticker } : {}),
   } as any
 
   const detail = {
@@ -279,11 +298,13 @@ function applyAddRisk(bundle: ArchetypeBundle, p: AddRiskPayload): ArchetypeBund
         kind: 'castle',
         future: false,
         title: 'Risk added to watchlist',
-        detail: 'Initial entry.',
+        detail: 'Initial entry — surfaced by Pass B.',
       },
     ],
     news: p.risk_detail.news ?? [],
     hedges: p.risk_detail.hedges ?? [],
+    status: p.risk.status ?? 'active',
+    ...(p.risk.realized_date ? { realized_date: p.risk.realized_date } : {}),
   } as any
 
   out.risks.push(risk)
@@ -334,14 +355,37 @@ function applyUpdateHedge(bundle: ArchetypeBundle, p: UpdateHedgePayload): Arche
 }
 
 function nextRiskId(bundle: ArchetypeBundle): string {
-  // Risk ids look like "ow1", "ow12"; find the next free integer for the
-  // archetype's prefix.
-  const prefix = bundle.archetype_id.match(/^[a-z]/)?.[0] + bundle.archetype_id.charAt(bundle.archetype_id.indexOf('-') + 1 || 1)
-  // Fallback: use first two letters of archetype_id stripped of dashes.
-  const pre = (bundle.archetype_id.replace(/-/g, '').slice(0, 2) || 'aa').toLowerCase()
+  // Risk ids look like "ow1", "us12", "bs3"; the prefix is the 2-letter
+  // namespace already used by this archetype's risks. Read it from the
+  // existing risks rather than guessing from the archetype_id string —
+  // archetype_id="ev-charging" maps to prefix "ev", not "ec".
   const used = new Set(bundle.risks.map((r) => r.id))
-  for (let i = 1; i < 1000; i++) {
-    const id = `${prefix?.toLowerCase() ?? pre}${i}`
+  let prefix = ''
+  for (const r of bundle.risks) {
+    const m = r.id.match(/^([a-z]+)\d+$/)
+    if (m) {
+      prefix = m[1]
+      break
+    }
+  }
+  if (!prefix) {
+    // First-ever risk on this archetype — derive a 2-letter handle from the id.
+    const parts = bundle.archetype_id.split('-').filter(Boolean)
+    if (parts.length >= 2) {
+      prefix = (parts[0][0] + parts[1][0]).toLowerCase()
+    } else {
+      prefix = bundle.archetype_id.slice(0, 2).toLowerCase()
+    }
+  }
+  // Find max integer suffix among existing ids with this prefix, +1.
+  let maxN = 0
+  const re = new RegExp(`^${prefix}(\\d+)$`)
+  for (const id of used) {
+    const m = id.match(re)
+    if (m) maxN = Math.max(maxN, parseInt(m[1], 10))
+  }
+  for (let i = maxN + 1; i < maxN + 1000; i++) {
+    const id = `${prefix}${i}`
     if (!used.has(id)) return id
   }
   throw new Error('could not allocate risk id')

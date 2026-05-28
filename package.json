@@ -13,6 +13,7 @@
     "typecheck": "tsc --noEmit",
     "worker": "tsx scripts/worker.ts",
     "cron:daily-refresh": "node scripts/trigger-cron.mjs daily-refresh",
+    "cron:weekly-discover": "node scripts/trigger-cron.mjs weekly-discover",
     "db:seed": "tsx scripts/seed.ts",
     "db:reset": "tsx scripts/db-reset.ts"
   },

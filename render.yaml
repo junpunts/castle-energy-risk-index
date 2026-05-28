@@ -30,6 +30,20 @@ services:
       - key: CRON_SECRET
         sync: false
 
+  - type: cron
+    name: castle-eri-weekly-discover
+    runtime: node
+    # Mondays at 11:00 UTC = 07:00 ET (EDT) / 06:00 EST. Picked Monday morning
+    # so the team sees fresh Pass B proposals when the week kicks off.
+    schedule: "0 11 * * 1"
+    buildCommand: npm ci
+    startCommand: npm run cron:weekly-discover
+    envVars:
+      - key: WEB_URL
+        sync: false
+      - key: CRON_SECRET
+        sync: false
+
 envVarGroups:
   - name: castle-eri-shared
     envVars:
@@ -58,4 +72,14 @@ envVarGroups:
       - key: SLACK_WEBHOOK_URL
         sync: false
       - key: WEB_URL
+        sync: false
+      # Optional — enables semantic news↔risk matching and embedding-based
+      # de-dupe of Pass B proposals.
+      - key: OPENAI_API_KEY
+        sync: false
+      # SEC EDGAR requires a User-Agent in "Name email@domain" form.
+      - key: SEC_USER_AGENT
+        sync: false
+      # Optional — lifts CourtListener's free-tier rate limit.
+      - key: COURT_LISTENER_TOKEN
         sync: false

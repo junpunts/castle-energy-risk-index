@@ -58,7 +58,7 @@ export const pullSourcesStage: Stage<PullSourcesInput | null, PullSourcesOutput>
     if (archErr || !archRow) throw new Error(`load archetype: ${archErr?.message ?? 'missing'}`)
     const bundle = parseArchetypeBundle(archRow.state)
 
-    const adapters = adaptersForArchetype(ctx.archetypeId)
+    const adapters = adaptersForArchetype(ctx.archetypeId, bundle)
     ctx.log(`pulling ${adapters.length} adapter${adapters.length === 1 ? '' : 's'} since ${since.toISOString()}`)
     if (adapters.length === 0) {
       return { output: { fetched: 0, persisted: 0, matched_to_risks: 0, items: [] } }

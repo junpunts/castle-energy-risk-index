@@ -30,7 +30,9 @@ const PRICING: Record<string, ModelPrice> = {
   'claude-sonnet-3-5':        { input: 3,  output: 15, cacheWrite: 3.75, cacheRead: 0.30 },
   'claude-3-5-sonnet-latest': { input: 3,  output: 15, cacheWrite: 3.75, cacheRead: 0.30 },
 
-  // Opus 4 / 4.5
+  // Opus 4 / 4.5 / 4.8 — same pricing tier across the 4.x line.
+  'claude-opus-4-8':          { input: 15, output: 75, cacheWrite: 18.75, cacheRead: 1.50 },
+  'claude-opus-4-7':          { input: 15, output: 75, cacheWrite: 18.75, cacheRead: 1.50 },
   'claude-opus-4-5':          { input: 15, output: 75, cacheWrite: 18.75, cacheRead: 1.50 },
   'claude-opus-4':            { input: 15, output: 75, cacheWrite: 18.75, cacheRead: 1.50 },
 

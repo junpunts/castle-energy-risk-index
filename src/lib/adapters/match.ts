@@ -41,6 +41,39 @@ const EMBED_FLOOR = 0.40   // ignore similarities below this
 const EMBED_WEIGHT = 8     // multiplier on (sim - floor)
 const EMBED_MAX_BONUS = 4  // cap so embeddings don't drown keyword signal
 
+// SEC risk-factor and court-docket content reads differently from news.
+// These categories get a small uniform boost so the threshold is realistic
+// for legal-prose paragraphs that don't repeat keywords like news does.
+const SEC_CATEGORY = 'sec_risk_factor'
+const COURT_CATEGORY = 'court_docket'
+const EARNINGS_CATEGORY = 'earnings_qa'
+const CATEGORY_BONUS: Record<string, number> = {
+  [SEC_CATEGORY]: 1.5, // half a strong-token boost
+  [COURT_CATEGORY]: 1.5,
+  [EARNINGS_CATEGORY]: 1, // small — Q&A snippets can be conversational
+}
+
+// Common SEC risk-factor phrasings — "the Company is subject to", "may
+// materially affect", "if [policy] is repealed". When these patterns hit
+// alongside a topic word, we treat it as a strong signal.
+const SEC_PHRASE_PATTERNS: RegExp[] = [
+  /\b(the\s+)?company\s+is\s+subject\s+to\b/i,
+  /\bcould\s+materially\s+(adversely\s+)?affect\b/i,
+  /\bmay\s+materially\s+(adversely\s+)?(affect|impact)\b/i,
+  /\bif\s+\w+\s+(is|are)\s+(repealed|modified|delayed|terminated)\b/i,
+  /\bsubject\s+to\s+(extensive|federal|state)\s+regulation\b/i,
+]
+
+// Court docket fingerprints — case number patterns, court names. Helpful
+// because dockets often use legalese ("Petition for Review", "Motion to Stay")
+// rather than the topic vocabulary.
+const COURT_PATTERNS: RegExp[] = [
+  /\b\d+:\d+-cv-\d+\b/, // e.g. "1:25-cv-12345"
+  /\bD\.?C\.?\s+Circuit\b/i,
+  /\bUSCIT\b|\bCourt of International Trade\b/i,
+  /\b(petition\s+for\s+review|motion\s+to\s+stay|preliminary\s+injunction|TRO|writ\s+of\s+mandamus)\b/i,
+]
+
 export interface MatchOptions {
   /** Embedding of the source item (title + body), if available. */
   itemEmbedding?: number[] | null
@@ -489,6 +522,31 @@ export function matchItemAgainstArchetype(
     if (!hasWind) {
       for (const id of Object.keys(score_by_risk)) score_by_risk[id] = 0
     }
+  }
+
+  // 5b. Category-aware bonus. SEC + court + earnings content reads in long
+  //     legal sentences with little keyword repetition — the per-risk
+  //     keyword count is naturally lower. Give the source-type a small
+  //     uniform bump if the item already scored on at least one signal.
+  const catBonus = item.category ? (CATEGORY_BONUS[item.category] ?? 0) : 0
+  if (catBonus > 0) {
+    // Strong source bonus only kicks in if the item had keyword traction
+    // AND the source-specific phrasing patterns are present. Otherwise
+    // we'd boost every SEC paragraph regardless of relevance.
+    const rawText = text.toLowerCase()
+    const hasSecPhrase = SEC_PHRASE_PATTERNS.some((re) => re.test(text))
+    const hasCourtPhrase = COURT_PATTERNS.some((re) => re.test(text))
+    const phraseHit =
+      (item.category === SEC_CATEGORY && hasSecPhrase) ||
+      (item.category === COURT_CATEGORY && hasCourtPhrase) ||
+      item.category === EARNINGS_CATEGORY
+    if (phraseHit) {
+      for (const id of Object.keys(score_by_risk)) {
+        score_by_risk[id] = (score_by_risk[id] ?? 0) + catBonus
+      }
+    }
+    // unused but tracked here to avoid an eslint flag in tight contexts
+    void rawText
   }
 
   // 6. Embedding bonus — applied last so it doesn't compound the keyword

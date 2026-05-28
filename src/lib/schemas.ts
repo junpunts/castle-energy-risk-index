@@ -208,7 +208,10 @@ export const RiskDetailSchema = z.object({
 
   // Headline stats
   attention: z.number().int().min(0).max(100),
-  attention_delta: z.number().int(),
+  // attention_delta is the integer point change vs prior week (e.g. 70→55 → -15).
+  // Coerced from float for legacy bundles where compute_attention wrote a
+  // [-1, 1] fraction; new writes are always integer.
+  attention_delta: z.number().transform((n) => Math.round(n)).pipe(z.number().int()),
   probability: z.number().min(0).max(1),
   probability_delta: z.number().min(-1).max(1),
   impact_irr: z.number().nonpositive(),
@@ -232,6 +235,41 @@ export type RiskDetail = z.infer<typeof RiskDetailSchema>
 
 // ─── Archetype bundle (the whole `archetypes.state` jsonb) ────────────────
 
+/** Per-archetype intelligence config consumed by the source adapters
+ *  (SEC EDGAR, CourtListener, earnings transcripts). Lives on archetype
+ *  state so non-engineering edits don't require a code change. Optional
+ *  for back-compat: if absent, adapters fall back to compiled-in defaults. */
+export const ArchetypeIntelligenceSchema = z.object({
+  /** Project sponsors / developers / IPPs that file with the SEC and disclose
+   *  policy risk in 10-K Item 1A. SEC CIK is the 10-digit identifier with
+   *  leading zeros. */
+  sponsors: z
+    .array(
+      z.object({
+        name: z.string().min(1),
+        cik: z.string().regex(/^\d{10}$/, 'CIK must be 10 digits'),
+        ticker: z.string().optional(),
+      }),
+    )
+    .default([]),
+  /** Free-text search queries shipped to CourtListener — focused on the
+   *  litigation patterns most likely to surface risks for this archetype.
+   *  See lib/adapters/court-listener.ts for syntax. */
+  litigation_queries: z.array(z.string().min(1)).default([]),
+  /** Tickers / company names whose quarterly earnings transcripts contain
+   *  policy commentary worth scanning. Overlaps with sponsors but doesn't
+   *  have to. */
+  transcript_companies: z
+    .array(
+      z.object({
+        name: z.string().min(1),
+        ticker: z.string().min(1),
+      }),
+    )
+    .default([]),
+})
+export type ArchetypeIntelligence = z.infer<typeof ArchetypeIntelligenceSchema>
+
 export const ArchetypeBundleSchema = z.object({
   schema_version: z.literal('1.0.0'),
   archetype_id: z.string().min(1),
@@ -254,6 +292,9 @@ export const ArchetypeBundleSchema = z.object({
       hedges_universe: z.string().optional(),
     })
     .partial(),
+
+  /** Optional intelligence config for the Phase-2 source adapters. */
+  intelligence: ArchetypeIntelligenceSchema.optional(),
 })
 export type ArchetypeBundle = z.infer<typeof ArchetypeBundleSchema>
 
@@ -343,8 +384,12 @@ export type UpdateRiskPayload = z.infer<typeof UpdateRiskPayloadSchema>
 export const AddRiskPayloadSchema = z.object({
   /** Optional: agent can suggest an id, but admin assigns the final one. */
   suggested_id: z.string().optional(),
-  risk: RiskSchema.partial({ id: true }),
-  risk_detail: RiskDetailSchema.partial({ id: true }),
+  /** The agent supplies a partial risk; the apply path fills defaults. We
+   *  use `.partial()` so the proposal can land even if some fields aren't
+   *  set — the validator in lib/archetypes/apply.ts re-runs the full
+   *  ArchetypeBundleSchema after coercion and rejects anything still wrong. */
+  risk: RiskSchema.partial(),
+  risk_detail: RiskDetailSchema.partial(),
 })
 export type AddRiskPayload = z.infer<typeof AddRiskPayloadSchema>
 

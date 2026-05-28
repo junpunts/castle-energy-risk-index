@@ -94,7 +94,9 @@ export const computeAttentionStage: Stage<unknown, ComputeAttentionOutput> = {
       const newAttention = maxTotal > 0 ? Math.round((100 * total) / maxTotal) : 0
       const oldDetail = bundle.risk_details[rid]
       const oldAttention = oldDetail?.attention ?? 0
-      const attentionDelta = Math.max(-1, Math.min(1, (newAttention - oldAttention) / 100))
+      // attention_delta is the integer point change vs prior (e.g. 70→55 → -15).
+      // Capped to ±100 for safety even though that's impossible at 0-100 scale.
+      const attentionDelta = Math.max(-100, Math.min(100, Math.round(newAttention - oldAttention)))
       // Persist
       if (next.risk_details[rid]) {
         next.risk_details[rid].weekly = newWeekly
