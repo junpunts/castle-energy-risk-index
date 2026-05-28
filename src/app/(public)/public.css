@@ -104,39 +104,20 @@
  * Archetype page
  * ─────────────────────────────────────────────────────────────── */
 .hero-arch {
-  display: grid; grid-template-columns: 1.2fr 1fr; gap: 96px;
-  align-items: end; padding-bottom: 64px; border-bottom: var(--hair);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "eyebrow eyebrow"
+    "title   reading"
+    "lede    lede";
+  column-gap: 64px;
+  padding-bottom: 64px; border-bottom: var(--hair);
 }
-.hero-arch .display-1 { font-size: clamp(56px, 7vw, 88px); }
-.hero-arch .lede { margin-top: 32px; }
-.hero-arch .badges {
-  margin-top: 40px;
-  display: flex; flex-direction: column; gap: 12px;
-  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.08em; color: var(--fg-2);
-}
-.hero-arch .badges .row {
-  display: grid; grid-template-columns: 180px 1fr; gap: 16px;
-  padding: 8px 0; border-top: var(--hair);
-}
-.hero-arch .badges .row:first-child { border-top: none; }
-.hero-arch .badges .label {
-  color: var(--fg-3); letter-spacing: 0.28em;
-  text-transform: uppercase; font-size: 10px;
-}
-.hero-arch .reading { text-align: right; align-self: end; }
+.hero-arch > .eyebrow { grid-area: eyebrow; }
+.hero-arch .display-1 { grid-area: title; font-size: clamp(56px, 7vw, 88px); }
+.hero-arch .reading { grid-area: reading; align-self: end; text-align: right; }
+.hero-arch .lede { grid-area: lede; margin-top: 32px; max-width: 760px; }
 .hero-arch .reading .label { color: var(--fg-3); display: block; margin-bottom: 12px; }
-.hero-arch .reading .meta-row {
-  margin-top: 20px; display: flex; gap: 32px; justify-content: flex-end;
-}
-.hero-arch .reading .meta-row .stat .v {
-  font-family: var(--font-display); font-size: 28px; line-height: 1;
-  letter-spacing: -0.02em; margin-top: 6px; font-variant-numeric: tabular-nums;
-}
-.hero-arch .reading .meta-row .stat .l {
-  font-family: var(--font-mono); font-size: 9px; font-weight: 600;
-  letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3);
-}
 
 .chart-block { margin-top: 80px; }
 .chart-block .chart-head {

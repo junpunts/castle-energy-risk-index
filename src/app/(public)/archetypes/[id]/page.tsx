@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { readArchetype } from '@/lib/archetypes/read'
 import { rankedRisks } from '@/lib/archetypes/derive'
-import { fmtUsd, fmtPct, fmtSignedInt, fmtCountdown } from '@/lib/format'
+import { fmtCountdown } from '@/lib/format'
 import ScenarioExplorer from './ScenarioExplorer'
 
 export const dynamic = 'force-dynamic'
@@ -34,9 +34,6 @@ export default async function ArchetypePage({ params }: PageProps) {
     )
     .sort((a, b) => Date.parse(a.date) - Date.parse(b.date))
     .slice(0, 6)
-  const d = A.archetype.composite_delta
-  const deltaClass = d === 0 ? 'is-flat' : d > 0 ? 'is-up' : 'is-down'
-  const deltaTxt = d === 0 ? 'flat WoW' : `${fmtSignedInt(d)} WoW`
 
   // The news + catalysts rail is server-rendered and passed into the client
   // ScenarioExplorer (which owns the inputs, waterfall, and risks table).
@@ -106,70 +103,18 @@ export default async function ArchetypePage({ params }: PageProps) {
 
       <main className="page">
         <header className="hero-arch">
-          <div>
-            <span className="eyebrow" style={{ color: 'var(--accent)' }}>
-              {A.archetype.eyebrow}
-            </span>
-            <h1 className="display-1">{A.archetype.name}.</h1>
-            <p className="lede">{A.archetype.blurb}</p>
-            <div className="badges">
-              <div className="row">
-                <span className="label">Typical capacity</span>
-                <span>{A.archetype.typical.capacity}</span>
-              </div>
-              <div className="row">
-                <span className="label">Typical capex</span>
-                <span>{fmtUsd(A.archetype.typical.capex)}</span>
-              </div>
-              <div className="row">
-                <span className="label">Target equity IRR</span>
-                <span>{fmtPct(A.archetype.typical.target_irr, 1)}</span>
-              </div>
-              <div className="row">
-                <span className="label">COD timeline</span>
-                <span>~{A.archetype.typical.cod_months} months</span>
-              </div>
-              {A.archetype.typical.ppa_price && (
-                <div className="row">
-                  <span className="label">Typical PPA</span>
-                  <span>~${A.archetype.typical.ppa_price}/MWh</span>
-                </div>
-              )}
-            </div>
-          </div>
+          <span className="eyebrow" style={{ color: 'var(--accent)' }}>
+            {A.archetype.eyebrow}
+          </span>
+          <h1 className="display-1">{A.archetype.name}.</h1>
           <div className="reading">
             <span className="tiny-label label">Composite reading</span>
             <span className="big-num">
               {A.archetype.composite}
               <span className="of">/100</span>
             </span>
-            <div className="meta-row">
-              <div className="stat">
-                <div className="l">Risks tracked</div>
-                <div className="v tabular">{A.archetype.risks_total}</div>
-              </div>
-              <div className="stat">
-                <div className="l">High likelihood</div>
-                <div className="v tabular">{A.archetype.risks_high}</div>
-              </div>
-              <div className="stat">
-                <div className="l">Composite {d === 0 ? 'trend' : 'change'}</div>
-                <div
-                  className="v tabular"
-                  style={{
-                    color:
-                      deltaClass === 'is-up'
-                        ? 'var(--neg)'
-                        : deltaClass === 'is-down'
-                          ? 'var(--pos)'
-                          : 'var(--fg)',
-                  }}
-                >
-                  {deltaTxt}
-                </div>
-              </div>
-            </div>
           </div>
+          <p className="lede">{A.archetype.blurb}</p>
         </header>
 
         <ScenarioExplorer bundle={A} archetypeId={A.archetype_id} rail={rail} />
