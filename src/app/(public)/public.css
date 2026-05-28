@@ -490,6 +490,11 @@
    the first-position order, and the primary "Buy hedge" CTA on row #1 carry
    the ranking signal; no size-delta or accent rule needed. */
 .hedge-stack { margin-top: 8px; }
+/* Pin column 3 to a fixed width so the title column (col 1) is identical
+   across every row regardless of button text ("Buy hedge →" vs "View →").
+   Buttons stretch to fill the column for visual uniformity. */
+.hedge-stack .hedge-row { grid-template-columns: 1fr 200px 160px; }
+.hedge-stack .hedge-row .btn { width: 100%; }
 .hedge-stack .hedge-row .ticker { display: none; }
 .hedge-stack .hedge-row .ttl { max-width: none; }
 .hedge-head { margin-top: 64px; }
