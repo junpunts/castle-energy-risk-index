@@ -32,6 +32,10 @@ export default async function RiskPage({ params }: PageProps) {
   const R = A.risk_details[params.riskId]
   if (!R) notFound()
 
+  // Per-risk news is sparse on some archetypes; fall back to the archetype
+  // feed so "Recent items" is never empty.
+  const recentItems = R.news.length > 0 ? R.news : A.news
+
   return (
     <>
       <nav className="nav">
@@ -147,10 +151,10 @@ export default async function RiskPage({ params }: PageProps) {
 
         <div className="section-label">
           <span className="l">Recent items</span>
-          <span className="r">{R.news.length} items</span>
+          <span className="r">{recentItems.length} items</span>
         </div>
         <section>
-          {R.news.map((n, i) => (
+          {recentItems.map((n, i) => (
             <a key={i} className="news-row" href="#">
               <span className="src">{n.source}</span>
               <span className="ago">{n.ago}</span>
