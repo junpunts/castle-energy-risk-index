@@ -209,6 +209,24 @@ export default async function RiskPage({ params }: PageProps) {
 
 // ─── Attention bar chart — server-rendered SVG ───
 function AttentionBars({ weekly }: { weekly: number[] }) {
+  // Real mention counts are sparse — a quiet risk gets an honest empty state
+  // rather than 12 zero-height bars.
+  if (weekly.every((v) => v === 0)) {
+    return (
+      <div
+        style={{
+          padding: '56px 0',
+          color: 'var(--fg-3)',
+          fontFamily: 'var(--font-mono)',
+          fontSize: 12,
+          letterSpacing: '0.04em',
+        }}
+      >
+        No tracked mentions in Congress, the Federal Register, or major outlets over the last 12
+        weeks.
+      </div>
+    )
+  }
   const W = 960
   const H = 320
   const padL = 50
@@ -217,7 +235,9 @@ function AttentionBars({ weekly }: { weekly: number[] }) {
   const padB = 48
   const plotW = W - padL - padR
   const plotH = H - padT - padB
-  const max = Math.max(...weekly, 100)
+  // Auto-scale to the data's own peak (min floor of 4 so a lone mention isn't
+  // full-height). Real counts are small; the old forced 0–100 made them invisible.
+  const max = Math.max(...weekly, 4)
 
   const elements: React.ReactElement[] = []
   let keyN = 0
