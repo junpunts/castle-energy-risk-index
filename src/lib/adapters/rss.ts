@@ -62,6 +62,49 @@ const FEEDS: FeedConfig[] = [
     // demand, FERC/CAISO/PJM actions. Spans every archetype.
     archetype_hints: ['utility-solar', 'offshore-wind', 'nuclear-smr', 'battery-storage', 'natural-gas'],
   },
+  // ─── Expansion batch (May 2026) — DC politics, financial press, regulator-direct ───
+  {
+    name: 'politico_energy',
+    url: 'https://rss.politico.com/energy.xml',
+    // DC politics + energy — best signal on the OBBBA / IRA-credit fights that
+    // drive ~half our policy risks. Free RSS, no auth.
+    archetype_hints: ['utility-solar', 'offshore-wind', 'nuclear-smr', 'battery-storage', 'natural-gas', 'ev-charging'],
+  },
+  {
+    name: 'heatmap',
+    url: 'https://heatmap.news/feed',
+    // Climate / energy-policy news with FERC + grid focus. Surfaces stories
+    // E&E and Politico don't, often days earlier.
+    archetype_hints: ['utility-solar', 'offshore-wind', 'nuclear-smr', 'battery-storage', 'natural-gas', 'ev-charging'],
+  },
+  {
+    name: 'reuters_energy',
+    url: 'https://www.reutersagency.com/feed/?best-sectors=energy&post_type=best',
+    // Financial-press coverage of tariffs, supply chains, M&A — fills the
+    // gap left by clean-energy trade press.
+    archetype_hints: ['utility-solar', 'offshore-wind', 'nuclear-smr', 'battery-storage', 'natural-gas', 'ev-charging'],
+  },
+  {
+    name: 'nrc',
+    url: 'https://www.nrc.gov/feeds/news.xml',
+    // NRC press releases — direct source for SMR licensing, Part 53/37
+    // rulemakings, fuel-cycle decisions. Critical for nuclear-smr risks.
+    archetype_hints: ['nuclear-smr'],
+  },
+  {
+    name: 'doe',
+    url: 'https://www.energy.gov/rss/articles',
+    // DOE press releases — H2Hubs, LPO, NEVI program decisions. Direct from
+    // the source, ahead of trade-press summarisation.
+    archetype_hints: ['nuclear-smr', 'ev-charging', 'green-hydrogen', 'natural-gas'],
+  },
+  {
+    name: 'epa',
+    url: 'https://www.epa.gov/newsroom/rss/news_releases.xml',
+    // EPA press releases — combustion-turbine NSPS, OCS Clean Air, RFS,
+    // greenhouse-gas reporting. Drives natural-gas and offshore-wind risks.
+    archetype_hints: ['natural-gas', 'offshore-wind', 'utility-solar'],
+  },
 ]
 
 export const rssAdapter: SourceAdapter = {

@@ -489,7 +489,7 @@
 /* Hedge stack — all rows uniform. The section header "RECOMMENDED HEDGES",
    the first-position order, and the primary "Buy hedge" CTA on row #1 carry
    the ranking signal; no size-delta or accent rule needed. */
-.hedge-stack { margin-top: 8px; }
+.hedge-stack { margin-top: 0; }
 /* Pin column 3 to a fixed width so the title column (col 1) is identical
    across every row regardless of button text ("Buy hedge →" vs "View →").
    Buttons stretch to fill the column for visual uniformity. */
@@ -497,7 +497,11 @@
 .hedge-stack .hedge-row .btn { width: 100%; }
 .hedge-stack .hedge-row .ticker { display: none; }
 .hedge-stack .hedge-row .ttl { max-width: none; }
-.hedge-head { margin-top: 64px; }
+/* Tighten the gap between the section rule and the first hedge title — the
+   .section-label default leaves 32px margin-bottom and the hedge-row adds 32px
+   padding-top, which stacks into ~70px of awkward whitespace. Pull both in. */
+.hedge-head { margin-top: 64px; margin-bottom: 8px; }
+.hedge-stack .hedge-row:first-child { padding-top: 20px; }
 .hedge-row .ticker {
   font-family: var(--font-mono); font-size: 11px; font-weight: 700;
   letter-spacing: 0.04em; color: var(--fg); margin-bottom: 10px;

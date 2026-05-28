@@ -27,10 +27,26 @@
 
 import type { ArchetypeBundle, RiskDetail, NewsItem } from '@/lib/schemas'
 import type { SourceItem } from './types'
+import { cosineSimilarity } from './embeddings'
 
 const STRONG_WEIGHT = 3
 const TITLE_WEIGHT = 1
 const MATCH_THRESHOLD = 3 // lowered from 4 to widen recall; explicit per-risk keyword lists keep precision
+
+// Embedding-similarity tuning. We treat cosine as a bonus on top of keyword
+// score (not a replacement) so existing precision behaviour is preserved.
+// A 0.65-similarity item with one title-word match clears the threshold;
+// a 0.40-similarity item adds nothing. Keeps both signals voting.
+const EMBED_FLOOR = 0.40   // ignore similarities below this
+const EMBED_WEIGHT = 8     // multiplier on (sim - floor)
+const EMBED_MAX_BONUS = 4  // cap so embeddings don't drown keyword signal
+
+export interface MatchOptions {
+  /** Embedding of the source item (title + body), if available. */
+  itemEmbedding?: number[] | null
+  /** Map of risk_id → risk embedding (title + citation + view). */
+  riskEmbeddings?: Map<string, number[] | null>
+}
 
 // Per-archetype negative tokens — when present, suppress the match. The match
 // stays if the item ALSO carries an archetype-strong token (rare but possible:
@@ -393,6 +409,7 @@ export interface MatchResult {
 export function matchItemAgainstArchetype(
   item: SourceItem,
   bundle: ArchetypeBundle,
+  options?: MatchOptions,
 ): MatchResult {
   const text = `${item.title}\n${item.body ?? ''}`
   const tokens = tokenize(text)
@@ -471,6 +488,21 @@ export function matchItemAgainstArchetype(
     )
     if (!hasWind) {
       for (const id of Object.keys(score_by_risk)) score_by_risk[id] = 0
+    }
+  }
+
+  // 6. Embedding bonus — applied last so it doesn't compound the keyword
+  //    archetype-hit / negative-token logic. Adds (sim - 0.40) * 8 per risk,
+  //    capped at 4. Item must have an embedding AND the risk must have one;
+  //    if either is null, no bonus (graceful keyword-only fallback).
+  if (options?.itemEmbedding && options.riskEmbeddings) {
+    for (const r of bundle.risks ?? []) {
+      const riskEmb = options.riskEmbeddings.get(r.id)
+      if (!riskEmb) continue
+      const sim = cosineSimilarity(options.itemEmbedding, riskEmb)
+      if (sim <= EMBED_FLOOR) continue
+      const bonus = Math.min(EMBED_MAX_BONUS, (sim - EMBED_FLOOR) * EMBED_WEIGHT)
+      score_by_risk[r.id] = (score_by_risk[r.id] ?? 0) + bonus
     }
   }
 
