@@ -152,10 +152,6 @@ export default async function RiskPage({ params }: PageProps) {
           })}
         </section>
 
-        <section className="attn-block">
-          <AttentionBlock weekly={R.weekly} />
-        </section>
-
         <div className="section-label">
           <span className="l">Timeline</span>
           <span className="r">Past · Now · Upcoming</span>
