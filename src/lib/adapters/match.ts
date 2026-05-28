@@ -132,7 +132,13 @@ const ARCHETYPE_STRONG_TOKENS: Record<string, string[]> = {
   'battery-storage': ['battery storage', 'bess', 'energy storage', 'itc storage', 'lithium-ion', 'sodium-ion', '45x', 'feoc', 'ul 9540', 'long-duration', 'hts 8507', 'thermal runaway', 'energy storage installations', 'storage deployment', 'battery deployment', 'lithium iron phosphate', 'lfp battery', 'megapack', 'powerwall', 'seia storage', 'storage market', 'iron-air', 'battery market'],
   'nuclear-smr': ['small modular reactor', 'bwrx-300', 'clinch river', 'nuclear regulatory commission', 'construction permit', '45u', 'haleu', 'advanced nuclear', 'safety evaluation report', 'russian uranium', 'part 53'],
   'green-hydrogen': ['45v', 'electrolyzer', 'clean hydrogen', 'three pillars'],
-  'ev-charging': ['nevi', 'ev charging', 'charging infrastructure'],
+  'ev-charging': [
+    'nevi', 'ev charging', 'charging infrastructure',
+    'dc fast charging', 'dcfc', 'evse', 'buy america', 'baba',
+    '30c', '45w', 'refueling property', 'commercial clean vehicle',
+    'acc ii', 'alternative fuel vehicle', 'fhwa-2024-0001',
+    'electric vehicle credit', 'level 3 charger', 'ev charger',
+  ],
 }
 
 // Per-risk explicit keywords. Add as we discover patterns the matcher misses.
@@ -297,6 +303,43 @@ const KEYWORDS_BY_RISK: Record<string, Array<[string, number]>> = {
   ns7: [
     ['government shutdown', 3], ['appropriations lapse', 3], ['continuing resolution', 2],
     ['funding lapse', 3], ['shutdown', 2], ['permitting delay', 2],
+  ],
+
+  // ev-charging:
+  ev1: [
+    ['30c', 3], ['§30c', 3], ['section 30c', 3], ['refueling property', 3],
+    ['alternative fuel refueling', 3], ['h.r.1 70504', 3], ['obbba 30c', 3],
+    ['refueling credit', 2], ['refueling property credit', 3],
+  ],
+  ev2: [
+    ['45w', 3], ['§45w', 3], ['section 45w', 3], ['commercial clean vehicle', 3],
+    ['commercial ev credit', 3], ['p.l. 119-21', 2], ['fleet ev credit', 3],
+    ['clean vehicle credit', 3],
+  ],
+  ev3: [
+    ['baba', 3], ['build america buy america', 3], ['domestic content', 3],
+    ['manufactured products', 3], ['fhwa-2024-0001', 3], ['buy america', 3],
+    ['fhwa waiver', 3], ['23 cfr 635', 2], ['55% u.s. component', 3],
+  ],
+  ev4: [
+    ['nevi', 3], ['nevi formula', 3], ['alt-use', 3], ['23 usc 175', 3],
+    ['nevi repeal', 3], ['state alternative use', 3], ['fhwa nevi', 3],
+    ['nevi rescission', 3], ['nevi alternative use', 3],
+  ],
+  ev5: [
+    ['section 232 transformer', 3], ['grid equipment', 3], ['transformer tariff', 3],
+    ['switchgear', 2], ['hts 8504', 3], ['bis-2020-0015', 3],
+    ['power electronics', 2], ['section 301 list 3', 3],
+  ],
+  ev6: [
+    ['acc ii', 3], ['advanced clean cars', 3], ['caa 209(b)', 3], ['section 209(b)', 3],
+    ['vermont eo 04-25', 3], ['zev mandate', 3], ['clean truck partnership', 2],
+    ['ev mandate', 3], ['california waiver', 3],
+  ],
+  ev7: [
+    ['ntea', 3], ['automotive fleet', 3], ['commercial fleet ev', 3], ['fleet order', 3],
+    ['bev sales', 3], ['ev adoption', 2], ['ev sales decline', 3],
+    ['fleet ev order', 3],
   ],
 }
 

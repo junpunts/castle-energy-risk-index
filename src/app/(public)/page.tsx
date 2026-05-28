@@ -135,9 +135,7 @@ export default async function PublicIndex() {
 
       <footer className="foot">
         <span>Castle · For informational purposes only</span>
-        <span>
-          <Link href="/">Live brief</Link>
-        </span>
+        <span>Updated daily · 06:00 ET</span>
       </footer>
     </>
   )

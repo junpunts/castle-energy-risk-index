@@ -1,0 +1,761 @@
+{
+  "schema_version": "1.0.0",
+  "archetype_id": "ev-charging",
+  "as_of": "2026-05-28",
+  "horizon": "18 months",
+  "generated_at": "2026-05-28T16:00:00+00:00",
+  "generated_by": "scripts/gen_ev_charging.py",
+  "archetype": {
+    "id": "ev-charging",
+    "name": "EV Charging",
+    "eyebrow": "DC fast charging \u00b7 NEVI-backed \u00b7 1,200-station network",
+    "blurb": "Multi-state DC fast-charging network deployed under the NEVI Formula Program. The economics are layered: NEVI funds ~30-50% of site capex, \u00a730C covers up to 30% of refueling property, \u00a745W underwrites the commercial-fleet demand floor, and BABA dictates which chargers you can install. With OBBBA terminating two of the three credits, the archetype is exposed primarily to federal-policy continuity rather than market or trade risk.",
+    "typical": {
+      "capacity": "1,200 stations \u00b7 ~120 MW peak",
+      "capex": 300000000.0,
+      "capex_per_gw": 2500000000.0,
+      "target_irr": 0.13,
+      "cod_months": 30,
+      "ppa_price": null
+    },
+    "composite": 38,
+    "composite_delta": 6,
+    "risks_total": 7,
+    "risks_high": 3,
+    "news_this_week": 5,
+    "attention_weekly": [
+      54,
+      56,
+      58,
+      60,
+      62,
+      64,
+      67,
+      69,
+      71,
+      73,
+      75,
+      78
+    ]
+  },
+  "risks": [
+    {
+      "id": "ev1",
+      "category": "policy",
+      "title": "\u00a730C refueling credit terminated",
+      "citation": "IRC \u00a730C \u00b7 OBBBA H.R.1 \u00a770504",
+      "impact_irr": -2.5,
+      "impact_usd": 60000000.0,
+      "probability": 0.62,
+      "attention": 85,
+      "likelihood": "high",
+      "headline_change": "+10",
+      "driver": "cost"
+    },
+    {
+      "id": "ev2",
+      "category": "policy",
+      "title": "\u00a745W commercial EV credit terminated",
+      "citation": "IRC \u00a745W \u00b7 P.L. 119-21 \u00a770502",
+      "impact_irr": -2.0,
+      "impact_usd": 36000000.0,
+      "probability": 0.8,
+      "attention": 82,
+      "likelihood": "high",
+      "headline_change": "+13",
+      "driver": "revenue"
+    },
+    {
+      "id": "ev3",
+      "category": "operational",
+      "title": "BABA 55% domestic content binds",
+      "citation": "BABA 2 USC 8302 \u00b7 FHWA-2024-0001 \u00b7 23 CFR 635",
+      "impact_irr": -1.6,
+      "impact_usd": 24000000.0,
+      "probability": 0.72,
+      "attention": 74,
+      "likelihood": "high",
+      "headline_change": "+6",
+      "driver": "cost"
+    },
+    {
+      "id": "ev4",
+      "category": "policy",
+      "title": "NEVI program redirected or defunded",
+      "citation": "23 USC 175 \u00b7 NEVI \u00b7 FHWA Q3 2025 guidance",
+      "impact_irr": -2.4,
+      "impact_usd": 90000000.0,
+      "probability": 0.45,
+      "attention": 88,
+      "likelihood": "medium",
+      "headline_change": "+12",
+      "driver": "cost"
+    },
+    {
+      "id": "ev5",
+      "category": "trade",
+      "title": "Section 232 grid-equipment tariffs",
+      "citation": "Section 232 \u00b7 BIS-2020-0015 \u00b7 HTS 8504",
+      "impact_irr": -0.9,
+      "impact_usd": 14000000.0,
+      "probability": 0.25,
+      "attention": 52,
+      "likelihood": "low",
+      "headline_change": "+3",
+      "driver": "cost"
+    },
+    {
+      "id": "ev6",
+      "category": "market",
+      "title": "State EV mandate retreat (ACC II)",
+      "citation": "CAA \u00a7209(b) \u00b7 ACC II \u00b7 VT EO 04-25",
+      "impact_irr": -1.2,
+      "impact_usd": 18000000.0,
+      "probability": 0.4,
+      "attention": 58,
+      "likelihood": "medium",
+      "headline_change": "+5",
+      "driver": "revenue"
+    },
+    {
+      "id": "ev7",
+      "category": "market",
+      "title": "Commercial fleet EV order decline",
+      "citation": "NTEA fleet survey \u00b7 Automotive Fleet annual",
+      "impact_irr": -1.4,
+      "impact_usd": 22000000.0,
+      "probability": 0.52,
+      "attention": 68,
+      "likelihood": "medium",
+      "headline_change": "+4",
+      "driver": "revenue",
+      "two_sided": true
+    }
+  ],
+  "news": [
+    {
+      "source": "POLITICO",
+      "ago": "yesterday",
+      "tag": "policy",
+      "title": "Senate finance markup advances OBBBA \u00a730C termination as energy package moves",
+      "sum": "Provisions repealing the \u00a730C refueling property credit cleared the Senate Finance committee with bipartisan splits; floor vote tracked for late June.",
+      "published_at": "2026-05-27T09:00:00Z",
+      "url": "https://example.com/30c-markup"
+    },
+    {
+      "source": "FEDERAL REGISTER",
+      "ago": "2 days",
+      "tag": "policy",
+      "title": "FHWA approves Texas FY2026 NEVI alt-use spending plan; $42M redirected from chargers",
+      "sum": "Texas DOT's plan to redirect remaining FY22-25 NEVI funds toward intercity rail-charging hybrids cleared the FHWA review.",
+      "published_at": "2026-05-26T12:00:00Z",
+      "url": "https://www.federalregister.gov/example"
+    },
+    {
+      "source": "CANARY MEDIA",
+      "ago": "3 days",
+      "tag": "market",
+      "title": "Vermont governor signals extension of EO 04-25 ACC II pause through 2027",
+      "sum": "Governor Scott confirmed at a press availability that the executive order pausing ACT/ACC II mandates will be extended; trilateral pressure from manufacturers cited.",
+      "published_at": "2026-05-25T14:00:00Z",
+      "url": "https://example.com/vt-acc"
+    },
+    {
+      "source": "UTILITY DIVE",
+      "ago": "5 days",
+      "tag": "market",
+      "title": "DC fast charger deployments hit Q1 high \u2014 but state policy uncertainty deepens",
+      "sum": "Q1 2026 saw record DC fast-charger commissioning, though developers cite NEVI redirection and ACC II uncertainty as headwinds for the back half of the year.",
+      "published_at": "2026-05-23T10:00:00Z",
+      "url": "https://example.com/q1-dcfc"
+    },
+    {
+      "source": "USTR",
+      "ago": "6 days",
+      "tag": "trade",
+      "title": "Section 232 grid-equipment investigation reopens; transformer rate review on the docket",
+      "sum": "BIS announced a fresh investigation into transformer and switchgear imports; the 15% transitional rate set in late 2025 is now formally up for renewal.",
+      "published_at": "2026-05-22T16:00:00Z",
+      "url": "https://example.com/232-reopen"
+    },
+    {
+      "source": "POLITICO",
+      "ago": "1 wk",
+      "tag": "policy",
+      "title": "FHWA-2026-02825 EV-charger Buy America waiver docket comments close June 12",
+      "sum": "Industry comments due on FHWA's pending decision whether to grant or deny a domestic-content waiver for non-compliant chargers; outcome shapes the BABA enforcement posture.",
+      "published_at": "2026-05-21T11:00:00Z",
+      "url": "https://example.com/fhwa-baba"
+    }
+  ],
+  "risk_details": {
+    "ev1": {
+      "subtitle": "Up-to-30% federal credit on refueling property \u2014 OBBBA H.R.1 \u00a770504 targets it for termination, removing the capex-side keystone of US charging economics.",
+      "tracked_since": "Jan 14, 2026",
+      "last_updated": "2 hr ago",
+      "attention_delta": 10,
+      "probability_delta": 0.07,
+      "hedge_cost": 7000,
+      "view": "\u00a730C is the capex-side keystone for EV charging \u2014 up to a 30% credit on refueling property, and OBBBA H.R.1 \u00a770504 targets it for repeal by year-end 2026. Hedge the termination contract sized to your \u00a730C exposure; the state-credit patchwork emerging in California won't replace the federal stack.",
+      "weekly": [
+        60,
+        62,
+        64,
+        66,
+        69,
+        71,
+        73,
+        75,
+        78,
+        80,
+        82,
+        85
+      ],
+      "events": [
+        {
+          "date": "2026-07-31",
+          "when": "+64d",
+          "kind": "market",
+          "future": true,
+          "now": false,
+          "title": "Early \u00a730C elimination resolution",
+          "detail": "The OBBBA-provision-eliminating-\u00a730C contract resolves; tests whether the legislative repeal sticks through the Senate vote."
+        },
+        {
+          "date": "2026-12-31",
+          "when": "+217d",
+          "kind": "market",
+          "future": true,
+          "now": true,
+          "title": "Year-end \u00a730C termination status",
+          "detail": "Whether OBBBA \u00a770504's repeal of \u00a730C is in force at year-end. Resolves the primary hedge contract."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-obbba-section-30c-alternative-fuel-vehicle-refueling-property-credit-termin",
+          "title": "Will OBBBA \u00a730C alternative-fuel refueling property credit termination be in force by year-end 2026?",
+          "yes": 0.72,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 350000
+        },
+        {
+          "ticker": "will-h-r-1-sec-70504-terminate-the-section-30c-alternative-fuel-refueling-proper",
+          "title": "Will H.R.1 \u00a770504 terminate the \u00a730C alternative-fuel refueling property credit by Dec 2026?",
+          "yes": 0.62,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 280000
+        },
+        {
+          "ticker": "will-the-one-big-beautiful-bill-act-obbba-provision-eliminating-the-section-30c-",
+          "title": "Will the OBBBA provision eliminating \u00a730C be in force by Jul 31, 2026?",
+          "yes": 0.62,
+          "change": 0.0,
+          "expiry": "Jul 2026",
+          "notional": 200000
+        }
+      ],
+      "archetype_id": "ev-charging",
+      "archetype_name": "EV Charging",
+      "id": "ev1",
+      "category": "policy",
+      "title": "\u00a730C refueling credit terminated",
+      "citation": "IRC \u00a730C \u00b7 OBBBA H.R.1 \u00a770504",
+      "attention": 85,
+      "probability": 0.62,
+      "impact_irr": -2.5,
+      "impact_usd": 60000000.0
+    },
+    "ev2": {
+      "subtitle": "\u00a745W subsidises commercial EV purchases \u2014 without it, the fleet demand that anchors DC fast-charging utilization erodes through 2026-27.",
+      "tracked_since": "Jan 18, 2026",
+      "last_updated": "5 hr ago",
+      "attention_delta": 13,
+      "probability_delta": 0.09,
+      "hedge_cost": 6000,
+      "view": "\u00a745W termination kills the fleet-side demand floor for DC fast charging \u2014 utilities and corporate fleets buy commercial EVs because the credit hits 30% of vehicle cost. With the September 2025 acquisition cutoff already in force, hedge the formal termination contract; the demand effect lags 12-18 months but it's the largest revenue-side risk in the stack.",
+      "weekly": [
+        58,
+        60,
+        62,
+        64,
+        66,
+        68,
+        71,
+        73,
+        75,
+        77,
+        79,
+        82
+      ],
+      "events": [
+        {
+          "date": "2025-09-30",
+          "when": "past",
+          "kind": "deadline",
+          "future": false,
+          "now": false,
+          "title": "\u00a745W vehicle acquisition cutoff",
+          "detail": "P.L. 119-21 cut off \u00a745W for commercial clean vehicles acquired after Sep 30, 2025."
+        },
+        {
+          "date": "2026-12-31",
+          "when": "+217d",
+          "kind": "market",
+          "future": true,
+          "now": true,
+          "title": "Formal \u00a745W termination in force",
+          "detail": "Whether \u00a745W termination is fully in force at year-end; resolves the primary hedge."
+        },
+        {
+          "date": "2027-02-28",
+          "when": "+276d",
+          "kind": "market",
+          "future": true,
+          "now": false,
+          "title": "Commercial fleet EV order survey",
+          "detail": "NTEA/Automotive Fleet annual reports \u2014 the demand-side proxy."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-the-section-45w-qualified-commercial-clean-vehicle-credit-terminated-for-ve",
+          "title": "Will \u00a745W commercial clean vehicle credit termination be in force by year-end 2026?",
+          "yes": 0.8,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 400000
+        },
+        {
+          "ticker": "will-congress-pass-legislation-restoring-the-section-45w-commercial-clean-vehicl",
+          "title": "Will Congress restore \u00a745W commercial clean vehicle credit by Jan 2027? (NO pays for the base case)",
+          "yes": 0.2,
+          "change": 0.0,
+          "expiry": "Jan 2027",
+          "notional": 120000
+        }
+      ],
+      "archetype_id": "ev-charging",
+      "archetype_name": "EV Charging",
+      "id": "ev2",
+      "category": "policy",
+      "title": "\u00a745W commercial EV credit terminated",
+      "citation": "IRC \u00a745W \u00b7 P.L. 119-21 \u00a770502",
+      "attention": 82,
+      "probability": 0.8,
+      "impact_irr": -2.0,
+      "impact_usd": 36000000.0
+    },
+    "ev3": {
+      "subtitle": "FHWA's 55% domestic-component-cost rule for manufactured products applies to chargers \u2014 non-compliant hardware can't sit on federally-funded sites.",
+      "tracked_since": "Feb 4, 2026",
+      "last_updated": "8 hr ago",
+      "attention_delta": 6,
+      "probability_delta": 0.04,
+      "hedge_cost": 4000,
+      "view": "FHWA's 55% domestic-component-cost rule for chargers becomes binding through late 2026 \u2014 non-compliant hardware can't be installed at federally-funded sites. The product-specific waiver path is narrowing (the FHWA-2026-02825 EV-charger docket trends restrictive); hedge the rule-binding contract and re-source charger inventory to compliant suppliers in parallel.",
+      "weekly": [
+        54,
+        55,
+        57,
+        59,
+        61,
+        63,
+        64,
+        66,
+        68,
+        70,
+        72,
+        74
+      ],
+      "events": [
+        {
+          "date": "2026-10-15",
+          "when": "+140d",
+          "kind": "deadline",
+          "future": true,
+          "now": false,
+          "title": "FHWA Jan-2025 final rule effective",
+          "detail": "FHWA-2024-0001 manufactured-products final rule terminating the legacy waiver."
+        },
+        {
+          "date": "2026-10-31",
+          "when": "+156d",
+          "kind": "market",
+          "future": true,
+          "now": true,
+          "title": "BABA 55% compliance binding",
+          "detail": "Whether the 55% U.S.-component-cost requirement is enforced; resolves the primary hedge."
+        },
+        {
+          "date": "2026-12-31",
+          "when": "+217d",
+          "kind": "market",
+          "future": true,
+          "now": false,
+          "title": "FHWA EV-charger Buy America waiver decision",
+          "detail": "FHWA-2026-02825 waiver determination \u2014 direction matters for any non-compliant inventory."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-fhwa-s-build-america-buy-america-55-u-s-component-cost-requirement-for-manu",
+          "title": "Will FHWA's BABA 55% U.S.-component-cost requirement for manufactured products be binding by Oct 2026?",
+          "yes": 0.72,
+          "change": 0.0,
+          "expiry": "Oct 2026",
+          "notional": 240000
+        },
+        {
+          "ticker": "will-fhwa-s-january-14-2025-final-rule-docket-fhwa-2024-0001-terminating-the-man",
+          "title": "Will FHWA's Jan-2025 final rule terminating the manufactured-products waiver be in force by Oct 2026?",
+          "yes": 0.62,
+          "change": 0.0,
+          "expiry": "Oct 2026",
+          "notional": 180000
+        },
+        {
+          "ticker": "will-fhwa-s-buy-america-manufactured-products-final-rule-requiring-55-u-s-compon",
+          "title": "Will FHWA's 55% U.S.-component-cost final rule survive through Jan 2027?",
+          "yes": 0.62,
+          "change": 0.0,
+          "expiry": "Jan 2027",
+          "notional": 140000
+        }
+      ],
+      "archetype_id": "ev-charging",
+      "archetype_name": "EV Charging",
+      "id": "ev3",
+      "category": "operational",
+      "title": "BABA 55% domestic content binds",
+      "citation": "BABA 2 USC 8302 \u00b7 FHWA-2024-0001 \u00b7 23 CFR 635",
+      "attention": 74,
+      "probability": 0.72,
+      "impact_irr": -1.6,
+      "impact_usd": 24000000.0
+    },
+    "ev4": {
+      "subtitle": "NEVI funds roughly a third of site capex via the formula program \u2014 state alt-use redirection and outright defunding bracket the funding-loss tail.",
+      "tracked_since": "Jan 8, 2026",
+      "last_updated": "1 day ago",
+      "attention_delta": 12,
+      "probability_delta": 0.05,
+      "hedge_cost": 9000,
+      "view": "NEVI is the financing backbone \u2014 about a third of site capex flows through the formula program. State alt-use redirection is now the base case (FHWA's 2025 guidance opened the door, primary hedge prices it above coin-flip), and outright defunding sits in the tail. Hedge the alt-use-approval contract and the program-defunding tail as a single basket; size to your NEVI-share of capex.",
+      "weekly": [
+        64,
+        66,
+        68,
+        70,
+        72,
+        74,
+        77,
+        79,
+        81,
+        83,
+        85,
+        88
+      ],
+      "events": [
+        {
+          "date": "2026-09-30",
+          "when": "+125d",
+          "kind": "deadline",
+          "future": true,
+          "now": false,
+          "title": "FHWA Buy America waiver determination",
+          "detail": "Final rule or formal waiver determination resolving the BABA EV-charger question."
+        },
+        {
+          "date": "2026-12-31",
+          "when": "+217d",
+          "kind": "market",
+          "future": true,
+          "now": true,
+          "title": "State alt-use spending plan approval",
+          "detail": "Whether FHWA formally approves a state's FY2026 NEVI alt-use plan, redirecting funds away from chargers."
+        },
+        {
+          "date": "2026-12-31",
+          "when": "+217d",
+          "kind": "market",
+          "future": true,
+          "now": false,
+          "title": "NEVI program defunding tail",
+          "detail": "Whether Congress passes legislation repealing or defunding NEVI under 23 USC \u00a7151."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-fhwa-formally-approve-a-state-s-fy2026-nevi-alternative-use-spending-plan-r",
+          "title": "Will FHWA formally approve a state's FY2026 NEVI alt-use spending plan by year-end?",
+          "yes": 0.52,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 380000
+        },
+        {
+          "ticker": "will-congress-pass-legislation-repealing-or-defunding-the-nevi-formula-program-2",
+          "title": "Will Congress pass legislation repealing or defunding NEVI by year-end?",
+          "yes": 0.28,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 200000
+        },
+        {
+          "ticker": "will-fhwa-publish-a-final-rule-or-formal-waiver-determination-resolving-buy-amer",
+          "title": "Will FHWA publish a final rule resolving the EV-charger Buy America question by Sep 2026?",
+          "yes": 0.35,
+          "change": 0.0,
+          "expiry": "Sep 2026",
+          "notional": 160000
+        }
+      ],
+      "archetype_id": "ev-charging",
+      "archetype_name": "EV Charging",
+      "id": "ev4",
+      "category": "policy",
+      "title": "NEVI program redirected or defunded",
+      "citation": "23 USC 175 \u00b7 NEVI \u00b7 FHWA Q3 2025 guidance",
+      "attention": 88,
+      "probability": 0.45,
+      "impact_irr": -2.4,
+      "impact_usd": 90000000.0
+    },
+    "ev5": {
+      "subtitle": "Site-level transformers and switchgear are now squarely in Section 232 territory; charger imports stack Section 301 on top.",
+      "tracked_since": "Mar 4, 2026",
+      "last_updated": "2 days ago",
+      "attention_delta": 3,
+      "probability_delta": 0.01,
+      "hedge_cost": 2500,
+      "view": "DC fast-charging sites need transformer and switchgear capacity that's now squarely in Section 232 territory \u2014 the 15% transitional rate on grid equipment is up for renewal in early 2027. Smaller share of total capex than the credit-side risks, but it stacks on top of any charger-side Section 301 escalation; hedge the rate-renewal contract if your site mix is grid-heavy.",
+      "weekly": [
+        38,
+        39,
+        40,
+        41,
+        43,
+        44,
+        45,
+        46,
+        48,
+        49,
+        50,
+        52
+      ],
+      "events": [
+        {
+          "date": "2026-12-31",
+          "when": "+217d",
+          "kind": "market",
+          "future": true,
+          "now": false,
+          "title": "Section 301 power-electronics exclusions",
+          "detail": "Whether USTR grants or renews exclusions from the 25% Section 301 List 3 tariffs for power-electronics."
+        },
+        {
+          "date": "2027-01-15",
+          "when": "+232d",
+          "kind": "market",
+          "future": true,
+          "now": true,
+          "title": "Section 232 grid-equipment rate renewal",
+          "detail": "Whether the 15% transitional Section 232 rate on transformers and switchgear continues into 2027."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-the-15-transitional-section-232-tariff-rate-on-electrical-grid-equipment-tr",
+          "title": "Will the 15% transitional Section 232 rate on grid equipment continue into 2027?",
+          "yes": 0.25,
+          "change": 0.0,
+          "expiry": "Jan 2027",
+          "notional": 120000
+        },
+        {
+          "ticker": "will-ustr-grant-or-renew-product-exclusions-from-section-301-list-3-tariffs-25-f",
+          "title": "Will USTR grant or renew Section 301 List 3 exclusions for power electronics by year-end?",
+          "yes": 0.2,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 80000
+        }
+      ],
+      "archetype_id": "ev-charging",
+      "archetype_name": "EV Charging",
+      "id": "ev5",
+      "category": "trade",
+      "title": "Section 232 grid-equipment tariffs",
+      "citation": "Section 232 \u00b7 BIS-2020-0015 \u00b7 HTS 8504",
+      "attention": 52,
+      "probability": 0.25,
+      "impact_irr": -0.9,
+      "impact_usd": 14000000.0
+    },
+    "ev6": {
+      "subtitle": "ACC II withdrawals in major states and the CA Section 209(b) waiver fight soften the EV demand floor that underwrites utilization assumptions.",
+      "tracked_since": "Feb 19, 2026",
+      "last_updated": "1 day ago",
+      "attention_delta": 5,
+      "probability_delta": 0.02,
+      "hedge_cost": 3500,
+      "view": "ACC II mandate retreat in big states \u2014 Vermont's EO 04-25 is the bellwether, NY/CO/OR are the swing \u2014 softens the EV demand floor that underwrites charging utilization. The fix isn't a single hedge: it's a basket across the CA Section 209(b) waiver, individual-state ACC II withdrawals, and the Vermont extension; size it to the share of network in mandate-state corridors.",
+      "weekly": [
+        48,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "events": [
+        {
+          "date": "2026-12-31",
+          "when": "+217d",
+          "kind": "market",
+          "future": true,
+          "now": false,
+          "title": "EPA CA \u00a7209(b) waiver decision",
+          "detail": "Whether EPA formally revokes or declines to reinstate California's CAA \u00a7209(b) waiver."
+        },
+        {
+          "date": "2026-12-31",
+          "when": "+217d",
+          "kind": "market",
+          "future": true,
+          "now": false,
+          "title": "ACC II state withdrawal",
+          "detail": "Whether at least one ACC II-linked state (NY, CO, or OR) formally withdraws."
+        },
+        {
+          "date": "2027-01-31",
+          "when": "+248d",
+          "kind": "market",
+          "future": true,
+          "now": true,
+          "title": "Vermont EO 04-25 extension",
+          "detail": "Whether Governor Scott extends the pause on ACT, ACC II, and the ZEV sales mandate."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-vermont-governor-phil-scott-extend-executive-order-04-25-pausing-act-acc-ii",
+          "title": "Will VT Gov. Scott extend EO 04-25 pausing ACC II and the ZEV mandate?",
+          "yes": 0.55,
+          "change": 0.0,
+          "expiry": "Jan 2027",
+          "notional": 180000
+        },
+        {
+          "ticker": "will-at-least-one-acc-ii-linked-state-new-york-colorado-or-oregon-formally-withd",
+          "title": "Will at least one ACC II state (NY, CO, or OR) formally withdraw by year-end?",
+          "yes": 0.3,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 120000
+        },
+        {
+          "ticker": "will-the-epa-formally-revoke-or-decline-to-reinstate-california-s-clean-air-act-",
+          "title": "Will EPA formally revoke or decline to reinstate CA's CAA \u00a7209(b) waiver by year-end?",
+          "yes": 0.32,
+          "change": 0.0,
+          "expiry": "Dec 2026",
+          "notional": 150000
+        }
+      ],
+      "archetype_id": "ev-charging",
+      "archetype_name": "EV Charging",
+      "id": "ev6",
+      "category": "market",
+      "title": "State EV mandate retreat (ACC II)",
+      "citation": "CAA \u00a7209(b) \u00b7 ACC II \u00b7 VT EO 04-25",
+      "attention": 58,
+      "probability": 0.4,
+      "impact_irr": -1.2,
+      "impact_usd": 18000000.0
+    },
+    "ev7": {
+      "subtitle": "Commercial fleet EV order volumes are the leading indicator for DC fast-charging utilization \u2014 and they're trending down.",
+      "tracked_since": "Feb 12, 2026",
+      "last_updated": "10 hr ago",
+      "attention_delta": 4,
+      "probability_delta": 0.03,
+      "hedge_cost": 3000,
+      "view": "Commercial fleet EV order volumes are the leading indicator for DC fast-charging utilization \u2014 NTEA-tracked declines already crossed 15% YoY in late 2025, and \u00a745W termination accelerates the drag through 2026. Hedge the fleet-order-decline contract directly, sized against your utilization assumption; this is a two-sided risk (recovery is possible) but the base case is negative.",
+      "weekly": [
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        68
+      ],
+      "events": [
+        {
+          "date": "2027-02-28",
+          "when": "+276d",
+          "kind": "market",
+          "future": true,
+          "now": true,
+          "title": "Commercial fleet EV order survey",
+          "detail": "NTEA / Automotive Fleet annual survey \u2014 primary leading indicator."
+        }
+      ],
+      "news": [],
+      "hedges": [
+        {
+          "ticker": "will-u-s-commercial-fleet-ev-order-volumes-as-reported-by-ntea-or-automotive-fle",
+          "title": "Will US commercial fleet EV order volumes decline 15%+ YoY in 2026?",
+          "yes": 0.52,
+          "change": 0.0,
+          "expiry": "Feb 2027",
+          "notional": 220000
+        },
+        {
+          "ticker": "will-u-s-new-battery-electric-vehicle-sales-in-calendar-year-2026-fall-more-than",
+          "title": "Will US new BEV sales in CY2026 fall more than 15% below the CBO baseline?",
+          "yes": 0.38,
+          "change": 0.0,
+          "expiry": "Mar 2027",
+          "notional": 140000
+        }
+      ],
+      "archetype_id": "ev-charging",
+      "archetype_name": "EV Charging",
+      "id": "ev7",
+      "category": "market",
+      "title": "Commercial fleet EV order decline",
+      "citation": "NTEA fleet survey \u00b7 Automotive Fleet annual",
+      "attention": 68,
+      "probability": 0.52,
+      "impact_irr": -1.4,
+      "impact_usd": 22000000.0
+    }
+  },
+  "sources": {
+    "hedges": "synthetic_contract_library (verified slugs, May 2026 snapshot)",
+    "citations": "OBBBA H.R.1, IRC \u00a730C/\u00a745W, BABA 2 USC 8302, 23 USC 175 NEVI, FHWA-2024-0001, CAA \u00a7209(b), Vermont EO 04-25",
+    "research": "scripts/gen_ev_charging.py (hand-curated, M10 expansion #6)"
+  }
+}

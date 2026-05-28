@@ -20,7 +20,7 @@ import { matchItemAgainstArchetype } from '../src/lib/adapters/match'
 import { parseArchetypeBundle, type ArchetypeBundle } from '../src/lib/schemas'
 import type { SourceItem } from '../src/lib/adapters/types'
 
-const ARCHETYPES = ['offshore-wind', 'utility-solar', 'battery-storage', 'natural-gas', 'nuclear-smr']
+const ARCHETYPES = ['offshore-wind', 'utility-solar', 'battery-storage', 'natural-gas', 'nuclear-smr', 'ev-charging']
 
 const FR_PREFIX = 'federal_register:'
 
