@@ -30,7 +30,7 @@ import type { SourceItem } from './types'
 
 const STRONG_WEIGHT = 3
 const TITLE_WEIGHT = 1
-const MATCH_THRESHOLD = 4 // bumped from 3; reduces "Oil and Gas Lease Sales" false positives
+const MATCH_THRESHOLD = 3 // lowered from 4 to widen recall; explicit per-risk keyword lists keep precision
 
 // Per-archetype negative tokens — when present, suppress the match. The match
 // stays if the item ALSO carries an archetype-strong token (rare but possible:
@@ -99,6 +99,17 @@ const ARCHETYPE_STRONG_TOKENS: Record<string, string[]> = {
     'solar iv',
     '48e',
     '45y',
+    'solar deployment',
+    'solar capacity',
+    'module imports',
+    'first solar',
+    'jinko',
+    'qcells',
+    'solar market',
+    'solar industry',
+    'panel manufacturer',
+    'solar duty',
+    'preliminary determination',
   ],
   'natural-gas': [
     'lng',
@@ -118,7 +129,7 @@ const ARCHETYPE_STRONG_TOKENS: Record<string, string[]> = {
     'mmbtu',
   ],
   'onshore-wind': ['ptc', 'onshore wind farm', 'wind ptc'],
-  'battery-storage': ['battery storage', 'bess', 'energy storage', 'itc storage', 'lithium-ion', 'sodium-ion', '45x', 'feoc', 'ul 9540', 'long-duration', 'hts 8507', 'thermal runaway'],
+  'battery-storage': ['battery storage', 'bess', 'energy storage', 'itc storage', 'lithium-ion', 'sodium-ion', '45x', 'feoc', 'ul 9540', 'long-duration', 'hts 8507', 'thermal runaway', 'energy storage installations', 'storage deployment', 'battery deployment', 'lithium iron phosphate', 'lfp battery', 'megapack', 'powerwall', 'seia storage', 'storage market', 'iron-air', 'battery market'],
   'nuclear-smr': ['small modular reactor', 'bwrx-300', 'clinch river', 'nuclear regulatory commission', 'construction permit', '45u', 'haleu', 'advanced nuclear', 'safety evaluation report', 'russian uranium', 'part 53'],
   'green-hydrogen': ['45v', 'electrolyzer', 'clean hydrogen', 'three pillars'],
   'ev-charging': ['nevi', 'ev charging', 'charging infrastructure'],
@@ -176,6 +187,7 @@ const KEYWORDS_BY_RISK: Record<string, Array<[string, number]>> = {
   us3: [
     ['feoc', 3], ['48e', 3], ['45y', 3], ['§48e', 3], ['§45y', 3], ['foreign entity of concern', 3],
     ['treasury guidance', 2], ['tax equity', 2], ['obbb', 3], ['prohibited foreign entity', 2],
+    ['solar tax credit', 3], ['48e solar', 3], ['solar feoc', 3], ['solar credit', 2], ['ira repeal', 3],
   ],
   us4: [
     ['uflpa', 3], ['forced labor', 3], ['cbp', 3], ['customs detention', 3], ['withhold release order', 3],
@@ -187,6 +199,8 @@ const KEYWORDS_BY_RISK: Record<string, Array<[string, number]>> = {
   ],
   us6: [
     ['ercot', 3], ['curtailment', 3], ['negative price', 2], ['midday', 2], ['merchant solar', 2],
+    ['solar curtailment', 3], ['midday curtailment', 3], ['negative pricing', 3], ['duck curve', 3],
+    ['solar generation', 2], ['solar capture price', 3],
   ],
   us7: [
     ['longi', 3], ['prohibited foreign entity', 3], ['feoc', 3], ['48e', 2], ['treasury designation', 3],
@@ -251,6 +265,8 @@ const KEYWORDS_BY_RISK: Record<string, Array<[string, number]>> = {
   bs7: [
     ['ancillary', 3], ['arbitrage', 3], ['caiso', 3], ['ercot', 2], ['merchant storage', 3],
     ['as saturation', 2], ['storage tariff', 2], ['dispatch', 2],
+    ['storage installations', 3], ['storage growth', 3], ['storage market', 3], ['energy storage market', 3],
+    ['storage deployment', 3], ['storage capacity', 2], ['seia storage', 3], ['battery deployment', 3],
   ],
 
   // nuclear-smr:
