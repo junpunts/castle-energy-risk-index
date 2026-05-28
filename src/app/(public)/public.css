@@ -485,6 +485,29 @@
   align-items: end;
 }
 .hedge-row:last-child { border-bottom: none; }
+
+/* Featured (top-1 recommended) hedge — framed card, dropped-out label. */
+.hedge-stack { margin-top: 16px; }
+.hedge-stack .hedge-row.is-featured {
+  position: relative;
+  padding: 40px 32px 32px;
+  margin: 16px 0 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+.hedge-stack .hedge-row.is-featured::before {
+  content: 'RECOMMENDED';
+  position: absolute; top: -8px; left: 24px;
+  background: var(--castle-bone);
+  padding: 0 12px;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.28em; color: var(--accent);
+}
+.hedge-stack .hedge-row.is-featured .ttl { font-size: 28px; line-height: 1.2; }
+.hedge-stack .hedge-row.is-featured .price .yes { font-size: 52px; }
+.hedge-stack .hedge-row.is-featured .meta { font-size: 12px; margin-top: 8px; }
+.hedge-stack .hedge-row.is-featured .btn.is-primary { padding: 14px 26px; font-size: 12px; letter-spacing: 0.22em; }
+.hedge-head { margin-top: 64px; }
 .hedge-row .ticker {
   font-family: var(--font-mono); font-size: 11px; font-weight: 700;
   letter-spacing: 0.04em; color: var(--fg); margin-bottom: 10px;

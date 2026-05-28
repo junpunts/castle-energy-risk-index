@@ -115,6 +115,43 @@ export default async function RiskPage({ params }: PageProps) {
           <p className="p">{R.view}</p>
         </section>
 
+        <div className="section-label hedge-head">
+          <span className="l">Recommended hedges</span>
+          <span className="r">
+            {R.hedges.length} contract{R.hedges.length === 1 ? '' : 's'}
+          </span>
+        </div>
+        <section className="hedge-stack">
+          {R.hedges.map((h, i) => {
+            const cn = h.change || 0
+            const cls = cn > 0 ? 'up' : cn < 0 ? 'dn' : ''
+            const cstr = `${cn > 0 ? '+' : ''}${(cn * 100).toFixed(0)}¢`
+            return (
+              <div
+                key={h.ticker}
+                className={`hedge-row${i === 0 ? ' is-featured' : ''}`}
+              >
+                <div>
+                  <div className="ticker">{h.ticker}</div>
+                  <p className="ttl">{h.title}</p>
+                </div>
+                <div>
+                  <div className="price">
+                    <span className="yes">{Math.round(h.yes * 100)}¢</span>
+                    <span className={`change ${cls}`}>{cstr}</span>
+                  </div>
+                  <div className="meta">
+                    Resolves {h.expiry} · {fmtUsd(h.notional)} sized
+                  </div>
+                </div>
+                <button className={`btn ${i === 0 ? 'is-primary' : ''}`}>
+                  {i === 0 ? 'Buy hedge →' : 'View →'}
+                </button>
+              </div>
+            )
+          })}
+        </section>
+
         <section className="attn-block">
           <AttentionBlock weekly={R.weekly} />
         </section>
@@ -157,37 +194,6 @@ export default async function RiskPage({ params }: PageProps) {
           ))}
         </section>
 
-        <div className="section-label">
-          <span className="l">Mapped hedges</span>
-          <span className="r">{R.hedges.length} markets</span>
-        </div>
-        <section>
-          {R.hedges.map((h, i) => {
-            const cn = h.change || 0
-            const cls = cn > 0 ? 'up' : cn < 0 ? 'dn' : ''
-            const cstr = `${cn > 0 ? '+' : ''}${(cn * 100).toFixed(0)}¢`
-            return (
-              <div key={h.ticker} className="hedge-row">
-                <div>
-                  <div className="ticker">{h.ticker}</div>
-                  <p className="ttl">{h.title}</p>
-                </div>
-                <div>
-                  <div className="price">
-                    <span className="yes">{Math.round(h.yes * 100)}¢</span>
-                    <span className={`change ${cls}`}>{cstr}</span>
-                  </div>
-                  <div className="meta">
-                    Resolves {h.expiry} · {fmtUsd(h.notional)} sized
-                  </div>
-                </div>
-                <button className={`btn ${i === 0 ? 'is-primary' : ''}`}>
-                  {i === 0 ? 'Buy' : 'View'} →
-                </button>
-              </div>
-            )
-          })}
-        </section>
       </main>
 
       <footer className="foot">
