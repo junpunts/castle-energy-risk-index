@@ -116,14 +116,7 @@ export default async function RiskPage({ params }: PageProps) {
         </section>
 
         <section className="attn-block">
-          <div className="head">
-            <h3>
-              Attention — last 12 weeks of mentions in Congress, the Federal Register, and major
-              outlets
-            </h3>
-            <span className="meta">Castle composite</span>
-          </div>
-          <AttentionBars weekly={R.weekly} />
+          <AttentionBlock weekly={R.weekly} />
         </section>
 
         <div className="section-label">
@@ -207,7 +200,121 @@ export default async function RiskPage({ params }: PageProps) {
   )
 }
 
-// ─── Attention bar chart — server-rendered SVG ───
+// ─── Attention block — trend headline + slim sparkline ───
+function AttentionBlock({ weekly }: { weekly: number[] }) {
+  const total = weekly.reduce((a, b) => a + b, 0)
+  const thisWeek = weekly[weekly.length - 1] ?? 0
+  const last4 = weekly.slice(-4).reduce((a, b) => a + b, 0)
+  const prior4 = weekly.slice(-8, -4).reduce((a, b) => a + b, 0)
+  const peak = Math.max(...weekly, 0)
+
+  if (total === 0) {
+    return (
+      <>
+        <div className="head">
+          <span className="eyebrow label">Attention</span>
+          <span className="meta">12-week window</span>
+        </div>
+        <p className="attn-empty">
+          No tracked mentions in Congress, the Federal Register, or major outlets over the last 12
+          weeks.
+        </p>
+      </>
+    )
+  }
+
+  let trend = 'Steady'
+  if (last4 > prior4 * 1.5 || (prior4 === 0 && last4 > 0)) trend = 'Heating up'
+  else if (last4 < prior4 * 0.5 && prior4 > 0) trend = 'Cooling'
+
+  return (
+    <>
+      <div className="head">
+        <span className="eyebrow label">Attention</span>
+        <span className="meta">12-week window · Congress · Federal Register · majors</span>
+      </div>
+      <div className="lead-row">
+        <h3 className="trend">{trend}.</h3>
+        <div className="breakdown">
+          <strong className="tabular">{thisWeek}</strong> this week
+          <span className="sep">·</span>
+          <strong className="tabular">{last4}</strong> past month
+          <span className="sep">·</span>
+          peak <strong className="tabular">{peak}</strong>
+        </div>
+      </div>
+      <AttentionSparkline weekly={weekly} />
+    </>
+  )
+}
+
+function AttentionSparkline({ weekly }: { weekly: number[] }) {
+  const W = 960
+  const H = 88
+  const padT = 4
+  const padB = 18
+  const plotH = H - padT - padB
+  const max = Math.max(...weekly, 4)
+  const colW = W / weekly.length
+  const bw = colW - 6
+  return (
+    <svg
+      viewBox={`0 0 ${W} ${H}`}
+      preserveAspectRatio="none"
+      style={{ width: '100%', height: 88, display: 'block' }}
+    >
+      {weekly.map((v, i) => {
+        const x = i * colW + 3
+        const h = (v / max) * plotH
+        const y = padT + plotH - h
+        const isLast = i === weekly.length - 1
+        return (
+          <rect
+            key={i}
+            x={x}
+            y={y}
+            width={bw}
+            height={h}
+            fill={isLast ? '#171717' : '#246075'}
+            fillOpacity={v ? 1 : 0.08}
+          />
+        )
+      })}
+      <line
+        x1={0}
+        y1={padT + plotH + 0.5}
+        x2={W}
+        y2={padT + plotH + 0.5}
+        stroke="rgba(24,24,24,0.18)"
+      />
+      <text
+        x={4}
+        y={H - 4}
+        fontFamily="Geist Mono"
+        fontSize={9}
+        fill="#737373"
+        letterSpacing="0.2em"
+        fontWeight={600}
+      >
+        12 WK AGO
+      </text>
+      <text
+        x={W - 4}
+        y={H - 4}
+        fontFamily="Geist Mono"
+        fontSize={9}
+        fill="#737373"
+        letterSpacing="0.2em"
+        fontWeight={600}
+        textAnchor="end"
+      >
+        THIS WEEK
+      </text>
+    </svg>
+  )
+}
+
+// ─── Legacy AttentionBars (replaced by AttentionBlock above; kept temporarily unused) ───
 function AttentionBars({ weekly }: { weekly: number[] }) {
   // Real mention counts are sparse — a quiet risk gets an honest empty state
   // rather than 12 zero-height bars.
