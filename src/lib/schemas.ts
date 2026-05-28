@@ -111,6 +111,19 @@ export const RiskSchema = z.object({
    *  downside drag, but the flag lets the UI footnote it / a future signed model
    *  render it as ±. */
   two_sided: z.boolean().optional(),
+  /** Lifecycle. 'realized' = the underlying policy change has already occurred
+   *  (e.g. §45W termination Oct 2025) and is no longer probabilistic — the IRR
+   *  drag is baseline, not forward exposure. UI demotes realized risks: shows
+   *  "in effect since {date}" instead of a probability. Defaults to 'active'
+   *  for back-compat with existing bundles. */
+  status: z.enum(['active', 'realized']).optional().default('active'),
+  /** ISO date the realised policy change went into effect (e.g. "2025-10-01"). */
+  realized_date: z.string().optional(),
+  /** Ticker (library slug, kalshi:, poly:) of the contract whose live YES price
+   *  should drive this risk's `probability`. Read by the cron's
+   *  sync_market_probabilities stage; without it, probability stays whatever
+   *  the gen script / analyst last wrote. Skipped entirely for realized risks. */
+  primary_hedge_ticker: z.string().optional(),
 })
 export type Risk = z.infer<typeof RiskSchema>
 
@@ -211,6 +224,9 @@ export const RiskDetailSchema = z.object({
   events: z.array(TimelineEventSchema).min(1),
   news: z.array(NewsItemSchema),
   hedges: z.array(HedgeSchema).min(1),
+  /** Mirrors Risk.status — see RiskSchema for semantics. */
+  status: z.enum(['active', 'realized']).optional().default('active'),
+  realized_date: z.string().optional(),
 })
 export type RiskDetail = z.infer<typeof RiskDetailSchema>
 

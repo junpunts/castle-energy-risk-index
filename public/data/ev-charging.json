@@ -18,7 +18,7 @@
       "cod_months": 30,
       "ppa_price": null
     },
-    "composite": 38,
+    "composite": 47,
     "composite_delta": 6,
     "risks_total": 7,
     "risks_high": 3,
@@ -46,11 +46,14 @@
       "citation": "IRC \u00a730C \u00b7 OBBBA H.R.1 \u00a770504",
       "impact_irr": -2.5,
       "impact_usd": 60000000.0,
-      "probability": 0.62,
+      "probability": 0.99,
       "attention": 85,
       "likelihood": "high",
       "headline_change": "+10",
-      "driver": "cost"
+      "driver": "cost",
+      "status": "realized",
+      "realized_date": "2025-10-01",
+      "primary_hedge_ticker": "will-obbba-section-30c-alternative-fuel-vehicle-refueling-property-credit-termin"
     },
     {
       "id": "ev2",
@@ -59,11 +62,14 @@
       "citation": "IRC \u00a745W \u00b7 P.L. 119-21 \u00a770502",
       "impact_irr": -2.0,
       "impact_usd": 36000000.0,
-      "probability": 0.8,
+      "probability": 0.99,
       "attention": 82,
       "likelihood": "high",
       "headline_change": "+13",
-      "driver": "revenue"
+      "driver": "revenue",
+      "status": "realized",
+      "realized_date": "2025-10-01",
+      "primary_hedge_ticker": "will-the-section-45w-qualified-commercial-clean-vehicle-credit-terminated-for-ve"
     },
     {
       "id": "ev3",
@@ -76,7 +82,8 @@
       "attention": 74,
       "likelihood": "high",
       "headline_change": "+6",
-      "driver": "cost"
+      "driver": "cost",
+      "primary_hedge_ticker": "will-fhwa-s-build-america-buy-america-55-u-s-component-cost-requirement-for-manu"
     },
     {
       "id": "ev4",
@@ -85,11 +92,12 @@
       "citation": "23 USC 175 \u00b7 NEVI \u00b7 FHWA Q3 2025 guidance",
       "impact_irr": -2.4,
       "impact_usd": 90000000.0,
-      "probability": 0.45,
+      "probability": 0.52,
       "attention": 88,
       "likelihood": "medium",
       "headline_change": "+12",
-      "driver": "cost"
+      "driver": "cost",
+      "primary_hedge_ticker": "will-fhwa-formally-approve-a-state-s-fy2026-nevi-alternative-use-spending-plan-r"
     },
     {
       "id": "ev5",
@@ -102,7 +110,8 @@
       "attention": 52,
       "likelihood": "low",
       "headline_change": "+3",
-      "driver": "cost"
+      "driver": "cost",
+      "primary_hedge_ticker": "will-the-15-transitional-section-232-tariff-rate-on-electrical-grid-equipment-tr"
     },
     {
       "id": "ev6",
@@ -111,11 +120,12 @@
       "citation": "CAA \u00a7209(b) \u00b7 ACC II \u00b7 VT EO 04-25",
       "impact_irr": -1.2,
       "impact_usd": 18000000.0,
-      "probability": 0.4,
+      "probability": 0.55,
       "attention": 58,
       "likelihood": "medium",
       "headline_change": "+5",
-      "driver": "revenue"
+      "driver": "revenue",
+      "primary_hedge_ticker": "will-vermont-governor-phil-scott-extend-executive-order-04-25-pausing-act-acc-ii"
     },
     {
       "id": "ev7",
@@ -129,7 +139,8 @@
       "likelihood": "medium",
       "headline_change": "+4",
       "driver": "revenue",
-      "two_sided": true
+      "two_sided": true,
+      "primary_hedge_ticker": "will-u-s-commercial-fleet-ev-order-volumes-as-reported-by-ntea-or-automotive-fle"
     }
   ],
   "news": [
@@ -265,9 +276,11 @@
       "title": "\u00a730C refueling credit terminated",
       "citation": "IRC \u00a730C \u00b7 OBBBA H.R.1 \u00a770504",
       "attention": 85,
-      "probability": 0.62,
+      "probability": 0.99,
       "impact_irr": -2.5,
-      "impact_usd": 60000000.0
+      "impact_usd": 60000000.0,
+      "status": "realized",
+      "realized_date": "2025-10-01"
     },
     "ev2": {
       "subtitle": "\u00a745W subsidises commercial EV purchases \u2014 without it, the fleet demand that anchors DC fast-charging utilization erodes through 2026-27.",
@@ -346,9 +359,11 @@
       "title": "\u00a745W commercial EV credit terminated",
       "citation": "IRC \u00a745W \u00b7 P.L. 119-21 \u00a770502",
       "attention": 82,
-      "probability": 0.8,
+      "probability": 0.99,
       "impact_irr": -2.0,
-      "impact_usd": 36000000.0
+      "impact_usd": 36000000.0,
+      "status": "realized",
+      "realized_date": "2025-10-01"
     },
     "ev3": {
       "subtitle": "FHWA's 55% domestic-component-cost rule for manufactured products applies to chargers \u2014 non-compliant hardware can't sit on federally-funded sites.",
@@ -524,7 +539,7 @@
       "title": "NEVI program redirected or defunded",
       "citation": "23 USC 175 \u00b7 NEVI \u00b7 FHWA Q3 2025 guidance",
       "attention": 88,
-      "probability": 0.45,
+      "probability": 0.52,
       "impact_irr": -2.4,
       "impact_usd": 90000000.0
     },
@@ -685,7 +700,7 @@
       "title": "State EV mandate retreat (ACC II)",
       "citation": "CAA \u00a7209(b) \u00b7 ACC II \u00b7 VT EO 04-25",
       "attention": 58,
-      "probability": 0.4,
+      "probability": 0.55,
       "impact_irr": -1.2,
       "impact_usd": 18000000.0
     },

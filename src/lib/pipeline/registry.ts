@@ -63,6 +63,7 @@ import { pullSourcesStage } from './stages/pull-sources'
 import { snapshotHedgePricesStage } from './stages/snapshot-hedge-prices'
 import { diffAgainstPriorStage } from './stages/diff-against-prior'
 import { computeAttentionStage } from './stages/compute-attention'
+import { syncMarketProbabilitiesStage } from './stages/sync-market-probabilities'
 
 registerPipeline({
   name: 'rebuild_archetype',
@@ -74,11 +75,12 @@ registerPipeline({
 registerPipeline({
   name: 'daily_refresh',
   description:
-    'Full daily refresh: pull adapters → compute attention → snapshot hedge prices → diff vs prior → Pass A LLM → recompute derived.',
+    'Full daily refresh: pull adapters → compute attention → snapshot hedge prices → sync market probabilities → diff vs prior → Pass A LLM → recompute derived.',
   stages: [
     pullSourcesStage,
     computeAttentionStage,
     snapshotHedgePricesStage,
+    syncMarketProbabilitiesStage,
     diffAgainstPriorStage,
     updateExistingRisksStage,
     recomputeDerivedStage,

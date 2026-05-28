@@ -43,32 +43,41 @@ TIR = 0.13
 risks = [
     {"id": "ev1", "category": "policy",      "title": "§30C refueling credit terminated",
      "citation": "IRC §30C · OBBBA H.R.1 §70504",
-     "impact_irr": -2.5, "impact_usd": 60000000.0, "probability": 0.62, "attention": 85,
-     "likelihood": "high", "headline_change": "+10", "driver": "cost"},
+     "impact_irr": -2.5, "impact_usd": 60000000.0, "probability": 0.99, "attention": 85,
+     "likelihood": "high", "headline_change": "+10", "driver": "cost",
+     "status": "realized", "realized_date": "2025-10-01",
+     "primary_hedge_ticker": "will-obbba-section-30c-alternative-fuel-vehicle-refueling-property-credit-termin"},
     {"id": "ev2", "category": "policy",      "title": "§45W commercial EV credit terminated",
      "citation": "IRC §45W · P.L. 119-21 §70502",
-     "impact_irr": -2.0, "impact_usd": 36000000.0, "probability": 0.80, "attention": 82,
-     "likelihood": "high", "headline_change": "+13", "driver": "revenue"},
+     "impact_irr": -2.0, "impact_usd": 36000000.0, "probability": 0.99, "attention": 82,
+     "likelihood": "high", "headline_change": "+13", "driver": "revenue",
+     "status": "realized", "realized_date": "2025-10-01",
+     "primary_hedge_ticker": "will-the-section-45w-qualified-commercial-clean-vehicle-credit-terminated-for-ve"},
     {"id": "ev3", "category": "operational", "title": "BABA 55% domestic content binds",
      "citation": "BABA 2 USC 8302 · FHWA-2024-0001 · 23 CFR 635",
      "impact_irr": -1.6, "impact_usd": 24000000.0, "probability": 0.72, "attention": 74,
-     "likelihood": "high", "headline_change": "+6", "driver": "cost"},
+     "likelihood": "high", "headline_change": "+6", "driver": "cost",
+     "primary_hedge_ticker": "will-fhwa-s-build-america-buy-america-55-u-s-component-cost-requirement-for-manu"},
     {"id": "ev4", "category": "policy",      "title": "NEVI program redirected or defunded",
      "citation": "23 USC 175 · NEVI · FHWA Q3 2025 guidance",
-     "impact_irr": -2.4, "impact_usd": 90000000.0, "probability": 0.45, "attention": 88,
-     "likelihood": "medium", "headline_change": "+12", "driver": "cost"},
+     "impact_irr": -2.4, "impact_usd": 90000000.0, "probability": 0.52, "attention": 88,
+     "likelihood": "medium", "headline_change": "+12", "driver": "cost",
+     "primary_hedge_ticker": "will-fhwa-formally-approve-a-state-s-fy2026-nevi-alternative-use-spending-plan-r"},
     {"id": "ev5", "category": "trade",       "title": "Section 232 grid-equipment tariffs",
      "citation": "Section 232 · BIS-2020-0015 · HTS 8504",
      "impact_irr": -0.9, "impact_usd": 14000000.0, "probability": 0.25, "attention": 52,
-     "likelihood": "low", "headline_change": "+3", "driver": "cost"},
+     "likelihood": "low", "headline_change": "+3", "driver": "cost",
+     "primary_hedge_ticker": "will-the-15-transitional-section-232-tariff-rate-on-electrical-grid-equipment-tr"},
     {"id": "ev6", "category": "market",      "title": "State EV mandate retreat (ACC II)",
      "citation": "CAA §209(b) · ACC II · VT EO 04-25",
-     "impact_irr": -1.2, "impact_usd": 18000000.0, "probability": 0.40, "attention": 58,
-     "likelihood": "medium", "headline_change": "+5", "driver": "revenue"},
+     "impact_irr": -1.2, "impact_usd": 18000000.0, "probability": 0.55, "attention": 58,
+     "likelihood": "medium", "headline_change": "+5", "driver": "revenue",
+     "primary_hedge_ticker": "will-vermont-governor-phil-scott-extend-executive-order-04-25-pausing-act-acc-ii"},
     {"id": "ev7", "category": "market",      "title": "Commercial fleet EV order decline",
      "citation": "NTEA fleet survey · Automotive Fleet annual",
      "impact_irr": -1.4, "impact_usd": 22000000.0, "probability": 0.52, "attention": 68,
-     "likelihood": "medium", "headline_change": "+4", "driver": "revenue", "two_sided": True},
+     "likelihood": "medium", "headline_change": "+4", "driver": "revenue", "two_sided": True,
+     "primary_hedge_ticker": "will-u-s-commercial-fleet-ev-order-volumes-as-reported-by-ntea-or-automotive-fle"},
 ]
 
 details = {
@@ -289,6 +298,9 @@ for _rid, _d in details.items():
         "impact_irr": _r["impact_irr"],
         "impact_usd": _r["impact_usd"],
     })
+    # Mirror lifecycle status onto the detail for the deep-dive page.
+    if _r.get("status"): _d["status"] = _r["status"]
+    if _r.get("realized_date"): _d["realized_date"] = _r["realized_date"]
 
 # Archetype derived fields. risks_high = count of likelihood=='high'; news_this_week = count of news items in last 7 days.
 risks_total = len(risks)
