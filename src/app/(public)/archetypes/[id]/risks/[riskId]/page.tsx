@@ -60,7 +60,7 @@ export default async function RiskPage({ params }: PageProps) {
 
       <main className="page">
         <header className="hero-risk">
-          <div className="h-text">
+          <div className="hr-text">
             <span className="eyebrow" style={{ color: 'var(--accent)' }}>
               {R.category.toUpperCase()} · {A.archetype.name}
             </span>
@@ -70,14 +70,31 @@ export default async function RiskPage({ params }: PageProps) {
               {R.citation} · Castle tracking since {R.tracked_since}
             </div>
           </div>
-          <div className="actions">
-            <span className="ago">Updated {R.last_updated}</span>
-            <button className="btn">★ Watching</button>
-            <button className="btn is-primary">Hedge {fmtUsd(R.hedges[0]?.notional ?? 0)} →</button>
+          <div className="hr-pillar">
+            <RiskProbabilityPillar risk={R} />
+          </div>
+          <div className="hr-meta">
+            <div className="hr-satellites">
+              <div className="hr-sat">
+                <span className="hr-sat-l">IRR drag</span>
+                <span className="hr-sat-v hr-neg">{R.impact_irr.toFixed(1)} pp</span>
+              </div>
+              <div className="hr-sat">
+                <span className="hr-sat-l">Capital at risk</span>
+                <span className="hr-sat-v hr-neg">{fmtUsd(R.impact_usd)}</span>
+              </div>
+              <div className="hr-sat">
+                <span className="hr-sat-l">Attention</span>
+                <span className="hr-sat-v">{R.attention}<span className="hr-sat-sub"> / 100</span></span>
+              </div>
+            </div>
+            <div className="hr-actions">
+              <span className="ago">Updated {R.last_updated}</span>
+              <button className="btn">★ Watching</button>
+              <button className="btn is-primary">Hedge {fmtUsd(R.hedges[0]?.notional ?? 0)} →</button>
+            </div>
           </div>
         </header>
-
-        <RiskStatHero risk={R} />
 
         <section className="view-block">
           <span className="eyebrow label">Castle&apos;s view</span>
@@ -168,54 +185,35 @@ export default async function RiskPage({ params }: PageProps) {
   )
 }
 
-// ─── B2 stat hero — one giant probability + satellite stats ───
-function RiskStatHero({ risk: R }: { risk: RiskDetail }) {
+// ─── Giant probability + foot, anchored on the right side of the merged
+// hero. Satellite stats (IRR / Capital / Attention) live on the meta strip
+// underneath the hero, rendered inline in page.tsx. ───
+function RiskProbabilityPillar({ risk: R }: { risk: RiskDetail }) {
   const probPct = Math.round(R.probability * 100)
   const probDeltaPp = Math.round((R.probability_delta ?? 0) * 100)
   const isRealized = R.status === 'realized'
   return (
-    <section className="risk-stat-hero">
-      <div className="rsh-left">
-        <div className="rsh-satellites">
-          <div className="rsh-sat">
-            <span className="rsh-l">IRR drag</span>
-            <span className="rsh-v rsh-neg tabular">{R.impact_irr.toFixed(1)} pp</span>
-          </div>
-          <div className="rsh-sat">
-            <span className="rsh-l">Capital at risk</span>
-            <span className="rsh-v rsh-neg tabular">{fmtUsd(R.impact_usd)}</span>
-          </div>
-          <div className="rsh-sat">
-            <span className="rsh-l">Attention</span>
-            <span className="rsh-v tabular">
-              {R.attention}
-              <span className="rsh-v-sub">/100</span>
-            </span>
-          </div>
-        </div>
+    <>
+      <div className="hr-pillar-num tabular">
+        {probPct}
+        <span className="hr-pillar-unit">%</span>
       </div>
-      <div className="rsh-right">
-        <div className="rsh-pillar tabular">
-          {probPct}
-          <span className="rsh-pillar-unit">%</span>
-        </div>
-        <div className="rsh-pillar-foot">
-          <span className="rsh-pillar-label">
-            {isRealized ? 'Realized — in effect since ' + (R.realized_date ?? 'unknown') : 'Probability · 18mo'}
+      <div className="hr-pillar-foot">
+        <span className="hr-pillar-label">
+          {isRealized ? 'Realized — in effect since ' + (R.realized_date ?? 'unknown') : 'Probability · 18mo'}
+        </span>
+        {!isRealized && Math.abs(probDeltaPp) > 0 && (
+          <span className={`hr-pillar-delta ${probDeltaPp > 0 ? 'up' : 'dn'}`}>
+            {fmtSignedInt(probDeltaPp)}pp · 7D
           </span>
-          {!isRealized && Math.abs(probDeltaPp) > 0 && (
-            <span className={`rsh-pillar-delta ${probDeltaPp > 0 ? 'up' : 'dn'}`}>
-              {fmtSignedInt(probDeltaPp)}pp · 7D
-            </span>
-          )}
-          <span className="rsh-pillar-attribution">
-            {isRealized
-              ? 'IRR drag is now baseline, not forward exposure'
-              : "Castle's analytical estimate — not the market"}
-          </span>
-        </div>
+        )}
+        <span className="hr-pillar-attribution">
+          {isRealized
+            ? 'IRR drag is now baseline, not forward exposure'
+            : "Castle's analytical estimate — not the market"}
+        </span>
       </div>
-    </section>
+    </>
   )
 }
 

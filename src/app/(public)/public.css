@@ -506,20 +506,101 @@
 .risk-row.is-realized:hover { opacity: 1; }
 
 /* ───────────────────────────────────────────────────────────────
- * Risk detail page
+ * Risk detail page — single combined hero:
+ *   ┌──────────────────────────────────────────┐
+ *   │ eyebrow                                  │
+ *   │ TITLE                       45%          │
+ *   │ subtitle                  PROBABILITY    │
+ *   │ citation                  +7pp 7D        │
+ *   │                           analytical     │
+ *   │ ─────────────────────────────────────── │
+ *   │ IRR · CAPITAL · ATTN      ago · ★ · ▮▮   │
+ *   └──────────────────────────────────────────┘
+ * The pillar sits in the same vertical band as the title; the action
+ * cluster + satellite stats demote to a meta strip across the bottom.
+ * Replaces the older stacked .hero-risk + .risk-stat-hero pair.
  * ─────────────────────────────────────────────────────────────── */
 .hero-risk {
-  padding-bottom: 64px; border-bottom: var(--hair);
-  display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: end;
+  padding-bottom: 36px; border-bottom: var(--hair);
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-areas:
+    "text  pillar"
+    "meta  meta";
+  column-gap: 64px;
+  row-gap: 40px;
+  align-items: start;
 }
-.hero-risk .h-text { max-width: 760px; }
+.hero-risk .hr-text { grid-area: text; max-width: 760px; }
 .hero-risk .citation {
   margin-top: 28px;
   font-family: var(--font-mono); font-size: 11px; color: var(--fg-3);
   letter-spacing: 0.02em;
 }
-.hero-risk .actions { display: flex; gap: 12px; align-items: center; }
-.hero-risk .actions .ago {
+
+/* ── Pillar (right side of the upper hero) ── */
+.hero-risk .hr-pillar {
+  grid-area: pillar;
+  display: flex; flex-direction: column; align-items: flex-end;
+  text-align: right;
+}
+.hero-risk .hr-pillar-num {
+  font-family: var(--font-display);
+  font-size: clamp(120px, 13vw, 168px);
+  line-height: 0.88; letter-spacing: -0.04em; color: var(--fg);
+  font-variant-numeric: tabular-nums;
+}
+.hero-risk .hr-pillar-unit {
+  font-size: 0.38em; color: var(--fg-3); vertical-align: top;
+  margin-left: -2px;
+}
+.hero-risk .hr-pillar-foot {
+  margin-top: 12px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3);
+  display: flex; flex-direction: column; align-items: flex-end; gap: 6px;
+}
+.hero-risk .hr-pillar-label { color: var(--fg-2); }
+.hero-risk .hr-pillar-delta { font-weight: 700; letter-spacing: 0.12em; }
+.hero-risk .hr-pillar-delta.up { color: var(--neg); }
+.hero-risk .hr-pillar-delta.dn { color: var(--pos); }
+.hero-risk .hr-pillar-attribution {
+  margin-top: 4px;
+  font-family: var(--font-body); font-size: 11px; font-weight: 400;
+  letter-spacing: 0.02em; text-transform: none;
+  color: var(--fg-3); font-style: italic;
+  max-width: 36ch;
+}
+
+/* ── Meta strip across the bottom of the hero: small stats on the left,
+   action cluster on the right. Carries a hair rule above to separate
+   from the title + pillar zone above. ── */
+.hero-risk .hr-meta {
+  grid-area: meta;
+  padding-top: 24px; border-top: var(--hair);
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 40px; align-items: center;
+}
+.hero-risk .hr-satellites {
+  display: flex; gap: 56px; align-items: baseline; flex-wrap: wrap;
+}
+.hero-risk .hr-sat { display: flex; flex-direction: column; gap: 6px; }
+.hero-risk .hr-sat-l {
+  font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+  letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3);
+}
+.hero-risk .hr-sat-v {
+  font-family: var(--font-display); font-size: 22px; line-height: 1;
+  letter-spacing: -0.02em; font-variant-numeric: tabular-nums;
+  color: var(--fg);
+}
+.hero-risk .hr-sat-v.hr-neg { color: var(--neg); }
+.hero-risk .hr-sat-sub {
+  font-size: 11px; color: var(--fg-3);
+  letter-spacing: 0; font-family: var(--font-mono);
+}
+.hero-risk .hr-actions { display: flex; gap: 12px; align-items: center; }
+.hero-risk .hr-actions .ago {
   font-family: var(--font-mono); font-size: 10px; font-weight: 600;
   letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3);
   margin-right: 12px;
@@ -543,59 +624,9 @@
   letter-spacing: 0.1em;
 }
 
-/* ── B2 risk stat hero — one giant probability anchored on the right,
-   IRR/$/Attention as small satellite stats on the left. Replaces the
-   four-equal-column .stat-row layout above for the public risk page. ── */
-.risk-stat-hero {
-  display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px;
-  margin-top: 56px; padding-top: 48px; border-top: var(--hair);
-  align-items: end;
-}
-.rsh-satellites {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;
-}
-.rsh-sat { display: flex; flex-direction: column; }
-.rsh-l {
-  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
-  letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3);
-  margin-bottom: 12px;
-}
-.rsh-v {
-  font-family: var(--font-display); font-size: clamp(28px, 3vw, 36px);
-  line-height: 1; letter-spacing: -0.02em;
-  font-variant-numeric: tabular-nums;
-  color: var(--fg);
-}
-.rsh-v.rsh-neg { color: var(--neg); }
-.rsh-v-sub { font-size: 14px; color: var(--fg-3); letter-spacing: 0; margin-left: 2px; }
-
-.rsh-right { text-align: right; }
-.rsh-pillar {
-  font-family: var(--font-display); font-size: clamp(120px, 14vw, 180px);
-  line-height: 0.88; letter-spacing: -0.04em; color: var(--fg);
-  font-variant-numeric: tabular-nums;
-}
-.rsh-pillar-unit {
-  font-size: 0.38em; color: var(--fg-3); vertical-align: top;
-  margin-left: -2px;
-}
-.rsh-pillar-foot {
-  margin-top: 12px;
-  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
-  letter-spacing: 0.2em; text-transform: uppercase; color: var(--fg-3);
-  display: flex; flex-direction: column; align-items: flex-end; gap: 6px;
-}
-.rsh-pillar-label { color: var(--fg-2); }
-.rsh-pillar-delta { font-weight: 700; letter-spacing: 0.12em; }
-.rsh-pillar-delta.up { color: var(--neg); }
-.rsh-pillar-delta.dn { color: var(--pos); }
-.rsh-pillar-attribution {
-  margin-top: 4px;
-  font-family: var(--font-body); font-size: 11px; font-weight: 400;
-  letter-spacing: 0.02em; text-transform: none;
-  color: var(--fg-3); font-style: italic;
-  max-width: 36ch;
-}
+/* (Older .risk-stat-hero / .rsh-* styles removed — pillar now lives inside
+   .hero-risk via the .hr-pillar grid area; satellites live in the .hr-meta
+   strip beneath the hero.) */
 
 .view-block { margin-top: 120px; padding-top: 48px; border-top: var(--hair); }
 .view-block .label { color: var(--accent); margin-bottom: 20px; }
@@ -747,11 +778,17 @@
   .risks-head .h-rank, .risks-head .h-cat, .risks-head .h-prob, .risks-head .h-arr,
   .risk-row .rank, .risk-row .cat, .risk-row .prob, .risk-row .arr { display: none; }
   .stat-row { grid-template-columns: repeat(2, 1fr); gap: 32px; }
-  /* B2 stat hero collapses to a single column with the giant probability
-     stacked under the satellites. */
-  .risk-stat-hero { grid-template-columns: 1fr; gap: 48px; }
-  .rsh-right { text-align: left; }
-  .rsh-pillar-foot { align-items: flex-start; }
+  /* Risk hero collapses to a single column on narrow viewports —
+     title / pillar / meta stack vertically, all left-aligned. */
+  .hero-risk {
+    grid-template-columns: 1fr;
+    grid-template-areas: "text" "pillar" "meta";
+    column-gap: 0;
+  }
+  .hero-risk .hr-pillar { align-items: flex-start; text-align: left; }
+  .hero-risk .hr-pillar-foot { align-items: flex-start; }
+  .hero-risk .hr-meta { grid-template-columns: 1fr; gap: 20px; }
+  .hero-risk .hr-actions { flex-wrap: wrap; }
   .hedge-row { grid-template-columns: 1fr; gap: 16px; }
 }
 @media (max-width: 720px) {
