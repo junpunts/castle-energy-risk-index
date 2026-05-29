@@ -161,34 +161,68 @@ export default function ScenarioExplorer({ bundle, archetypeId, rail }: Props) {
               <span className="h-prob ir-col">Prob</span>
               <span className="h-arr"></span>
             </div>
-            {ranked.map(({ meta, sc: s }, i) => (
-              <Link
-                key={meta.id}
-                className={`risk-row${hot === meta.id ? ' hot' : ''}`}
-                href={`/archetypes/${archetypeId}/risks/${meta.id}`}
-                onMouseEnter={() => setHot(meta.id)}
-                onMouseLeave={() => setHot(null)}
-              >
-                <span className="rank">{String(i + 1).padStart(2, '0')}</span>
-                <span className="cat">{meta.category}</span>
-                <div className="body">
-                  <h4 className="name">{meta.title}</h4>
-                  <div className="cit">
-                    {meta.citation}
-                    <span className="drv">{DRIVER_LABEL[driverFor(meta)]}</span>
-                    {meta.two_sided && <span className="drv two-sided">two-sided</span>}
+            {ranked.map(({ meta, sc: s }, i) => {
+              // Pull live signals off the bundle's risk_detail, falling back
+              // gracefully on legacy bundles where any of them are missing.
+              const detail = bundle.risk_details?.[meta.id]
+              const probDelta = detail?.probability_delta ?? 0
+              const lastUpdated = (detail?.last_updated ?? '').trim()
+              // "just now", "X min ago", "X hr ago" all count as recent (<24h);
+              // "X day(s) ago" / "X wk ago" do not.
+              const updatedRecently =
+                /just now/i.test(lastUpdated) ||
+                /\bmin(ute)?s? ago/i.test(lastUpdated) ||
+                /\bhr|hour/i.test(lastUpdated)
+              const isRealized = meta.status === 'realized'
+              // Probability up = adverse outcome more likely = red for the
+              // developer reading this dashboard. Down = green.
+              const showProbDelta = !isRealized && Math.abs(probDelta) >= 0.01
+              return (
+                <Link
+                  key={meta.id}
+                  className={`risk-row${hot === meta.id ? ' hot' : ''}${isRealized ? ' is-realized' : ''}`}
+                  href={`/archetypes/${archetypeId}/risks/${meta.id}`}
+                  onMouseEnter={() => setHot(meta.id)}
+                  onMouseLeave={() => setHot(null)}
+                >
+                  <span className="rank">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="cat">{meta.category}</span>
+                  <div className="body">
+                    <h4 className="name">
+                      {meta.title}
+                      {isRealized && <span className="status-pill realized">In effect</span>}
+                    </h4>
+                    <div className="cit">
+                      {meta.citation}
+                      <span className="drv">{DRIVER_LABEL[driverFor(meta)]}</span>
+                      {meta.two_sided && <span className="drv two-sided">two-sided</span>}
+                      {lastUpdated && (
+                        <span className={`updated${updatedRecently ? ' is-recent' : ''}`}>
+                          {updatedRecently && <span className="dot" aria-hidden />}
+                          {lastUpdated}
+                        </span>
+                      )}
+                    </div>
                   </div>
-                </div>
-                <div className="impact-bar">
-                  <div className="bar">
-                    <i style={{ width: `${((s.weighted_drag / maxDrag) * 100).toFixed(0)}%` }} />
+                  <div className="impact-bar">
+                    <div className="bar">
+                      <i style={{ width: `${((s.weighted_drag / maxDrag) * 100).toFixed(0)}%` }} />
+                    </div>
                   </div>
-                </div>
-                <div className="num">−{s.weighted_drag.toFixed(1)}</div>
-                <div className="num prob">{Math.round(meta.probability * 100)}%</div>
-                <span className="arr">→</span>
-              </Link>
-            ))}
+                  <div className="num">−{s.weighted_drag.toFixed(1)}</div>
+                  <div className="num prob">
+                    {Math.round(meta.probability * 100)}%
+                    {showProbDelta && (
+                      <span className={`prob-delta ${probDelta > 0 ? 'up' : 'down'}`}>
+                        {probDelta > 0 ? '+' : ''}
+                        {Math.round(probDelta * 100)}pp
+                      </span>
+                    )}
+                  </div>
+                  <span className="arr">→</span>
+                </Link>
+              )
+            })}
           </section>
         </div>
         <aside className="detail-rail">{rail}</aside>

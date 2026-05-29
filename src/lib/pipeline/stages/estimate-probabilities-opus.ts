@@ -127,6 +127,10 @@ export const estimateProbabilitiesOpusStage: Stage<unknown, EstimateOutput> = {
       if (Math.abs(newP - oldP) < MIN_MOVE) continue
       r.probability = newP
       d.probability = newP
+      // Keep probability_delta in sync — clamp into the schema's [-1, 1] range.
+      // Without this, the UI's prob-delta badge shows a stale value from
+      // whenever the bundle was last seeded.
+      d.probability_delta = Math.max(-1, Math.min(1, newP - oldP))
       anyChange = true
       applied.push({ risk_id: est.risk_id, old_prob: oldP, new_prob: newP, rationale: est.rationale })
       ctx.log(`  ${est.risk_id}: ${oldP.toFixed(2)} → ${newP.toFixed(2)}  — ${est.rationale.slice(0, 80)}`)

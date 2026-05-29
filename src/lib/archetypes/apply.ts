@@ -166,8 +166,10 @@ function applyUpdateRisk(bundle: ArchetypeBundle, p: UpdateRiskPayload): Archety
     case 'probability': {
       const n = Number(p.new_value)
       if (!Number.isFinite(n) || n < 0 || n > 1) throw new Error('probability must be in [0,1]')
+      const oldP = risk.probability
       risk.probability = n
       detail.probability = n
+      detail.probability_delta = Math.max(-1, Math.min(1, n - oldP))
       detail.last_updated = 'just now'
       break
     }

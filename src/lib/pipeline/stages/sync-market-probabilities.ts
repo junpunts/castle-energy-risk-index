@@ -101,6 +101,7 @@ export const syncMarketProbabilitiesStage: Stage<unknown, SyncOutput> = {
       if (move < MIN_MOVE) continue
       r.probability = liveYes
       d.probability = liveYes
+      d.probability_delta = Math.max(-1, Math.min(1, liveYes - oldP))
       synced++
       if (move > largestMove) largestMove = move
       ctx.log(`  ${c.riskId}: ${oldP.toFixed(3)} → ${liveYes.toFixed(3)} (${(liveYes - oldP > 0 ? '+' : '') + (liveYes - oldP).toFixed(3)})`)
