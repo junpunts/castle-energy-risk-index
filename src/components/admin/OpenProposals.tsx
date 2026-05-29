@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState, useTransition } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { createBrowserClient as createSSRBrowserClient } from '@supabase/ssr'
 
@@ -37,11 +38,19 @@ interface Preview {
 }
 
 export function OpenProposals({ initial }: { initial: any[] }) {
+  const router = useRouter()
   const [proposals, setProposals] = useState<Proposal[]>(initial as Proposal[])
   const [pending, startTransition] = useTransition()
   const [openId, setOpenId] = useState<string | null>(null)
   const [preview, setPreview] = useState<Preview | null>(null)
   const [loadingPreview, setLoadingPreview] = useState(false)
+  /** Last action banner — surfaces success/error after Approve/Reject so the
+   *  user gets feedback even when Supabase realtime isn't connected. */
+  const [flash, setFlash] = useState<{ kind: 'ok' | 'err'; message: string } | null>(null)
+  function showFlash(kind: 'ok' | 'err', message: string) {
+    setFlash({ kind, message })
+    setTimeout(() => setFlash(null), 4000)
+  }
 
   useEffect(() => {
     const sb = createSSRBrowserClient(
@@ -90,19 +99,67 @@ export function OpenProposals({ initial }: { initial: any[] }) {
 
   async function applyProposal(id: string) {
     startTransition(async () => {
-      await fetch(`/api/admin/proposals/${id}/apply`, { method: 'POST' })
-      if (id === openId) closeModal()
+      try {
+        const res = await fetch(`/api/admin/proposals/${id}/apply`, { method: 'POST' })
+        const body = await res.json().catch(() => ({}))
+        if (!res.ok || body?.ok === false) {
+          const msg = body?.message ?? `apply failed (${res.status})`
+          showFlash('err', msg)
+          return
+        }
+        // Optimistic remove — don't wait for realtime.
+        setProposals((cur) => cur.filter((p) => p.id !== id))
+        showFlash('ok', `Applied → revision ${body.revisionId ?? '?'} (v${body.newVersion ?? '?'})`)
+        if (id === openId) closeModal()
+        // Refresh server props so the badge count + filter chips stay in sync.
+        router.refresh()
+      } catch (e: any) {
+        showFlash('err', `network error: ${e?.message ?? e}`)
+      }
     })
   }
   async function rejectProposal(id: string) {
     startTransition(async () => {
-      await fetch(`/api/admin/proposals/${id}/reject`, { method: 'POST' })
-      if (id === openId) closeModal()
+      try {
+        const res = await fetch(`/api/admin/proposals/${id}/reject`, { method: 'POST' })
+        if (!res.ok) {
+          const body = await res.json().catch(() => ({}))
+          showFlash('err', body?.message ?? `reject failed (${res.status})`)
+          return
+        }
+        setProposals((cur) => cur.filter((p) => p.id !== id))
+        showFlash('ok', 'Rejected')
+        if (id === openId) closeModal()
+        router.refresh()
+      } catch (e: any) {
+        showFlash('err', `network error: ${e?.message ?? e}`)
+      }
     })
   }
 
   return (
     <>
+      {flash && (
+        <div
+          role="status"
+          style={{
+            position: 'fixed',
+            top: 16,
+            right: 16,
+            zIndex: 100,
+            padding: '12px 18px',
+            borderRadius: 6,
+            fontSize: 13,
+            fontWeight: 500,
+            color: '#fff',
+            background: flash.kind === 'ok' ? '#1f8a3a' : '#a03030',
+            boxShadow: '0 4px 14px rgba(0,0,0,.25)',
+            maxWidth: 480,
+          }}
+        >
+          {flash.message}
+        </div>
+      )}
       <table className="admin-table">
         <thead>
           <tr>
