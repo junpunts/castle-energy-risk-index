@@ -166,13 +166,6 @@ export default function ScenarioExplorer({ bundle, archetypeId, rail }: Props) {
               // gracefully on legacy bundles where any of them are missing.
               const detail = bundle.risk_details?.[meta.id]
               const probDelta = detail?.probability_delta ?? 0
-              const lastUpdated = (detail?.last_updated ?? '').trim()
-              // "just now", "X min ago", "X hr ago" all count as recent (<24h);
-              // "X day(s) ago" / "X wk ago" do not.
-              const updatedRecently =
-                /just now/i.test(lastUpdated) ||
-                /\bmin(ute)?s? ago/i.test(lastUpdated) ||
-                /\bhr|hour/i.test(lastUpdated)
               const isRealized = meta.status === 'realized'
               // Probability up = adverse outcome more likely = red for the
               // developer reading this dashboard. Down = green.
@@ -180,6 +173,7 @@ export default function ScenarioExplorer({ bundle, archetypeId, rail }: Props) {
               return (
                 <Link
                   key={meta.id}
+                  id={`risk-row-${meta.id}`}
                   className={`risk-row${hot === meta.id ? ' hot' : ''}${isRealized ? ' is-realized' : ''}`}
                   href={`/archetypes/${archetypeId}/risks/${meta.id}`}
                   onMouseEnter={() => setHot(meta.id)}
@@ -196,12 +190,6 @@ export default function ScenarioExplorer({ bundle, archetypeId, rail }: Props) {
                       {meta.citation}
                       <span className="drv">{DRIVER_LABEL[driverFor(meta)]}</span>
                       {meta.two_sided && <span className="drv two-sided">two-sided</span>}
-                      {lastUpdated && (
-                        <span className={`updated${updatedRecently ? ' is-recent' : ''}`}>
-                          {updatedRecently && <span className="dot" aria-hidden />}
-                          {lastUpdated}
-                        </span>
-                      )}
                     </div>
                   </div>
                   <div className="impact-bar">
@@ -302,7 +290,7 @@ function Waterfall({
     const prevX = padL + i * colW + (colW + barW) / 2
     const isHot = hot === r.meta.id
     els.push(<line key={k()} x1={prevX} y1={connPrev} x2={x} y2={yTop} stroke="rgba(24,24,24,0.28)" strokeDasharray="2 4" />)
-    // hit area (wider, invisible) for easy hover
+    // hit area (wider, invisible) for easy hover + click-to-scroll-to-row
     els.push(
       <rect key={k()} x={x - colW * 0.25} y={padT} width={colW * 0.75} height={plotH}
         fill="transparent" style={{ cursor: 'pointer' }}
@@ -322,6 +310,17 @@ function Waterfall({
           }
         }}
         onMouseLeave={() => { setHot(null); setTip(null) }}
+        onClick={() => {
+          // Click → scroll the matching risk row into view + pin its
+          // .hot highlight for ~1.4s so the eye lands on the right row.
+          const el = document.getElementById(`risk-row-${r.meta.id}`)
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            setHot(r.meta.id)
+            setTip(null)
+            window.setTimeout(() => setHot(null), 1400)
+          }
+        }}
       />,
     )
     els.push(<rect key={k()} x={x} y={yTop} width={barW} height={Math.max(0, yBot - yTop)} fill={isHot ? '#171717' : '#246075'} style={{ transition: 'fill .12s', pointerEvents: 'none' }} />)
