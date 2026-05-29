@@ -105,7 +105,16 @@ interface CacheRow {
   matched_risks: string[] | null
 }
 
+/** Coerce a Supabase timestamptz string (which serialises with +00:00) into
+ *  Zod's strict datetime() format (must end in Z). */
+function normalizeIso(s: string): string | undefined {
+  const t = Date.parse(s)
+  if (!Number.isFinite(t)) return undefined
+  return new Date(t).toISOString()
+}
+
 function rowToNewsItem(r: CacheRow, category?: NewsItem['tag']): NewsItem {
+  const publishedIso = normalizeIso(r.published_at)
   return {
     source: sourceLabel(r.source, r.url),
     ago: fmtAgo(r.published_at),
@@ -113,7 +122,7 @@ function rowToNewsItem(r: CacheRow, category?: NewsItem['tag']): NewsItem {
     title: r.title.slice(0, 240),
     ...(r.body ? { sum: r.body.replace(/\s+/g, ' ').slice(0, 400) } : {}),
     url: r.url,
-    published_at: r.published_at,
+    ...(publishedIso ? { published_at: publishedIso } : {}),
   }
 }
 
