@@ -42,6 +42,44 @@ export default async function AdminProposalsInbox({
     return `?${sp.toString()}`
   }
 
+  /** A filter chip — black pill when active, accent-coloured text when not.
+   *  Active state must be unmistakable at a glance; "bolder mono caps" wasn't. */
+  function Chip({ active, href, label }: { active: boolean; href: string; label: string }) {
+    if (active) {
+      return (
+        <a
+          href={href}
+          aria-current="true"
+          style={{
+            display: 'inline-block',
+            padding: '4px 10px',
+            background: 'var(--fg, #181818)',
+            color: '#fff',
+            borderRadius: 4,
+            textDecoration: 'none',
+            margin: '0 2px',
+          }}
+        >
+          {label}
+        </a>
+      )
+    }
+    return (
+      <a
+        href={href}
+        style={{
+          display: 'inline-block',
+          padding: '4px 8px',
+          color: 'var(--accent)',
+          textDecoration: 'none',
+          margin: '0 2px',
+        }}
+      >
+        {label}
+      </a>
+    )
+  }
+
   return (
     <main className="admin-page">
       <header style={{ marginBottom: 48 }}>
@@ -81,31 +119,20 @@ export default async function AdminProposalsInbox({
           {data?.length ?? 0}
         </span>
         <span className="r">
-          <a href={linkParams({ status: 'pending' })}>Pending</a> ·{' '}
-          <a href={linkParams({ status: 'applied' })}>Applied</a> ·{' '}
-          <a href={linkParams({ status: 'rejected' })}>Rejected</a> ·{' '}
-          <a href={linkParams({ status: 'all' })}>All</a>
+          <Chip active={status === 'pending'} href={linkParams({ status: 'pending' })} label="Pending" />
+          <Chip active={status === 'applied'} href={linkParams({ status: 'applied' })} label="Applied" />
+          <Chip active={status === 'rejected'} href={linkParams({ status: 'rejected' })} label="Rejected" />
+          <Chip active={status === 'all'} href={linkParams({ status: 'all' })} label="All" />
         </span>
       </div>
       <div className="section-label" style={{ marginTop: 8, paddingTop: 0, borderTop: 'none' }}>
         <span className="l">Type</span>
         <span className="r">
-          <a href={linkParams({ op: 'all' })}>{op === 'all' ? <b>All</b> : 'All'}</a> ·{' '}
-          <a href={linkParams({ op: 'add_risk' })}>
-            {op === 'add_risk' ? <b>New risks</b> : 'New risks'}
-          </a>{' '}
-          ·{' '}
-          <a href={linkParams({ op: 'update_risk' })}>
-            {op === 'update_risk' ? <b>Updates</b> : 'Updates'}
-          </a>{' '}
-          ·{' '}
-          <a href={linkParams({ op: 'pin_news' })}>
-            {op === 'pin_news' ? <b>News pins</b> : 'News pins'}
-          </a>{' '}
-          ·{' '}
-          <a href={linkParams({ op: 'update_hedge' })}>
-            {op === 'update_hedge' ? <b>Hedges</b> : 'Hedges'}
-          </a>
+          <Chip active={op === 'all'} href={linkParams({ op: 'all' })} label="All" />
+          <Chip active={op === 'add_risk'} href={linkParams({ op: 'add_risk' })} label="New risks" />
+          <Chip active={op === 'update_risk'} href={linkParams({ op: 'update_risk' })} label="Updates" />
+          <Chip active={op === 'pin_news'} href={linkParams({ op: 'pin_news' })} label="News pins" />
+          <Chip active={op === 'update_hedge'} href={linkParams({ op: 'update_hedge' })} label="Hedges" />
         </span>
       </div>
       <OpenProposals initial={data ?? []} />
