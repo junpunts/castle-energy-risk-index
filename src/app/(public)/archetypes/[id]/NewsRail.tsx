@@ -1,24 +1,15 @@
-'use client'
-
-import { useEffect, useState } from 'react'
 import type { NewsItem } from '@/lib/schemas'
 
 /**
- * News rail with click → popup. Each item opens a centered modal showing
- * source, time, tag, full title, summary (if any), and an "Open source ↗"
- * external link. Replaces the old behaviour where news items linked to the
- * first risk's detail page — confusing, because the item was rarely about
- * that specific risk.
+ * News rail. Each row is a direct external link to the news source — the
+ * canonical NewsItem.url if present, otherwise a Google site-search
+ * restricted to the source's domain with the title pre-filled (so the
+ * user still lands somewhere useful for legacy items without a URL).
  */
 
 /**
  * Map a known source label to its primary web domain. Used for the search
- * fallback when a news item has no canonical URL on file — we route the
- * user to a Google site-search restricted to that outlet's domain with the
- * title pre-filled, so they still get somewhere useful.
- *
- * Add to this table as new sources appear. Anything not mapped falls back
- * to a plain Google search.
+ * fallback when a news item has no canonical URL on file.
  */
 const SOURCE_DOMAINS: Record<string, string> = {
   'FEDERAL REGISTER':         'federalregister.gov',
@@ -60,10 +51,10 @@ const SOURCE_DOMAINS: Record<string, string> = {
   'PUC':                      'puc.state.tx.us',
 }
 
-/** Build a search URL for items without a canonical URL on file. */
-function searchUrlFor(source: string, title: string): string {
-  const q = encodeURIComponent(title.slice(0, 200))
-  const domain = SOURCE_DOMAINS[source.trim().toUpperCase()]
+function hrefFor(n: NewsItem): string {
+  if (n.url) return n.url
+  const q = encodeURIComponent((n.title ?? '').slice(0, 200))
+  const domain = SOURCE_DOMAINS[String(n.source ?? '').trim().toUpperCase()]
   if (domain) return `https://www.google.com/search?q=${q}+site:${domain}`
   return `https://www.google.com/search?q=${q}`
 }
@@ -75,18 +66,6 @@ export function NewsRail({
   news: NewsItem[]
   weekCount: number
 }) {
-  const [openIdx, setOpenIdx] = useState<number | null>(null)
-  const open = openIdx != null ? news[openIdx] : null
-
-  useEffect(() => {
-    if (openIdx == null) return
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpenIdx(null)
-    }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [openIdx])
-
   return (
     <>
       <div className="section-label">
@@ -95,70 +74,20 @@ export function NewsRail({
       </div>
       <section className="news-list news-rail">
         {news.map((n, i) => (
-          <button
+          <a
             key={`${n.source}-${i}`}
-            type="button"
-            className="news-row as-button"
-            onClick={() => setOpenIdx(i)}
-            title={n.title}
+            className="news-row"
+            href={hrefFor(n)}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={n.url ? n.title : `No canonical URL on file — searching ${n.source}`}
           >
             <span className="src">{n.source}</span>
             <span className="ago">{n.ago}</span>
             <span className="ttl">{n.title}</span>
-          </button>
+          </a>
         ))}
       </section>
-
-      {open && (
-        <div
-          className="news-modal-overlay"
-          onClick={() => setOpenIdx(null)}
-          role="dialog"
-          aria-modal="true"
-          aria-label="News item"
-        >
-          <div className="news-modal" onClick={(e) => e.stopPropagation()}>
-            <button
-              className="news-modal-close"
-              onClick={() => setOpenIdx(null)}
-              aria-label="Close"
-            >
-              ×
-            </button>
-            <div className="news-modal-meta">
-              <span className="src">{open.source}</span>
-              <span className="sep">·</span>
-              <span className="ago">{open.ago}</span>
-              <span className="sep">·</span>
-              <span className={`tag tag-${open.tag}`}>{open.tag}</span>
-            </div>
-            <h3 className="news-modal-title">{open.title}</h3>
-            {open.sum && <p className="news-modal-sum">{open.sum}</p>}
-            <div className="news-modal-foot">
-              {open.url ? (
-                <a
-                  href={open.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="news-modal-link"
-                >
-                  Open source ↗
-                </a>
-              ) : (
-                <a
-                  href={searchUrlFor(open.source, open.title)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="news-modal-link is-search"
-                  title="No canonical URL on file — search the source instead"
-                >
-                  Search {open.source} ↗
-                </a>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
     </>
   )
 }
