@@ -118,6 +118,47 @@ export function OpenProposals({ initial }: { initial: any[] }) {
       }
     })
   }
+  /**
+   * Approve every visible proposal in sequence. We go sequential per archetype
+   * because apply_archetype_revision uses optimistic concurrency on
+   * state_version — parallel applies on the same archetype collide. Across
+   * archetypes is fine but kept serial here for clean log output and
+   * deterministic flash messages.
+   */
+  async function approveAll() {
+    const targets = proposals.slice() // snapshot before optimistic removals
+    if (targets.length === 0) return
+    if (!window.confirm(`Approve and apply all ${targets.length} visible proposals?`)) return
+    startTransition(async () => {
+      let applied = 0
+      let failed = 0
+      for (const p of targets) {
+        try {
+          const res = await fetch(`/api/admin/proposals/${p.id}/apply`, { method: 'POST' })
+          const body = await res.json().catch(() => ({}))
+          if (!res.ok || body?.ok === false) {
+            failed++
+            continue
+          }
+          applied++
+          // Remove from the list as we go — visible progress.
+          setProposals((cur) => cur.filter((x) => x.id !== p.id))
+        } catch {
+          failed++
+        }
+      }
+      showFlash(
+        failed === 0 ? 'ok' : 'err',
+        `Approved ${applied}/${targets.length}${failed > 0 ? ` · ${failed} failed` : ''}`,
+      )
+      if (openId && !targets.find((p) => p.id === openId)) {
+        /* leave modal alone */
+      } else if (openId) {
+        closeModal()
+      }
+      router.refresh()
+    })
+  }
   async function rejectProposal(id: string) {
     startTransition(async () => {
       try {
@@ -158,6 +199,30 @@ export function OpenProposals({ initial }: { initial: any[] }) {
           }}
         >
           {flash.message}
+        </div>
+      )}
+      {proposals.length > 0 && (
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+            alignItems: 'center',
+            gap: 12,
+            margin: '16px 0',
+            fontFamily: 'var(--font-mono)',
+            fontSize: 10,
+            letterSpacing: '0.04em',
+          }}
+        >
+          <span style={{ color: 'var(--fg-3)' }}>{proposals.length} visible</span>
+          <button
+            className="btn"
+            disabled={pending}
+            onClick={approveAll}
+            title="Approve every proposal currently shown in the table"
+          >
+            {pending ? 'Approving…' : `Approve all ${proposals.length} →`}
+          </button>
         </div>
       )}
       <table className="admin-table">
