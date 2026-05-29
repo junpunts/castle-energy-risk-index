@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { fmtCountdown } from '@/lib/format'
 import { readAllArchetypes } from '@/lib/archetypes/read'
 import { fmtSignedInt } from '@/lib/format'
 
@@ -46,37 +45,6 @@ export default async function PublicIndex() {
         )
       : 0
 
-  // 12-week activity sparkline: aggregate the archetype.attention_weekly arrays
-  // across all archetypes. Real signal for "how much is happening" — composite
-  // moves are slow, but weekly mention counts swing visibly week to week.
-  const activityWeekly: number[] = new Array(12).fill(0)
-  for (const a of archetypes) {
-    const w = a.archetype.attention_weekly ?? []
-    for (let i = 0; i < 12; i++) activityWeekly[i] += w[i] ?? 0
-  }
-  const activityThisWeek = activityWeekly[11] ?? 0
-  const activityTotal = activityWeekly.reduce((s, v) => s + v, 0)
-
-  // Ticker content: the next dated catalysts across all archetypes — deadlines,
-  // hearings, rulemakings. Pulled from risk_details.events and filtered to
-  // future-dated. Up to 8 for a respectable marquee loop.
-  const now = Date.now()
-  const ticker = archetypes
-    .flatMap((a) =>
-      Object.entries(a.risk_details ?? {}).flatMap(([rid, d]) =>
-        (d.events ?? [])
-          .filter((e) => e.future && Date.parse(e.date) >= now)
-          .map((e) => ({
-            archetypeId: a.archetype_id,
-            archetypeName: a.archetype.name,
-            riskId: rid,
-            ...e,
-          })),
-      ),
-    )
-    .sort((a, b) => Date.parse(a.date) - Date.parse(b.date))
-    .slice(0, 8)
-
   // Dateline — week of year + ISO date, "Issue NN · MMM DD".
   const today = new Date()
   const week = isoWeek(today)
@@ -96,33 +64,6 @@ export default async function PublicIndex() {
           </div>
         </div>
       </nav>
-
-      {/* Live ticker — next dated catalysts across every archetype. Marquee
-          scrolls horizontally; pauses on hover. Says "this is alive" without
-          shouting. */}
-      {ticker.length > 0 && (
-        <div className="live-ticker" aria-label="Upcoming catalysts">
-          <span className="live-ticker-tag">
-            <span className="dot" aria-hidden />Live
-          </span>
-          <div className="live-ticker-track">
-            <div className="live-ticker-loop">
-              {[...ticker, ...ticker].map((c, i) => (
-                <Link
-                  key={`${c.archetypeId}-${c.riskId}-${c.date}-${i}`}
-                  href={`/archetypes/${c.archetypeId}/risks/${c.riskId}`}
-                  className="live-ticker-item"
-                >
-                  <span className="when">{fmtCountdown(c.date)}</span>
-                  <span className="arch">{c.archetypeName}</span>
-                  <span className="sep">·</span>
-                  <span className="ttl">{c.title}</span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
 
       <main className="page">
         <header className="hero">
@@ -150,15 +91,6 @@ export default async function PublicIndex() {
                 {deltaWoW === 0 ? 'flat' : fmtSignedInt(deltaWoW)} WoW
               </span>
             </div>
-            {activityTotal > 0 && (
-              <div className="reading-trace">
-                <ActivityTrace weekly={activityWeekly} />
-                <div className="reading-trace-foot">
-                  <span className="tiny-label">12-wk activity</span>
-                  <span className="reading-trace-num">{activityThisWeek} this week</span>
-                </div>
-              </div>
-            )}
           </div>
         </header>
 
@@ -211,41 +143,6 @@ export default async function PublicIndex() {
         <span>Updated daily · 06:00 ET</span>
       </footer>
     </>
-  )
-}
-
-/** 12-week summed-attention sparkline rendered below the composite number.
- *  Filled area + line + endpoint dot. Color signals direction: red if the
- *  trailing 4-week sum is rising vs the prior 4 weeks, green if falling. */
-function ActivityTrace({ weekly }: { weekly: number[] }) {
-  const W = 280
-  const H = 56
-  const max = Math.max(...weekly, 4)
-  const last4 = weekly.slice(-4).reduce((s, v) => s + v, 0)
-  const prior4 = weekly.slice(-8, -4).reduce((s, v) => s + v, 0)
-  const rising = last4 > prior4
-  const color = rising ? '#8B2A1C' : '#00544F'
-  const step = W / (weekly.length - 1 || 1)
-  const points = weekly.map((v, i) => {
-    const x = i * step
-    const y = H - (v / max) * (H - 6) - 3
-    return [x, y] as const
-  })
-  const line = points.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ')
-  const area = `${line} L${W},${H} L0,${H} Z`
-  const [lx, ly] = points[points.length - 1]
-  return (
-    <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" style={{ width: '100%', height: H, display: 'block' }}>
-      <defs>
-        <linearGradient id="act-grad" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0" stopColor={color} stopOpacity={0.18} />
-          <stop offset="1" stopColor={color} stopOpacity={0} />
-        </linearGradient>
-      </defs>
-      <path d={area} fill="url(#act-grad)" />
-      <path d={line} fill="none" stroke={color} strokeWidth={1.5} />
-      <circle cx={lx} cy={ly} r={3} fill={color} />
-    </svg>
   )
 }
 
