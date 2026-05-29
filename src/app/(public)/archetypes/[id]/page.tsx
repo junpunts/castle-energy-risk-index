@@ -4,6 +4,7 @@ import { readArchetype } from '@/lib/archetypes/read'
 import { rankedRisks } from '@/lib/archetypes/derive'
 import { fmtCountdown } from '@/lib/format'
 import ScenarioExplorer from './ScenarioExplorer'
+import { NewsRail } from './NewsRail'
 
 export const dynamic = 'force-dynamic'
 export const revalidate = 60
@@ -39,23 +40,7 @@ export default async function ArchetypePage({ params }: PageProps) {
   // ScenarioExplorer (which owns the inputs, waterfall, and risks table).
   const rail = (
     <>
-      <div className="section-label">
-        <span className="l">News &amp; developments</span>
-        <span className="r">{A.archetype.news_this_week} this week</span>
-      </div>
-      <section className="news-list news-rail">
-        {news.slice(0, 6).map((n, i) => (
-          <Link
-            key={`${n.source}-${i}`}
-            className="news-row"
-            href={`/archetypes/${A.archetype_id}/risks/${risks[0].id}`}
-          >
-            <span className="src">{n.source}</span>
-            <span className="ago">{n.ago}</span>
-            <span className="ttl">{n.title}</span>
-          </Link>
-        ))}
-      </section>
+      <NewsRail news={news.slice(0, 6)} weekCount={A.archetype.news_this_week} />
 
       {catalysts.length > 0 && (
         <>
