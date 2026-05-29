@@ -158,7 +158,7 @@ export default function ScenarioExplorer({ bundle, archetypeId, rail }: Props) {
               <span className="h-name">Risk</span>
               <span className="ir-col">Impact magnitude<span className="sub">vs portfolio worst</span></span>
               <span className="ir-col">IRR pp<span className="sub">probability-weighted</span></span>
-              <span className="h-prob ir-col">Prob</span>
+              <span className="h-prob ir-col">Prob<span className="sub">18 month</span></span>
               <span className="h-arr"></span>
             </div>
             {ranked.map(({ meta, sc: s }, i) => {

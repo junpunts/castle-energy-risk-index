@@ -394,15 +394,15 @@
 }
 
 .risks-grid {
-  --cols: 28px 88px 1fr 140px 72px 56px 16px;
-  --gap: 22px;
+  --cols: 28px 88px minmax(0, 1fr) 140px 84px 96px 16px;
+  --gap: 24px;
 }
 .risks-head {
   display: grid; grid-template-columns: var(--cols); gap: var(--gap);
   padding: 14px 0; border-bottom: var(--rule);
   font-family: var(--font-mono); font-size: 10px; font-weight: 600;
   letter-spacing: 0.28em; text-transform: uppercase; color: var(--fg-3);
-  align-items: baseline;
+  align-items: end;
 }
 .risks-head .ir-col { text-align: right; }
 .risks-head .ir-col .sub {
@@ -412,14 +412,18 @@
 }
 .risk-row {
   display: grid; grid-template-columns: var(--cols); gap: var(--gap);
-  padding: 30px 0; border-bottom: var(--hair);
+  padding: 26px 0; border-bottom: var(--hair);
   align-items: center;
   text-decoration: none; color: inherit;
-  transition: padding .12s, margin .12s, background .12s;
+  transition: background .12s, box-shadow .12s;
 }
+/* Hover used to indent the row 16px into the gutter via padding+margin,
+   which knocked every column off its baseline relative to neighbours.
+   Replaced with a flat background + a 2px accent left rule — the
+   "selected" cue without disturbing grid columns. */
 .risk-row:hover {
-  padding-left: 16px; padding-right: 16px;
-  margin: 0 -16px; background: rgba(245,245,245,0.6);
+  background: rgba(245,245,245,0.6);
+  box-shadow: inset 2px 0 0 var(--accent);
 }
 .risk-row .rank {
   font-family: var(--font-mono); font-size: 11px; font-weight: 700;
@@ -450,18 +454,25 @@
   letter-spacing: -0.02em; font-variant-numeric: tabular-nums; text-align: right;
   color: var(--fg);
 }
-.risk-row .num.prob { font-weight: 600; color: var(--fg-2); font-size: 15px; }
+/* PROB column: % and delta on one line, right-aligned. Wider column
+   means the delta never wraps below the %, so every row is the same
+   visual height regardless of whether a delta is present. */
+.risk-row .num.prob {
+  font-weight: 600; color: var(--fg-2); font-size: 15px;
+  display: flex; align-items: baseline; justify-content: flex-end; gap: 8px;
+  white-space: nowrap;
+}
 .risk-row .arr {
   font-family: var(--font-mono); font-size: 14px; color: var(--fg-3); text-align: right;
 }
 .risk-row:hover .arr { color: var(--fg); }
 
-/* ── Live signals on risk rows: probability delta, "updated X ago",
-   pulsing dot when <24h, "In effect" pill for realized risks. ── */
+/* ── Live signals on risk rows: probability delta, "In effect" pill
+   for realized risks. (Per-row updated stamp removed.) ── */
 .risk-row .prob-delta {
-  display: inline-block; margin-left: 6px;
-  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
-  letter-spacing: 0.02em; vertical-align: middle;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.04em;
+  /* margin-left removed — parent flex now owns the spacing via gap */
 }
 /* Probability rising = adverse outcome more likely = red for the developer. */
 .risk-row .prob-delta.up { color: var(--neg); }
